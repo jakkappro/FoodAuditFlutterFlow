@@ -51,6 +51,7 @@ class _HomeWidgetState extends State<HomeWidget> {
               wrapWithModel(
                 model: _model.eURssFeedDisplayModel,
                 updateCallback: () => setState(() {}),
+                updateOnChange: true,
                 child: EURssFeedDisplayWidget(),
               ),
             ],

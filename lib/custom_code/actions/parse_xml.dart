@@ -11,28 +11,28 @@ import 'package:xml/xml.dart';
 import 'package:http/http.dart' as http;
 
 Future<List<EURssFeedModelStruct>> parseXml() async {
-  // get https://webgate.ec.europa.eu/rasff-window/backend/public/consumer/rss/all/ map
-// Make an HTTP request to get the XML data
   final response = await http.get(Uri.parse(
       'https://webgate.ec.europa.eu/rasff-window/backend/public/consumer/rss/all/'));
 
-  // // Parse the XML data using the xml package
+  // Parse the XML data using the xml package
   final document = XmlDocument.parse(response.body);
 
   // Get the list of items from the XML data
   final items = document.findAllElements('item');
 
-  // // Create a list to store the parsed data
+  // Create a list to store the parsed data
   final rssFeeds = <EURssFeedModelStruct>[];
 
-  // // Loop through each item and parse the data
+  // Loop through each item and parse the data
   for (final item in items) {
-    final title = item.findElements('title').single.value;
-    final link = item.findElements('link').single.value;
+    final title = item.children[1].innerText;
+    final link = item.children[3].innerText;
 
     // Create a new EURssFeedModelStruct object and add it to the list
     rssFeeds.add(EURssFeedModelStruct(title: title, link: link));
   }
+
+  rssFeeds.add(EURssFeedModelStruct(link: "ahoj", title: "kek"));
 
   // Return the list of parsed data
   return rssFeeds;

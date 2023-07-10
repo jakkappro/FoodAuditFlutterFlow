@@ -9,20 +9,17 @@ export 'api_manager.dart' show ApiCallResponse;
 
 const _kPrivateApiFunctionName = 'ffPrivateApiCall';
 
-class EurssCall {
+class TestCall {
   static Future<ApiCallResponse> call() {
     return ApiManager.instance.makeApiCall(
-      callName: 'EURSS',
-      apiUrl:
-          'https://webgate.ec.europa.eu/rasff-window/backend/public/consumer/rss/all/',
+      callName: 'test',
+      apiUrl: 'google.com',
       callType: ApiCallType.GET,
-      headers: {
-        'Content-Type': 'Application/rss+xml',
-      },
+      headers: {},
       params: {},
       returnBody: true,
       encodeBodyUtf8: false,
-      decodeUtf8: true,
+      decodeUtf8: false,
       cache: false,
     );
   }

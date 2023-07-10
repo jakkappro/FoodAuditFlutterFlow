@@ -58,7 +58,7 @@ class FFAppState extends ChangeNotifier {
     secureStorage.setString('ff_User', _User.serialize());
   }
 
-  bool _FirstTimeOpened = false;
+  bool _FirstTimeOpened = true;
   bool get FirstTimeOpened => _FirstTimeOpened;
   set FirstTimeOpened(bool _value) {
     _FirstTimeOpened = _value;
