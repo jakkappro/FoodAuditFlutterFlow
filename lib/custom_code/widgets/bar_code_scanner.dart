@@ -30,7 +30,6 @@ class _BarCodeScannerState extends State<BarCodeScanner> {
   bool _canProcess = true;
   bool _isBusy = false;
   CustomPaint? _customPaint;
-  String? _text;
   var _cameraLensDirection = CameraLensDirection.back;
 
   @override
@@ -43,9 +42,7 @@ class _BarCodeScannerState extends State<BarCodeScanner> {
   @override
   Widget build(BuildContext context) {
     return CameraView(
-      title: 'Barcode Scanner',
       customPaint: _customPaint,
-      text: _text,
       onImage: _processImage,
       initialCameraLensDirection: _cameraLensDirection,
       onCameraLensDirectionChanged: (value) => _cameraLensDirection = value,
@@ -56,22 +53,10 @@ class _BarCodeScannerState extends State<BarCodeScanner> {
     if (!_canProcess) return;
     if (_isBusy) return;
     _isBusy = true;
-    setState(() {
-      _text = '';
-    });
+    setState(() {});
     final barcodes = await _barcodeScanner.processImage(inputImage);
-    if (inputImage.metadata?.size != null &&
-        inputImage.metadata?.rotation != null) {
-      log("heee");
-      // _customPaint = CustomPaint(painter: painter);
-    } else {
-      String text = 'Barcodes found: ${barcodes.length}\n\n';
-      for (final barcode in barcodes) {
-        text += 'Barcode: ${barcode.rawValue}\n\n';
-      }
-      _text = text;
-      // TODO: set _customPaint to draw boundingRect on top of image
-      _customPaint = null;
+    for (final barcode in barcodes) {
+      print(barcode.rawValue);
     }
     _isBusy = false;
     if (mounted) {
