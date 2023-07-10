@@ -8,8 +8,8 @@ import 'package:flutter/material.dart';
 // Begin custom widget code
 // DO NOT REMOVE OR MODIFY THE CODE ABOVE!
 
-class Camera extends StatefulWidget {
-  const Camera({
+class LoadingIndicator extends StatefulWidget {
+  const LoadingIndicator({
     Key? key,
     this.width,
     this.height,
@@ -19,14 +19,12 @@ class Camera extends StatefulWidget {
   final double? height;
 
   @override
-  _CameraState createState() => _CameraState();
+  _LoadingIndicatorState createState() => _LoadingIndicatorState();
 }
 
-class _CameraState extends State<Camera> {
+class _LoadingIndicatorState extends State<LoadingIndicator> {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      color: Colors.red,
-    );
+    return Container();
   }
 }

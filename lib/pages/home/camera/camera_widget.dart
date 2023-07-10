@@ -52,11 +52,11 @@ class _CameraWidgetState extends State<CameraWidget> {
             child: Stack(
               children: [
                 Container(
-                  width: MediaQuery.sizeOf(context).width * 1.0,
-                  height: MediaQuery.sizeOf(context).height * 1.0,
-                  child: custom_widgets.Camera(
-                    width: MediaQuery.sizeOf(context).width * 1.0,
-                    height: MediaQuery.sizeOf(context).height * 1.0,
+                  width: double.infinity,
+                  height: double.infinity,
+                  child: custom_widgets.BarCodeScanner(
+                    width: double.infinity,
+                    height: double.infinity,
                   ),
                 ),
                 Align(
