@@ -66,6 +66,7 @@ dependencies:
   shared_preferences_ios: 2.1.1
   shared_preferences_platform_interface: 2.2.0
   shared_preferences_web: 2.1.0
+  sliding_up_panel: ^2.0.0+1
   smooth_page_indicator: 1.0.1
   sqflite: 2.2.6
   synchronized: 3.1.0
