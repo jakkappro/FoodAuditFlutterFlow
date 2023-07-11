@@ -100,21 +100,19 @@ class _SlidingUpPanelFromEanWidgetState
               ),
               style: FlutterFlowTheme.of(context).bodyMedium,
             ),
-            Flexible(
+            Container(
+              width: double.infinity,
+              height: 450.0,
+              decoration: BoxDecoration(
+                color: FlutterFlowTheme.of(context).secondaryBackground,
+              ),
               child: Container(
                 width: double.infinity,
-                height: 350.0,
-                decoration: BoxDecoration(
-                  color: FlutterFlowTheme.of(context).secondaryBackground,
-                ),
-                child: Container(
+                height: 450.0,
+                child: custom_widgets.NutritionTable(
                   width: double.infinity,
-                  height: double.infinity,
-                  child: custom_widgets.NutritionTable(
-                    width: double.infinity,
-                    height: double.infinity,
-                    nutritions: widget.food?.nutritions,
-                  ),
+                  height: 450.0,
+                  nutritions: widget.food?.nutritions,
                 ),
               ),
             ),
