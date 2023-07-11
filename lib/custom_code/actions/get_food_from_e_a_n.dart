@@ -7,8 +7,13 @@ import 'package:flutter/material.dart';
 // Begin custom action code
 // DO NOT REMOVE OR MODIFY THE CODE ABOVE!
 
-Future<ScannedFoodStruct> getFoodFromEAN(String ean) async {
+Future<ScannedFoodStruct?> getFoodFromEAN(String ean) async {
   // Add your function code here!
-
-  return ScannedFoodStruct();
+  return ScannedFoodStruct(
+    ean: ean,
+    nu3Socre: "A",
+    bin: "Yellow",
+    nova4: "unprocessed",
+    allergens: ["gluten", "lactose", "nuts", "soy"],
+  );
 }
