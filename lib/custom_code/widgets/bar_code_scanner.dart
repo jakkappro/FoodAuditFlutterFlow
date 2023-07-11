@@ -8,6 +8,8 @@ import 'package:flutter/material.dart';
 // Begin custom widget code
 // DO NOT REMOVE OR MODIFY THE CODE ABOVE!
 
+import 'index.dart'; // Imports other custom widgets
+
 import 'package:google_mlkit_barcode_scanning/google_mlkit_barcode_scanning.dart';
 import 'package:camera/camera.dart';
 import 'package:sliding_up_panel/sliding_up_panel.dart';
@@ -77,15 +79,20 @@ class _BarCodeScannerState extends State<BarCodeScanner> {
     bool foundEan = false;
     setState(() {});
     final barcodes = await _barcodeScanner.processImage(inputImage);
+    Barcode? eanBarcode;
     for (final barcode in barcodes.where((b) => b.displayValue != null)) {
       // we can also check barcode.type but not sure how it works yet and don't care to try
-      _ean = barcode.displayValue;
+      eanBarcode = barcode;
       foundEan = true;
     }
     _isBusy = false;
     if (mounted) {
       // display message after some unsucessfull scans to aim camera to barcode
-      setState(() {});
+      setState(() {
+        if (foundEan) {
+          _ean = eanBarcode!.displayValue;
+        }
+      });
     }
   }
 }
