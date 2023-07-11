@@ -12,11 +12,19 @@ class ScannedFoodStruct extends BaseStruct {
     String? bin,
     String? nova4,
     List<String>? allergens,
+    String? name,
+    String? producer,
+    List<IngredientStruct>? ingredients,
+    List<NutritionStruct>? nutritions,
   })  : _ean = ean,
         _nu3Socre = nu3Socre,
         _bin = bin,
         _nova4 = nova4,
-        _allergens = allergens;
+        _allergens = allergens,
+        _name = name,
+        _producer = producer,
+        _ingredients = ingredients,
+        _nutritions = nutritions;
 
   // "EAN" field.
   String? _ean;
@@ -50,6 +58,34 @@ class ScannedFoodStruct extends BaseStruct {
       updateFn(_allergens ??= []);
   bool hasAllergens() => _allergens != null;
 
+  // "Name" field.
+  String? _name;
+  String get name => _name ?? '';
+  set name(String? val) => _name = val;
+  bool hasName() => _name != null;
+
+  // "Producer" field.
+  String? _producer;
+  String get producer => _producer ?? '';
+  set producer(String? val) => _producer = val;
+  bool hasProducer() => _producer != null;
+
+  // "Ingredients" field.
+  List<IngredientStruct>? _ingredients;
+  List<IngredientStruct> get ingredients => _ingredients ?? const [];
+  set ingredients(List<IngredientStruct>? val) => _ingredients = val;
+  void updateIngredients(Function(List<IngredientStruct>) updateFn) =>
+      updateFn(_ingredients ??= []);
+  bool hasIngredients() => _ingredients != null;
+
+  // "Nutritions" field.
+  List<NutritionStruct>? _nutritions;
+  List<NutritionStruct> get nutritions => _nutritions ?? const [];
+  set nutritions(List<NutritionStruct>? val) => _nutritions = val;
+  void updateNutritions(Function(List<NutritionStruct>) updateFn) =>
+      updateFn(_nutritions ??= []);
+  bool hasNutritions() => _nutritions != null;
+
   static ScannedFoodStruct fromMap(Map<String, dynamic> data) =>
       ScannedFoodStruct(
         ean: data['EAN'] as String?,
@@ -57,6 +93,16 @@ class ScannedFoodStruct extends BaseStruct {
         bin: data['Bin'] as String?,
         nova4: data['Nova4'] as String?,
         allergens: getDataList(data['Allergens']),
+        name: data['Name'] as String?,
+        producer: data['Producer'] as String?,
+        ingredients: getStructList(
+          data['Ingredients'],
+          IngredientStruct.fromMap,
+        ),
+        nutritions: getStructList(
+          data['Nutritions'],
+          NutritionStruct.fromMap,
+        ),
       );
 
   static ScannedFoodStruct? maybeFromMap(dynamic data) =>
@@ -68,6 +114,10 @@ class ScannedFoodStruct extends BaseStruct {
         'Bin': _bin,
         'Nova4': _nova4,
         'Allergens': _allergens,
+        'Name': _name,
+        'Producer': _producer,
+        'Ingredients': _ingredients?.map((e) => e.toMap()).toList(),
+        'Nutritions': _nutritions?.map((e) => e.toMap()).toList(),
       }.withoutNulls;
 
   @override
@@ -91,6 +141,24 @@ class ScannedFoodStruct extends BaseStruct {
         'Allergens': serializeParam(
           _allergens,
           ParamType.String,
+          true,
+        ),
+        'Name': serializeParam(
+          _name,
+          ParamType.String,
+        ),
+        'Producer': serializeParam(
+          _producer,
+          ParamType.String,
+        ),
+        'Ingredients': serializeParam(
+          _ingredients,
+          ParamType.DataStruct,
+          true,
+        ),
+        'Nutritions': serializeParam(
+          _nutritions,
+          ParamType.DataStruct,
           true,
         ),
       }.withoutNulls;
@@ -122,6 +190,28 @@ class ScannedFoodStruct extends BaseStruct {
           ParamType.String,
           true,
         ),
+        name: deserializeParam(
+          data['Name'],
+          ParamType.String,
+          false,
+        ),
+        producer: deserializeParam(
+          data['Producer'],
+          ParamType.String,
+          false,
+        ),
+        ingredients: deserializeStructParam<IngredientStruct>(
+          data['Ingredients'],
+          ParamType.DataStruct,
+          true,
+          structBuilder: IngredientStruct.fromSerializableMap,
+        ),
+        nutritions: deserializeStructParam<NutritionStruct>(
+          data['Nutritions'],
+          ParamType.DataStruct,
+          true,
+          structBuilder: NutritionStruct.fromSerializableMap,
+        ),
       );
 
   @override
@@ -135,12 +225,25 @@ class ScannedFoodStruct extends BaseStruct {
         nu3Socre == other.nu3Socre &&
         bin == other.bin &&
         nova4 == other.nova4 &&
-        listEquality.equals(allergens, other.allergens);
+        listEquality.equals(allergens, other.allergens) &&
+        name == other.name &&
+        producer == other.producer &&
+        listEquality.equals(ingredients, other.ingredients) &&
+        listEquality.equals(nutritions, other.nutritions);
   }
 
   @override
-  int get hashCode =>
-      const ListEquality().hash([ean, nu3Socre, bin, nova4, allergens]);
+  int get hashCode => const ListEquality().hash([
+        ean,
+        nu3Socre,
+        bin,
+        nova4,
+        allergens,
+        name,
+        producer,
+        ingredients,
+        nutritions
+      ]);
 }
 
 ScannedFoodStruct createScannedFoodStruct({
@@ -148,10 +251,14 @@ ScannedFoodStruct createScannedFoodStruct({
   String? nu3Socre,
   String? bin,
   String? nova4,
+  String? name,
+  String? producer,
 }) =>
     ScannedFoodStruct(
       ean: ean,
       nu3Socre: nu3Socre,
       bin: bin,
       nova4: nova4,
+      name: name,
+      producer: producer,
     );
