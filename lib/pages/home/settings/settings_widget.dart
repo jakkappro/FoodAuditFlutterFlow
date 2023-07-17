@@ -149,8 +149,7 @@ class _SettingsWidgetState extends State<SettingsWidget> {
                                                           context)
                                                       .bodyLarge
                                                       .override(
-                                                        fontFamily:
-                                                            'Readex Pro',
+                                                        fontFamily: 'Lato',
                                                         color:
                                                             FlutterFlowTheme.of(
                                                                     context)
@@ -510,6 +509,8 @@ class _SettingsWidgetState extends State<SettingsWidget> {
                                 shape: BoxShape.circle,
                               ),
                               child: CachedNetworkImage(
+                                fadeInDuration: Duration(milliseconds: 500),
+                                fadeOutDuration: Duration(milliseconds: 500),
                                 imageUrl: 'https://picsum.photos/seed/267/600',
                                 fit: BoxFit.cover,
                               ),

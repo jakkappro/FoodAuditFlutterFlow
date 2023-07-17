@@ -232,7 +232,7 @@ class _SetUpWizardWidgetState extends State<SetUpWizardWidget> {
                         textStyle: FlutterFlowTheme.of(context)
                             .titleSmall
                             .override(
-                              fontFamily: 'Readex Pro',
+                              fontFamily: 'Lato',
                               color: FlutterFlowTheme.of(context).primaryText,
                             ),
                         elevation: 3.0,
@@ -286,7 +286,7 @@ class _SetUpWizardWidgetState extends State<SetUpWizardWidget> {
                         textStyle: FlutterFlowTheme.of(context)
                             .titleSmall
                             .override(
-                              fontFamily: 'Readex Pro',
+                              fontFamily: 'Lato',
                               color: FlutterFlowTheme.of(context).primaryText,
                             ),
                         elevation: 3.0,

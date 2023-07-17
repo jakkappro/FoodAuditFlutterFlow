@@ -128,14 +128,14 @@ class LightModeTheme extends FlutterFlowTheme {
   Color get tertiaryColor => tertiary;
 
   late Color primary = const Color(0xFFFFFFFF);
-  late Color secondary = const Color(0xFF1B1B1B);
-  late Color tertiary = const Color(0xFFEE8B60);
+  late Color secondary = const Color(0xFF737587);
+  late Color tertiary = const Color(0xFF000000);
   late Color alternate = const Color(0xFF1A1A1A);
   late Color primaryText = const Color(0xFF000000);
   late Color secondaryText = const Color(0xFFCFCFCF);
   late Color primaryBackground = const Color(0xFFFFFFFF);
-  late Color secondaryBackground = const Color(0xFFFFFFFF);
-  late Color accent1 = const Color(0x4C4B39EF);
+  late Color secondaryBackground = const Color(0xFF737587);
+  late Color accent1 = const Color(0xFF292C33);
   late Color accent2 = const Color(0x4D39D2C0);
   late Color accent3 = const Color(0x4DEE8B60);
   late Color accent4 = const Color(0xCCFFFFFF);
@@ -192,89 +192,101 @@ class ThemeTypography extends Typography {
         fontWeight: FontWeight.normal,
         fontSize: 64.0,
       );
-  String get displayMediumFamily => 'Outfit';
+  String get displayMediumFamily => 'Setup Grotesk';
   TextStyle get displayMedium => GoogleFonts.getFont(
-        'Outfit',
+        'Setup Grotesk',
         color: theme.primaryText,
-        fontWeight: FontWeight.normal,
-        fontSize: 44.0,
+        fontWeight: FontWeight.bold,
+        fontSize: 96.0,
+        fontStyle: FontStyle.normal,
       );
-  String get displaySmallFamily => 'Outfit';
+  String get displaySmallFamily => 'Setup Grotesk';
   TextStyle get displaySmall => GoogleFonts.getFont(
-        'Outfit',
+        'Setup Grotesk',
         color: theme.primaryText,
-        fontWeight: FontWeight.w600,
-        fontSize: 36.0,
+        fontWeight: FontWeight.bold,
+        fontSize: 60.0,
+        fontStyle: FontStyle.normal,
       );
-  String get headlineLargeFamily => 'Outfit';
+  String get headlineLargeFamily => 'Setup Grotesk';
   TextStyle get headlineLarge => GoogleFonts.getFont(
-        'Outfit',
+        'Setup Grotesk',
         color: theme.primaryText,
-        fontWeight: FontWeight.w600,
-        fontSize: 32.0,
+        fontWeight: FontWeight.bold,
+        fontSize: 48.0,
+        fontStyle: FontStyle.normal,
       );
-  String get headlineMediumFamily => 'Outfit';
+  String get headlineMediumFamily => 'Lato';
   TextStyle get headlineMedium => GoogleFonts.getFont(
-        'Outfit',
+        'Lato',
         color: theme.primaryText,
-        fontWeight: FontWeight.normal,
-        fontSize: 24.0,
+        fontWeight: FontWeight.w800,
+        fontSize: 42.0,
+        fontStyle: FontStyle.normal,
       );
-  String get headlineSmallFamily => 'Outfit';
+  String get headlineSmallFamily => 'Lato';
   TextStyle get headlineSmall => GoogleFonts.getFont(
-        'Outfit',
+        'Lato',
         color: theme.primaryText,
-        fontWeight: FontWeight.w500,
-        fontSize: 24.0,
+        fontWeight: FontWeight.w800,
+        fontSize: 32.0,
+        fontStyle: FontStyle.normal,
       );
-  String get titleLargeFamily => 'Outfit';
+  String get titleLargeFamily => 'Lato';
   TextStyle get titleLarge => GoogleFonts.getFont(
-        'Outfit',
+        'Lato',
         color: theme.primaryText,
-        fontWeight: FontWeight.w500,
-        fontSize: 22.0,
+        fontWeight: FontWeight.w800,
+        fontSize: 24.0,
+        fontStyle: FontStyle.normal,
       );
-  String get titleMediumFamily => 'Readex Pro';
+  String get titleMediumFamily => 'Setup Grotesk';
   TextStyle get titleMedium => GoogleFonts.getFont(
-        'Readex Pro',
+        'Setup Grotesk',
         color: theme.info,
-        fontWeight: FontWeight.normal,
-        fontSize: 18.0,
+        fontWeight: FontWeight.bold,
+        fontSize: 24.0,
+        fontStyle: FontStyle.normal,
       );
-  String get titleSmallFamily => 'Readex Pro';
+  String get titleSmallFamily => 'Lato';
   TextStyle get titleSmall => GoogleFonts.getFont(
-        'Readex Pro',
+        'Lato',
         color: theme.info,
-        fontWeight: FontWeight.w500,
-        fontSize: 16.0,
+        fontWeight: FontWeight.w800,
+        fontSize: 20.0,
+        fontStyle: FontStyle.normal,
       );
-  String get labelLargeFamily => 'Readex Pro';
+  String get labelLargeFamily => 'Lato';
   TextStyle get labelLarge => GoogleFonts.getFont(
-        'Readex Pro',
+        'Lato',
         color: theme.secondaryText,
-        fontWeight: FontWeight.normal,
-        fontSize: 16.0,
+        fontWeight: FontWeight.w800,
+        fontSize: 18.0,
+        fontStyle: FontStyle.normal,
       );
-  String get labelMediumFamily => 'Readex Pro';
+  String get labelMediumFamily => 'Lato';
   TextStyle get labelMedium => GoogleFonts.getFont(
-        'Readex Pro',
+        'Lato',
         color: theme.secondaryText,
-        fontWeight: FontWeight.normal,
-        fontSize: 14.0,
+        fontWeight: FontWeight.bold,
+        fontSize: 18.0,
+        fontStyle: FontStyle.normal,
       );
-  String get labelSmallFamily => 'Readex Pro';
+  String get labelSmallFamily => 'Lato';
   TextStyle get labelSmall => GoogleFonts.getFont(
-        'Readex Pro',
+        'Lato',
         color: theme.secondaryText,
-        fontWeight: FontWeight.normal,
-        fontSize: 12.0,
-      );
-  String get bodyLargeFamily => 'Readex Pro';
-  TextStyle get bodyLarge => GoogleFonts.getFont(
-        'Readex Pro',
-        color: theme.primaryText,
         fontWeight: FontWeight.normal,
         fontSize: 16.0,
+        fontStyle: FontStyle.normal,
+      );
+  String get bodyLargeFamily => 'Lato';
+  TextStyle get bodyLarge => GoogleFonts.getFont(
+        'Lato',
+        color: theme.primaryText,
+        fontWeight: FontWeight.w800,
+        fontSize: 14.0,
+        fontStyle: FontStyle.normal,
       );
   String get bodyMediumFamily => 'Readex Pro';
   TextStyle get bodyMedium => GoogleFonts.getFont(

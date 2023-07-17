@@ -299,7 +299,7 @@ class _OnboradingWidgetState extends State<OnboradingWidget> {
                                                     FlutterFlowTheme.of(context)
                                                         .titleLarge
                                                         .override(
-                                                          fontFamily: 'Outfit',
+                                                          fontFamily: 'Lato',
                                                           color: FlutterFlowTheme
                                                                   .of(context)
                                                               .secondaryBackground,
@@ -368,7 +368,7 @@ class _OnboradingWidgetState extends State<OnboradingWidget> {
                                                     FlutterFlowTheme.of(context)
                                                         .titleLarge
                                                         .override(
-                                                          fontFamily: 'Outfit',
+                                                          fontFamily: 'Lato',
                                                           fontWeight:
                                                               FontWeight.bold,
                                                         ),
@@ -420,7 +420,7 @@ class _OnboradingWidgetState extends State<OnboradingWidget> {
                                                     FlutterFlowTheme.of(context)
                                                         .titleLarge
                                                         .override(
-                                                          fontFamily: 'Outfit',
+                                                          fontFamily: 'Lato',
                                                           fontWeight:
                                                               FontWeight.bold,
                                                         ),

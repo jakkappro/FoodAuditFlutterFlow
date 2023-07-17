@@ -1,4 +1,6 @@
-import '/components/e_u_rss_feed_display_widget.dart';
+import '/components/header/header_widget.dart';
+import '/components/intolerancies/intolerancies_widget.dart';
+import '/components/notifications/notifications_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
@@ -49,10 +51,20 @@ class _HomeWidgetState extends State<HomeWidget> {
             mainAxisSize: MainAxisSize.max,
             children: [
               wrapWithModel(
-                model: _model.eURssFeedDisplayModel,
+                model: _model.headerModel,
+                updateCallback: () => setState(() {}),
+                child: HeaderWidget(),
+              ),
+              wrapWithModel(
+                model: _model.intoleranciesModel,
+                updateCallback: () => setState(() {}),
+                child: IntoleranciesWidget(),
+              ),
+              wrapWithModel(
+                model: _model.notificationsModel,
                 updateCallback: () => setState(() {}),
                 updateOnChange: true,
-                child: EURssFeedDisplayWidget(),
+                child: NotificationsWidget(),
               ),
             ],
           ),

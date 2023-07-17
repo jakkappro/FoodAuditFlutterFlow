@@ -46,22 +46,17 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         FFRoute(
           name: 'Home',
           path: '/home',
-          builder: (context, params) =>
-              params.isEmpty ? NavBarPage(initialPage: 'Home') : HomeWidget(),
+          builder: (context, params) => HomeWidget(),
         ),
         FFRoute(
           name: 'Settings',
           path: '/settings',
-          builder: (context, params) => params.isEmpty
-              ? NavBarPage(initialPage: 'Settings')
-              : SettingsWidget(),
+          builder: (context, params) => SettingsWidget(),
         ),
         FFRoute(
           name: 'Camera',
           path: '/camera',
-          builder: (context, params) => params.isEmpty
-              ? NavBarPage(initialPage: 'Camera')
-              : CameraWidget(),
+          builder: (context, params) => CameraWidget(),
         ),
         FFRoute(
           name: 'Navigation',

@@ -48,7 +48,7 @@ class _SubSettingsWidgetState extends State<SubSettingsWidget> {
         title: Text(
           'My Profile',
           style: FlutterFlowTheme.of(context).displaySmall.override(
-                fontFamily: 'Outfit',
+                fontFamily: 'Setup Grotesk',
                 color: FlutterFlowTheme.of(context).primaryText,
               ),
         ),
@@ -76,6 +76,8 @@ class _SubSettingsWidgetState extends State<SubSettingsWidget> {
                     shape: BoxShape.circle,
                   ),
                   child: CachedNetworkImage(
+                    fadeInDuration: Duration(milliseconds: 500),
+                    fadeOutDuration: Duration(milliseconds: 500),
                     imageUrl: 'https://picsum.photos/seed/934/600',
                     fit: BoxFit.fitWidth,
                   ),
@@ -201,7 +203,7 @@ class _SubSettingsWidgetState extends State<SubSettingsWidget> {
                                 style: FlutterFlowTheme.of(context)
                                     .bodyLarge
                                     .override(
-                                      fontFamily: 'Readex Pro',
+                                      fontFamily: 'Lato',
                                       color: FlutterFlowTheme.of(context)
                                           .primaryText,
                                     ),
@@ -256,7 +258,7 @@ class _SubSettingsWidgetState extends State<SubSettingsWidget> {
                             style: FlutterFlowTheme.of(context)
                                 .bodyLarge
                                 .override(
-                                  fontFamily: 'Readex Pro',
+                                  fontFamily: 'Lato',
                                   color:
                                       FlutterFlowTheme.of(context).primaryText,
                                 ),
@@ -502,7 +504,7 @@ class _SubSettingsWidgetState extends State<SubSettingsWidget> {
                       textStyle: FlutterFlowTheme.of(context)
                           .titleSmall
                           .override(
-                            fontFamily: 'Readex Pro',
+                            fontFamily: 'Lato',
                             color: FlutterFlowTheme.of(context).secondaryText,
                             fontWeight: FontWeight.w500,
                           ),

@@ -9,7 +9,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:percent_indicator/percent_indicator.dart';
 import 'package:provider/provider.dart';
 
-class EURssFeedDisplayModel extends FlutterFlowModel {
+class NotificationsModel extends FlutterFlowModel {
   ///  Local state fields for this component.
 
   List<EURssFeedModelStruct> rssFeed = [];
@@ -24,7 +24,7 @@ class EURssFeedDisplayModel extends FlutterFlowModel {
 
   ///  State fields for stateful widgets in this component.
 
-  // Stores action output result for [Custom Action - parseXml] action in EURssFeedDisplay widget.
+  // Stores action output result for [Custom Action - parseXml] action in Notifications widget.
   List<EURssFeedModelStruct>? alertList;
 
   /// Initialization and disposal methods.
