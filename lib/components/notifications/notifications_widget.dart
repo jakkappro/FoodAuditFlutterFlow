@@ -87,6 +87,7 @@ class _NotificationsWidgetState extends State<NotificationsWidget> {
                         mainAxisSpacing: 10.0,
                         childAspectRatio: 1.0,
                       ),
+                      primary: false,
                       shrinkWrap: true,
                       scrollDirection: Axis.vertical,
                       itemCount: alert.length,
