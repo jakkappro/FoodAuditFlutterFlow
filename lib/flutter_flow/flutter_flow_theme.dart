@@ -185,32 +185,32 @@ class ThemeTypography extends Typography {
 
   final FlutterFlowTheme theme;
 
-  String get displayLargeFamily => 'Outfit';
+  String get displayLargeFamily => 'Lato';
   TextStyle get displayLarge => GoogleFonts.getFont(
-        'Outfit',
+        'Lato',
         color: theme.primaryText,
         fontWeight: FontWeight.normal,
         fontSize: 64.0,
       );
-  String get displayMediumFamily => 'Setup Grotesk';
+  String get displayMediumFamily => 'Lato';
   TextStyle get displayMedium => GoogleFonts.getFont(
-        'Setup Grotesk',
+        'Lato',
         color: theme.primaryText,
         fontWeight: FontWeight.bold,
         fontSize: 96.0,
         fontStyle: FontStyle.normal,
       );
-  String get displaySmallFamily => 'Setup Grotesk';
+  String get displaySmallFamily => 'Lato';
   TextStyle get displaySmall => GoogleFonts.getFont(
-        'Setup Grotesk',
+        'Lato',
         color: theme.primaryText,
         fontWeight: FontWeight.bold,
         fontSize: 60.0,
         fontStyle: FontStyle.normal,
       );
-  String get headlineLargeFamily => 'Setup Grotesk';
+  String get headlineLargeFamily => 'Lato';
   TextStyle get headlineLarge => GoogleFonts.getFont(
-        'Setup Grotesk',
+        'Lato',
         color: theme.primaryText,
         fontWeight: FontWeight.bold,
         fontSize: 48.0,
@@ -240,9 +240,9 @@ class ThemeTypography extends Typography {
         fontSize: 24.0,
         fontStyle: FontStyle.normal,
       );
-  String get titleMediumFamily => 'Setup Grotesk';
+  String get titleMediumFamily => 'Lato';
   TextStyle get titleMedium => GoogleFonts.getFont(
-        'Setup Grotesk',
+        'Lato',
         color: theme.info,
         fontWeight: FontWeight.bold,
         fontSize: 24.0,

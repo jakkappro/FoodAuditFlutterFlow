@@ -48,7 +48,7 @@ class _SubSettingsWidgetState extends State<SubSettingsWidget> {
         title: Text(
           'My Profile',
           style: FlutterFlowTheme.of(context).displaySmall.override(
-                fontFamily: 'Setup Grotesk',
+                fontFamily: 'Lato',
                 color: FlutterFlowTheme.of(context).primaryText,
               ),
         ),

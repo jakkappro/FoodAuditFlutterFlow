@@ -61,14 +61,17 @@ class _NotificationsWidgetState extends State<NotificationsWidget> {
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(
-            'Notifications',
-            style: FlutterFlowTheme.of(context).headlineMedium.override(
-                  fontFamily: 'Lato',
-                  color: Color(0xFF1C0D26),
-                  fontSize: 20.0,
-                  fontWeight: FontWeight.w800,
-                ),
+          Padding(
+            padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 10.0),
+            child: Text(
+              'Notifications',
+              style: FlutterFlowTheme.of(context).headlineMedium.override(
+                    fontFamily: 'Lato',
+                    color: Color(0xFF1C0D26),
+                    fontSize: 20.0,
+                    fontWeight: FontWeight.w800,
+                  ),
+            ),
           ),
           Builder(
             builder: (context) {

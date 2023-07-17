@@ -56,7 +56,7 @@ class _IntoleranciesWidgetState extends State<IntoleranciesWidget> {
             Text(
               'My preferences',
               style: FlutterFlowTheme.of(context).displayMedium.override(
-                    fontFamily: 'Setup Grotesk',
+                    fontFamily: 'Lato',
                     color: Color(0xFF1C0D26),
                     fontSize: 20.0,
                     fontWeight: FontWeight.w800,
