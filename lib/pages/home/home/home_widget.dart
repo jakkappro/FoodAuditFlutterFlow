@@ -1,5 +1,6 @@
 import '/components/header/header_widget.dart';
 import '/components/intolerancies/intolerancies_widget.dart';
+import '/components/notifications/notifications_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
@@ -61,11 +62,21 @@ class _HomeWidgetState extends State<HomeWidget> {
                     updateCallback: () => setState(() {}),
                     child: HeaderWidget(),
                   ),
-                  Flexible(
+                  wrapWithModel(
+                    model: _model.intoleranciesModel,
+                    updateCallback: () => setState(() {}),
+                    child: IntoleranciesWidget(),
+                  ),
+                  Container(
+                    width: double.infinity,
+                    height: 200.0,
+                    decoration: BoxDecoration(
+                      color: Colors.transparent,
+                    ),
                     child: wrapWithModel(
-                      model: _model.intoleranciesModel,
+                      model: _model.notificationsModel,
                       updateCallback: () => setState(() {}),
-                      child: IntoleranciesWidget(),
+                      child: NotificationsWidget(),
                     ),
                   ),
                 ].addToEnd(SizedBox(height: 15.0)),
