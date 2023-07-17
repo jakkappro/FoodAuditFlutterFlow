@@ -1,6 +1,5 @@
 import '/components/header/header_widget.dart';
 import '/components/intolerancies/intolerancies_widget.dart';
-import '/components/notifications/notifications_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
@@ -47,29 +46,30 @@ class _HomeWidgetState extends State<HomeWidget> {
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
         body: SafeArea(
           top: true,
-          child: SingleChildScrollView(
-            child: Column(
-              mainAxisSize: MainAxisSize.max,
-              children: [
-                wrapWithModel(
-                  model: _model.headerModel,
-                  updateCallback: () => setState(() {}),
-                  child: HeaderWidget(),
-                ),
-                Flexible(
-                  child: wrapWithModel(
-                    model: _model.intoleranciesModel,
+          child: Container(
+            width: double.infinity,
+            height: MediaQuery.sizeOf(context).height * 1.0,
+            decoration: BoxDecoration(
+              color: Colors.transparent,
+            ),
+            child: SingleChildScrollView(
+              child: Column(
+                mainAxisSize: MainAxisSize.max,
+                children: [
+                  wrapWithModel(
+                    model: _model.headerModel,
                     updateCallback: () => setState(() {}),
-                    child: IntoleranciesWidget(),
+                    child: HeaderWidget(),
                   ),
-                ),
-                wrapWithModel(
-                  model: _model.notificationsModel,
-                  updateCallback: () => setState(() {}),
-                  updateOnChange: true,
-                  child: NotificationsWidget(),
-                ),
-              ].addToEnd(SizedBox(height: 15.0)),
+                  Flexible(
+                    child: wrapWithModel(
+                      model: _model.intoleranciesModel,
+                      updateCallback: () => setState(() {}),
+                      child: IntoleranciesWidget(),
+                    ),
+                  ),
+                ].addToEnd(SizedBox(height: 15.0)),
+              ),
             ),
           ),
         ),
