@@ -63,13 +63,11 @@ class _HomeWidgetState extends State<HomeWidget> {
                     child: IntoleranciesWidget(),
                   ),
                 ),
-                Flexible(
-                  child: wrapWithModel(
-                    model: _model.notificationsModel,
-                    updateCallback: () => setState(() {}),
-                    updateOnChange: true,
-                    child: NotificationsWidget(),
-                  ),
+                wrapWithModel(
+                  model: _model.notificationsModel,
+                  updateCallback: () => setState(() {}),
+                  updateOnChange: true,
+                  child: NotificationsWidget(),
                 ),
               ].addToEnd(SizedBox(height: 15.0)),
             ),

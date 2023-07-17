@@ -9,15 +9,7 @@ import 'package:flutter/material.dart';
 // Begin custom widget code
 // DO NOT REMOVE OR MODIFY THE CODE ABOVE!
 
-import 'dart:io';
-
-import 'index.dart'; // Imports other custom widgets
-
-import 'package:nu3_food/components/sliding_up_panel_from_ean_widget.dart';
-
-import 'index.dart'; // Imports other custom widgets
-
-import 'index.dart'; // Imports other custom widgets
+import 'package:nu3_food/components/sliding_up_panel_from_ean/sliding_up_panel_from_ean_widget.dart';
 
 import 'package:google_mlkit_barcode_scanning/google_mlkit_barcode_scanning.dart';
 import 'package:camera/camera.dart';
