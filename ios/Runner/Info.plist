@@ -28,7 +28,7 @@
             <string>Editor</string>
             <key>CFBundleURLSchemes</key>
             <array>
-                <string>com.googleusercontent.apps.1052547698119-crp8tuacluqtonngg4j6o0qsv0bu16dd</string>
+                <string>com.googleusercontent.apps.1052547698119-qoeiq83kqc8ik2gqi35v7vpal6aq8dfo</string>
                 
             </array>
         </dict>
@@ -54,7 +54,10 @@
 	<true/>
 
 
-
+	<key>NSCameraUsageDescription</key>
+    <string>Camera please</string>
+	<key>PermissionGroupNotification</key>
+    <string>Notifications please</string>
 
 
 	<key>UILaunchStoryboardName</key>
