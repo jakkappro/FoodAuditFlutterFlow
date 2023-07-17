@@ -1,3 +1,4 @@
+import '/backend/schema/structs/index.dart';
 import '/flutter_flow/flutter_flow_choice_chips.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -86,8 +87,15 @@ class _IntoleranciesWidgetState extends State<IntoleranciesWidget> {
                   ChipData('Shellfish'),
                   ChipData('Wheat')
                 ],
-                onChanged: (val) =>
-                    setState(() => _model.choiceChipsValues = val),
+                onChanged: (val) async {
+                  setState(() => _model.choiceChipsValues = val);
+                  setState(() {
+                    FFAppState().updateUserStruct(
+                      (e) =>
+                          e..intolerancies = _model.choiceChipsValues!.toList(),
+                    );
+                  });
+                },
                 selectedChipStyle: ChipStyle(
                   backgroundColor: Color(0xFF4B64F2),
                   textStyle: FlutterFlowTheme.of(context).bodyMedium.override(
@@ -124,7 +132,7 @@ class _IntoleranciesWidgetState extends State<IntoleranciesWidget> {
                 alignment: WrapAlignment.start,
                 controller: _model.choiceChipsValueController ??=
                     FormFieldController<List<String>>(
-                  [],
+                  FFAppState().User.intolerancies,
                 ),
               ),
             ),

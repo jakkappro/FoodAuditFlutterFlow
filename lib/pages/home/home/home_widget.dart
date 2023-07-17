@@ -67,17 +67,11 @@ class _HomeWidgetState extends State<HomeWidget> {
                     updateCallback: () => setState(() {}),
                     child: IntoleranciesWidget(),
                   ),
-                  Container(
-                    width: double.infinity,
-                    height: 200.0,
-                    decoration: BoxDecoration(
-                      color: Colors.transparent,
-                    ),
-                    child: wrapWithModel(
-                      model: _model.notificationsModel,
-                      updateCallback: () => setState(() {}),
-                      child: NotificationsWidget(),
-                    ),
+                  wrapWithModel(
+                    model: _model.notificationsModel,
+                    updateCallback: () => setState(() {}),
+                    updateOnChange: true,
+                    child: NotificationsWidget(),
                   ),
                 ].addToEnd(SizedBox(height: 15.0)),
               ),

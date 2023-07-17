@@ -85,7 +85,7 @@ class _NotificationsWidgetState extends State<NotificationsWidget> {
                         crossAxisCount: 2,
                         crossAxisSpacing: 15.0,
                         mainAxisSpacing: 10.0,
-                        childAspectRatio: 1.0,
+                        childAspectRatio: 2.0,
                       ),
                       primary: false,
                       shrinkWrap: true,
