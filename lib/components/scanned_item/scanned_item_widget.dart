@@ -47,7 +47,7 @@ class _ScannedItemWidgetState extends State<ScannedItemWidget> {
       setState(() {
         _model.loadedEan = true;
         _model.food = _model.newFood;
-        _model.isFoodSafe = _model.isFoodSafe;
+        _model.isFoodSafe = _model.foodSafe!;
       });
     });
   }
