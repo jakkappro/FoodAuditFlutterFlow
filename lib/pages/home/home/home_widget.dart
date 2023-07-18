@@ -76,6 +76,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                         child: wrapWithModel(
                           model: _model.scannedItemsModel,
                           updateCallback: () => setState(() {}),
+                          updateOnChange: true,
                           child: ScannedItemsWidget(),
                         ),
                       ),
