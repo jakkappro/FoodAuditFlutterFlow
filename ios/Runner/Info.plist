@@ -56,8 +56,12 @@
 
 	<key>NSCameraUsageDescription</key>
     <string>Camera please</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+    <string>PhotoLibrary please</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+    <string>Location please</string>
 	<key>PermissionGroupNotification</key>
-    <string>Notifications please</string>
+    <string>Notification please</string>
 
 
 	<key>UILaunchStoryboardName</key>

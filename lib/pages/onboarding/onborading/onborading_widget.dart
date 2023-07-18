@@ -31,7 +31,7 @@ class _OnboradingWidgetState extends State<OnboradingWidget> {
     logFirebaseEvent('screen_view', parameters: {'screen_name': 'Onborading'});
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
-      FFAppState().FirstTimeOpened = true;
+      FFAppState().FirstTimeOpened = false;
     });
   }
 

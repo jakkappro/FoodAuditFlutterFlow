@@ -1,6 +1,8 @@
 import '/components/header/header_widget.dart';
 import '/components/intolerancies/intolerancies_widget.dart';
 import '/components/notifications/notifications_widget.dart';
+import '/components/open_scanner_button/open_scanner_button_widget.dart';
+import '/components/scanned_items/scanned_items_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
@@ -45,37 +47,66 @@ class _HomeWidgetState extends State<HomeWidget> {
       child: Scaffold(
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
-        body: SafeArea(
-          top: true,
-          child: Container(
-            width: double.infinity,
-            height: MediaQuery.sizeOf(context).height * 1.0,
-            decoration: BoxDecoration(
-              color: Colors.transparent,
-            ),
-            child: SingleChildScrollView(
-              child: Column(
-                mainAxisSize: MainAxisSize.max,
-                children: [
-                  wrapWithModel(
-                    model: _model.headerModel,
-                    updateCallback: () => setState(() {}),
-                    child: HeaderWidget(),
-                  ),
-                  wrapWithModel(
-                    model: _model.intoleranciesModel,
-                    updateCallback: () => setState(() {}),
-                    child: IntoleranciesWidget(),
-                  ),
-                  wrapWithModel(
-                    model: _model.notificationsModel,
-                    updateCallback: () => setState(() {}),
-                    updateOnChange: true,
-                    child: NotificationsWidget(),
-                  ),
-                ].addToEnd(SizedBox(height: 15.0)),
+        body: Container(
+          width: double.infinity,
+          height: double.infinity,
+          decoration: BoxDecoration(
+            color: Color(0xFFF7F7F7),
+          ),
+          child: Stack(
+            children: [
+              SingleChildScrollView(
+                child: Column(
+                  mainAxisSize: MainAxisSize.max,
+                  children: [
+                    wrapWithModel(
+                      model: _model.headerModel,
+                      updateCallback: () => setState(() {}),
+                      child: HeaderWidget(),
+                    ),
+                    Padding(
+                      padding:
+                          EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
+                      child: Container(
+                        width: double.infinity,
+                        height: 228.0,
+                        decoration: BoxDecoration(
+                          color: Colors.transparent,
+                        ),
+                        child: wrapWithModel(
+                          model: _model.scannedItemsModel,
+                          updateCallback: () => setState(() {}),
+                          child: ScannedItemsWidget(),
+                        ),
+                      ),
+                    ),
+                    wrapWithModel(
+                      model: _model.intoleranciesModel,
+                      updateCallback: () => setState(() {}),
+                      child: IntoleranciesWidget(),
+                    ),
+                    Padding(
+                      padding:
+                          EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
+                      child: wrapWithModel(
+                        model: _model.notificationsModel,
+                        updateCallback: () => setState(() {}),
+                        updateOnChange: true,
+                        child: NotificationsWidget(),
+                      ),
+                    ),
+                  ].addToEnd(SizedBox(height: 15.0)),
+                ),
               ),
-            ),
+              Align(
+                alignment: AlignmentDirectional(0.0, 0.9),
+                child: wrapWithModel(
+                  model: _model.openScannerButtonModel,
+                  updateCallback: () => setState(() {}),
+                  child: OpenScannerButtonWidget(),
+                ),
+              ),
+            ],
           ),
         ),
       ),

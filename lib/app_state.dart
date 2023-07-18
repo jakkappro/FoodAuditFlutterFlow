@@ -32,6 +32,20 @@ class FFAppState extends ChangeNotifier {
       _FirstTimeOpened =
           await secureStorage.getBool('ff_FirstTimeOpened') ?? _FirstTimeOpened;
     });
+    await _safeInitAsync(() async {
+      _ScannedItems = (await secureStorage.getStringList('ff_ScannedItems'))
+              ?.map((x) {
+                try {
+                  return ScannedItemStruct.fromSerializableMap(jsonDecode(x));
+                } catch (e) {
+                  print("Can't decode persisted data type. Error: $e.");
+                  return null;
+                }
+              })
+              .withoutNulls
+              .toList() ??
+          _ScannedItems;
+    });
   }
 
   void update(VoidCallback callback) {
@@ -67,6 +81,50 @@ class FFAppState extends ChangeNotifier {
 
   void deleteFirstTimeOpened() {
     secureStorage.delete(key: 'ff_FirstTimeOpened');
+  }
+
+  List<ScannedItemStruct> _ScannedItems = [
+    ScannedItemStruct.fromSerializableMap(jsonDecode(
+        '{\"EAN\":\"03216549\",\"LastScanned\":\"1689681622952\",\"IsFavourite\":\"true\",\"NumberOfScans\":\"1\"}')),
+    ScannedItemStruct.fromSerializableMap(jsonDecode(
+        '{\"EAN\":\"623598412\",\"LastScanned\":\"1689681639728\",\"IsFavourite\":\"true\",\"NumberOfScans\":\"36\"}'))
+  ];
+  List<ScannedItemStruct> get ScannedItems => _ScannedItems;
+  set ScannedItems(List<ScannedItemStruct> _value) {
+    _ScannedItems = _value;
+    secureStorage.setStringList(
+        'ff_ScannedItems', _value.map((x) => x.serialize()).toList());
+  }
+
+  void deleteScannedItems() {
+    secureStorage.delete(key: 'ff_ScannedItems');
+  }
+
+  void addToScannedItems(ScannedItemStruct _value) {
+    _ScannedItems.add(_value);
+    secureStorage.setStringList(
+        'ff_ScannedItems', _ScannedItems.map((x) => x.serialize()).toList());
+  }
+
+  void removeFromScannedItems(ScannedItemStruct _value) {
+    _ScannedItems.remove(_value);
+    secureStorage.setStringList(
+        'ff_ScannedItems', _ScannedItems.map((x) => x.serialize()).toList());
+  }
+
+  void removeAtIndexFromScannedItems(int _index) {
+    _ScannedItems.removeAt(_index);
+    secureStorage.setStringList(
+        'ff_ScannedItems', _ScannedItems.map((x) => x.serialize()).toList());
+  }
+
+  void updateScannedItemsAtIndex(
+    int _index,
+    ScannedItemStruct Function(ScannedItemStruct) updateFn,
+  ) {
+    _ScannedItems[_index] = updateFn(_ScannedItems[_index]);
+    secureStorage.setStringList(
+        'ff_ScannedItems', _ScannedItems.map((x) => x.serialize()).toList());
   }
 }
 

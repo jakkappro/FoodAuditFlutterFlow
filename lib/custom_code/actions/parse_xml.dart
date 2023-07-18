@@ -26,14 +26,12 @@ Future<List<EURssFeedModelStruct>> parseXml() async {
 
   // Loop through each item and parse the data
   for (final item in items) {
-    final title = item.children[1].innerText;
+    final title = item.children[1].innerText.split(" - ")[1];
     final link = item.children[3].innerText;
 
     // Create a new EURssFeedModelStruct object and add it to the list
     rssFeeds.add(EURssFeedModelStruct(title: title, link: link));
   }
-
-  rssFeeds.add(EURssFeedModelStruct(link: "ahoj", title: "kek"));
 
   // Return the list of parsed data
   return rssFeeds;
