@@ -89,7 +89,7 @@ class _IntoleranciesWidgetState extends State<IntoleranciesWidget> {
                 ],
                 onChanged: (val) async {
                   setState(() => _model.choiceChipsValues = val);
-                  setState(() {
+                  _model.updatePage(() {
                     FFAppState().updateUserStruct(
                       (e) =>
                           e..intolerancies = _model.choiceChipsValues!.toList(),
