@@ -84,6 +84,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                     wrapWithModel(
                       model: _model.intoleranciesModel,
                       updateCallback: () => setState(() {}),
+                      updateOnChange: true,
                       child: IntoleranciesWidget(),
                     ),
                     Padding(
@@ -92,7 +93,6 @@ class _HomeWidgetState extends State<HomeWidget> {
                       child: wrapWithModel(
                         model: _model.notificationsModel,
                         updateCallback: () => setState(() {}),
-                        updateOnChange: true,
                         child: NotificationsWidget(),
                       ),
                     ),

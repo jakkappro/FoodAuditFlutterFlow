@@ -2,6 +2,7 @@ import '/backend/schema/structs/index.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/custom_code/actions/index.dart' as actions;
+import '/custom_code/widgets/index.dart' as custom_widgets;
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -77,19 +78,6 @@ class _ScannedItemWidgetState extends State<ScannedItemWidget> {
               padding: EdgeInsetsDirectional.fromSTEB(15.0, 10.0, 15.0, 10.0),
               child: Stack(
                 children: [
-                  Align(
-                    alignment: AlignmentDirectional(1.0, -1.0),
-                    child: Container(
-                      width: 10.0,
-                      height: 10.0,
-                      decoration: BoxDecoration(
-                        color: _model.isFoodSafe
-                            ? Color(0xFF82D680)
-                            : Color(0xFFD68080),
-                        shape: BoxShape.circle,
-                      ),
-                    ),
-                  ),
                   Container(
                     width: double.infinity,
                     height: double.infinity,
@@ -211,6 +199,18 @@ class _ScannedItemWidgetState extends State<ScannedItemWidget> {
                               letterSpacing: 0.15,
                               fontWeight: FontWeight.w800,
                             ),
+                      ),
+                    ),
+                  ),
+                  Align(
+                    alignment: AlignmentDirectional(1.0, -1.0),
+                    child: Container(
+                      width: 10.0,
+                      height: 10.0,
+                      child: custom_widgets.SafetyDot(
+                        width: 10.0,
+                        height: 10.0,
+                        allergens: _model.food!.allergens,
                       ),
                     ),
                   ),
