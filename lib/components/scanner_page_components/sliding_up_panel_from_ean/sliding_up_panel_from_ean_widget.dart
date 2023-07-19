@@ -49,97 +49,175 @@ class _SlidingUpPanelFromEanWidgetState
   Widget build(BuildContext context) {
     context.watch<FFAppState>();
 
-    return Stack(
-      children: [
-        Container(
-          width: 100.0,
-          height: double.infinity,
-          decoration: BoxDecoration(
-            color: Color(0xFF1C0D26),
-          ),
-          child: Padding(
-            padding: EdgeInsetsDirectional.fromSTEB(24.0, 15.0, 24.0, 0.0),
-            child: SingleChildScrollView(
-              child: Column(
-                mainAxisSize: MainAxisSize.max,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    valueOrDefault<String>(
-                      widget.food?.name,
-                      'Don\'t have name :(',
-                    ),
-                    style: FlutterFlowTheme.of(context).bodyMedium.override(
-                          fontFamily: 'Readex Pro',
-                          color: Color(0xFFF7F7F7),
-                          fontSize: 32.0,
-                          letterSpacing: 0.25,
-                          fontWeight: FontWeight.w800,
-                        ),
-                  ),
-                  Text(
-                    valueOrDefault<String>(
-                      widget.food?.producer,
-                      'No nu3socre',
-                    ),
-                    style: FlutterFlowTheme.of(context).bodyMedium.override(
-                          fontFamily: 'Readex Pro',
-                          color: Color(0xFFAFACC7),
-                          fontSize: 18.0,
-                          letterSpacing: 0.15,
-                          fontWeight: FontWeight.bold,
-                        ),
-                  ),
-                ].divide(SizedBox(height: 15.0)),
-              ),
-            ),
-          ),
-        ),
-        Align(
-          alignment: AlignmentDirectional(0.0, 0.9),
-          child: Container(
-            width: double.infinity,
-            height: 35.0,
-            decoration: BoxDecoration(
-              color: Colors.transparent,
-            ),
-            child: Column(
+    return Container(
+      width: double.infinity,
+      height: double.infinity,
+      decoration: BoxDecoration(
+        color: Color(0xFF1C0D26),
+      ),
+      child: Stack(
+        children: [
+          if (widget.isOpened == true)
+            Column(
               mainAxisSize: MainAxisSize.max,
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                if (widget.isOpened == false)
-                  Align(
-                    alignment: AlignmentDirectional(0.0, 0.8),
-                    child: Padding(
-                      padding:
-                          EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 10.0),
-                      child: Text(
-                        'Potiahni pre viac informácií',
-                        style: FlutterFlowTheme.of(context).bodyMedium.override(
-                              fontFamily: 'Readex Pro',
-                              color: Color(0xFFAFACC7),
-                              fontSize: 12.64,
-                              letterSpacing: 0.5,
-                              fontWeight: FontWeight.w600,
-                            ),
-                      ),
-                    ),
+                Container(
+                  width: 200.0,
+                  height: 100.0,
+                  decoration: BoxDecoration(
+                    color: Colors.transparent,
                   ),
-                Align(
-                  alignment: AlignmentDirectional(0.0, 0.9),
-                  child: Container(
-                    width: 66.0,
-                    height: 6.0,
-                    decoration: BoxDecoration(
-                      color: Color(0xFFB7C1FA),
-                      borderRadius: BorderRadius.circular(20.0),
+                  child: Padding(
+                    padding:
+                        EdgeInsetsDirectional.fromSTEB(24.0, 15.0, 24.0, 0.0),
+                    child: SingleChildScrollView(
+                      child: Column(
+                        mainAxisSize: MainAxisSize.max,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            valueOrDefault<String>(
+                              widget.food?.name,
+                              'Don\'t have name :(',
+                            ),
+                            style: FlutterFlowTheme.of(context)
+                                .bodyMedium
+                                .override(
+                                  fontFamily: 'Readex Pro',
+                                  color: Color(0xFFF7F7F7),
+                                  fontSize: 32.0,
+                                  letterSpacing: 0.25,
+                                  fontWeight: FontWeight.w800,
+                                ),
+                          ),
+                          Text(
+                            valueOrDefault<String>(
+                              widget.food?.producer,
+                              'No nu3socre',
+                            ),
+                            style: FlutterFlowTheme.of(context)
+                                .bodyMedium
+                                .override(
+                                  fontFamily: 'Readex Pro',
+                                  color: Color(0xFFAFACC7),
+                                  fontSize: 18.0,
+                                  letterSpacing: 0.15,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                          ),
+                        ].divide(SizedBox(height: 15.0)),
+                      ),
                     ),
                   ),
                 ),
               ],
             ),
+          if (widget.isOpened == false)
+            Column(
+              mainAxisSize: MainAxisSize.max,
+              mainAxisAlignment: MainAxisAlignment.end,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Container(
+                  width: 200.0,
+                  height: 100.0,
+                  decoration: BoxDecoration(
+                    color: Colors.transparent,
+                  ),
+                  child: Padding(
+                    padding:
+                        EdgeInsetsDirectional.fromSTEB(24.0, 15.0, 24.0, 0.0),
+                    child: SingleChildScrollView(
+                      child: Column(
+                        mainAxisSize: MainAxisSize.max,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            valueOrDefault<String>(
+                              widget.food?.name,
+                              'Don\'t have name :(',
+                            ),
+                            style: FlutterFlowTheme.of(context)
+                                .bodyMedium
+                                .override(
+                                  fontFamily: 'Readex Pro',
+                                  color: Color(0xFFF7F7F7),
+                                  fontSize: 32.0,
+                                  letterSpacing: 0.25,
+                                  fontWeight: FontWeight.w800,
+                                ),
+                          ),
+                          Text(
+                            valueOrDefault<String>(
+                              widget.food?.producer,
+                              'No nu3socre',
+                            ),
+                            style: FlutterFlowTheme.of(context)
+                                .bodyMedium
+                                .override(
+                                  fontFamily: 'Readex Pro',
+                                  color: Color(0xFFAFACC7),
+                                  fontSize: 18.0,
+                                  letterSpacing: 0.15,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                          ),
+                        ].divide(SizedBox(height: 15.0)),
+                      ),
+                    ),
+                  ),
+                ),
+              ].addToEnd(SizedBox(height: 70.0)),
+            ),
+          Align(
+            alignment: AlignmentDirectional(0.0, 0.9),
+            child: Container(
+              width: double.infinity,
+              height: 35.0,
+              decoration: BoxDecoration(
+                color: Colors.transparent,
+              ),
+              child: Column(
+                mainAxisSize: MainAxisSize.max,
+                children: [
+                  if (widget.isOpened == false)
+                    Align(
+                      alignment: AlignmentDirectional(0.0, 0.8),
+                      child: Padding(
+                        padding:
+                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 10.0),
+                        child: Text(
+                          'Potiahni pre viac informácií',
+                          style:
+                              FlutterFlowTheme.of(context).bodyMedium.override(
+                                    fontFamily: 'Readex Pro',
+                                    color: Color(0xFFAFACC7),
+                                    fontSize: 12.64,
+                                    letterSpacing: 0.5,
+                                    fontWeight: FontWeight.w600,
+                                  ),
+                        ),
+                      ),
+                    ),
+                  Align(
+                    alignment: AlignmentDirectional(0.0, 0.9),
+                    child: Container(
+                      width: 66.0,
+                      height: 6.0,
+                      decoration: BoxDecoration(
+                        color: Color(0xFFB7C1FA),
+                        borderRadius: BorderRadius.circular(20.0),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
           ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 }

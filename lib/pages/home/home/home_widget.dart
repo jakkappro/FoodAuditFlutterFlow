@@ -1,6 +1,5 @@
 import '/components/header/header_widget.dart';
 import '/components/intolerancies/intolerancies_widget.dart';
-import '/components/notifications/notifications_widget.dart';
 import '/components/open_scanner_button/open_scanner_button_widget.dart';
 import '/components/scanned_items/scanned_items_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
@@ -86,15 +85,6 @@ class _HomeWidgetState extends State<HomeWidget> {
                       updateCallback: () => setState(() {}),
                       updateOnChange: true,
                       child: IntoleranciesWidget(),
-                    ),
-                    Padding(
-                      padding:
-                          EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
-                      child: wrapWithModel(
-                        model: _model.notificationsModel,
-                        updateCallback: () => setState(() {}),
-                        child: NotificationsWidget(),
-                      ),
                     ),
                   ].addToEnd(SizedBox(height: 15.0)),
                 ),

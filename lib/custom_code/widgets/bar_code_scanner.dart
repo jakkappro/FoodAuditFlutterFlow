@@ -35,13 +35,12 @@ class _BarCodeScannerState extends State<BarCodeScanner>
   final Color _dangerounsFoodColor = Colors.red.withOpacity(0.5);
   final Color _neutralColor = Color(0x1C0D26).withOpacity(0.5);
 
-  late AnimationController _foundFoodOverlayAnimation;
-  late AnimationController _cannotFindEanAnimation;
   final BarcodeScanner _barcodeScanner = BarcodeScanner();
   bool _canProcess = true;
   bool _isBusy = false;
   bool _foundFood = false;
   bool _canScan = true;
+  bool _panelOpened = false;
   String? _ean;
   CustomPaint? _customPaint;
   var _cameraLensDirection = CameraLensDirection.back;
@@ -53,17 +52,7 @@ class _BarCodeScannerState extends State<BarCodeScanner>
   @override
   void initState() {
     super.initState();
-    _customPaint = CustomPaint(
-      size: Size(
-        double.infinity,
-        double.infinity,
-      ),
-    );
     _backdropColor = _neutralColor;
-    _foundFoodOverlayAnimation = AnimationController(
-        duration: const Duration(milliseconds: 750), vsync: this);
-    _cannotFindEanAnimation = AnimationController(
-        duration: const Duration(milliseconds: 750), vsync: this);
   }
 
   @override
@@ -82,9 +71,10 @@ class _BarCodeScannerState extends State<BarCodeScanner>
       panel: _scannedFood != null
           ? SlidingUpPanelFromEanWidget(
               food: _scannedFood,
-              isOpened: false,
+              isOpened: _panelOpened,
             )
           : Container(),
+      snapPoint: 0.4,
       backdropTapClosesPanel: true,
       backdropColor: Colors.grey,
       backdropEnabled: true,
@@ -94,12 +84,12 @@ class _BarCodeScannerState extends State<BarCodeScanner>
       onPanelClosed: _onPanelClose,
       onPanelOpened: () async {
         _canScan = false;
-        await _foundFoodOverlayAnimation.reverse();
-        await _cannotFindEanAnimation.reverse();
+        _panelOpened = true;
+        setState(() {});
       },
       body: GestureDetector(
         onVerticalDragEnd: (details) async {
-          if (details.primaryVelocity! < 0 && _foundFood) {
+          if (details.primaryVelocity! > 0 && _foundFood) {
             await _panelController.open();
           }
         },
@@ -117,6 +107,11 @@ class _BarCodeScannerState extends State<BarCodeScanner>
               child: Container(
                 color: _backdropColor,
               ),
+            ),
+            Positioned(
+              child: CloseScannerButtonWidget(),
+              bottom: 60,
+              right: 30,
             ),
           ],
         ),
@@ -165,7 +160,14 @@ class _BarCodeScannerState extends State<BarCodeScanner>
           _ean = eanBarcode!.displayValue;
           _timesDidntFoundEan = 0;
           // choose color based on food safety
-          _backdropColor = Colors.green.withOpacity(0.5);
+          _backdropColor = _safeFoodColor;
+          if (_panelController.isAttached) {
+            _panelController.animatePanelToSnapPoint(
+              duration: Duration(
+                milliseconds: 500,
+              ),
+            );
+          }
         } else if (!foundEan && _timesDidntFoundEan > 50) {
           _ean = null;
           _backdropColor = _neutralColor;
@@ -180,6 +182,7 @@ class _BarCodeScannerState extends State<BarCodeScanner>
   void _onPanelClose() {
     setState(() {
       _canScan = true;
+      _panelOpened = false;
     });
   }
 }
@@ -193,7 +196,7 @@ class HoleClipper extends CustomClipper<Path> {
     var innerPath = Path()
       ..addRect(Rect.fromCenter(
         center: Offset(size.width / 2, size.height / 2),
-        width: 250.0, // define width of square
+        width: size.width * 0.75, // define width of square
         height: 250.0, // define height of square
       ));
 

@@ -1,6 +1,5 @@
 import '/components/header/header_widget.dart';
 import '/components/intolerancies/intolerancies_widget.dart';
-import '/components/notifications/notifications_widget.dart';
 import '/components/open_scanner_button/open_scanner_button_widget.dart';
 import '/components/scanned_items/scanned_items_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
@@ -19,8 +18,6 @@ class HomeModel extends FlutterFlowModel {
   late ScannedItemsModel scannedItemsModel;
   // Model for Intolerancies component.
   late IntoleranciesModel intoleranciesModel;
-  // Model for Notifications component.
-  late NotificationsModel notificationsModel;
   // Model for OpenScannerButton component.
   late OpenScannerButtonModel openScannerButtonModel;
 
@@ -30,7 +27,6 @@ class HomeModel extends FlutterFlowModel {
     headerModel = createModel(context, () => HeaderModel());
     scannedItemsModel = createModel(context, () => ScannedItemsModel());
     intoleranciesModel = createModel(context, () => IntoleranciesModel());
-    notificationsModel = createModel(context, () => NotificationsModel());
     openScannerButtonModel =
         createModel(context, () => OpenScannerButtonModel());
   }
@@ -40,7 +36,6 @@ class HomeModel extends FlutterFlowModel {
     headerModel.dispose();
     scannedItemsModel.dispose();
     intoleranciesModel.dispose();
-    notificationsModel.dispose();
     openScannerButtonModel.dispose();
   }
 
