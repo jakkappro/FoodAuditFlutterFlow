@@ -13,7 +13,7 @@ Future<bool> isFoodSafe(List<String>? foodAllergens) async {
 
   // could be optimized using some better algorithm but not necessary now
   for (String allergen in usersAlergies) {
-    if (foodAllergens!.contains(allergen)) {
+    if (foodAllergens!.contains(allergen.toLowerCase())) {
       return false;
     }
   }

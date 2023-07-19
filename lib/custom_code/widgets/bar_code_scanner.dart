@@ -31,25 +31,29 @@ class BarCodeScanner extends StatefulWidget {
 
 class _BarCodeScannerState extends State<BarCodeScanner>
     with TickerProviderStateMixin {
+  final Color _safeFoodColor = Colors.green.withOpacity(0.5);
+  final Color _dangerounsFoodColor = Colors.red.withOpacity(0.5);
+  final Color _neutralColor = Color(0x1C0D26).withOpacity(0.5);
+
   late AnimationController _foundFoodOverlayAnimation;
   late AnimationController _cannotFindEanAnimation;
   final BarcodeScanner _barcodeScanner = BarcodeScanner();
   bool _canProcess = true;
   bool _isBusy = false;
   bool _foundFood = false;
-  bool _panelOpened = false;
   bool _canScan = true;
-  bool _missingEanAlertDisplayed = false;
   String? _ean;
   CustomPaint? _customPaint;
   var _cameraLensDirection = CameraLensDirection.back;
   PanelController _panelController = PanelController();
   ScannedFoodStruct? _scannedFood;
   int _timesDidntFoundEan = 0;
+  late Color _backdropColor; //initial color
 
   @override
   void initState() {
     super.initState();
+    _backdropColor = _neutralColor;
     _foundFoodOverlayAnimation = AnimationController(
         duration: const Duration(milliseconds: 750), vsync: this);
     _cannotFindEanAnimation = AnimationController(
@@ -76,11 +80,11 @@ class _BarCodeScannerState extends State<BarCodeScanner>
       backdropColor: Colors.grey,
       backdropEnabled: true,
       backdropOpacity: 0.8,
+      slideDirection: SlideDirection.DOWN,
       isDraggable: true,
       onPanelClosed: _onPanelClose,
       onPanelOpened: () async {
         _canScan = false;
-        _panelOpened = true;
         await _foundFoodOverlayAnimation.reverse();
         await _cannotFindEanAnimation.reverse();
       },
@@ -99,17 +103,11 @@ class _BarCodeScannerState extends State<BarCodeScanner>
               onCameraLensDirectionChanged: (value) =>
                   _cameraLensDirection = value,
             ),
-            FadeTransition(
-              opacity: _foundFoodOverlayAnimation,
-              child: _foundFood && !_panelOpened
-                  ? FoodOverlay(scannedFood: _scannedFood!)
-                  : Container(),
-            ),
-            FadeTransition(
-              opacity: _cannotFindEanAnimation,
-              child: !_foundFood && !_panelOpened
-                  ? MissingEanOverlay()
-                  : Container(),
+            ClipPath(
+              clipper: HoleClipper(),
+              child: Container(
+                color: _backdropColor,
+              ),
             ),
           ],
         ),
@@ -121,23 +119,11 @@ class _BarCodeScannerState extends State<BarCodeScanner>
     if (ean == _ean) return;
     final newFood = await getFoodFromEAN(ean);
     if (newFood != null) {
-      await _cannotFindEanAnimation.reverse();
       setState(() {
-        _missingEanAlertDisplayed = false;
         _scannedFood = newFood;
         _foundFood = true;
       });
-      _foundFoodOverlayAnimation.forward();
     }
-  }
-
-  Future<void> _cantFindEan() async {
-    if (_missingEanAlertDisplayed) return;
-
-    await _foundFoodOverlayAnimation.reverse();
-    _cannotFindEanAnimation.forward();
-    _missingEanAlertDisplayed = true;
-    _foundFood = false;
   }
 
   Future<void> _processImage(InputImage inputImage) async {
@@ -169,9 +155,11 @@ class _BarCodeScannerState extends State<BarCodeScanner>
         if (foundEan) {
           _ean = eanBarcode!.displayValue;
           _timesDidntFoundEan = 0;
+          // choose color based on food safety
+          _backdropColor = Colors.green.withOpacity(0.5);
         } else if (!foundEan && _timesDidntFoundEan > 50) {
           _ean = null;
-          _cantFindEan();
+          _backdropColor = _neutralColor;
         } else {
           _timesDidntFoundEan++;
         }
@@ -183,136 +171,26 @@ class _BarCodeScannerState extends State<BarCodeScanner>
   void _onPanelClose() {
     setState(() {
       _canScan = true;
-      _panelOpened = false;
     });
   }
 }
 
-class MissingEanOverlay extends StatelessWidget {
+class HoleClipper extends CustomClipper<Path> {
   @override
-  Widget build(BuildContext context) {
-    return Stack(
-      children: [
-        Positioned(
-          top: 10,
-          left: 0,
-          right: 0,
-          child: Container(
-            width: MediaQuery.of(context).size.width * 0.5,
-            color: Colors.white,
-            child: Text(
-              "Aim camera to barcode",
-              style: TextStyle(
-                color: Colors.black,
-                fontSize: 20,
-                fontWeight: FontWeight.bold,
-              ),
-              textAlign: TextAlign.center,
-            ),
-          ),
-        ),
-      ],
-    );
+  Path getClip(Size size) {
+    var outerPath = Path()
+      ..addRect(Rect.fromLTWH(0.0, 0.0, size.width, size.height));
+
+    var innerPath = Path()
+      ..addRect(Rect.fromCenter(
+        center: Offset(size.width / 2, size.height / 2),
+        width: 250.0, // define width of square
+        height: 250.0, // define height of square
+      ));
+
+    return Path.combine(PathOperation.difference, outerPath, innerPath);
   }
-}
-
-class FoodOverlay extends StatelessWidget {
-  const FoodOverlay({
-    Key? key,
-    required this.scannedFood,
-  }) : super(key: key);
-
-  final ScannedFoodStruct scannedFood;
 
   @override
-  Widget build(BuildContext context) {
-    return Stack(
-      children: [
-        Positioned(
-          top: 0,
-          left: 0,
-          right: 0,
-          child: Container(
-            height: 50,
-            child: Center(
-              child: ListView(
-                scrollDirection: Axis.horizontal,
-                children: scannedFood.allergens
-                    .map(
-                      (allergen) => Container(
-                        margin: EdgeInsets.symmetric(horizontal: 5),
-                        padding: EdgeInsets.symmetric(horizontal: 10),
-                        decoration: BoxDecoration(
-                          color: Colors.white,
-                          borderRadius: BorderRadius.circular(20),
-                        ),
-                        child: Center(
-                          child: Text(
-                            allergen,
-                            style: TextStyle(
-                              color: Colors.black,
-                              fontSize: 15,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                        ),
-                      ),
-                    )
-                    .toList(),
-              ),
-            ),
-          ),
-        ),
-        Positioned(
-          bottom: 150,
-          left: 5,
-          child: Container(
-            child: Column(
-              children: [
-                Text(
-                  scannedFood.nu3Socre,
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 15,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-                SizedBox(height: 5),
-                Text(
-                  scannedFood.nova4,
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 15,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-              ],
-            ),
-          ),
-        ),
-        Positioned(
-          right: 5,
-          bottom: 0,
-          top: 0,
-          child: Icon(
-            Icons.delete,
-            color: _getBinColor(),
-          ),
-        ),
-      ],
-    );
-  }
-
-  Color _getBinColor() {
-    switch (scannedFood.bin) {
-      case "Red":
-        return Colors.red;
-      case "Yellow":
-        return Colors.yellow;
-      case "Green":
-        return Colors.green;
-      default:
-        return Colors.white;
-    }
-  }
+  bool shouldReclip(CustomClipper<Path> oldClipper) => false;
 }

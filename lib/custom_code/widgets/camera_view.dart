@@ -9,8 +9,6 @@ import 'package:flutter/material.dart';
 // Begin custom widget code
 // DO NOT REMOVE OR MODIFY THE CODE ABOVE!
 
-import 'index.dart'; // Imports other custom widgets
-
 import 'dart:io';
 
 import 'package:camera/camera.dart';
@@ -101,9 +99,9 @@ class _CameraViewState extends State<CameraView> {
                     child: widget.customPaint,
                   ),
           ),
-          _switchLiveCameraToggle(),
-          _zoomControl(),
-          _exposureControl(),
+          //_switchLiveCameraToggle(),
+          //_zoomControl(),
+          //_exposureControl(),
         ],
       ),
     );
