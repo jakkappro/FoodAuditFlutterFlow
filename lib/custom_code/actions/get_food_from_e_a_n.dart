@@ -8,9 +8,33 @@ import 'package:flutter/material.dart';
 // Begin custom action code
 // DO NOT REMOVE OR MODIFY THE CODE ABOVE!
 
-import 'index.dart'; // Imports other custom actions
+Future<ScannedFoodStruct?> getFoodFromEAN(String ean, bool? updateFood) async {
+  final scannedItems = FFAppState().ScannedItems;
 
-Future<ScannedFoodStruct?> getFoodFromEAN(String ean) async {
+  if (updateFood != null && updateFood) {
+    // get index of food in scanned items with right ean
+    final foodIndex = scannedItems.indexWhere((food) => food.ean == ean);
+
+    if (foodIndex != -1) {
+      // update foods scannednumber and lasttimescanend
+      FFAppState().updateScannedItemsAtIndex(
+          foodIndex,
+          (food) => ScannedItemStruct(
+                ean: food.ean,
+                numberOfScans: food.numberOfScans + 1,
+                lastScanned: DateTime.now(),
+                isFavourite: food.isFavourite,
+              ));
+    } else {
+      FFAppState().addToScannedItems(ScannedItemStruct(
+        ean: ean,
+        numberOfScans: 1,
+        lastScanned: DateTime.now(),
+        isFavourite: false,
+      ));
+    }
+  }
+
   // Add your function code here!
   return ScannedFoodStruct(
     ean: ean,

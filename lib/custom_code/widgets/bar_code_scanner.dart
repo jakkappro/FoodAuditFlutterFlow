@@ -14,6 +14,8 @@ import 'package:camera/camera.dart';
 import 'package:sliding_up_panel/sliding_up_panel.dart';
 
 import '../../components/scanner_page_components/sliding_up_panel_from_ean/sliding_up_panel_from_ean_widget.dart';
+import '../../components/scanner_page_components/close_scanner_button/close_scanner_button_widget.dart';
+import '../../components/scanner_page_components/scan_product_message/scan_product_message_widget.dart';
 
 class BarCodeScanner extends StatefulWidget {
   const BarCodeScanner({
@@ -64,36 +66,48 @@ class _BarCodeScannerState extends State<BarCodeScanner>
 
   @override
   Widget build(BuildContext context) {
-    return SlidingUpPanel(
-      controller: _panelController,
-      minHeight: 0,
-      maxHeight: MediaQuery.of(context).size.height * 0.8,
-      panel: _scannedFood != null
-          ? SlidingUpPanelFromEanWidget(
-              food: _scannedFood,
-              isOpened: _panelOpened,
-            )
-          : Container(),
-      snapPoint: 0.4,
-      backdropTapClosesPanel: true,
-      backdropColor: Colors.grey,
-      backdropEnabled: true,
-      backdropOpacity: 0.8,
-      slideDirection: SlideDirection.DOWN,
-      isDraggable: true,
-      onPanelClosed: _onPanelClose,
-      onPanelOpened: () async {
-        _canScan = false;
-        _panelOpened = true;
-        setState(() {});
+    return GestureDetector(
+      onVerticalDragEnd: (details) async {
+        if (details.primaryVelocity! > 0 && _foundFood) {
+          _canScan = false;
+          await _panelController.animatePanelToPosition(
+            1,
+            duration: Duration(milliseconds: 300),
+          );
+        } else if (details.primaryVelocity! < 0 &&
+            _panelOpened &&
+            !_panelController.isPanelShown) {
+          _canScan = true;
+          await _panelController.animatePanelToPosition(
+            0,
+            duration: Duration(milliseconds: 300),
+          );
+        }
       },
-      body: GestureDetector(
-        onVerticalDragEnd: (details) async {
-          if (details.primaryVelocity! > 0 && _foundFood) {
-            await _panelController.open();
-          }
+      child: SlidingUpPanel(
+        controller: _panelController,
+        minHeight: 0,
+        maxHeight: MediaQuery.of(context).size.height * 0.8,
+        panel: _scannedFood != null
+            ? SlidingUpPanelFromEanWidget(
+                food: _scannedFood,
+                isOpened: _panelOpened,
+              )
+            : Container(),
+        snapPoint: 0.4,
+        backdropTapClosesPanel: true,
+        backdropColor: Colors.grey,
+        backdropEnabled: _panelOpened,
+        backdropOpacity: 0.8,
+        slideDirection: SlideDirection.DOWN,
+        isDraggable: false,
+        onPanelClosed: _onPanelClose,
+        onPanelOpened: () async {
+          _canScan = false;
+          _panelOpened = true;
+          setState(() {});
         },
-        child: Stack(
+        body: Stack(
           children: <Widget>[
             CameraView(
               customPaint: _customPaint,
@@ -113,6 +127,11 @@ class _BarCodeScannerState extends State<BarCodeScanner>
               bottom: 60,
               right: 30,
             ),
+            SizedBox(
+              child: ScanProductMessageWidget(),
+              width: double.infinity,
+              height: 204,
+            ),
           ],
         ),
       ),
@@ -121,12 +140,21 @@ class _BarCodeScannerState extends State<BarCodeScanner>
 
   Future<void> _updateScannedFood(String ean) async {
     if (ean == _ean) return;
-    final newFood = await getFoodFromEAN(ean);
+    final newFood = await getFoodFromEAN(ean, true);
     if (newFood != null) {
-      setState(() {
-        _scannedFood = newFood;
-        _foundFood = true;
-      });
+      if (_panelController.isAttached) {
+        await _panelController.animatePanelToSnapPoint(
+          duration: Duration(
+            milliseconds: 500,
+          ),
+        );
+      }
+      if (mounted) {
+        setState(() {
+          _scannedFood = newFood;
+          _foundFood = true;
+        });
+      }
     }
   }
 
@@ -161,15 +189,9 @@ class _BarCodeScannerState extends State<BarCodeScanner>
           _timesDidntFoundEan = 0;
           // choose color based on food safety
           _backdropColor = _safeFoodColor;
-          if (_panelController.isAttached) {
-            _panelController.animatePanelToSnapPoint(
-              duration: Duration(
-                milliseconds: 500,
-              ),
-            );
-          }
         } else if (!foundEan && _timesDidntFoundEan > 50) {
           _ean = null;
+          _foundFood = false;
           _backdropColor = _neutralColor;
         } else {
           _timesDidntFoundEan++;
@@ -187,6 +209,7 @@ class _BarCodeScannerState extends State<BarCodeScanner>
   }
 }
 
+// clipping the center of camera view out
 class HoleClipper extends CustomClipper<Path> {
   @override
   Path getClip(Size size) {

@@ -54,6 +54,12 @@ class _SlidingUpPanelFromEanWidgetState
       height: double.infinity,
       decoration: BoxDecoration(
         color: Color(0xFF1C0D26),
+        borderRadius: BorderRadius.only(
+          bottomLeft: Radius.circular(20.0),
+          bottomRight: Radius.circular(20.0),
+          topLeft: Radius.circular(0.0),
+          topRight: Radius.circular(0.0),
+        ),
       ),
       child: Stack(
         children: [
