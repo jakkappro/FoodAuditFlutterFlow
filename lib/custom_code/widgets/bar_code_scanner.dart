@@ -9,11 +9,11 @@ import 'package:flutter/material.dart';
 // Begin custom widget code
 // DO NOT REMOVE OR MODIFY THE CODE ABOVE!
 
-import 'package:nu3_food/components/sliding_up_panel_from_ean/sliding_up_panel_from_ean_widget.dart';
-
 import 'package:google_mlkit_barcode_scanning/google_mlkit_barcode_scanning.dart';
 import 'package:camera/camera.dart';
 import 'package:sliding_up_panel/sliding_up_panel.dart';
+
+import '../../components/scanner_page_components/sliding_up_panel_from_ean/sliding_up_panel_from_ean_widget.dart';
 
 class BarCodeScanner extends StatefulWidget {
   const BarCodeScanner({

@@ -77,7 +77,10 @@ class _CameraViewState extends State<CameraView> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(body: _liveFeedBody());
+    return Scaffold(
+      body: _liveFeedBody(),
+      extendBodyBehindAppBar: true,
+    );
   }
 
   Widget _liveFeedBody() {
@@ -89,16 +92,14 @@ class _CameraViewState extends State<CameraView> {
       child: Stack(
         fit: StackFit.expand,
         children: <Widget>[
-          Center(
-            child: _changingCameraLens
-                ? Center(
-                    child: const Text('Changing camera lens'),
-                  )
-                : CameraPreview(
-                    _controller!,
-                    child: widget.customPaint,
-                  ),
-          ),
+          _changingCameraLens
+              ? Center(
+                  child: const Text('Changing camera lens'),
+                )
+              : CameraPreview(
+                  _controller!,
+                  child: widget.customPaint,
+                ),
           //_switchLiveCameraToggle(),
           //_zoomControl(),
           //_exposureControl(),
