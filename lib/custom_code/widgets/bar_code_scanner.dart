@@ -53,6 +53,12 @@ class _BarCodeScannerState extends State<BarCodeScanner>
   @override
   void initState() {
     super.initState();
+    _customPaint = CustomPaint(
+      size: Size(
+        double.infinity,
+        double.infinity,
+      ),
+    );
     _backdropColor = _neutralColor;
     _foundFoodOverlayAnimation = AnimationController(
         duration: const Duration(milliseconds: 750), vsync: this);
@@ -74,7 +80,10 @@ class _BarCodeScannerState extends State<BarCodeScanner>
       minHeight: 0,
       maxHeight: MediaQuery.of(context).size.height * 0.8,
       panel: _scannedFood != null
-          ? SlidingUpPanelFromEanWidget(food: _scannedFood)
+          ? SlidingUpPanelFromEanWidget(
+              food: _scannedFood,
+              isOpened: false,
+            )
           : Container(),
       backdropTapClosesPanel: true,
       backdropColor: Colors.grey,

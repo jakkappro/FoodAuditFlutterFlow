@@ -26,6 +26,7 @@ dependencies:
   flutter_localizations:
     sdk: flutter
   auto_size_text: 3.0.0
+  barcode_widget: 2.0.3
   cached_network_image: 3.2.1
   camera: ^0.10.5+2
   csv: 5.0.1
@@ -39,7 +40,11 @@ dependencies:
   firebase_crashlytics: 3.3.2
   firebase_crashlytics_platform_interface: 3.6.2
   flutter_animate: 4.1.1+1
+  flutter_barcode_scanner: 
+    git:
+      url: https://github.com/FlutterFlow/flutter_barcode_scanner
   flutter_cache_manager: 3.3.0
+  flutter_plugin_android_lifecycle: 2.0.9
   flutter_secure_storage: 8.0.0
   font_awesome_flutter: 10.1.0
   from_css_color: 2.0.0

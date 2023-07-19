@@ -1,7 +1,8 @@
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/custom_code/widgets/index.dart' as custom_widgets;
+import 'package:barcode_widget/barcode_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_barcode_scanner/flutter_barcode_scanner.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'camera_model.dart';
@@ -45,20 +46,41 @@ class _CameraWidgetState extends State<CameraWidget> {
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
         body: SafeArea(
           top: true,
-          child: Container(
-            width: MediaQuery.sizeOf(context).width * 1.0,
-            height: MediaQuery.sizeOf(context).height * 1.0,
-            child: Stack(
-              children: [
-                Container(
-                  width: double.infinity,
-                  height: double.infinity,
-                  child: custom_widgets.BarCodeScanner(
-                    width: double.infinity,
-                    height: double.infinity,
+          child: InkWell(
+            splashColor: Colors.transparent,
+            focusColor: Colors.transparent,
+            hoverColor: Colors.transparent,
+            highlightColor: Colors.transparent,
+            onTap: () async {
+              _model.terst = await FlutterBarcodeScanner.scanBarcode(
+                '#C62828', // scanning line color
+                'Cancel', // cancel button text
+                true, // whether to show the flash icon
+                ScanMode.BARCODE,
+              );
+
+              setState(() {});
+            },
+            child: Container(
+              width: MediaQuery.sizeOf(context).width * 1.0,
+              height: MediaQuery.sizeOf(context).height * 1.0,
+              child: Stack(
+                children: [
+                  BarcodeWidget(
+                    data: 'Barcode',
+                    barcode: Barcode.code128(),
+                    width: 300.0,
+                    height: 90.0,
+                    color: FlutterFlowTheme.of(context).primaryText,
+                    backgroundColor: Colors.transparent,
+                    errorBuilder: (_context, _error) => SizedBox(
+                      width: 300.0,
+                      height: 90.0,
+                    ),
+                    drawText: true,
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
           ),
         ),
