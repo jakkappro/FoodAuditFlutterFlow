@@ -204,6 +204,7 @@ class _BarCodeScannerState extends State<BarCodeScanner>
           _ean = null;
           _foundFood = false;
           _backdropColor = _neutralColor;
+          _panelController.close();
         } else {
           _timesDidntFoundEan++;
         }

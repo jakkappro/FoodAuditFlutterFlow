@@ -15,16 +15,14 @@ class ScannedItemModel extends FlutterFlowModel {
 
   bool loadedEan = false;
 
-  ScannedFoodStruct? food;
-  void updateFoodStruct(Function(ScannedFoodStruct) updateFn) =>
-      updateFn(food ??= ScannedFoodStruct());
+  ProductsRecord? food;
 
   bool isFoodSafe = false;
 
   ///  State fields for stateful widgets in this component.
 
   // Stores action output result for [Custom Action - getFoodFromEAN] action in ScannedItem widget.
-  ScannedFoodStruct? newFood;
+  ProductsRecord? newFood;
   // Stores action output result for [Custom Action - isFoodSafe] action in ScannedItem widget.
   bool? foodSafe;
 

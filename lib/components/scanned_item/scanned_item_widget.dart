@@ -49,8 +49,8 @@ class _ScannedItemWidgetState extends State<ScannedItemWidget> {
       );
       setState(() {
         _model.loadedEan = true;
-        _model.food = _model.newFood;
         _model.isFoodSafe = _model.foodSafe!;
+        _model.food = _model.newFood;
       });
     });
   }
@@ -172,7 +172,7 @@ class _ScannedItemWidgetState extends State<ScannedItemWidget> {
                         ),
                         Text(
                           valueOrDefault<String>(
-                            _model.food?.producer,
+                            _model.food?.addressLines?.first,
                             'Couldn\'t find producer',
                           ),
                           style:

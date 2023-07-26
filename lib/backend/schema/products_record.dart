@@ -16,13 +16,73 @@ class ProductsRecord extends FirestoreRecord {
     _initializeFields();
   }
 
-  // "product" field.
-  ProductsStruct? _product;
-  ProductsStruct get product => _product ?? ProductsStruct();
-  bool hasProduct() => _product != null;
+  // "IsCompleted" field.
+  bool? _isCompleted;
+  bool get isCompleted => _isCompleted ?? false;
+  bool hasIsCompleted() => _isCompleted != null;
+
+  // "Name" field.
+  String? _name;
+  String get name => _name ?? '';
+  bool hasName() => _name != null;
+
+  // "Category" field.
+  String? _category;
+  String get category => _category ?? '';
+  bool hasCategory() => _category != null;
+
+  // "Allergens" field.
+  List<String>? _allergens;
+  List<String> get allergens => _allergens ?? const [];
+  bool hasAllergens() => _allergens != null;
+
+  // "Ingredients" field.
+  List<IngredientStruct>? _ingredients;
+  List<IngredientStruct> get ingredients => _ingredients ?? const [];
+  bool hasIngredients() => _ingredients != null;
+
+  // "AddressLines" field.
+  List<String>? _addressLines;
+  List<String> get addressLines => _addressLines ?? const [];
+  bool hasAddressLines() => _addressLines != null;
+
+  // "Nutrients" field.
+  List<NutrientStruct>? _nutrients;
+  List<NutrientStruct> get nutrients => _nutrients ?? const [];
+  bool hasNutrients() => _nutrients != null;
+
+  // "Origin" field.
+  String? _origin;
+  String get origin => _origin ?? '';
+  bool hasOrigin() => _origin != null;
+
+  // "Size" field.
+  String? _size;
+  String get size => _size ?? '';
+  bool hasSize() => _size != null;
+
+  // "SizeUnit" field.
+  String? _sizeUnit;
+  String get sizeUnit => _sizeUnit ?? '';
+  bool hasSizeUnit() => _sizeUnit != null;
 
   void _initializeFields() {
-    _product = ProductsStruct.maybeFromMap(snapshotData['product']);
+    _isCompleted = snapshotData['IsCompleted'] as bool?;
+    _name = snapshotData['Name'] as String?;
+    _category = snapshotData['Category'] as String?;
+    _allergens = getDataList(snapshotData['Allergens']);
+    _ingredients = getStructList(
+      snapshotData['Ingredients'],
+      IngredientStruct.fromMap,
+    );
+    _addressLines = getDataList(snapshotData['AddressLines']);
+    _nutrients = getStructList(
+      snapshotData['Nutrients'],
+      NutrientStruct.fromMap,
+    );
+    _origin = snapshotData['Origin'] as String?;
+    _size = snapshotData['Size'] as String?;
+    _sizeUnit = snapshotData['SizeUnit'] as String?;
   }
 
   static CollectionReference get collection =>
@@ -60,16 +120,23 @@ class ProductsRecord extends FirestoreRecord {
 }
 
 Map<String, dynamic> createProductsRecordData({
-  ProductsStruct? product,
+  bool? isCompleted,
+  String? name,
+  String? category,
+  String? origin,
+  String? size,
+  String? sizeUnit,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
-      'product': ProductsStruct().toMap(),
+      'IsCompleted': isCompleted,
+      'Name': name,
+      'Category': category,
+      'Origin': origin,
+      'Size': size,
+      'SizeUnit': sizeUnit,
     }.withoutNulls,
   );
-
-  // Handle nested data for "product" field.
-  addProductsStructData(firestoreData, product, 'product');
 
   return firestoreData;
 }
@@ -79,11 +146,32 @@ class ProductsRecordDocumentEquality implements Equality<ProductsRecord> {
 
   @override
   bool equals(ProductsRecord? e1, ProductsRecord? e2) {
-    return e1?.product == e2?.product;
+    const listEquality = ListEquality();
+    return e1?.isCompleted == e2?.isCompleted &&
+        e1?.name == e2?.name &&
+        e1?.category == e2?.category &&
+        listEquality.equals(e1?.allergens, e2?.allergens) &&
+        listEquality.equals(e1?.ingredients, e2?.ingredients) &&
+        listEquality.equals(e1?.addressLines, e2?.addressLines) &&
+        listEquality.equals(e1?.nutrients, e2?.nutrients) &&
+        e1?.origin == e2?.origin &&
+        e1?.size == e2?.size &&
+        e1?.sizeUnit == e2?.sizeUnit;
   }
 
   @override
-  int hash(ProductsRecord? e) => const ListEquality().hash([e?.product]);
+  int hash(ProductsRecord? e) => const ListEquality().hash([
+        e?.isCompleted,
+        e?.name,
+        e?.category,
+        e?.allergens,
+        e?.ingredients,
+        e?.addressLines,
+        e?.nutrients,
+        e?.origin,
+        e?.size,
+        e?.sizeUnit
+      ]);
 
   @override
   bool isValidKey(Object? o) => o is ProductsRecord;
