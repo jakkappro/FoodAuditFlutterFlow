@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'flutter_flow/request_manager.dart';
 import '/backend/backend.dart';
 import '/backend/schema/structs/index.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
@@ -127,21 +126,6 @@ class FFAppState extends ChangeNotifier {
     secureStorage.setStringList(
         'ff_ScannedItems', _ScannedItems.map((x) => x.serialize()).toList());
   }
-
-  final _scannedEanCacheManager = FutureRequestManager<ProductsRecord>();
-  Future<ProductsRecord> scannedEanCache({
-    String? uniqueQueryKey,
-    bool? overrideCache,
-    required Future<ProductsRecord> Function() requestFn,
-  }) =>
-      _scannedEanCacheManager.performRequest(
-        uniqueQueryKey: uniqueQueryKey,
-        overrideCache: overrideCache,
-        requestFn: requestFn,
-      );
-  void clearScannedEanCacheCache() => _scannedEanCacheManager.clear();
-  void clearScannedEanCacheCacheKey(String? uniqueKey) =>
-      _scannedEanCacheManager.clearRequest(uniqueKey);
 }
 
 LatLng? _latLngFromString(String? val) {

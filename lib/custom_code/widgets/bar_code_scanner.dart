@@ -48,7 +48,7 @@ class _BarCodeScannerState extends State<BarCodeScanner>
   CustomPaint? _customPaint;
   var _cameraLensDirection = CameraLensDirection.back;
   PanelController _panelController = PanelController();
-  ScannedFoodStruct? _scannedFood;
+  ProductsRecord? _scannedFood;
   int _timesDidntFoundEan = 0;
   late Color _backdropColor; //initial color
 
@@ -92,7 +92,7 @@ class _BarCodeScannerState extends State<BarCodeScanner>
         maxHeight: MediaQuery.of(context).size.height * 0.8,
         panel: _scannedFood != null
             ? SlidingUpPanelFromEanWidget(
-                food: _scannedFood,
+                doc: _scannedFood,
                 isOpened: _panelOpened,
               )
             : Container(),
@@ -143,7 +143,7 @@ class _BarCodeScannerState extends State<BarCodeScanner>
   Future<void> _updateScannedFood(String ean) async {
     if (ean == _ean) return;
     final newFood = await getFoodFromEAN(ean, true);
-    final foodSafe = await isFoodSafe(newFood?.allergens.toList());
+    final foodSafe = await isFoodSafe(newFood?.allergens);
 
     // somehow figure out how to diff whether product is in db or not, future kubo problem
 
