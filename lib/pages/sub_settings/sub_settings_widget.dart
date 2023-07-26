@@ -46,7 +46,9 @@ class _SubSettingsWidgetState extends State<SubSettingsWidget> {
         backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
         automaticallyImplyLeading: false,
         title: Text(
-          'My Profile',
+          FFLocalizations.of(context).getText(
+            'hc06njtk' /* My Profile */,
+          ),
           style: FlutterFlowTheme.of(context).displaySmall.override(
                 fontFamily: 'Lato',
                 color: FlutterFlowTheme.of(context).primaryText,
@@ -101,9 +103,11 @@ class _SubSettingsWidgetState extends State<SubSettingsWidget> {
                 mainAxisSize: MainAxisSize.max,
                 children: [
                   Text(
-                    'Casper Ghost',
+                    FFLocalizations.of(context).getText(
+                      'ld7ofmbx' /* Casper Ghost */,
+                    ),
                     style: FlutterFlowTheme.of(context).bodyMedium.override(
-                          fontFamily: 'Readex Pro',
+                          fontFamily: 'Lato',
                           color: FlutterFlowTheme.of(context).primary,
                           fontWeight: FontWeight.bold,
                         ),
@@ -111,9 +115,11 @@ class _SubSettingsWidgetState extends State<SubSettingsWidget> {
                   Padding(
                     padding: EdgeInsetsDirectional.fromSTEB(4.0, 0.0, 0.0, 0.0),
                     child: Text(
-                      'casper@ghustbusters.com',
+                      FFLocalizations.of(context).getText(
+                        'bg589h68' /* casper@ghustbusters.com */,
+                      ),
                       style: FlutterFlowTheme.of(context).bodyMedium.override(
-                            fontFamily: 'Readex Pro',
+                            fontFamily: 'Lato',
                             color: FlutterFlowTheme.of(context).primaryText,
                           ),
                     ),
@@ -139,7 +145,9 @@ class _SubSettingsWidgetState extends State<SubSettingsWidget> {
                   padding:
                       EdgeInsetsDirectional.fromSTEB(16.0, 12.0, 0.0, 12.0),
                   child: Text(
-                    'My Account Information',
+                    FFLocalizations.of(context).getText(
+                      '62n0b6f1' /* My Account Information */,
+                    ),
                     style: FlutterFlowTheme.of(context).labelMedium,
                   ),
                 ),
@@ -163,7 +171,9 @@ class _SubSettingsWidgetState extends State<SubSettingsWidget> {
                   padding:
                       EdgeInsetsDirectional.fromSTEB(16.0, 12.0, 0.0, 12.0),
                   child: Text(
-                    'Support',
+                    FFLocalizations.of(context).getText(
+                      '1ihorlxo' /* Support */,
+                    ),
                     style: FlutterFlowTheme.of(context).labelMedium,
                   ),
                 ),
@@ -199,7 +209,9 @@ class _SubSettingsWidgetState extends State<SubSettingsWidget> {
                             mainAxisSize: MainAxisSize.max,
                             children: [
                               Text(
-                                'Tutorial',
+                                FFLocalizations.of(context).getText(
+                                  'aoikoq8o' /* Tutorial */,
+                                ),
                                 style: FlutterFlowTheme.of(context)
                                     .bodyLarge
                                     .override(
@@ -254,7 +266,9 @@ class _SubSettingsWidgetState extends State<SubSettingsWidget> {
                         mainAxisSize: MainAxisSize.max,
                         children: [
                           Text(
-                            'Submit a Bug',
+                            FFLocalizations.of(context).getText(
+                              'sivfvm7g' /* Submit a Bug */,
+                            ),
                             style: FlutterFlowTheme.of(context)
                                 .bodyLarge
                                 .override(
@@ -307,7 +321,9 @@ class _SubSettingsWidgetState extends State<SubSettingsWidget> {
                         mainAxisSize: MainAxisSize.max,
                         children: [
                           Text(
-                            'Submit a Feature Request',
+                            FFLocalizations.of(context).getText(
+                              'bs48x2wg' /* Submit a Feature Request */,
+                            ),
                             style: FlutterFlowTheme.of(context).bodyLarge,
                           ),
                           Expanded(
@@ -393,11 +409,13 @@ class _SubSettingsWidgetState extends State<SubSettingsWidget> {
                                   padding: EdgeInsetsDirectional.fromSTEB(
                                       4.0, 0.0, 0.0, 0.0),
                                   child: Text(
-                                    'Light ',
+                                    FFLocalizations.of(context).getText(
+                                      '1hednwwd' /* Light  */,
+                                    ),
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
                                         .override(
-                                          fontFamily: 'Readex Pro',
+                                          fontFamily: 'Lato',
                                           color: Theme.of(context).brightness ==
                                                   Brightness.light
                                               ? FlutterFlowTheme.of(context)
@@ -458,11 +476,13 @@ class _SubSettingsWidgetState extends State<SubSettingsWidget> {
                                   padding: EdgeInsetsDirectional.fromSTEB(
                                       4.0, 0.0, 0.0, 0.0),
                                   child: Text(
-                                    'Dark',
+                                    FFLocalizations.of(context).getText(
+                                      'cczz4vwc' /* Dark */,
+                                    ),
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
                                         .override(
-                                          fontFamily: 'Readex Pro',
+                                          fontFamily: 'Lato',
                                           color: Theme.of(context).brightness ==
                                                   Brightness.dark
                                               ? FlutterFlowTheme.of(context)
@@ -492,7 +512,9 @@ class _SubSettingsWidgetState extends State<SubSettingsWidget> {
                     onPressed: () {
                       print('Button pressed ...');
                     },
-                    text: 'Log Out',
+                    text: FFLocalizations.of(context).getText(
+                      'm6y5vmfu' /* Log Out */,
+                    ),
                     options: FFButtonOptions(
                       width: 130.0,
                       height: 50.0,

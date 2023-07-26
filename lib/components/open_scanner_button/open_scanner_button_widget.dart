@@ -75,9 +75,11 @@ class _OpenScannerButtonWidgetState extends State<OpenScannerButtonWidget> {
                 Padding(
                   padding: EdgeInsetsDirectional.fromSTEB(5.0, 0.0, 0.0, 0.0),
                   child: Text(
-                    'Open scanner',
+                    FFLocalizations.of(context).getText(
+                      '83m0yhl8' /* Open scanner */,
+                    ),
                     style: FlutterFlowTheme.of(context).bodyMedium.override(
-                          fontFamily: 'Readex Pro',
+                          fontFamily: 'Lato',
                           color: Color(0xFFB7C1FA),
                           fontSize: 18.0,
                           letterSpacing: 0.15,

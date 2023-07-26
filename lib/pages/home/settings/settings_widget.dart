@@ -8,7 +8,6 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:octo_image/octo_image.dart';
 import 'package:provider/provider.dart';
 import 'settings_model.dart';
 export 'settings_model.dart';
@@ -81,11 +80,13 @@ class _SettingsWidgetState extends State<SettingsWidget> {
                           ),
                         ),
                         Text(
-                          'Profil',
+                          FFLocalizations.of(context).getText(
+                            'y759luz3' /* Profil */,
+                          ),
                           style: FlutterFlowTheme.of(context)
                               .bodyMedium
                               .override(
-                                fontFamily: 'Readex Pro',
+                                fontFamily: 'Lato',
                                 color: FlutterFlowTheme.of(context).secondary,
                                 fontSize: 24.0,
                                 fontWeight: FontWeight.bold,
@@ -144,7 +145,10 @@ class _SettingsWidgetState extends State<SettingsWidget> {
                                                   CrossAxisAlignment.start,
                                               children: [
                                                 Text(
-                                                  'Jakub Kapitulcin',
+                                                  FFLocalizations.of(context)
+                                                      .getText(
+                                                    '4942gnd9' /* Jakub Kapitulcin */,
+                                                  ),
                                                   style: FlutterFlowTheme.of(
                                                           context)
                                                       .bodyLarge
@@ -160,13 +164,15 @@ class _SettingsWidgetState extends State<SettingsWidget> {
                                                       ),
                                                 ),
                                                 Text(
-                                                  'Toto je tvoj profil',
+                                                  FFLocalizations.of(context)
+                                                      .getText(
+                                                    '2vkyiwcw' /* Toto je tvoj profil */,
+                                                  ),
                                                   style: FlutterFlowTheme.of(
                                                           context)
                                                       .bodyMedium
                                                       .override(
-                                                        fontFamily:
-                                                            'Readex Pro',
+                                                        fontFamily: 'Lato',
                                                         color:
                                                             FlutterFlowTheme.of(
                                                                     context)
@@ -293,13 +299,17 @@ class _SettingsWidgetState extends State<SettingsWidget> {
                                                                             0.0,
                                                                             0.0),
                                                                 child: Text(
-                                                                  '11.5.2002',
+                                                                  FFLocalizations.of(
+                                                                          context)
+                                                                      .getText(
+                                                                    'sri8tvgh' /* 11.5.2002 */,
+                                                                  ),
                                                                   style: FlutterFlowTheme.of(
                                                                           context)
                                                                       .bodyMedium
                                                                       .override(
                                                                         fontFamily:
-                                                                            'Readex Pro',
+                                                                            'Lato',
                                                                         fontSize:
                                                                             16.0,
                                                                         fontWeight:
@@ -344,13 +354,15 @@ class _SettingsWidgetState extends State<SettingsWidget> {
                                                     ),
                                                   ),
                                                   Text(
-                                                    'Dátum narodenia',
+                                                    FFLocalizations.of(context)
+                                                        .getText(
+                                                      'lc08qk6x' /* Dátum narodenia */,
+                                                    ),
                                                     style: FlutterFlowTheme.of(
                                                             context)
                                                         .bodyMedium
                                                         .override(
-                                                          fontFamily:
-                                                              'Readex Pro',
+                                                          fontFamily: 'Lato',
                                                           fontSize: 14.0,
                                                           fontWeight:
                                                               FontWeight.w800,
@@ -424,13 +436,17 @@ class _SettingsWidgetState extends State<SettingsWidget> {
                                                                             0.0,
                                                                             0.0),
                                                                 child: Text(
-                                                                  'Muž',
+                                                                  FFLocalizations.of(
+                                                                          context)
+                                                                      .getText(
+                                                                    'qsrkk0ru' /* Muž */,
+                                                                  ),
                                                                   style: FlutterFlowTheme.of(
                                                                           context)
                                                                       .bodyMedium
                                                                       .override(
                                                                         fontFamily:
-                                                                            'Readex Pro',
+                                                                            'Lato',
                                                                         fontSize:
                                                                             16.0,
                                                                         fontWeight:
@@ -474,13 +490,16 @@ class _SettingsWidgetState extends State<SettingsWidget> {
                                                       ),
                                                     ),
                                                     Text(
-                                                      'Pohlavie',
+                                                      FFLocalizations.of(
+                                                              context)
+                                                          .getText(
+                                                        'y7cit8lg' /* Pohlavie */,
+                                                      ),
                                                       style: FlutterFlowTheme
                                                               .of(context)
                                                           .bodyMedium
                                                           .override(
-                                                            fontFamily:
-                                                                'Readex Pro',
+                                                            fontFamily: 'Lato',
                                                             fontSize: 14.0,
                                                             fontWeight:
                                                                 FontWeight.w800,
@@ -581,11 +600,13 @@ class _SettingsWidgetState extends State<SettingsWidget> {
                                 padding: EdgeInsetsDirectional.fromSTEB(
                                     0.0, 15.0, 0.0, 0.0),
                                 child: Text(
-                                  'Moje intolerancie',
+                                  FFLocalizations.of(context).getText(
+                                    '2splis0j' /* Moje intolerancie */,
+                                  ),
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
-                                        fontFamily: 'Readex Pro',
+                                        fontFamily: 'Lato',
                                         fontSize: 22.0,
                                         fontWeight: FontWeight.w500,
                                       ),
@@ -604,11 +625,13 @@ class _SettingsWidgetState extends State<SettingsWidget> {
                                   padding: EdgeInsetsDirectional.fromSTEB(
                                       0.0, 5.0, 0.0, 0.0),
                                   child: Text(
-                                    'System ta bude automaticky informovat ak bude pre teba produkt nevhodny',
+                                    FFLocalizations.of(context).getText(
+                                      'fsalxms0' /* System ta bude automaticky inf... */,
+                                    ),
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
                                         .override(
-                                          fontFamily: 'Readex Pro',
+                                          fontFamily: 'Lato',
                                           color: FlutterFlowTheme.of(context)
                                               .secondary,
                                           fontSize: 13.0,
@@ -630,21 +653,45 @@ class _SettingsWidgetState extends State<SettingsWidget> {
                                       0.0, 30.0, 0.0, 0.0),
                                   child: FlutterFlowChoiceChips(
                                     options: [
-                                      ChipData('Arasidy',
+                                      ChipData(
+                                          FFLocalizations.of(context).getText(
+                                            'diccmxd3' /* Arasidy */,
+                                          ),
                                           FontAwesomeIcons.exclamationTriangle),
-                                      ChipData('Morske plody',
+                                      ChipData(
+                                          FFLocalizations.of(context).getText(
+                                            'l5zdh933' /* Morske plody */,
+                                          ),
                                           FontAwesomeIcons.exclamationTriangle),
-                                      ChipData('Orechy',
+                                      ChipData(
+                                          FFLocalizations.of(context).getText(
+                                            'h6k1cbyv' /* Orechy */,
+                                          ),
                                           FontAwesomeIcons.exclamationTriangle),
-                                      ChipData('Psenica',
+                                      ChipData(
+                                          FFLocalizations.of(context).getText(
+                                            'ugpos46i' /* Psenica */,
+                                          ),
                                           FontAwesomeIcons.exclamationTriangle),
-                                      ChipData('Ryby',
+                                      ChipData(
+                                          FFLocalizations.of(context).getText(
+                                            'i2tsrrfb' /* Ryby */,
+                                          ),
                                           FontAwesomeIcons.exclamationTriangle),
-                                      ChipData('Sezam',
+                                      ChipData(
+                                          FFLocalizations.of(context).getText(
+                                            'yeezmylp' /* Sezam */,
+                                          ),
                                           FontAwesomeIcons.exclamationTriangle),
-                                      ChipData('Soja',
+                                      ChipData(
+                                          FFLocalizations.of(context).getText(
+                                            'klwoy4de' /* Soja */,
+                                          ),
                                           FontAwesomeIcons.exclamationTriangle),
-                                      ChipData('Vajcia',
+                                      ChipData(
+                                          FFLocalizations.of(context).getText(
+                                            'k6vb14wo' /* Vajcia */,
+                                          ),
                                           FontAwesomeIcons.exclamationTriangle)
                                     ],
                                     onChanged: (val) async {
@@ -664,7 +711,7 @@ class _SettingsWidgetState extends State<SettingsWidget> {
                                       textStyle: FlutterFlowTheme.of(context)
                                           .bodyMedium
                                           .override(
-                                            fontFamily: 'Readex Pro',
+                                            fontFamily: 'Lato',
                                             color: FlutterFlowTheme.of(context)
                                                 .primary,
                                           ),
@@ -681,7 +728,7 @@ class _SettingsWidgetState extends State<SettingsWidget> {
                                       textStyle: FlutterFlowTheme.of(context)
                                           .bodyMedium
                                           .override(
-                                            fontFamily: 'Readex Pro',
+                                            fontFamily: 'Lato',
                                             color: FlutterFlowTheme.of(context)
                                                 .primaryText,
                                             fontSize: 18.0,

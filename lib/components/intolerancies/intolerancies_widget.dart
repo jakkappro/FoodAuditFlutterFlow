@@ -55,7 +55,9 @@ class _IntoleranciesWidgetState extends State<IntoleranciesWidget> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              'My preferences',
+              FFLocalizations.of(context).getText(
+                'x8bene62' /* My preferences */,
+              ),
               style: FlutterFlowTheme.of(context).displayMedium.override(
                     fontFamily: 'Lato',
                     color: Color(0xFF1C0D26),
@@ -66,9 +68,11 @@ class _IntoleranciesWidgetState extends State<IntoleranciesWidget> {
             Padding(
               padding: EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 8.0, 0.0),
               child: Text(
-                'Intolerances',
+                FFLocalizations.of(context).getText(
+                  '2h01pai8' /* Intolerances */,
+                ),
                 style: FlutterFlowTheme.of(context).bodySmall.override(
-                      fontFamily: 'Readex Pro',
+                      fontFamily: 'Lato',
                       color: Color(0xFF7A7A7A),
                       fontSize: 16.0,
                     ),
@@ -78,14 +82,30 @@ class _IntoleranciesWidgetState extends State<IntoleranciesWidget> {
               padding: EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
               child: FlutterFlowChoiceChips(
                 options: [
-                  ChipData('Milk'),
-                  ChipData('Eggs'),
-                  ChipData('Peanuts'),
-                  ChipData('Soy'),
-                  ChipData('Sesame'),
-                  ChipData('Fish'),
-                  ChipData('Shellfish'),
-                  ChipData('Wheat')
+                  ChipData(FFLocalizations.of(context).getText(
+                    'wk3wjgs4' /* Milk */,
+                  )),
+                  ChipData(FFLocalizations.of(context).getText(
+                    'p2mshd0m' /* Eggs */,
+                  )),
+                  ChipData(FFLocalizations.of(context).getText(
+                    '3jo6ppbt' /* Peanuts */,
+                  )),
+                  ChipData(FFLocalizations.of(context).getText(
+                    'l9fty51k' /* Soy */,
+                  )),
+                  ChipData(FFLocalizations.of(context).getText(
+                    't9nu3dx8' /* Sesame */,
+                  )),
+                  ChipData(FFLocalizations.of(context).getText(
+                    '56yvj6gf' /* Fish */,
+                  )),
+                  ChipData(FFLocalizations.of(context).getText(
+                    '70ryefpb' /* Shellfish */,
+                  )),
+                  ChipData(FFLocalizations.of(context).getText(
+                    'snee8f0w' /* Wheat */,
+                  ))
                 ],
                 onChanged: (val) async {
                   setState(() => _model.choiceChipsValues = val);
@@ -99,7 +119,7 @@ class _IntoleranciesWidgetState extends State<IntoleranciesWidget> {
                 selectedChipStyle: ChipStyle(
                   backgroundColor: Color(0xFF4B64F2),
                   textStyle: FlutterFlowTheme.of(context).bodyMedium.override(
-                        fontFamily: 'Readex Pro',
+                        fontFamily: 'Lato',
                         color: Color(0xFFF7F7F7),
                         fontWeight: FontWeight.w800,
                       ),
@@ -113,7 +133,7 @@ class _IntoleranciesWidgetState extends State<IntoleranciesWidget> {
                 unselectedChipStyle: ChipStyle(
                   backgroundColor: Colors.transparent,
                   textStyle: FlutterFlowTheme.of(context).bodyMedium.override(
-                        fontFamily: 'Readex Pro',
+                        fontFamily: 'Lato',
                         color: Color(0xFF7A7A7A),
                         fontWeight: FontWeight.w800,
                       ),
@@ -123,6 +143,7 @@ class _IntoleranciesWidgetState extends State<IntoleranciesWidget> {
                       EdgeInsetsDirectional.fromSTEB(12.0, 5.0, 12.0, 5.0),
                   elevation: 0.0,
                   borderColor: Color(0xFF7A7A7A),
+                  borderWidth: 1.3,
                   borderRadius: BorderRadius.circular(6.0),
                 ),
                 chipSpacing: 15.0,

@@ -1,0 +1,4 @@
+NSCameraUsageDescription = "Camera please";
+NSPhotoLibraryUsageDescription = "PhotoLibrary please";
+NSLocationWhenInUseUsageDescription = "Location please";
+PermissionGroupNotification = "Notification please";

@@ -1,11 +1,13 @@
 // ignore_for_file: unnecessary_getters_setters
+import 'package:cloud_firestore/cloud_firestore.dart';
 
+import '/backend/schema/util/firestore_util.dart';
 import '/backend/schema/util/schema_util.dart';
 
 import 'index.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 
-class ScannedFoodStruct extends BaseStruct {
+class ScannedFoodStruct extends FFFirebaseStruct {
   ScannedFoodStruct({
     String? ean,
     String? nu3Socre,
@@ -16,6 +18,8 @@ class ScannedFoodStruct extends BaseStruct {
     String? producer,
     List<IngredientStruct>? ingredients,
     List<NutritionStruct>? nutritions,
+    String? category,
+    FirestoreUtilData firestoreUtilData = const FirestoreUtilData(),
   })  : _ean = ean,
         _nu3Socre = nu3Socre,
         _bin = bin,
@@ -24,7 +28,9 @@ class ScannedFoodStruct extends BaseStruct {
         _name = name,
         _producer = producer,
         _ingredients = ingredients,
-        _nutritions = nutritions;
+        _nutritions = nutritions,
+        _category = category,
+        super(firestoreUtilData);
 
   // "EAN" field.
   String? _ean;
@@ -86,6 +92,12 @@ class ScannedFoodStruct extends BaseStruct {
       updateFn(_nutritions ??= []);
   bool hasNutritions() => _nutritions != null;
 
+  // "Category" field.
+  String? _category;
+  String get category => _category ?? '';
+  set category(String? val) => _category = val;
+  bool hasCategory() => _category != null;
+
   static ScannedFoodStruct fromMap(Map<String, dynamic> data) =>
       ScannedFoodStruct(
         ean: data['EAN'] as String?,
@@ -103,6 +115,7 @@ class ScannedFoodStruct extends BaseStruct {
           data['Nutritions'],
           NutritionStruct.fromMap,
         ),
+        category: data['Category'] as String?,
       );
 
   static ScannedFoodStruct? maybeFromMap(dynamic data) =>
@@ -118,6 +131,7 @@ class ScannedFoodStruct extends BaseStruct {
         'Producer': _producer,
         'Ingredients': _ingredients?.map((e) => e.toMap()).toList(),
         'Nutritions': _nutritions?.map((e) => e.toMap()).toList(),
+        'Category': _category,
       }.withoutNulls;
 
   @override
@@ -160,6 +174,10 @@ class ScannedFoodStruct extends BaseStruct {
           _nutritions,
           ParamType.DataStruct,
           true,
+        ),
+        'Category': serializeParam(
+          _category,
+          ParamType.String,
         ),
       }.withoutNulls;
 
@@ -212,6 +230,11 @@ class ScannedFoodStruct extends BaseStruct {
           true,
           structBuilder: NutritionStruct.fromSerializableMap,
         ),
+        category: deserializeParam(
+          data['Category'],
+          ParamType.String,
+          false,
+        ),
       );
 
   @override
@@ -229,7 +252,8 @@ class ScannedFoodStruct extends BaseStruct {
         name == other.name &&
         producer == other.producer &&
         listEquality.equals(ingredients, other.ingredients) &&
-        listEquality.equals(nutritions, other.nutritions);
+        listEquality.equals(nutritions, other.nutritions) &&
+        category == other.category;
   }
 
   @override
@@ -242,7 +266,8 @@ class ScannedFoodStruct extends BaseStruct {
         name,
         producer,
         ingredients,
-        nutritions
+        nutritions,
+        category
       ]);
 }
 
@@ -253,6 +278,11 @@ ScannedFoodStruct createScannedFoodStruct({
   String? nova4,
   String? name,
   String? producer,
+  String? category,
+  Map<String, dynamic> fieldValues = const {},
+  bool clearUnsetFields = true,
+  bool create = false,
+  bool delete = false,
 }) =>
     ScannedFoodStruct(
       ean: ean,
@@ -261,4 +291,70 @@ ScannedFoodStruct createScannedFoodStruct({
       nova4: nova4,
       name: name,
       producer: producer,
+      category: category,
+      firestoreUtilData: FirestoreUtilData(
+        clearUnsetFields: clearUnsetFields,
+        create: create,
+        delete: delete,
+        fieldValues: fieldValues,
+      ),
     );
+
+ScannedFoodStruct? updateScannedFoodStruct(
+  ScannedFoodStruct? scannedFood, {
+  bool clearUnsetFields = true,
+  bool create = false,
+}) =>
+    scannedFood
+      ?..firestoreUtilData = FirestoreUtilData(
+        clearUnsetFields: clearUnsetFields,
+        create: create,
+      );
+
+void addScannedFoodStructData(
+  Map<String, dynamic> firestoreData,
+  ScannedFoodStruct? scannedFood,
+  String fieldName, [
+  bool forFieldValue = false,
+]) {
+  firestoreData.remove(fieldName);
+  if (scannedFood == null) {
+    return;
+  }
+  if (scannedFood.firestoreUtilData.delete) {
+    firestoreData[fieldName] = FieldValue.delete();
+    return;
+  }
+  if (!forFieldValue && scannedFood.firestoreUtilData.clearUnsetFields) {
+    firestoreData[fieldName] = <String, dynamic>{};
+  }
+  final scannedFoodData =
+      getScannedFoodFirestoreData(scannedFood, forFieldValue);
+  final nestedData =
+      scannedFoodData.map((k, v) => MapEntry('$fieldName.$k', v));
+
+  final create = scannedFood.firestoreUtilData.create;
+  firestoreData.addAll(create ? mergeNestedFields(nestedData) : nestedData);
+}
+
+Map<String, dynamic> getScannedFoodFirestoreData(
+  ScannedFoodStruct? scannedFood, [
+  bool forFieldValue = false,
+]) {
+  if (scannedFood == null) {
+    return {};
+  }
+  final firestoreData = mapToFirestore(scannedFood.toMap());
+
+  // Add any Firestore field values
+  scannedFood.firestoreUtilData.fieldValues
+      .forEach((k, v) => firestoreData[k] = v);
+
+  return forFieldValue ? mergeNestedFields(firestoreData) : firestoreData;
+}
+
+List<Map<String, dynamic>> getScannedFoodListFirestoreData(
+  List<ScannedFoodStruct>? scannedFoods,
+) =>
+    scannedFoods?.map((e) => getScannedFoodFirestoreData(e, true)).toList() ??
+    [];

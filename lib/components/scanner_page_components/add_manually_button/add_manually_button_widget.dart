@@ -50,9 +50,11 @@ class _AddManuallyButtonWidgetState extends State<AddManuallyButtonWidget> {
       child: Align(
         alignment: AlignmentDirectional(0.0, 0.0),
         child: Text(
-          'Add manualy',
+          FFLocalizations.of(context).getText(
+            '7dl2baci' /* Add manualy */,
+          ),
           style: FlutterFlowTheme.of(context).bodyMedium.override(
-                fontFamily: 'Readex Pro',
+                fontFamily: 'Lato',
                 color: Color(0xFF382F73),
                 fontSize: 18.0,
                 letterSpacing: 0.15,

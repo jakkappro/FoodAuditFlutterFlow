@@ -98,7 +98,9 @@ class _OnboradingWidgetState extends State<OnboradingWidget> {
                                     padding: EdgeInsetsDirectional.fromSTEB(
                                         12.0, 0.0, 0.0, 0.0),
                                     child: Text(
-                                      'Header One',
+                                      FFLocalizations.of(context).getText(
+                                        'x9kdqi9v' /* Header One */,
+                                      ),
                                       style: FlutterFlowTheme.of(context)
                                           .headlineLarge,
                                     ),
@@ -107,7 +109,9 @@ class _OnboradingWidgetState extends State<OnboradingWidget> {
                                     padding: EdgeInsetsDirectional.fromSTEB(
                                         12.0, 4.0, 12.0, 0.0),
                                     child: Text(
-                                      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ',
+                                      FFLocalizations.of(context).getText(
+                                        'lvek099c' /* Lorem ipsum dolor sit amet, co... */,
+                                      ),
                                       style: FlutterFlowTheme.of(context)
                                           .labelLarge,
                                     ),
@@ -143,7 +147,9 @@ class _OnboradingWidgetState extends State<OnboradingWidget> {
                                     padding: EdgeInsetsDirectional.fromSTEB(
                                         12.0, 0.0, 0.0, 0.0),
                                     child: Text(
-                                      'Header Two',
+                                      FFLocalizations.of(context).getText(
+                                        '97f7i7kl' /* Header Two */,
+                                      ),
                                       style: FlutterFlowTheme.of(context)
                                           .headlineLarge,
                                     ),
@@ -152,7 +158,9 @@ class _OnboradingWidgetState extends State<OnboradingWidget> {
                                     padding: EdgeInsetsDirectional.fromSTEB(
                                         12.0, 4.0, 12.0, 0.0),
                                     child: Text(
-                                      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ',
+                                      FFLocalizations.of(context).getText(
+                                        'zkby72iy' /* Lorem ipsum dolor sit amet, co... */,
+                                      ),
                                       style: FlutterFlowTheme.of(context)
                                           .labelLarge,
                                     ),
@@ -188,7 +196,9 @@ class _OnboradingWidgetState extends State<OnboradingWidget> {
                                     padding: EdgeInsetsDirectional.fromSTEB(
                                         12.0, 0.0, 0.0, 0.0),
                                     child: Text(
-                                      'Header Three',
+                                      FFLocalizations.of(context).getText(
+                                        'uqqtji87' /* Header Three */,
+                                      ),
                                       style: FlutterFlowTheme.of(context)
                                           .headlineLarge,
                                     ),
@@ -197,7 +207,9 @@ class _OnboradingWidgetState extends State<OnboradingWidget> {
                                     padding: EdgeInsetsDirectional.fromSTEB(
                                         12.0, 4.0, 12.0, 0.0),
                                     child: Text(
-                                      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ',
+                                      FFLocalizations.of(context).getText(
+                                        'g95o5fqr' /* Lorem ipsum dolor sit amet, co... */,
+                                      ),
                                       style: FlutterFlowTheme.of(context)
                                           .labelLarge,
                                     ),
@@ -255,7 +267,10 @@ class _OnboradingWidgetState extends State<OnboradingWidget> {
                                                 EdgeInsetsDirectional.fromSTEB(
                                                     24.0, 64.0, 24.0, 24.0),
                                             child: Text(
-                                              'Papaj zravo ne?',
+                                              FFLocalizations.of(context)
+                                                  .getText(
+                                                'p4snof83' /* Papaj zravo ne? */,
+                                              ),
                                               textAlign: TextAlign.center,
                                               style:
                                                   FlutterFlowTheme.of(context)
@@ -281,7 +296,10 @@ class _OnboradingWidgetState extends State<OnboradingWidget> {
                                               onPressed: () async {
                                                 context.goNamed('SetUpWizard');
                                               },
-                                              text: 'Create local profile',
+                                              text: FFLocalizations.of(context)
+                                                  .getText(
+                                                '5ndeut2q' /* Create local profile */,
+                                              ),
                                               options: FFButtonOptions(
                                                 width: double.infinity,
                                                 height: 60.0,
@@ -329,7 +347,10 @@ class _OnboradingWidgetState extends State<OnboradingWidget> {
                                                 EdgeInsetsDirectional.fromSTEB(
                                                     0.0, 12.0, 0.0, 12.0),
                                             child: Text(
-                                              'Or use social media',
+                                              FFLocalizations.of(context)
+                                                  .getText(
+                                                'ghlnmvfr' /* Or use social media */,
+                                              ),
                                               style:
                                                   FlutterFlowTheme.of(context)
                                                       .labelMedium,
@@ -343,7 +364,10 @@ class _OnboradingWidgetState extends State<OnboradingWidget> {
                                               onPressed: () {
                                                 print('Button pressed ...');
                                               },
-                                              text: 'Sign up with Google',
+                                              text: FFLocalizations.of(context)
+                                                  .getText(
+                                                '9sye5sb4' /* Sign up with Google */,
+                                              ),
                                               icon: FaIcon(
                                                 FontAwesomeIcons.google,
                                                 color:
@@ -395,7 +419,10 @@ class _OnboradingWidgetState extends State<OnboradingWidget> {
                                               onPressed: () {
                                                 print('Button pressed ...');
                                               },
-                                              text: 'Sign up with Facebook',
+                                              text: FFLocalizations.of(context)
+                                                  .getText(
+                                                '0mheil3a' /* Sign up with Facebook */,
+                                              ),
                                               icon: Icon(
                                                 Icons.facebook,
                                                 color:

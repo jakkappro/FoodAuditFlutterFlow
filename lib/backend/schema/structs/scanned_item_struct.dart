@@ -1,20 +1,24 @@
 // ignore_for_file: unnecessary_getters_setters
+import 'package:cloud_firestore/cloud_firestore.dart';
 
+import '/backend/schema/util/firestore_util.dart';
 import '/backend/schema/util/schema_util.dart';
 
 import 'index.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 
-class ScannedItemStruct extends BaseStruct {
+class ScannedItemStruct extends FFFirebaseStruct {
   ScannedItemStruct({
     String? ean,
     DateTime? lastScanned,
     bool? isFavourite,
     int? numberOfScans,
+    FirestoreUtilData firestoreUtilData = const FirestoreUtilData(),
   })  : _ean = ean,
         _lastScanned = lastScanned,
         _isFavourite = isFavourite,
-        _numberOfScans = numberOfScans;
+        _numberOfScans = numberOfScans,
+        super(firestoreUtilData);
 
   // "EAN" field.
   String? _ean;
@@ -126,10 +130,79 @@ ScannedItemStruct createScannedItemStruct({
   DateTime? lastScanned,
   bool? isFavourite,
   int? numberOfScans,
+  Map<String, dynamic> fieldValues = const {},
+  bool clearUnsetFields = true,
+  bool create = false,
+  bool delete = false,
 }) =>
     ScannedItemStruct(
       ean: ean,
       lastScanned: lastScanned,
       isFavourite: isFavourite,
       numberOfScans: numberOfScans,
+      firestoreUtilData: FirestoreUtilData(
+        clearUnsetFields: clearUnsetFields,
+        create: create,
+        delete: delete,
+        fieldValues: fieldValues,
+      ),
     );
+
+ScannedItemStruct? updateScannedItemStruct(
+  ScannedItemStruct? scannedItem, {
+  bool clearUnsetFields = true,
+  bool create = false,
+}) =>
+    scannedItem
+      ?..firestoreUtilData = FirestoreUtilData(
+        clearUnsetFields: clearUnsetFields,
+        create: create,
+      );
+
+void addScannedItemStructData(
+  Map<String, dynamic> firestoreData,
+  ScannedItemStruct? scannedItem,
+  String fieldName, [
+  bool forFieldValue = false,
+]) {
+  firestoreData.remove(fieldName);
+  if (scannedItem == null) {
+    return;
+  }
+  if (scannedItem.firestoreUtilData.delete) {
+    firestoreData[fieldName] = FieldValue.delete();
+    return;
+  }
+  if (!forFieldValue && scannedItem.firestoreUtilData.clearUnsetFields) {
+    firestoreData[fieldName] = <String, dynamic>{};
+  }
+  final scannedItemData =
+      getScannedItemFirestoreData(scannedItem, forFieldValue);
+  final nestedData =
+      scannedItemData.map((k, v) => MapEntry('$fieldName.$k', v));
+
+  final create = scannedItem.firestoreUtilData.create;
+  firestoreData.addAll(create ? mergeNestedFields(nestedData) : nestedData);
+}
+
+Map<String, dynamic> getScannedItemFirestoreData(
+  ScannedItemStruct? scannedItem, [
+  bool forFieldValue = false,
+]) {
+  if (scannedItem == null) {
+    return {};
+  }
+  final firestoreData = mapToFirestore(scannedItem.toMap());
+
+  // Add any Firestore field values
+  scannedItem.firestoreUtilData.fieldValues
+      .forEach((k, v) => firestoreData[k] = v);
+
+  return forFieldValue ? mergeNestedFields(firestoreData) : firestoreData;
+}
+
+List<Map<String, dynamic>> getScannedItemListFirestoreData(
+  List<ScannedItemStruct>? scannedItems,
+) =>
+    scannedItems?.map((e) => getScannedItemFirestoreData(e, true)).toList() ??
+    [];

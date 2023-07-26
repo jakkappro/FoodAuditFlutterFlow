@@ -190,14 +190,14 @@ class ThemeTypography extends Typography {
         'Lato',
         color: theme.primaryText,
         fontWeight: FontWeight.normal,
-        fontSize: 64.0,
+        fontSize: 42.0,
       );
   String get displayMediumFamily => 'Lato';
   TextStyle get displayMedium => GoogleFonts.getFont(
         'Lato',
         color: theme.primaryText,
         fontWeight: FontWeight.bold,
-        fontSize: 96.0,
+        fontSize: 32.0,
         fontStyle: FontStyle.normal,
       );
   String get displaySmallFamily => 'Lato';
@@ -205,15 +205,15 @@ class ThemeTypography extends Typography {
         'Lato',
         color: theme.primaryText,
         fontWeight: FontWeight.bold,
-        fontSize: 60.0,
+        fontSize: 24.0,
         fontStyle: FontStyle.normal,
       );
   String get headlineLargeFamily => 'Lato';
   TextStyle get headlineLarge => GoogleFonts.getFont(
         'Lato',
         color: theme.primaryText,
-        fontWeight: FontWeight.bold,
-        fontSize: 48.0,
+        fontWeight: FontWeight.w800,
+        fontSize: 42.0,
         fontStyle: FontStyle.normal,
       );
   String get headlineMediumFamily => 'Lato';
@@ -221,7 +221,7 @@ class ThemeTypography extends Typography {
         'Lato',
         color: theme.primaryText,
         fontWeight: FontWeight.w800,
-        fontSize: 42.0,
+        fontSize: 32.0,
         fontStyle: FontStyle.normal,
       );
   String get headlineSmallFamily => 'Lato';
@@ -229,7 +229,7 @@ class ThemeTypography extends Typography {
         'Lato',
         color: theme.primaryText,
         fontWeight: FontWeight.w800,
-        fontSize: 32.0,
+        fontSize: 24.0,
         fontStyle: FontStyle.normal,
       );
   String get titleLargeFamily => 'Lato';
@@ -277,7 +277,7 @@ class ThemeTypography extends Typography {
         'Lato',
         color: theme.secondaryText,
         fontWeight: FontWeight.normal,
-        fontSize: 16.0,
+        fontSize: 12.64,
         fontStyle: FontStyle.normal,
       );
   String get bodyLargeFamily => 'Lato';
@@ -285,19 +285,19 @@ class ThemeTypography extends Typography {
         'Lato',
         color: theme.primaryText,
         fontWeight: FontWeight.w800,
-        fontSize: 14.0,
+        fontSize: 16.0,
         fontStyle: FontStyle.normal,
       );
-  String get bodyMediumFamily => 'Readex Pro';
+  String get bodyMediumFamily => 'Lato';
   TextStyle get bodyMedium => GoogleFonts.getFont(
-        'Readex Pro',
+        'Lato',
         color: theme.primaryText,
         fontWeight: FontWeight.normal,
         fontSize: 14.0,
       );
-  String get bodySmallFamily => 'Readex Pro';
+  String get bodySmallFamily => 'Lato';
   TextStyle get bodySmall => GoogleFonts.getFont(
-        'Readex Pro',
+        'Lato',
         color: theme.primaryText,
         fontWeight: FontWeight.normal,
         fontSize: 12.0,

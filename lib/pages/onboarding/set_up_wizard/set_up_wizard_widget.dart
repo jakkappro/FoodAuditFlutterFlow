@@ -65,7 +65,9 @@ class _SetUpWizardWidgetState extends State<SetUpWizardWidget> {
                       autofocus: true,
                       obscureText: false,
                       decoration: InputDecoration(
-                        labelText: 'Menko',
+                        labelText: FFLocalizations.of(context).getText(
+                          'pldv1b8f' /* Menko */,
+                        ),
                         labelStyle: FlutterFlowTheme.of(context).labelMedium,
                         hintStyle: FlutterFlowTheme.of(context).labelMedium,
                         enabledBorder: UnderlineInputBorder(
@@ -109,7 +111,9 @@ class _SetUpWizardWidgetState extends State<SetUpWizardWidget> {
                       autofocus: true,
                       obscureText: false,
                       decoration: InputDecoration(
-                        labelText: 'Priezvisko',
+                        labelText: FFLocalizations.of(context).getText(
+                          '87asg46g' /* Priezvisko */,
+                        ),
                         labelStyle: FlutterFlowTheme.of(context).labelMedium,
                         hintStyle: FlutterFlowTheme.of(context).labelMedium,
                         enabledBorder: UnderlineInputBorder(
@@ -153,7 +157,9 @@ class _SetUpWizardWidgetState extends State<SetUpWizardWidget> {
                       autofocus: true,
                       obscureText: false,
                       decoration: InputDecoration(
-                        labelText: 'Typ postihnutia(pohlavie)',
+                        labelText: FFLocalizations.of(context).getText(
+                          '1oyw0l5g' /* Typ postihnutia(pohlavie) */,
+                        ),
                         labelStyle: FlutterFlowTheme.of(context).labelMedium,
                         hintStyle: FlutterFlowTheme.of(context).labelMedium,
                         enabledBorder: UnderlineInputBorder(
@@ -252,7 +258,9 @@ class _SetUpWizardWidgetState extends State<SetUpWizardWidget> {
                         setState(() => _model.switchListTileValue = newValue!);
                       },
                       title: Text(
-                        'Alerty z EU',
+                        FFLocalizations.of(context).getText(
+                          'l9h4fanf' /* Alerty z EU */,
+                        ),
                         style: FlutterFlowTheme.of(context).titleLarge,
                       ),
                       tileColor: FlutterFlowTheme.of(context).primary,
@@ -275,7 +283,9 @@ class _SetUpWizardWidgetState extends State<SetUpWizardWidget> {
 
                         context.goNamed('Home');
                       },
-                      text: 'Hotofo',
+                      text: FFLocalizations.of(context).getText(
+                        'cdn68h8g' /* Hotofo */,
+                      ),
                       options: FFButtonOptions(
                         height: 40.0,
                         padding: EdgeInsetsDirectional.fromSTEB(

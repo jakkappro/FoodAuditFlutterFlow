@@ -1,16 +1,20 @@
 // ignore_for_file: unnecessary_getters_setters
+import 'package:cloud_firestore/cloud_firestore.dart';
 
+import '/backend/schema/util/firestore_util.dart';
 import '/backend/schema/util/schema_util.dart';
 
 import 'index.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 
-class IngredientStruct extends BaseStruct {
+class IngredientStruct extends FFFirebaseStruct {
   IngredientStruct({
     String? name,
     bool? isAllergen,
+    FirestoreUtilData firestoreUtilData = const FirestoreUtilData(),
   })  : _name = name,
-        _isAllergen = isAllergen;
+        _isAllergen = isAllergen,
+        super(firestoreUtilData);
 
   // "Name" field.
   String? _name;
@@ -18,7 +22,7 @@ class IngredientStruct extends BaseStruct {
   set name(String? val) => _name = val;
   bool hasName() => _name != null;
 
-  // "isAllergen" field.
+  // "IsAllergen" field.
   bool? _isAllergen;
   bool get isAllergen => _isAllergen ?? false;
   set isAllergen(bool? val) => _isAllergen = val;
@@ -27,7 +31,7 @@ class IngredientStruct extends BaseStruct {
   static IngredientStruct fromMap(Map<String, dynamic> data) =>
       IngredientStruct(
         name: data['Name'] as String?,
-        isAllergen: data['isAllergen'] as bool?,
+        isAllergen: data['IsAllergen'] as bool?,
       );
 
   static IngredientStruct? maybeFromMap(dynamic data) =>
@@ -35,7 +39,7 @@ class IngredientStruct extends BaseStruct {
 
   Map<String, dynamic> toMap() => {
         'Name': _name,
-        'isAllergen': _isAllergen,
+        'IsAllergen': _isAllergen,
       }.withoutNulls;
 
   @override
@@ -44,7 +48,7 @@ class IngredientStruct extends BaseStruct {
           _name,
           ParamType.String,
         ),
-        'isAllergen': serializeParam(
+        'IsAllergen': serializeParam(
           _isAllergen,
           ParamType.bool,
         ),
@@ -58,7 +62,7 @@ class IngredientStruct extends BaseStruct {
           false,
         ),
         isAllergen: deserializeParam(
-          data['isAllergen'],
+          data['IsAllergen'],
           ParamType.bool,
           false,
         ),
@@ -81,8 +85,74 @@ class IngredientStruct extends BaseStruct {
 IngredientStruct createIngredientStruct({
   String? name,
   bool? isAllergen,
+  Map<String, dynamic> fieldValues = const {},
+  bool clearUnsetFields = true,
+  bool create = false,
+  bool delete = false,
 }) =>
     IngredientStruct(
       name: name,
       isAllergen: isAllergen,
+      firestoreUtilData: FirestoreUtilData(
+        clearUnsetFields: clearUnsetFields,
+        create: create,
+        delete: delete,
+        fieldValues: fieldValues,
+      ),
     );
+
+IngredientStruct? updateIngredientStruct(
+  IngredientStruct? ingredient, {
+  bool clearUnsetFields = true,
+  bool create = false,
+}) =>
+    ingredient
+      ?..firestoreUtilData = FirestoreUtilData(
+        clearUnsetFields: clearUnsetFields,
+        create: create,
+      );
+
+void addIngredientStructData(
+  Map<String, dynamic> firestoreData,
+  IngredientStruct? ingredient,
+  String fieldName, [
+  bool forFieldValue = false,
+]) {
+  firestoreData.remove(fieldName);
+  if (ingredient == null) {
+    return;
+  }
+  if (ingredient.firestoreUtilData.delete) {
+    firestoreData[fieldName] = FieldValue.delete();
+    return;
+  }
+  if (!forFieldValue && ingredient.firestoreUtilData.clearUnsetFields) {
+    firestoreData[fieldName] = <String, dynamic>{};
+  }
+  final ingredientData = getIngredientFirestoreData(ingredient, forFieldValue);
+  final nestedData = ingredientData.map((k, v) => MapEntry('$fieldName.$k', v));
+
+  final create = ingredient.firestoreUtilData.create;
+  firestoreData.addAll(create ? mergeNestedFields(nestedData) : nestedData);
+}
+
+Map<String, dynamic> getIngredientFirestoreData(
+  IngredientStruct? ingredient, [
+  bool forFieldValue = false,
+]) {
+  if (ingredient == null) {
+    return {};
+  }
+  final firestoreData = mapToFirestore(ingredient.toMap());
+
+  // Add any Firestore field values
+  ingredient.firestoreUtilData.fieldValues
+      .forEach((k, v) => firestoreData[k] = v);
+
+  return forFieldValue ? mergeNestedFields(firestoreData) : firestoreData;
+}
+
+List<Map<String, dynamic>> getIngredientListFirestoreData(
+  List<IngredientStruct>? ingredients,
+) =>
+    ingredients?.map((e) => getIngredientFirestoreData(e, true)).toList() ?? [];

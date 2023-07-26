@@ -1,4 +1,5 @@
 // Automatic FlutterFlow imports
+import '/backend/backend.dart';
 import '/backend/schema/structs/index.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -76,7 +77,8 @@ class _BarCodeScannerState extends State<BarCodeScanner>
           );
         } else if (details.primaryVelocity! < 0 &&
             _panelOpened &&
-            !_panelController.isPanelShown) {
+            !_panelController.isPanelShown &&
+            !_panelController.isPanelAnimating) {
           _canScan = true;
           await _panelController.animatePanelToPosition(
             0,
@@ -95,6 +97,7 @@ class _BarCodeScannerState extends State<BarCodeScanner>
               )
             : Container(),
         snapPoint: 0.4,
+        renderPanelSheet: false,
         backdropTapClosesPanel: true,
         backdropColor: Colors.grey,
         backdropEnabled: _panelOpened,
@@ -122,10 +125,9 @@ class _BarCodeScannerState extends State<BarCodeScanner>
                 color: _backdropColor,
               ),
             ),
-            Positioned(
+            Align(
               child: CloseScannerButtonWidget(),
-              bottom: 60,
-              right: 30,
+              alignment: Alignment(0.9, 0.9),
             ),
             SizedBox(
               child: ScanProductMessageWidget(),
@@ -141,6 +143,10 @@ class _BarCodeScannerState extends State<BarCodeScanner>
   Future<void> _updateScannedFood(String ean) async {
     if (ean == _ean) return;
     final newFood = await getFoodFromEAN(ean, true);
+    final foodSafe = await isFoodSafe(newFood?.allergens.toList());
+
+    // somehow figure out how to diff whether product is in db or not, future kubo problem
+
     if (newFood != null) {
       if (_panelController.isAttached) {
         await _panelController.animatePanelToSnapPoint(
@@ -153,6 +159,11 @@ class _BarCodeScannerState extends State<BarCodeScanner>
         setState(() {
           _scannedFood = newFood;
           _foundFood = true;
+          if (foodSafe) {
+            _backdropColor = _safeFoodColor;
+          } else {
+            _backdropColor = _dangerounsFoodColor;
+          }
         });
       }
     }

@@ -54,9 +54,11 @@ class _ScanProductMessageWidgetState extends State<ScanProductMessageWidget> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              'Scan your product',
+              FFLocalizations.of(context).getText(
+                'cz2154o8' /* Scan your product */,
+              ),
               style: FlutterFlowTheme.of(context).bodyMedium.override(
-                    fontFamily: 'Readex Pro',
+                    fontFamily: 'Lato',
                     color: Color(0xFFF7F7F7),
                     fontSize: 32.0,
                     fontWeight: FontWeight.w800,
@@ -65,9 +67,11 @@ class _ScanProductMessageWidgetState extends State<ScanProductMessageWidget> {
             Padding(
               padding: EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 0.0),
               child: Text(
-                'Hold barcode or ingredients list \ninside square area',
+                FFLocalizations.of(context).getText(
+                  'rju430wl' /* Hold barcode or ingredients li... */,
+                ),
                 style: FlutterFlowTheme.of(context).bodyMedium.override(
-                      fontFamily: 'Readex Pro',
+                      fontFamily: 'Lato',
                       color: Color(0xFFAFACC7),
                       fontSize: 18.0,
                       fontWeight: FontWeight.bold,

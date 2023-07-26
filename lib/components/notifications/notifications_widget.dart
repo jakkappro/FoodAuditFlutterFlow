@@ -1,3 +1,4 @@
+import '/backend/backend.dart';
 import '/backend/schema/structs/index.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -64,7 +65,9 @@ class _NotificationsWidgetState extends State<NotificationsWidget> {
           Padding(
             padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 10.0),
             child: Text(
-              'Notifications',
+              FFLocalizations.of(context).getText(
+                'ituuabx5' /* Notifications */,
+              ),
               style: FlutterFlowTheme.of(context).headlineMedium.override(
                     fontFamily: 'Lato',
                     color: Color(0xFF1C0D26),
@@ -120,7 +123,7 @@ class _NotificationsWidgetState extends State<NotificationsWidget> {
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
-                                        fontFamily: 'Readex Pro',
+                                        fontFamily: 'Lato',
                                         fontSize: 16.0,
                                         letterSpacing: 0.15,
                                         fontWeight: FontWeight.w800,
@@ -130,7 +133,9 @@ class _NotificationsWidgetState extends State<NotificationsWidget> {
                                   onPressed: () {
                                     print('Button pressed ...');
                                   },
-                                  text: 'Open',
+                                  text: FFLocalizations.of(context).getText(
+                                    'axgz8q6h' /* Open */,
+                                  ),
                                   icon: Icon(
                                     Icons.open_in_new_sharp,
                                     color: Color(0xFF382F73),
@@ -177,7 +182,9 @@ class _NotificationsWidgetState extends State<NotificationsWidget> {
                   progressColor: FlutterFlowTheme.of(context).primary,
                   backgroundColor: FlutterFlowTheme.of(context).accent4,
                   center: Text(
-                    '50%',
+                    FFLocalizations.of(context).getText(
+                      '8836p6te' /* 50% */,
+                    ),
                     style: FlutterFlowTheme.of(context).headlineSmall,
                   ),
                 );

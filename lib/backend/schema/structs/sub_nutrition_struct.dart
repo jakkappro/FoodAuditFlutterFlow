@@ -1,18 +1,22 @@
 // ignore_for_file: unnecessary_getters_setters
+import 'package:cloud_firestore/cloud_firestore.dart';
 
+import '/backend/schema/util/firestore_util.dart';
 import '/backend/schema/util/schema_util.dart';
 
 import 'index.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 
-class SubNutritionStruct extends BaseStruct {
+class SubNutritionStruct extends FFFirebaseStruct {
   SubNutritionStruct({
     String? name,
     double? value,
     String? unit,
+    FirestoreUtilData firestoreUtilData = const FirestoreUtilData(),
   })  : _name = name,
         _value = value,
-        _unit = unit;
+        _unit = unit,
+        super(firestoreUtilData);
 
   // "Name" field.
   String? _name;
@@ -103,9 +107,78 @@ SubNutritionStruct createSubNutritionStruct({
   String? name,
   double? value,
   String? unit,
+  Map<String, dynamic> fieldValues = const {},
+  bool clearUnsetFields = true,
+  bool create = false,
+  bool delete = false,
 }) =>
     SubNutritionStruct(
       name: name,
       value: value,
       unit: unit,
+      firestoreUtilData: FirestoreUtilData(
+        clearUnsetFields: clearUnsetFields,
+        create: create,
+        delete: delete,
+        fieldValues: fieldValues,
+      ),
     );
+
+SubNutritionStruct? updateSubNutritionStruct(
+  SubNutritionStruct? subNutrition, {
+  bool clearUnsetFields = true,
+  bool create = false,
+}) =>
+    subNutrition
+      ?..firestoreUtilData = FirestoreUtilData(
+        clearUnsetFields: clearUnsetFields,
+        create: create,
+      );
+
+void addSubNutritionStructData(
+  Map<String, dynamic> firestoreData,
+  SubNutritionStruct? subNutrition,
+  String fieldName, [
+  bool forFieldValue = false,
+]) {
+  firestoreData.remove(fieldName);
+  if (subNutrition == null) {
+    return;
+  }
+  if (subNutrition.firestoreUtilData.delete) {
+    firestoreData[fieldName] = FieldValue.delete();
+    return;
+  }
+  if (!forFieldValue && subNutrition.firestoreUtilData.clearUnsetFields) {
+    firestoreData[fieldName] = <String, dynamic>{};
+  }
+  final subNutritionData =
+      getSubNutritionFirestoreData(subNutrition, forFieldValue);
+  final nestedData =
+      subNutritionData.map((k, v) => MapEntry('$fieldName.$k', v));
+
+  final create = subNutrition.firestoreUtilData.create;
+  firestoreData.addAll(create ? mergeNestedFields(nestedData) : nestedData);
+}
+
+Map<String, dynamic> getSubNutritionFirestoreData(
+  SubNutritionStruct? subNutrition, [
+  bool forFieldValue = false,
+]) {
+  if (subNutrition == null) {
+    return {};
+  }
+  final firestoreData = mapToFirestore(subNutrition.toMap());
+
+  // Add any Firestore field values
+  subNutrition.firestoreUtilData.fieldValues
+      .forEach((k, v) => firestoreData[k] = v);
+
+  return forFieldValue ? mergeNestedFields(firestoreData) : firestoreData;
+}
+
+List<Map<String, dynamic>> getSubNutritionListFirestoreData(
+  List<SubNutritionStruct>? subNutritions,
+) =>
+    subNutritions?.map((e) => getSubNutritionFirestoreData(e, true)).toList() ??
+    [];

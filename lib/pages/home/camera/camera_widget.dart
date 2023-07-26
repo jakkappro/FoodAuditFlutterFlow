@@ -42,13 +42,10 @@ class _CameraWidgetState extends State<CameraWidget> {
       onTap: () => FocusScope.of(context).requestFocus(_model.unfocusNode),
       child: Scaffold(
         key: scaffoldKey,
-        backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
-        body: SafeArea(
-          top: true,
-          child: custom_widgets.BarCodeScanner(
-            width: double.infinity,
-            height: double.infinity,
-          ),
+        backgroundColor: Colors.transparent,
+        body: custom_widgets.BarCodeScanner(
+          width: double.infinity,
+          height: double.infinity,
         ),
       ),
     );

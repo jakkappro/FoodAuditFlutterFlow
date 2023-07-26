@@ -1,3 +1,4 @@
+import '/backend/backend.dart';
 import '/backend/schema/structs/index.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -41,6 +42,7 @@ class _ScannedItemWidgetState extends State<ScannedItemWidget> {
     SchedulerBinding.instance.addPostFrameCallback((_) async {
       _model.newFood = await actions.getFoodFromEAN(
         widget.scannedItem!.ean,
+        false,
       );
       _model.foodSafe = await actions.isFoodSafe(
         _model.newFood?.allergens?.toList(),
@@ -128,7 +130,7 @@ class _ScannedItemWidgetState extends State<ScannedItemWidget> {
                               style: FlutterFlowTheme.of(context)
                                   .bodyMedium
                                   .override(
-                                    fontFamily: 'Readex Pro',
+                                    fontFamily: 'Lato',
                                     color: Color(0xFFC4C4C4),
                                     fontSize: 11.0,
                                     letterSpacing: 1.05,
@@ -149,7 +151,7 @@ class _ScannedItemWidgetState extends State<ScannedItemWidget> {
                             style: FlutterFlowTheme.of(context)
                                 .bodyMedium
                                 .override(
-                                  fontFamily: 'Readex Pro',
+                                  fontFamily: 'Lato',
                                   color: Color(0xFF382F73),
                                   fontSize: 18.0,
                                   letterSpacing: 0.15,
@@ -158,10 +160,12 @@ class _ScannedItemWidgetState extends State<ScannedItemWidget> {
                           ),
                         ),
                         Text(
-                          'Mliečne výrobky',
+                          FFLocalizations.of(context).getText(
+                            '3huojtaq' /* Mliečne výrobky */,
+                          ),
                           style:
                               FlutterFlowTheme.of(context).bodyMedium.override(
-                                    fontFamily: 'Readex Pro',
+                                    fontFamily: 'Lato',
                                     color: Color(0xFF382F73),
                                     fontWeight: FontWeight.w800,
                                   ),
@@ -173,7 +177,7 @@ class _ScannedItemWidgetState extends State<ScannedItemWidget> {
                           ),
                           style:
                               FlutterFlowTheme.of(context).bodyMedium.override(
-                                    fontFamily: 'Readex Pro',
+                                    fontFamily: 'Lato',
                                     color: Color(0xFFAFACC7),
                                     fontSize: 12.64,
                                     letterSpacing: 0.5,
@@ -192,9 +196,11 @@ class _ScannedItemWidgetState extends State<ScannedItemWidget> {
                         color: Colors.transparent,
                       ),
                       child: Text(
-                        '1,2,3,4',
+                        FFLocalizations.of(context).getText(
+                          '01ip2n0c' /* 1,2,3,4 */,
+                        ),
                         style: FlutterFlowTheme.of(context).bodyMedium.override(
-                              fontFamily: 'Readex Pro',
+                              fontFamily: 'Lato',
                               color: Color(0xFF82D680),
                               letterSpacing: 0.15,
                               fontWeight: FontWeight.w800,
@@ -226,7 +232,9 @@ class _ScannedItemWidgetState extends State<ScannedItemWidget> {
               progressColor: FlutterFlowTheme.of(context).primary,
               backgroundColor: FlutterFlowTheme.of(context).accent4,
               center: Text(
-                '50%',
+                FFLocalizations.of(context).getText(
+                  'h1rwoyzn' /* 50% */,
+                ),
                 style: FlutterFlowTheme.of(context).headlineSmall,
               ),
             );
