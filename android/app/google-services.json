@@ -7,56 +7,20 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:1052547698119:android:50a5896b970b4dc1255de2",
-        "android_client_info": {
-          "package_name": "com.customdev.nu3food"
-        }
-      },
-      "oauth_client": [
-        {
-          "client_id": "1052547698119-sjgibngdefogvsu01rat5n4gr1i5lkid.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.customdev.nu3food",
-            "certificate_hash": "9bbb3186b2189ef16d8f272bdab59362c395cbb4"
-          }
-        },
-        {
-          "client_id": "1052547698119-icu3cmkj3o025gl7qspvacvsd4qbn1hd.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
-      "api_key": [
-        {
-          "current_key": "AIzaSyCR77uD_NWkdL5ARsMkfsmi6aksHL3Tdpg"
-        }
-      ],
-      "services": {
-        "appinvite_service": {
-          "other_platform_oauth_client": [
-            {
-              "client_id": "1052547698119-icu3cmkj3o025gl7qspvacvsd4qbn1hd.apps.googleusercontent.com",
-              "client_type": 3
-            },
-            {
-              "client_id": "1052547698119-crp8tuacluqtonngg4j6o0qsv0bu16dd.apps.googleusercontent.com",
-              "client_type": 2,
-              "ios_info": {
-                "bundle_id": "com.customdev.nu3food"
-              }
-            }
-          ]
-        }
-      }
-    },
-    {
-      "client_info": {
         "mobilesdk_app_id": "1:1052547698119:android:56e6464d03758a16255de2",
         "android_client_info": {
           "package_name": "sk.customdev.nu3food"
         }
       },
       "oauth_client": [
+        {
+          "client_id": "1052547698119-2jmv0t49c7sm0l5o9kau3r2amgq1jq8g.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "sk.customdev.nu3food",
+            "certificate_hash": "3d2da8627e8c1c921bd84ed132ce1701e70f84d9"
+          }
+        },
         {
           "client_id": "1052547698119-etn1epda1p5dq9ihidi7o2811b2717p9.apps.googleusercontent.com",
           "client_type": 1,
@@ -66,7 +30,7 @@
           }
         },
         {
-          "client_id": "1052547698119-icu3cmkj3o025gl7qspvacvsd4qbn1hd.apps.googleusercontent.com",
+          "client_id": "1052547698119-mgn3egkeihj3nnapbfjitssgq63cqoeq.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
