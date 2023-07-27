@@ -96,7 +96,11 @@ class _HeaderWidgetState extends State<HeaderWidget> {
                       hoverColor: Colors.transparent,
                       highlightColor: Colors.transparent,
                       onTap: () async {
-                        context.pushNamed('Settings');
+                        if (FFAppState().IsGuest == true) {
+                          context.pushNamed('Onborading');
+                        } else {
+                          context.pushNamed('Settings');
+                        }
                       },
                       child: Container(
                         width: 60.0,

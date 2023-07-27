@@ -13,7 +13,10 @@ Future<ProductsRecord?> getFoodFromEAN(String ean, bool? updateFood) async {
   final scannedItems = FFAppState().ScannedItems;
   final firestoreInstance = FirebaseFirestore.instance;
 
-  var snapshot = await firestoreInstance.collection("products").doc(ean).get();
+  var snapshot = await firestoreInstance
+      .collection("products")
+      .doc("998586003765099")
+      .get();
 
   if (updateFood != null && updateFood) {
     // get index of food in scanned items with right ean

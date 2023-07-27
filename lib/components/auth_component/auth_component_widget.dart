@@ -195,8 +195,13 @@ class _AuthComponentWidgetState extends State<AuthComponentWidget> {
             highlightColor: Colors.transparent,
             onTap: () async {
               FFAppState().IsGuest = true;
+              GoRouter.of(context).prepareAuthEvent();
+              final user = await authManager.signInAnonymously(context);
+              if (user == null) {
+                return;
+              }
 
-              context.goNamed('Home');
+              context.goNamedAuth('Home', context.mounted);
             },
             child: Container(
               width: MediaQuery.sizeOf(context).width * 0.8,
