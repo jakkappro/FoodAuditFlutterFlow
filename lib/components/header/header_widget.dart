@@ -1,3 +1,4 @@
+import '/auth/firebase_auth/auth_util.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:cached_network_image/cached_network_image.dart';
@@ -90,30 +91,34 @@ class _HeaderWidgetState extends State<HeaderWidget> {
                 children: [
                   Align(
                     alignment: AlignmentDirectional(0.0, 1.0),
-                    child: InkWell(
-                      splashColor: Colors.transparent,
-                      focusColor: Colors.transparent,
-                      hoverColor: Colors.transparent,
-                      highlightColor: Colors.transparent,
-                      onTap: () async {
-                        if (FFAppState().IsGuest == true) {
-                          context.pushNamed('Onborading');
-                        } else {
-                          context.pushNamed('Settings');
-                        }
-                      },
-                      child: Container(
-                        width: 60.0,
-                        height: 60.0,
-                        clipBehavior: Clip.antiAlias,
-                        decoration: BoxDecoration(
-                          shape: BoxShape.circle,
-                        ),
-                        child: CachedNetworkImage(
-                          fadeInDuration: Duration(milliseconds: 1000),
-                          fadeOutDuration: Duration(milliseconds: 1000),
-                          imageUrl: 'https://picsum.photos/seed/232/600',
-                          fit: BoxFit.cover,
+                    child: AuthUserStreamWidget(
+                      builder: (context) => InkWell(
+                        splashColor: Colors.transparent,
+                        focusColor: Colors.transparent,
+                        hoverColor: Colors.transparent,
+                        highlightColor: Colors.transparent,
+                        onTap: () async {
+                          if (FFAppState().IsGuest == true) {
+                            context.pushNamed('Onborading');
+                          } else {
+                            context.pushNamed('Settings');
+                          }
+                        },
+                        child: Container(
+                          width: 60.0,
+                          height: 60.0,
+                          clipBehavior: Clip.antiAlias,
+                          decoration: BoxDecoration(
+                            shape: BoxShape.circle,
+                          ),
+                          child: CachedNetworkImage(
+                            fadeInDuration: Duration(milliseconds: 1000),
+                            fadeOutDuration: Duration(milliseconds: 1000),
+                            imageUrl: FFAppState().IsGuest
+                                ? 'https://picsum.photos/seed/232/600'
+                                : currentUserPhoto,
+                            fit: BoxFit.cover,
+                          ),
                         ),
                       ),
                     ),

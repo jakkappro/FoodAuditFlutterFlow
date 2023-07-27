@@ -135,6 +135,7 @@ class _AuthComponentWidgetState extends State<AuthComponentWidget> {
               if (user == null) {
                 return;
               }
+              FFAppState().IsGuest = false;
 
               context.goNamedAuth('Home', context.mounted);
             },

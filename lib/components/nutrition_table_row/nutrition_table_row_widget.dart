@@ -52,7 +52,12 @@ class _NutritionTableRowWidgetState extends State<NutritionTableRowWidget> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          '${widget.nutrient?.nutrientType} ${widget.nutrient?.value}${widget.nutrient?.unit}',
+          '${widget.nutrient?.nutrientType} ${widget.nutrient?.value}${widget.nutrient?.unit}'
+              .maybeHandleOverflow(
+            maxChars: 35,
+            replacement: '…',
+          ),
+          maxLines: 1,
           style: FlutterFlowTheme.of(context).bodyMedium.override(
                 fontFamily: 'Lato',
                 color: Colors.white,
