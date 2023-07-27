@@ -4,3 +4,4 @@ export 'bar_code_scanner.dart' show BarCodeScanner;
 export 'loading_indicator.dart' show LoadingIndicator;
 export 'nutrition_table.dart' show NutritionTable;
 export 'safety_dot.dart' show SafetyDot;
+export 'safety_dot_stateless_wrapper.dart' show SafetyDotStatelessWrapper;

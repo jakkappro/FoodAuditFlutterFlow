@@ -363,6 +363,10 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': '100 g',
       'sk': '',
     },
+    'aq7d4bgi': {
+      'en': 'Túto potravinu vyhoďte do plastov',
+      'sk': '',
+    },
     '6n80je7x': {
       'en': 'Potiahni pre viac informácií',
       'sk': 'Potiahni pre viac informácií',

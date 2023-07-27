@@ -2,7 +2,6 @@ import '/backend/backend.dart';
 import '/components/nutrition_table_row/nutrition_table_row_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import 'dart:ui';
 import '/custom_code/widgets/index.dart' as custom_widgets;
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
@@ -152,11 +151,11 @@ class _SlidingUpPanelFromEanWidgetState
                             ),
                           ),
                           Container(
-                            width: 24.0,
-                            height: 24.0,
-                            child: custom_widgets.SafetyDot(
-                              width: 24.0,
-                              height: 24.0,
+                            width: 22.0,
+                            height: 22.0,
+                            child: custom_widgets.SafetyDotStatelessWrapper(
+                              width: 22.0,
+                              height: 22.0,
                               allergens: widget.doc!.allergens,
                             ),
                           ),
@@ -411,6 +410,50 @@ class _SlidingUpPanelFromEanWidgetState
                         ),
                       ),
                     ),
+                    Padding(
+                      padding:
+                          EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
+                      child: Container(
+                        width: double.infinity,
+                        height: 55.0,
+                        decoration: BoxDecoration(
+                          color: Color(0xFFF7F7F7),
+                          borderRadius: BorderRadius.circular(10.0),
+                        ),
+                        child: Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              10.0, 0.0, 10.0, 0.0),
+                          child: Row(
+                            mainAxisSize: MainAxisSize.max,
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              AutoSizeText(
+                                FFLocalizations.of(context).getText(
+                                  'aq7d4bgi' /* Túto potravinu vyhoďte do plas... */,
+                                ),
+                                style: FlutterFlowTheme.of(context)
+                                    .bodyMedium
+                                    .override(
+                                      fontFamily: 'Lato',
+                                      color: Color(0xFF382F73),
+                                      fontSize: 18.0,
+                                      fontWeight: FontWeight.w800,
+                                    ),
+                              ),
+                              ClipRRect(
+                                borderRadius: BorderRadius.circular(8.0),
+                                child: Image.asset(
+                                  'assets/images/PET_RECYCLED.png',
+                                  width: 25.0,
+                                  height: 32.0,
+                                  fit: BoxFit.cover,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    ),
                   ].addToEnd(SizedBox(height: 30.0)),
                 ),
               ),
@@ -475,66 +518,56 @@ class _SlidingUpPanelFromEanWidgetState
             ),
           Align(
             alignment: AlignmentDirectional(0.0, 1.0),
-            child: Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 10.0),
-              child: Container(
-                width: double.infinity,
-                height: 35.0,
-                decoration: BoxDecoration(
-                  color: Colors.transparent,
+            child: Container(
+              width: double.infinity,
+              height: 55.0,
+              decoration: BoxDecoration(
+                gradient: LinearGradient(
+                  colors: [Colors.transparent, Colors.black],
+                  stops: [0.0, 0.4],
+                  begin: AlignmentDirectional(0.0, -1.0),
+                  end: AlignmentDirectional(0, 1.0),
                 ),
-                child: Align(
-                  alignment: AlignmentDirectional(0.0, 1.0),
-                  child: ClipRRect(
-                    borderRadius: BorderRadius.circular(0.0),
-                    child: BackdropFilter(
-                      filter: ImageFilter.blur(
-                        sigmaX: 2.0,
-                        sigmaY: 2.0,
-                      ),
-                      child: Container(
-                        width: double.infinity,
-                        height: 35.0,
-                        decoration: BoxDecoration(
-                          color:
-                              FlutterFlowTheme.of(context).secondaryBackground,
-                        ),
-                        child: Column(
-                          mainAxisSize: MainAxisSize.max,
-                          mainAxisAlignment: MainAxisAlignment.end,
-                          children: [
-                            if (widget.isOpened == false)
-                              Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    0.0, 0.0, 0.0, 8.0),
-                                child: Text(
-                                  FFLocalizations.of(context).getText(
-                                    '6n80je7x' /* Potiahni pre viac informácií */,
+                borderRadius: BorderRadius.only(
+                  bottomLeft: Radius.circular(20.0),
+                  bottomRight: Radius.circular(20.0),
+                  topLeft: Radius.circular(0.0),
+                  topRight: Radius.circular(0.0),
+                ),
+              ),
+              child: Padding(
+                padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 10.0),
+                child: Column(
+                  mainAxisSize: MainAxisSize.max,
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    if (widget.isOpened == false)
+                      Padding(
+                        padding:
+                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 8.0),
+                        child: Text(
+                          FFLocalizations.of(context).getText(
+                            '6n80je7x' /* Potiahni pre viac informácií */,
+                          ),
+                          style:
+                              FlutterFlowTheme.of(context).bodyMedium.override(
+                                    fontFamily: 'Lato',
+                                    color: Color(0xFFAFACC7),
+                                    fontSize: 12.64,
+                                    letterSpacing: 0.5,
+                                    fontWeight: FontWeight.w600,
                                   ),
-                                  style: FlutterFlowTheme.of(context)
-                                      .bodyMedium
-                                      .override(
-                                        fontFamily: 'Lato',
-                                        color: Color(0xFFAFACC7),
-                                        fontSize: 12.64,
-                                        letterSpacing: 0.5,
-                                        fontWeight: FontWeight.w600,
-                                      ),
-                                ),
-                              ),
-                            Container(
-                              width: 66.0,
-                              height: 6.0,
-                              decoration: BoxDecoration(
-                                color: Color(0xFFB7C1FA),
-                                borderRadius: BorderRadius.circular(20.0),
-                              ),
-                            ),
-                          ],
                         ),
+                      ),
+                    Container(
+                      width: 66.0,
+                      height: 6.0,
+                      decoration: BoxDecoration(
+                        color: Color(0xFFB7C1FA),
+                        borderRadius: BorderRadius.circular(20.0),
                       ),
                     ),
-                  ),
+                  ],
                 ),
               ),
             ),
