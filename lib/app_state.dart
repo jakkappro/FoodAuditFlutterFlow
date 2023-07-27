@@ -46,6 +46,9 @@ class FFAppState extends ChangeNotifier {
               .toList() ??
           _ScannedItems;
     });
+    await _safeInitAsync(() async {
+      _IsGuest = await secureStorage.getBool('ff_IsGuest') ?? _IsGuest;
+    });
   }
 
   void update(VoidCallback callback) {
@@ -125,6 +128,17 @@ class FFAppState extends ChangeNotifier {
     _ScannedItems[_index] = updateFn(_ScannedItems[_index]);
     secureStorage.setStringList(
         'ff_ScannedItems', _ScannedItems.map((x) => x.serialize()).toList());
+  }
+
+  bool _IsGuest = true;
+  bool get IsGuest => _IsGuest;
+  set IsGuest(bool _value) {
+    _IsGuest = _value;
+    secureStorage.setBool('ff_IsGuest', _value);
+  }
+
+  void deleteIsGuest() {
+    secureStorage.delete(key: 'ff_IsGuest');
   }
 }
 

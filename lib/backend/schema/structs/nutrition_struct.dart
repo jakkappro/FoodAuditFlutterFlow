@@ -140,8 +140,7 @@ NutritionStruct createNutritionStruct({
       name: name,
       units: units,
       value: value,
-      subNutrition:
-          subNutrition ?? (clearUnsetFields ? SubNutritionStruct() : null),
+      subNutrition: subNutrition ?? SubNutritionStruct(),
       firestoreUtilData: FirestoreUtilData(
         clearUnsetFields: clearUnsetFields,
         create: create,
@@ -196,11 +195,7 @@ Map<String, dynamic> getNutritionFirestoreData(
 
   // Handle nested data for "SubNutrition" field.
   addSubNutritionStructData(
-    firestoreData,
-    nutrition.hasSubNutrition() ? nutrition.subNutrition : null,
-    'SubNutrition',
-    forFieldValue,
-  );
+      firestoreData, nutrition.subNutrition, 'SubNutrition', forFieldValue);
 
   // Add any Firestore field values
   nutrition.firestoreUtilData.fieldValues

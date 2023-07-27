@@ -1,11 +1,9 @@
+import '/components/auth_component/auth_component_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart'
     as smooth_page_indicator;
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'onborading_model.dart';
@@ -29,10 +27,6 @@ class _OnboradingWidgetState extends State<OnboradingWidget> {
     _model = createModel(context, () => OnboradingModel());
 
     logFirebaseEvent('screen_view', parameters: {'screen_name': 'Onborading'});
-    // On page load action.
-    SchedulerBinding.instance.addPostFrameCallback((_) async {
-      FFAppState().FirstTimeOpened = false;
-    });
   }
 
   @override
@@ -67,7 +61,7 @@ class _OnboradingWidgetState extends State<OnboradingWidget> {
                             EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 30.0),
                         child: PageView(
                           controller: _model.pageViewController ??=
-                              PageController(initialPage: 0),
+                              PageController(initialPage: 3),
                           scrollDirection: Axis.horizontal,
                           children: [
                             Padding(
@@ -280,193 +274,11 @@ class _OnboradingWidgetState extends State<OnboradingWidget> {
                                         ),
                                       ),
                                     ),
-                                    Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          0.0, 44.0, 0.0, 0.0),
-                                      child: Column(
-                                        mainAxisSize: MainAxisSize.max,
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.end,
-                                        children: [
-                                          Padding(
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    16.0, 12.0, 16.0, 16.0),
-                                            child: FFButtonWidget(
-                                              onPressed: () async {
-                                                context.goNamed('SetUpWizard');
-                                              },
-                                              text: FFLocalizations.of(context)
-                                                  .getText(
-                                                '5ndeut2q' /* Create local profile */,
-                                              ),
-                                              options: FFButtonOptions(
-                                                width: double.infinity,
-                                                height: 60.0,
-                                                padding: EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        0.0, 0.0, 0.0, 0.0),
-                                                iconPadding:
-                                                    EdgeInsetsDirectional
-                                                        .fromSTEB(
-                                                            0.0, 0.0, 0.0, 0.0),
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .primaryText,
-                                                textStyle:
-                                                    FlutterFlowTheme.of(context)
-                                                        .titleLarge
-                                                        .override(
-                                                          fontFamily: 'Lato',
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .secondaryBackground,
-                                                          fontWeight:
-                                                              FontWeight.bold,
-                                                        ),
-                                                elevation: 0.0,
-                                                borderSide: BorderSide(
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .primaryText,
-                                                  width: 2.0,
-                                                ),
-                                                borderRadius:
-                                                    BorderRadius.circular(50.0),
-                                                hoverColor:
-                                                    FlutterFlowTheme.of(context)
-                                                        .primaryText,
-                                                hoverTextColor:
-                                                    FlutterFlowTheme.of(context)
-                                                        .secondaryBackground,
-                                              ),
-                                            ),
-                                          ),
-                                          Padding(
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    0.0, 12.0, 0.0, 12.0),
-                                            child: Text(
-                                              FFLocalizations.of(context)
-                                                  .getText(
-                                                'ghlnmvfr' /* Or use social media */,
-                                              ),
-                                              style:
-                                                  FlutterFlowTheme.of(context)
-                                                      .labelMedium,
-                                            ),
-                                          ),
-                                          Padding(
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    16.0, 12.0, 16.0, 16.0),
-                                            child: FFButtonWidget(
-                                              onPressed: () {
-                                                print('Button pressed ...');
-                                              },
-                                              text: FFLocalizations.of(context)
-                                                  .getText(
-                                                '9sye5sb4' /* Sign up with Google */,
-                                              ),
-                                              icon: FaIcon(
-                                                FontAwesomeIcons.google,
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .primaryText,
-                                                size: 24.0,
-                                              ),
-                                              options: FFButtonOptions(
-                                                width: double.infinity,
-                                                height: 60.0,
-                                                padding: EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        0.0, 0.0, 0.0, 0.0),
-                                                iconPadding:
-                                                    EdgeInsetsDirectional
-                                                        .fromSTEB(0.0, 0.0,
-                                                            12.0, 0.0),
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .secondaryBackground,
-                                                textStyle:
-                                                    FlutterFlowTheme.of(context)
-                                                        .titleLarge
-                                                        .override(
-                                                          fontFamily: 'Lato',
-                                                          fontWeight:
-                                                              FontWeight.bold,
-                                                        ),
-                                                elevation: 0.0,
-                                                borderSide: BorderSide(
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .alternate,
-                                                  width: 2.0,
-                                                ),
-                                                borderRadius:
-                                                    BorderRadius.circular(50.0),
-                                                hoverColor:
-                                                    FlutterFlowTheme.of(context)
-                                                        .alternate,
-                                              ),
-                                            ),
-                                          ),
-                                          Padding(
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    16.0, 12.0, 16.0, 16.0),
-                                            child: FFButtonWidget(
-                                              onPressed: () {
-                                                print('Button pressed ...');
-                                              },
-                                              text: FFLocalizations.of(context)
-                                                  .getText(
-                                                '0mheil3a' /* Sign up with Facebook */,
-                                              ),
-                                              icon: Icon(
-                                                Icons.facebook,
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .primaryText,
-                                                size: 24.0,
-                                              ),
-                                              options: FFButtonOptions(
-                                                width: double.infinity,
-                                                height: 60.0,
-                                                padding: EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        0.0, 0.0, 0.0, 0.0),
-                                                iconPadding:
-                                                    EdgeInsetsDirectional
-                                                        .fromSTEB(0.0, 0.0,
-                                                            12.0, 0.0),
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .secondaryBackground,
-                                                textStyle:
-                                                    FlutterFlowTheme.of(context)
-                                                        .titleLarge
-                                                        .override(
-                                                          fontFamily: 'Lato',
-                                                          fontWeight:
-                                                              FontWeight.bold,
-                                                        ),
-                                                elevation: 0.0,
-                                                borderSide: BorderSide(
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .alternate,
-                                                  width: 2.0,
-                                                ),
-                                                borderRadius:
-                                                    BorderRadius.circular(50.0),
-                                                hoverColor:
-                                                    FlutterFlowTheme.of(context)
-                                                        .alternate,
-                                              ),
-                                            ),
-                                          ),
-                                        ],
+                                    Expanded(
+                                      child: wrapWithModel(
+                                        model: _model.authComponentModel,
+                                        updateCallback: () => setState(() {}),
+                                        child: AuthComponentWidget(),
                                       ),
                                     ),
                                   ],
@@ -483,7 +295,7 @@ class _OnboradingWidgetState extends State<OnboradingWidget> {
                               0.0, 0.0, 0.0, 10.0),
                           child: smooth_page_indicator.SmoothPageIndicator(
                             controller: _model.pageViewController ??=
-                                PageController(initialPage: 0),
+                                PageController(initialPage: 3),
                             count: 4,
                             axisDirection: Axis.horizontal,
                             onDotClicked: (i) async {

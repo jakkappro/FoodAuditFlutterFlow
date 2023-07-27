@@ -46,7 +46,6 @@ class _IntoleranciesWidgetState extends State<IntoleranciesWidget> {
       padding: EdgeInsetsDirectional.fromSTEB(24.0, 10.0, 24.0, 0.0),
       child: Container(
         width: double.infinity,
-        height: 220.0,
         decoration: BoxDecoration(
           color: Colors.transparent,
         ),

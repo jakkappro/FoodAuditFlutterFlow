@@ -412,7 +412,7 @@ class _SlidingUpPanelFromEanWidgetState
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Container(
-                  width: 200.0,
+                  width: double.infinity,
                   height: 100.0,
                   decoration: BoxDecoration(
                     color: Colors.transparent,
@@ -463,42 +463,46 @@ class _SlidingUpPanelFromEanWidgetState
               ].addToEnd(SizedBox(height: 70.0)),
             ),
           Align(
-            alignment: AlignmentDirectional(0.0, 0.95),
-            child: Container(
-              width: double.infinity,
-              height: 35.0,
-              decoration: BoxDecoration(
-                color: Colors.transparent,
-              ),
-              child: Column(
-                mainAxisSize: MainAxisSize.max,
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  if (widget.isOpened == false)
-                    Align(
-                      alignment: AlignmentDirectional(0.0, 0.8),
-                      child: Text(
-                        FFLocalizations.of(context).getText(
-                          '6n80je7x' /* Potiahni pre viac informácií */,
+            alignment: AlignmentDirectional(0.0, 1.0),
+            child: Padding(
+              padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 10.0),
+              child: Container(
+                width: double.infinity,
+                height: 35.0,
+                decoration: BoxDecoration(
+                  color: Colors.transparent,
+                ),
+                child: Column(
+                  mainAxisSize: MainAxisSize.max,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    if (widget.isOpened == false)
+                      Align(
+                        alignment: AlignmentDirectional(0.0, 0.8),
+                        child: Text(
+                          FFLocalizations.of(context).getText(
+                            '6n80je7x' /* Potiahni pre viac informácií */,
+                          ),
+                          style:
+                              FlutterFlowTheme.of(context).bodyMedium.override(
+                                    fontFamily: 'Lato',
+                                    color: Color(0xFFAFACC7),
+                                    fontSize: 12.64,
+                                    letterSpacing: 0.5,
+                                    fontWeight: FontWeight.w600,
+                                  ),
                         ),
-                        style: FlutterFlowTheme.of(context).bodyMedium.override(
-                              fontFamily: 'Lato',
-                              color: Color(0xFFAFACC7),
-                              fontSize: 12.64,
-                              letterSpacing: 0.5,
-                              fontWeight: FontWeight.w600,
-                            ),
+                      ),
+                    Container(
+                      width: 66.0,
+                      height: 6.0,
+                      decoration: BoxDecoration(
+                        color: Color(0xFFB7C1FA),
+                        borderRadius: BorderRadius.circular(20.0),
                       ),
                     ),
-                  Container(
-                    width: 66.0,
-                    height: 6.0,
-                    decoration: BoxDecoration(
-                      color: Color(0xFFB7C1FA),
-                      borderRadius: BorderRadius.circular(20.0),
-                    ),
-                  ),
-                ],
+                  ],
+                ),
               ),
             ),
           ),

@@ -239,22 +239,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Papaj zravo ne?',
       'sk': 'Papaj zravo ne?',
     },
-    '5ndeut2q': {
-      'en': 'Create local profile',
-      'sk': 'Vytvorte lokálny profil',
-    },
-    'ghlnmvfr': {
-      'en': 'Or use social media',
-      'sk': 'Alebo použite sociálne siete',
-    },
-    '9sye5sb4': {
-      'en': 'Sign up with Google',
-      'sk': 'Zaregistrujte sa cez Google',
-    },
-    '0mheil3a': {
-      'en': 'Sign up with Facebook',
-      'sk': 'Zaregistrujte sa na Facebooku',
-    },
     '25x4uzl2': {
       'en': 'Home',
       'sk': 'Domov',
@@ -478,6 +462,25 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   {
     '2zfp8t3l': {
       'en': '0%',
+      'sk': '',
+    },
+  },
+  // AuthComponent
+  {
+    'nltnyzvs': {
+      'en': 'Sign in with Apple',
+      'sk': '',
+    },
+    'gbe6jirv': {
+      'en': 'Continue with Facebook',
+      'sk': '',
+    },
+    '7s7pf04t': {
+      'en': 'Sign in with Google',
+      'sk': '',
+    },
+    'nodogpy4': {
+      'en': 'Pokračujte ako hosť',
       'sk': '',
     },
   },
