@@ -272,6 +272,16 @@ class _SetUpWizardWidgetState extends State<SetUpWizardWidget>
                                           .controller
                                           .forward(from: 0.0));
                                 }
+                                if (animationsMap[
+                                        'buttonOnActionTriggerAnimation2'] !=
+                                    null) {
+                                  setState(() => hasButtonTriggered2 = true);
+                                  SchedulerBinding.instance.addPostFrameCallback(
+                                      (_) async => await animationsMap[
+                                              'buttonOnActionTriggerAnimation2']!
+                                          .controller
+                                          .forward(from: 0.0));
+                                }
                               },
                               text: dateTimeFormat(
                                         'relative',
