@@ -290,9 +290,25 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // SetUpWizard
   {
-    '1oyw0l5g': {
-      'en': 'Typ postihnutia(pohlavie)',
-      'sk': 'Typ postihnutia (pohlavie)',
+    'j0m39pzo': {
+      'en': 'Male',
+      'sk': '',
+    },
+    '1r8f9c89': {
+      'en': 'Female',
+      'sk': '',
+    },
+    'dpvjy2qc': {
+      'en': 'Attack helicopter',
+      'sk': '',
+    },
+    'vztl80w3': {
+      'en': 'Please select gender',
+      'sk': '',
+    },
+    'xk2pboxm': {
+      'en': 'Search for an item...',
+      'sk': '',
     },
     'cdn68h8g': {
       'en': 'Hotofo',

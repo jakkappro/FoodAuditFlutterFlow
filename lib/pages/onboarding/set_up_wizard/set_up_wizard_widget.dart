@@ -1,11 +1,12 @@
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
-import '/backend/schema/structs/index.dart';
 import '/components/intolerancies/intolerancies_widget.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
+import '/flutter_flow/flutter_flow_drop_down.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import '/flutter_flow/form_field_controller.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -28,8 +29,24 @@ class _SetUpWizardWidgetState extends State<SetUpWizardWidget>
   late SetUpWizardModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
+  var hasButtonTriggered1 = false;
   var hasIntoleranciesTriggered = false;
+  var hasButtonTriggered2 = false;
   final animationsMap = {
+    'buttonOnActionTriggerAnimation1': AnimationInfo(
+      trigger: AnimationTrigger.onActionTrigger,
+      applyInitialState: true,
+      effects: [
+        VisibilityEffect(duration: 1.ms),
+        FadeEffect(
+          curve: Curves.easeInOut,
+          delay: 0.ms,
+          duration: 600.ms,
+          begin: 0.0,
+          end: 1.0,
+        ),
+      ],
+    ),
     'intoleranciesOnActionTriggerAnimation': AnimationInfo(
       trigger: AnimationTrigger.onActionTrigger,
       applyInitialState: true,
@@ -37,6 +54,20 @@ class _SetUpWizardWidgetState extends State<SetUpWizardWidget>
         VisibilityEffect(duration: 1.ms),
         FadeEffect(
           curve: Curves.easeIn,
+          delay: 0.ms,
+          duration: 600.ms,
+          begin: 0.0,
+          end: 1.0,
+        ),
+      ],
+    ),
+    'buttonOnActionTriggerAnimation2': AnimationInfo(
+      trigger: AnimationTrigger.onActionTrigger,
+      applyInitialState: true,
+      effects: [
+        VisibilityEffect(duration: 1.ms),
+        FadeEffect(
+          curve: Curves.easeInOut,
           delay: 0.ms,
           duration: 600.ms,
           begin: 0.0,
@@ -52,7 +83,6 @@ class _SetUpWizardWidgetState extends State<SetUpWizardWidget>
     _model = createModel(context, () => SetUpWizardModel());
 
     logFirebaseEvent('screen_view', parameters: {'screen_name': 'SetUpWizard'});
-    _model.textController ??= TextEditingController();
     setupAnimations(
       animationsMap.values.where((anim) =>
           anim.trigger == AnimationTrigger.onActionTrigger ||
@@ -79,182 +109,278 @@ class _SetUpWizardWidgetState extends State<SetUpWizardWidget>
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
         body: SafeArea(
           top: true,
-          child: Column(
-            mainAxisSize: MainAxisSize.max,
-            children: [
-              Container(
-                width: double.infinity,
-                child: Form(
-                  key: _model.formKey,
-                  autovalidateMode: AutovalidateMode.disabled,
-                  child: Column(
-                    mainAxisSize: MainAxisSize.max,
-                    children: [
-                      Padding(
-                        padding:
-                            EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 8.0, 0.0),
-                        child: TextFormField(
-                          controller: _model.textController,
-                          autofocus: true,
-                          obscureText: false,
-                          decoration: InputDecoration(
-                            labelText: FFLocalizations.of(context).getText(
-                              '1oyw0l5g' /* Typ postihnutia(pohlavie) */,
+          child: Padding(
+            padding: EdgeInsetsDirectional.fromSTEB(0.0, 15.0, 0.0, 0.0),
+            child: Column(
+              mainAxisSize: MainAxisSize.max,
+              children: [
+                Container(
+                  width: double.infinity,
+                  child: Form(
+                    key: _model.formKey,
+                    autovalidateMode: AutovalidateMode.disabled,
+                    child: Column(
+                      mainAxisSize: MainAxisSize.max,
+                      children: [
+                        Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              30.0, 0.0, 30.0, 0.0),
+                          child: Container(
+                            width: double.infinity,
+                            height: 80.0,
+                            decoration: BoxDecoration(
+                              color: FlutterFlowTheme.of(context).primary,
+                              borderRadius: BorderRadius.circular(10.0),
                             ),
-                            labelStyle:
-                                FlutterFlowTheme.of(context).labelMedium,
-                            hintStyle: FlutterFlowTheme.of(context).labelMedium,
-                            enabledBorder: UnderlineInputBorder(
-                              borderSide: BorderSide(
-                                color: FlutterFlowTheme.of(context).alternate,
-                                width: 2.0,
-                              ),
-                              borderRadius: BorderRadius.circular(8.0),
-                            ),
-                            focusedBorder: UnderlineInputBorder(
-                              borderSide: BorderSide(
-                                color: FlutterFlowTheme.of(context).primary,
-                                width: 2.0,
-                              ),
-                              borderRadius: BorderRadius.circular(8.0),
-                            ),
-                            errorBorder: UnderlineInputBorder(
-                              borderSide: BorderSide(
-                                color: FlutterFlowTheme.of(context).error,
-                                width: 2.0,
-                              ),
-                              borderRadius: BorderRadius.circular(8.0),
-                            ),
-                            focusedErrorBorder: UnderlineInputBorder(
-                              borderSide: BorderSide(
-                                color: FlutterFlowTheme.of(context).error,
-                                width: 2.0,
-                              ),
-                              borderRadius: BorderRadius.circular(8.0),
+                            child: Stack(
+                              children: [
+                                Align(
+                                  alignment: AlignmentDirectional(-1.0, 1.0),
+                                  child: Container(
+                                    width: double.infinity,
+                                    height: double.infinity,
+                                    decoration: BoxDecoration(
+                                      color:
+                                          FlutterFlowTheme.of(context).primary,
+                                      borderRadius: BorderRadius.circular(10.0),
+                                      border: Border.all(
+                                        color: FlutterFlowTheme.of(context)
+                                            .primaryText,
+                                        width: 2.0,
+                                      ),
+                                    ),
+                                    child: FlutterFlowDropDown<String>(
+                                      controller:
+                                          _model.dropDownValueController ??=
+                                              FormFieldController<String>(null),
+                                      options: [
+                                        FFLocalizations.of(context).getText(
+                                          'j0m39pzo' /* Male */,
+                                        ),
+                                        FFLocalizations.of(context).getText(
+                                          '1r8f9c89' /* Female */,
+                                        ),
+                                        FFLocalizations.of(context).getText(
+                                          'dpvjy2qc' /* Attack helicopter */,
+                                        )
+                                      ],
+                                      onChanged: (val) async {
+                                        setState(
+                                            () => _model.dropDownValue = val);
+                                        await currentUserReference!
+                                            .update(createUsersRecordData(
+                                          gender: _model.dropDownValue,
+                                        ));
+                                        if (animationsMap[
+                                                'buttonOnActionTriggerAnimation1'] !=
+                                            null) {
+                                          setState(
+                                              () => hasButtonTriggered1 = true);
+                                          SchedulerBinding.instance
+                                              .addPostFrameCallback((_) async =>
+                                                  await animationsMap[
+                                                          'buttonOnActionTriggerAnimation1']!
+                                                      .controller
+                                                      .forward(from: 0.0));
+                                        }
+                                      },
+                                      width: double.infinity,
+                                      height: double.infinity,
+                                      textStyle: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .override(
+                                            fontFamily: 'Lato',
+                                            fontSize: 10.0,
+                                            fontWeight: FontWeight.bold,
+                                          ),
+                                      hintText:
+                                          FFLocalizations.of(context).getText(
+                                        'vztl80w3' /* Please select gender */,
+                                      ),
+                                      icon: Icon(
+                                        Icons.ten_k,
+                                        size: 0.0,
+                                      ),
+                                      fillColor: Colors.transparent,
+                                      elevation: 2.0,
+                                      borderColor: Colors.transparent,
+                                      borderWidth: 2.0,
+                                      borderRadius: 8.0,
+                                      margin: EdgeInsetsDirectional.fromSTEB(
+                                          10.0, 0.0, 0.0, 0.0),
+                                      hidesUnderline: true,
+                                      isSearchable: false,
+                                    ),
+                                  ),
+                                ),
+                                Align(
+                                  alignment: AlignmentDirectional(1.0, 1.0),
+                                  child: Container(
+                                    width: 30.0,
+                                    height: double.infinity,
+                                    decoration: BoxDecoration(
+                                      color: FlutterFlowTheme.of(context)
+                                          .primaryText,
+                                      borderRadius: BorderRadius.only(
+                                        bottomLeft: Radius.circular(0.0),
+                                        bottomRight: Radius.circular(10.0),
+                                        topLeft: Radius.circular(0.0),
+                                        topRight: Radius.circular(10.0),
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ],
                             ),
                           ),
-                          style: FlutterFlowTheme.of(context).bodyMedium,
-                          validator: _model.textControllerValidator
-                              .asValidator(context),
                         ),
-                      ),
-                      Padding(
-                        padding:
-                            EdgeInsetsDirectional.fromSTEB(0.0, 15.0, 0.0, 0.0),
-                        child: FFButtonWidget(
-                          onPressed: () async {
-                            final _datePickedDate = await showDatePicker(
-                              context: context,
-                              initialDate: getCurrentTimestamp,
-                              firstDate: DateTime(1900),
-                              lastDate: getCurrentTimestamp,
-                            );
-
-                            if (_datePickedDate != null) {
-                              setState(() {
-                                _model.datePicked = DateTime(
-                                  _datePickedDate.year,
-                                  _datePickedDate.month,
-                                  _datePickedDate.day,
+                        Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              0.0, 15.0, 0.0, 0.0),
+                          child: AuthUserStreamWidget(
+                            builder: (context) => FFButtonWidget(
+                              onPressed: () async {
+                                final _datePickedDate = await showDatePicker(
+                                  context: context,
+                                  initialDate: getCurrentTimestamp,
+                                  firstDate: DateTime(1900),
+                                  lastDate: getCurrentTimestamp,
                                 );
-                              });
-                            }
-                            setState(() {
-                              FFAppState().updateUserStruct(
-                                (e) => e
-                                  ..dOBSelected = true
-                                  ..dateOfBirdth = _model.datePicked,
-                              );
-                            });
+
+                                if (_datePickedDate != null) {
+                                  setState(() {
+                                    _model.datePicked = DateTime(
+                                      _datePickedDate.year,
+                                      _datePickedDate.month,
+                                      _datePickedDate.day,
+                                    );
+                                  });
+                                }
+
+                                await currentUserReference!
+                                    .update(createUsersRecordData(
+                                  dateOfBirth: _model.datePicked,
+                                ));
+                                if (animationsMap[
+                                        'intoleranciesOnActionTriggerAnimation'] !=
+                                    null) {
+                                  setState(
+                                      () => hasIntoleranciesTriggered = true);
+                                  SchedulerBinding.instance.addPostFrameCallback(
+                                      (_) async => await animationsMap[
+                                              'intoleranciesOnActionTriggerAnimation']!
+                                          .controller
+                                          .forward(from: 0.0));
+                                }
+                              },
+                              text: dateTimeFormat(
+                                        'relative',
+                                        currentUserDocument?.dateOfBirth,
+                                        locale: FFLocalizations.of(context)
+                                            .languageCode,
+                                      ) ==
+                                      ''
+                                  ? 'Datum narodenia'
+                                  : dateTimeFormat(
+                                      'yMMMd',
+                                      currentUserDocument!.dateOfBirth!,
+                                      locale: FFLocalizations.of(context)
+                                          .languageCode,
+                                    ),
+                              options: FFButtonOptions(
+                                height: 40.0,
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    24.0, 0.0, 24.0, 0.0),
+                                iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 0.0, 0.0, 0.0),
+                                color: FlutterFlowTheme.of(context).primary,
+                                textStyle: FlutterFlowTheme.of(context)
+                                    .titleSmall
+                                    .override(
+                                      fontFamily: 'Lato',
+                                      color: FlutterFlowTheme.of(context)
+                                          .primaryText,
+                                    ),
+                                elevation: 3.0,
+                                borderSide: BorderSide(
+                                  color: Colors.transparent,
+                                  width: 1.0,
+                                ),
+                                borderRadius: BorderRadius.circular(8.0),
+                              ),
+                            ).animateOnActionTrigger(
+                                animationsMap[
+                                    'buttonOnActionTriggerAnimation1']!,
+                                hasBeenTriggered: hasButtonTriggered1),
+                          ),
+                        ),
+                        InkWell(
+                          splashColor: Colors.transparent,
+                          focusColor: Colors.transparent,
+                          hoverColor: Colors.transparent,
+                          highlightColor: Colors.transparent,
+                          onTap: () async {
                             if (animationsMap[
-                                    'intoleranciesOnActionTriggerAnimation'] !=
+                                    'buttonOnActionTriggerAnimation2'] !=
                                 null) {
-                              setState(() => hasIntoleranciesTriggered = true);
+                              setState(() => hasButtonTriggered2 = true);
                               SchedulerBinding.instance.addPostFrameCallback(
                                   (_) async => await animationsMap[
-                                          'intoleranciesOnActionTriggerAnimation']!
+                                          'buttonOnActionTriggerAnimation2']!
                                       .controller
                                       .forward(from: 0.0));
                             }
                           },
-                          text: !FFAppState().User.dOBSelected
-                              ? 'Datum vytvorenia'
-                              : FFAppState().User.dateOfBirdth!.toString(),
-                          options: FFButtonOptions(
-                            height: 40.0,
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                24.0, 0.0, 24.0, 0.0),
-                            iconPadding: EdgeInsetsDirectional.fromSTEB(
-                                0.0, 0.0, 0.0, 0.0),
-                            color: FlutterFlowTheme.of(context).primary,
-                            textStyle: FlutterFlowTheme.of(context)
-                                .titleSmall
-                                .override(
-                                  fontFamily: 'Lato',
-                                  color:
-                                      FlutterFlowTheme.of(context).primaryText,
-                                ),
-                            elevation: 3.0,
-                            borderSide: BorderSide(
-                              color: Colors.transparent,
-                              width: 1.0,
+                          child: wrapWithModel(
+                            model: _model.intoleranciesModel,
+                            updateCallback: () => setState(() {}),
+                            child: IntoleranciesWidget(),
+                          ),
+                        ).animateOnActionTrigger(
+                            animationsMap[
+                                'intoleranciesOnActionTriggerAnimation']!,
+                            hasBeenTriggered: hasIntoleranciesTriggered),
+                        Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              0.0, 15.0, 0.0, 0.0),
+                          child: FFButtonWidget(
+                            onPressed: () async {
+                              context.goNamed('Home');
+                            },
+                            text: FFLocalizations.of(context).getText(
+                              'cdn68h8g' /* Hotofo */,
                             ),
-                            borderRadius: BorderRadius.circular(8.0),
-                          ),
-                        ),
-                      ),
-                      wrapWithModel(
-                        model: _model.intoleranciesModel,
-                        updateCallback: () => setState(() {}),
-                        child: IntoleranciesWidget(),
-                      ).animateOnActionTrigger(
-                          animationsMap[
-                              'intoleranciesOnActionTriggerAnimation']!,
-                          hasBeenTriggered: hasIntoleranciesTriggered),
-                      Padding(
-                        padding:
-                            EdgeInsetsDirectional.fromSTEB(0.0, 15.0, 0.0, 0.0),
-                        child: FFButtonWidget(
-                          onPressed: () async {
-                            await currentUserReference!
-                                .update(createUsersRecordData(
-                              dateOfBirth: _model.datePicked,
-                              gender: _model.textController.text,
-                            ));
-
-                            context.goNamed('Home');
-                          },
-                          text: FFLocalizations.of(context).getText(
-                            'cdn68h8g' /* Hotofo */,
-                          ),
-                          options: FFButtonOptions(
-                            height: 40.0,
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                24.0, 0.0, 24.0, 0.0),
-                            iconPadding: EdgeInsetsDirectional.fromSTEB(
-                                0.0, 0.0, 0.0, 0.0),
-                            color: FlutterFlowTheme.of(context).primary,
-                            textStyle: FlutterFlowTheme.of(context)
-                                .titleSmall
-                                .override(
-                                  fontFamily: 'Lato',
-                                  color:
-                                      FlutterFlowTheme.of(context).primaryText,
-                                ),
-                            elevation: 3.0,
-                            borderSide: BorderSide(
-                              color: Colors.transparent,
-                              width: 1.0,
+                            options: FFButtonOptions(
+                              height: 40.0,
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  24.0, 0.0, 24.0, 0.0),
+                              iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 0.0, 0.0, 0.0),
+                              color: FlutterFlowTheme.of(context).primary,
+                              textStyle: FlutterFlowTheme.of(context)
+                                  .titleSmall
+                                  .override(
+                                    fontFamily: 'Lato',
+                                    color: FlutterFlowTheme.of(context)
+                                        .primaryText,
+                                  ),
+                              elevation: 3.0,
+                              borderSide: BorderSide(
+                                color: Colors.transparent,
+                                width: 1.0,
+                              ),
+                              borderRadius: BorderRadius.circular(8.0),
                             ),
-                            borderRadius: BorderRadius.circular(8.0),
-                          ),
+                          ).animateOnActionTrigger(
+                              animationsMap['buttonOnActionTriggerAnimation2']!,
+                              hasBeenTriggered: hasButtonTriggered2),
                         ),
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
       ),

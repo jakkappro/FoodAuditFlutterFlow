@@ -10,7 +10,7 @@ import 'package:flutter/material.dart';
 // DO NOT REMOVE OR MODIFY THE CODE ABOVE!
 
 Future<bool> isFoodSafe(List<String>? foodAllergens) async {
-  final usersAlergies = FFAppState().User.intolerancies;
+  final usersAlergies = FFAppState().Allergies;
 
   // could be optimized using some better algorithm but not necessary now
   for (String allergen in usersAlergies) {

@@ -18,17 +18,6 @@ class FFAppState extends ChangeNotifier {
   Future initializePersistedState() async {
     secureStorage = FlutterSecureStorage();
     await _safeInitAsync(() async {
-      if (await secureStorage.read(key: 'ff_User') != null) {
-        try {
-          final serializedData =
-              await secureStorage.getString('ff_User') ?? '{}';
-          _User = UserStruct.fromSerializableMap(jsonDecode(serializedData));
-        } catch (e) {
-          print("Can't decode persisted data type. Error: $e.");
-        }
-      }
-    });
-    await _safeInitAsync(() async {
       _FirstTimeOpened =
           await secureStorage.getBool('ff_FirstTimeOpened') ?? _FirstTimeOpened;
     });
@@ -49,6 +38,10 @@ class FFAppState extends ChangeNotifier {
     await _safeInitAsync(() async {
       _IsGuest = await secureStorage.getBool('ff_IsGuest') ?? _IsGuest;
     });
+    await _safeInitAsync(() async {
+      _Allergies =
+          await secureStorage.getStringList('ff_Allergies') ?? _Allergies;
+    });
   }
 
   void update(VoidCallback callback) {
@@ -57,23 +50,6 @@ class FFAppState extends ChangeNotifier {
   }
 
   late FlutterSecureStorage secureStorage;
-
-  UserStruct _User =
-      UserStruct.fromSerializableMap(jsonDecode('{\"Intolerancies\":\"[]\"}'));
-  UserStruct get User => _User;
-  set User(UserStruct _value) {
-    _User = _value;
-    secureStorage.setString('ff_User', _value.serialize());
-  }
-
-  void deleteUser() {
-    secureStorage.delete(key: 'ff_User');
-  }
-
-  void updateUserStruct(Function(UserStruct) updateFn) {
-    updateFn(_User);
-    secureStorage.setString('ff_User', _User.serialize());
-  }
 
   bool _FirstTimeOpened = true;
   bool get FirstTimeOpened => _FirstTimeOpened;
@@ -139,6 +115,40 @@ class FFAppState extends ChangeNotifier {
 
   void deleteIsGuest() {
     secureStorage.delete(key: 'ff_IsGuest');
+  }
+
+  List<String> _Allergies = [];
+  List<String> get Allergies => _Allergies;
+  set Allergies(List<String> _value) {
+    _Allergies = _value;
+    secureStorage.setStringList('ff_Allergies', _value);
+  }
+
+  void deleteAllergies() {
+    secureStorage.delete(key: 'ff_Allergies');
+  }
+
+  void addToAllergies(String _value) {
+    _Allergies.add(_value);
+    secureStorage.setStringList('ff_Allergies', _Allergies);
+  }
+
+  void removeFromAllergies(String _value) {
+    _Allergies.remove(_value);
+    secureStorage.setStringList('ff_Allergies', _Allergies);
+  }
+
+  void removeAtIndexFromAllergies(int _index) {
+    _Allergies.removeAt(_index);
+    secureStorage.setStringList('ff_Allergies', _Allergies);
+  }
+
+  void updateAllergiesAtIndex(
+    int _index,
+    String Function(String) updateFn,
+  ) {
+    _Allergies[_index] = updateFn(_Allergies[_index]);
+    secureStorage.setStringList('ff_Allergies', _Allergies);
   }
 }
 

@@ -6,5 +6,4 @@ export 'nutrient_struct.dart';
 export 'nutrition_struct.dart';
 export 'scanned_item_struct.dart';
 export 'sub_nutrition_struct.dart';
-export 'user_struct.dart';
 export 'products_struct.dart';
