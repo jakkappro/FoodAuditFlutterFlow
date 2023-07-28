@@ -290,25 +290,25 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // SetUpWizard
   {
-    'j0m39pzo': {
+    'x85xnccp': {
       'en': 'Male',
-      'sk': '',
+      'sk': 'Muž',
     },
-    '1r8f9c89': {
+    'a6mpwtmr': {
       'en': 'Female',
-      'sk': '',
+      'sk': 'Žena',
     },
-    'dpvjy2qc': {
+    'isl7gm5u': {
       'en': 'Attack helicopter',
-      'sk': '',
+      'sk': 'Útočný vrtuľník',
     },
-    'vztl80w3': {
+    'w61s7h17': {
       'en': 'Please select gender',
-      'sk': '',
+      'sk': 'Vyberte pohlavie',
     },
-    'xk2pboxm': {
+    '88sutfez': {
       'en': 'Search for an item...',
-      'sk': '',
+      'sk': 'Vyhľadať položku...',
     },
     'cdn68h8g': {
       'en': 'Hotofo',

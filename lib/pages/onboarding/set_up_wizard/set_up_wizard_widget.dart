@@ -155,13 +155,13 @@ class _SetUpWizardWidgetState extends State<SetUpWizardWidget>
                                               FormFieldController<String>(null),
                                       options: [
                                         FFLocalizations.of(context).getText(
-                                          'j0m39pzo' /* Male */,
+                                          'x85xnccp' /* Male */,
                                         ),
                                         FFLocalizations.of(context).getText(
-                                          '1r8f9c89' /* Female */,
+                                          'a6mpwtmr' /* Female */,
                                         ),
                                         FFLocalizations.of(context).getText(
-                                          'dpvjy2qc' /* Attack helicopter */,
+                                          'isl7gm5u' /* Attack helicopter */,
                                         )
                                       ],
                                       onChanged: (val) async {
@@ -195,7 +195,7 @@ class _SetUpWizardWidgetState extends State<SetUpWizardWidget>
                                           ),
                                       hintText:
                                           FFLocalizations.of(context).getText(
-                                        'vztl80w3' /* Please select gender */,
+                                        'w61s7h17' /* Please select gender */,
                                       ),
                                       icon: Icon(
                                         Icons.ten_k,
