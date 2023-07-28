@@ -297,21 +297,9 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // SetUpWizard
   {
-    'pldv1b8f': {
-      'en': 'Menko',
-      'sk': 'Menko',
-    },
-    '87asg46g': {
-      'en': 'Priezvisko',
-      'sk': 'Priezvisko',
-    },
     '1oyw0l5g': {
       'en': 'Typ postihnutia(pohlavie)',
       'sk': 'Typ postihnutia (pohlavie)',
-    },
-    'l9h4fanf': {
-      'en': 'Alerty z EU',
-      'sk': 'Alerty z EÚ',
     },
     'cdn68h8g': {
       'en': 'Hotofo',

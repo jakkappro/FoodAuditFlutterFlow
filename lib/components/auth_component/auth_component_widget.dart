@@ -1,6 +1,7 @@
 import '/auth/firebase_auth/auth_util.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/custom_code/actions/index.dart' as actions;
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -153,8 +154,14 @@ class _AuthComponentWidgetState extends State<AuthComponentWidget> {
                 return;
               }
               FFAppState().IsGuest = false;
+              _model.isNew = await actions.isUserNew();
+              if (_model.isNew == true) {
+                context.goNamedAuth('SetUpWizard', context.mounted);
+              } else {
+                context.goNamedAuth('Home', context.mounted);
+              }
 
-              context.goNamedAuth('Home', context.mounted);
+              setState(() {});
             },
             child: Material(
               color: Colors.transparent,
