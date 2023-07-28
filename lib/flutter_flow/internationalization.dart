@@ -196,13 +196,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'sk': 'fotoaparát',
     },
   },
-  // Navigation
-  {
-    '9y3fs49o': {
-      'en': 'Home',
-      'sk': 'Domov',
-    },
-  },
   // Onborading
   {
     'x9kdqi9v': {

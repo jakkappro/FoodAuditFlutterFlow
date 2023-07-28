@@ -103,11 +103,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           builder: (context, params) => CameraWidget(),
         ),
         FFRoute(
-          name: 'Navigation',
-          path: '/navigation',
-          builder: (context, params) => NavigationWidget(),
-        ),
-        FFRoute(
           name: 'Onborading',
           path: '/onborading',
           builder: (context, params) => OnboradingWidget(),

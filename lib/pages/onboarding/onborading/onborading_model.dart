@@ -1,4 +1,4 @@
-import '/components/auth_component/auth_component_widget.dart';
+import '/components/authentication/auth_component/auth_component_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart'

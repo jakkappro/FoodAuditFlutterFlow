@@ -1,5 +1,5 @@
 import '/backend/backend.dart';
-import '/components/nutrition_table_row/nutrition_table_row_widget.dart';
+import '/components/scanner_detail/nutrition_table_row/nutrition_table_row_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/custom_code/widgets/index.dart' as custom_widgets;

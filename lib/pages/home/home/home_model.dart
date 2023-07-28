@@ -1,7 +1,7 @@
-import '/components/header/header_widget.dart';
+import '/components/home_components/header/header_widget.dart';
+import '/components/home_components/scanned_items/scanned_items_widget.dart';
 import '/components/intolerancies/intolerancies_widget.dart';
-import '/components/open_scanner_button/open_scanner_button_widget.dart';
-import '/components/scanned_items/scanned_items_widget.dart';
+import '/components/scanner_page_components/open_scanner_button/open_scanner_button_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
