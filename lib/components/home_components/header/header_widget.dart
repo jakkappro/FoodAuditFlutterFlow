@@ -65,11 +65,14 @@ class _HeaderWidgetState extends State<HeaderWidget> {
                     '${FFLocalizations.of(context).languageCode == 'SK' ? 'Ahoj ' : 'Hi '}${valueOrDefault<String>(
                       currentUserDisplayName,
                       'user',
-                    )}!',
+                    )}!'
+                        .maybeHandleOverflow(
+                      maxChars: 20,
+                      replacement: '…',
+                    ),
                     style: FlutterFlowTheme.of(context).bodyMedium.override(
                           fontFamily: 'Lato',
                           color: Color(0xFFF7F7F7),
-                          fontSize: 32.0,
                           fontWeight: FontWeight.w800,
                         ),
                   ),
