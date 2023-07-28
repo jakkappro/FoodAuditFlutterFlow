@@ -38,19 +38,11 @@ class _BarCodeScannerState extends State<BarCodeScanner>
   final Color _dangerounsFoodColor = Colors.red.withOpacity(0.5);
   final Color _neutralColor = Color(0x1C0D26).withOpacity(0.5);
 
-  final BarcodeScanner _barcodeScanner = BarcodeScanner();
-  bool _canProcess = true;
-  bool _isBusy = false;
-  bool _foundFood = false;
-  bool _canScan = true;
-  bool _panelOpened = false;
-  String? _ean;
-  CustomPaint? _customPaint;
-  var _cameraLensDirection = CameraLensDirection.back;
   PanelController _panelController = PanelController();
   ProductsRecord? _scannedFood;
-  int _timesDidntFoundEan = 0;
   late Color _backdropColor; //initial color
+  bool _panelOpened = false;
+  String _ean = '';
 
   @override
   void initState() {
@@ -60,8 +52,6 @@ class _BarCodeScannerState extends State<BarCodeScanner>
 
   @override
   void dispose() {
-    _canProcess = false;
-    _barcodeScanner.close();
     super.dispose();
   }
 
@@ -69,21 +59,25 @@ class _BarCodeScannerState extends State<BarCodeScanner>
   Widget build(BuildContext context) {
     return GestureDetector(
       onVerticalDragEnd: (details) async {
-        if (details.primaryVelocity! > 0 && _foundFood) {
-          _canScan = false;
+        if (details.primaryVelocity! > 0 &&
+            _ean.isNotEmpty &&
+            !_panelOpened &&
+            !_panelController.isPanelAnimating) {
           await _panelController.animatePanelToPosition(
             1,
             duration: Duration(milliseconds: 300),
           );
+
+          _panelOpened = true;
+          setState(() {});
+          return;
         } else if (details.primaryVelocity! < 0 &&
             _panelOpened &&
             !_panelController.isPanelShown &&
             !_panelController.isPanelAnimating) {
-          _canScan = true;
-          await _panelController.animatePanelToPosition(
-            0,
-            duration: Duration(milliseconds: 300),
-          );
+          await _panelController.close();
+          _panelOpened = false;
+          setState(() {});
         }
       },
       child: SlidingUpPanel(
@@ -97,28 +91,17 @@ class _BarCodeScannerState extends State<BarCodeScanner>
               )
             : Container(),
         snapPoint: 0.4,
+        onPanelClosed: () => _panelOpened = false,
         renderPanelSheet: false,
         backdropTapClosesPanel: true,
         backdropColor: Colors.grey,
-        backdropEnabled: _panelOpened,
+        backdropEnabled: _panelOpened && !_panelController.isPanelAnimating,
         backdropOpacity: 0.8,
         slideDirection: SlideDirection.DOWN,
         isDraggable: false,
-        onPanelClosed: _onPanelClose,
-        onPanelOpened: () async {
-          _canScan = false;
-          _panelOpened = true;
-          setState(() {});
-        },
         body: Stack(
           children: <Widget>[
-            CameraView(
-              customPaint: _customPaint,
-              onImage: _processImage,
-              initialCameraLensDirection: _cameraLensDirection,
-              onCameraLensDirectionChanged: (value) =>
-                  _cameraLensDirection = value,
-            ),
+            _ScannerPage(onEanScanned: _onEanScanned),
             ClipPath(
               clipper: HoleClipper(),
               child: Container(
@@ -140,82 +123,40 @@ class _BarCodeScannerState extends State<BarCodeScanner>
     );
   }
 
-  Future<void> _updateScannedFood(String ean) async {
-    if (ean == _ean) return;
-    final newFood = await getFoodFromEAN(ean, true);
-    final foodSafe = await isFoodSafe(newFood?.allergens);
+  Future<void> _onEanScanned(String ean) async {
+    if (ean == _ean || _panelOpened) return;
+    if (ean.isEmpty) {
+      _scannedFood = null;
+      _backdropColor = _neutralColor;
+      _ean = '';
+      await _panelController.animatePanelToPosition(
+        0,
+        duration: Duration(milliseconds: 300),
+      );
 
-    // somehow figure out how to diff whether product is in db or not, future kubo problem
-
-    if (newFood != null) {
-      if (_panelController.isAttached) {
-        await _panelController.animatePanelToSnapPoint(
-          duration: Duration(
-            milliseconds: 500,
-          ),
-        );
-      }
-      if (mounted) {
-        setState(() {
-          _scannedFood = newFood;
-          _foundFood = true;
-          if (foodSafe) {
-            _backdropColor = _safeFoodColor;
-          } else {
-            _backdropColor = _dangerounsFoodColor;
-          }
-        });
-      }
-    }
-  }
-
-  Future<void> _processImage(InputImage inputImage) async {
-    if (!_canProcess && _canScan) {
-      return;
-    }
-    if (_isBusy) return;
-    _isBusy = true;
-    // use this later for displaying a message to aim camera to barcode
-    bool foundEan = false;
-    setState(() {});
-    final barcodes = await _barcodeScanner.processImage(inputImage);
-    Barcode? eanBarcode;
-    for (final barcode in barcodes.where((b) => b.displayValue != null)) {
-      // we can also check barcode.type but not sure how it works yet and don't care to try
-      eanBarcode = barcode;
-      foundEan = true;
-      _updateScannedFood(eanBarcode.displayValue!);
-    }
-
-    _isBusy = false;
-    if (!_canScan) {
-      return;
-    }
-
-    if (mounted && _canScan) {
-      // display message after some unsucessfull scans to aim camera to barcode
       setState(() {
-        if (foundEan) {
-          _ean = eanBarcode!.displayValue;
-          _timesDidntFoundEan = 0;
-          // choose color based on food safety
-          _backdropColor = _safeFoodColor;
-        } else if (!foundEan && _timesDidntFoundEan > 50) {
-          _ean = null;
-          _foundFood = false;
-          _backdropColor = _neutralColor;
-          _panelController.close();
-        } else {
-          _timesDidntFoundEan++;
-        }
+        _panelOpened = false;
       });
-    }
-  }
 
-  // call this on swipe down or when user taps outside of panel
-  void _onPanelClose() {
+      return;
+    }
+
+    _ean = ean;
+    _scannedFood = await getFoodFromEAN(ean, true);
+    if (_scannedFood != null) {
+      var isSafe = await isFoodSafe(_scannedFood!.allergens);
+      _backdropColor = isSafe ? _safeFoodColor : _dangerounsFoodColor;
+    } else {
+      _backdropColor = _neutralColor;
+    }
+
+    if (_panelController.isPanelClosed) {
+      _panelController.animatePanelToSnapPoint(
+        duration: Duration(milliseconds: 300),
+      );
+    }
+
     setState(() {
-      _canScan = true;
       _panelOpened = false;
     });
   }
@@ -231,8 +172,8 @@ class HoleClipper extends CustomClipper<Path> {
     var innerPath = Path()
       ..addRect(Rect.fromCenter(
         center: Offset(size.width / 2, size.height / 2),
-        width: size.width * 0.75, // define width of square
-        height: 250.0, // define height of square
+        width: size.width * 0.75,
+        height: 250.0,
       ));
 
     return Path.combine(PathOperation.difference, outerPath, innerPath);
@@ -240,4 +181,73 @@ class HoleClipper extends CustomClipper<Path> {
 
   @override
   bool shouldReclip(CustomClipper<Path> oldClipper) => false;
+}
+
+class _ScannerPage extends StatefulWidget {
+  const _ScannerPage({
+    Key? key,
+    required this.onEanScanned,
+  }) : super(key: key);
+
+  final Function(String) onEanScanned;
+
+  @override
+  _ScannerPageState createState() => _ScannerPageState();
+}
+
+class _ScannerPageState extends State<_ScannerPage> {
+  CustomPaint? _customPaint;
+  var _cameraLensDirection = CameraLensDirection.back;
+  final BarcodeScanner _barcodeScanner = BarcodeScanner();
+
+  int _timesDidntFoundEan = 0;
+
+  bool _canProcess = true;
+  bool _isBusy = false;
+
+  @override
+  Widget build(BuildContext context) {
+    return CameraView(
+      customPaint: _customPaint,
+      onImage: _processImage,
+      initialCameraLensDirection: _cameraLensDirection,
+      onCameraLensDirectionChanged: (value) => _cameraLensDirection = value,
+    );
+  }
+
+  @override
+  void dispose() {
+    _barcodeScanner.close();
+    _canProcess = false;
+    super.dispose();
+  }
+
+  Future<void> _processImage(InputImage inputImage) async {
+    if (!_canProcess) {
+      return;
+    }
+    if (_isBusy) return;
+    _isBusy = true;
+    // use this later for displaying a message to aim camera to barcode
+    setState(() {});
+    final barcodes = await _barcodeScanner.processImage(inputImage);
+    bool foundEan = barcodes.where((b) => b.displayValue != null).isNotEmpty;
+
+    _isBusy = false;
+
+    if (mounted) {
+      // display message after some unsucessfull scans to aim camera to barcode
+      setState(() {
+        if (foundEan) {
+          _timesDidntFoundEan = 0;
+          // choose color based on food safety
+          widget.onEanScanned(barcodes.first.displayValue!);
+        } else if (!foundEan && _timesDidntFoundEan > 50) {
+          widget.onEanScanned('');
+        } else {
+          _timesDidntFoundEan++;
+        }
+      });
+    }
+  }
 }

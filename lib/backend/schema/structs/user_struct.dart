@@ -194,14 +194,16 @@ void addUserStructData(
     firestoreData[fieldName] = FieldValue.delete();
     return;
   }
-  if (!forFieldValue && user.firestoreUtilData.clearUnsetFields) {
+  final clearFields = !forFieldValue && user.firestoreUtilData.clearUnsetFields;
+  if (clearFields) {
     firestoreData[fieldName] = <String, dynamic>{};
   }
   final userData = getUserFirestoreData(user, forFieldValue);
   final nestedData = userData.map((k, v) => MapEntry('$fieldName.$k', v));
 
-  final create = user.firestoreUtilData.create;
-  firestoreData.addAll(create ? mergeNestedFields(nestedData) : nestedData);
+  final mergeFields = user.firestoreUtilData.create || clearFields;
+  firestoreData
+      .addAll(mergeFields ? mergeNestedFields(nestedData) : nestedData);
 }
 
 Map<String, dynamic> getUserFirestoreData(

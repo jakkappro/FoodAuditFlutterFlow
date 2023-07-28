@@ -160,8 +160,11 @@ class _ScannedItemWidgetState extends State<ScannedItemWidget> {
                           ),
                         ),
                         Text(
-                          FFLocalizations.of(context).getText(
-                            '3huojtaq' /* Mliečne výrobky */,
+                          valueOrDefault<String>(
+                            (String var1) {
+                              return var1.split("|").last;
+                            }(_model.newFood!.category),
+                            'Mlieko',
                           ),
                           style:
                               FlutterFlowTheme.of(context).bodyMedium.override(

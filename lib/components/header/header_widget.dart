@@ -59,17 +59,19 @@ class _HeaderWidgetState extends State<HeaderWidget> {
               mainAxisAlignment: MainAxisAlignment.end,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(
-                  'Hi ${valueOrDefault<String>(
-                    FFAppState().User.firstName,
-                    'user',
-                  )}!',
-                  style: FlutterFlowTheme.of(context).bodyMedium.override(
-                        fontFamily: 'Lato',
-                        color: Color(0xFFF7F7F7),
-                        fontSize: 32.0,
-                        fontWeight: FontWeight.w800,
-                      ),
+                AuthUserStreamWidget(
+                  builder: (context) => Text(
+                    'Hi ${valueOrDefault<String>(
+                      currentUserDisplayName,
+                      'user',
+                    )}!',
+                    style: FlutterFlowTheme.of(context).bodyMedium.override(
+                          fontFamily: 'Lato',
+                          color: Color(0xFFF7F7F7),
+                          fontSize: 32.0,
+                          fontWeight: FontWeight.w800,
+                        ),
+                  ),
                 ),
                 Text(
                   FFLocalizations.of(context).getText(

@@ -126,7 +126,9 @@ void addEURssFeedModelStructData(
     firestoreData[fieldName] = FieldValue.delete();
     return;
   }
-  if (!forFieldValue && eURssFeedModel.firestoreUtilData.clearUnsetFields) {
+  final clearFields =
+      !forFieldValue && eURssFeedModel.firestoreUtilData.clearUnsetFields;
+  if (clearFields) {
     firestoreData[fieldName] = <String, dynamic>{};
   }
   final eURssFeedModelData =
@@ -134,8 +136,9 @@ void addEURssFeedModelStructData(
   final nestedData =
       eURssFeedModelData.map((k, v) => MapEntry('$fieldName.$k', v));
 
-  final create = eURssFeedModel.firestoreUtilData.create;
-  firestoreData.addAll(create ? mergeNestedFields(nestedData) : nestedData);
+  final mergeFields = eURssFeedModel.firestoreUtilData.create || clearFields;
+  firestoreData
+      .addAll(mergeFields ? mergeNestedFields(nestedData) : nestedData);
 }
 
 Map<String, dynamic> getEURssFeedModelFirestoreData(

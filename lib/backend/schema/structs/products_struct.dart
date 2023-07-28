@@ -324,14 +324,17 @@ void addProductsStructData(
     firestoreData[fieldName] = FieldValue.delete();
     return;
   }
-  if (!forFieldValue && products.firestoreUtilData.clearUnsetFields) {
+  final clearFields =
+      !forFieldValue && products.firestoreUtilData.clearUnsetFields;
+  if (clearFields) {
     firestoreData[fieldName] = <String, dynamic>{};
   }
   final productsData = getProductsFirestoreData(products, forFieldValue);
   final nestedData = productsData.map((k, v) => MapEntry('$fieldName.$k', v));
 
-  final create = products.firestoreUtilData.create;
-  firestoreData.addAll(create ? mergeNestedFields(nestedData) : nestedData);
+  final mergeFields = products.firestoreUtilData.create || clearFields;
+  firestoreData
+      .addAll(mergeFields ? mergeNestedFields(nestedData) : nestedData);
 }
 
 Map<String, dynamic> getProductsFirestoreData(

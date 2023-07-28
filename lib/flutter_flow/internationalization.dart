@@ -341,31 +341,27 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   {
     '7kcmujud': {
       'en': 'Nu3Score',
-      'sk': '',
+      'sk': 'Nu3Score',
     },
     'pb3y62q9': {
       'en': 'Nova4',
-      'sk': '',
+      'sk': 'Nova4',
     },
     'z0p07f7g': {
       'en': 'Kliknite pre viac informácií*',
-      'sk': '',
+      'sk': 'Kliknite pre viac informácií*',
     },
     'jk4xh0b8': {
       'en': 'Allergens',
-      'sk': '',
+      'sk': 'Alergény',
     },
     'ysgynb85': {
       'en': 'Nutrition data',
-      'sk': '',
+      'sk': 'Údaje o výžive',
     },
     'mettjq8p': {
       'en': '100 g',
-      'sk': '',
-    },
-    'aq7d4bgi': {
-      'en': 'Túto potravinu vyhoďte do plastov',
-      'sk': '',
+      'sk': '100 g',
     },
     '6n80je7x': {
       'en': 'Potiahni pre viac informácií',
@@ -424,10 +420,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // ScannedItem
   {
-    '3huojtaq': {
-      'en': 'Mliečne výrobky',
-      'sk': 'Mliečne výrobky',
-    },
     '01ip2n0c': {
       'en': '1,2,3,4',
       'sk': '1,2,3,4',
@@ -466,26 +458,33 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   {
     '2zfp8t3l': {
       'en': '0%',
-      'sk': '',
+      'sk': '0%',
     },
   },
   // AuthComponent
   {
     'nltnyzvs': {
       'en': 'Sign in with Apple',
-      'sk': '',
+      'sk': 'Prihláste sa pomocou Apple',
     },
     'gbe6jirv': {
       'en': 'Continue with Facebook',
-      'sk': '',
+      'sk': 'Pokračujte s Facebookom',
     },
     '7s7pf04t': {
       'en': 'Sign in with Google',
-      'sk': '',
+      'sk': 'Prihláste sa pomocou Google',
     },
     'nodogpy4': {
       'en': 'Pokračujte ako hosť',
-      'sk': '',
+      'sk': 'Pokračujte ako hosť',
+    },
+  },
+  // RecycleInfo
+  {
+    'ps7rr3mp': {
+      'en': 'Túto potravinu vyhoďte do plastov',
+      'sk': 'Túto potravinu vyhoďte do plastov',
     },
   },
   // Miscellaneous

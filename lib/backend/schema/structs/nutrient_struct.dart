@@ -147,14 +147,17 @@ void addNutrientStructData(
     firestoreData[fieldName] = FieldValue.delete();
     return;
   }
-  if (!forFieldValue && nutrient.firestoreUtilData.clearUnsetFields) {
+  final clearFields =
+      !forFieldValue && nutrient.firestoreUtilData.clearUnsetFields;
+  if (clearFields) {
     firestoreData[fieldName] = <String, dynamic>{};
   }
   final nutrientData = getNutrientFirestoreData(nutrient, forFieldValue);
   final nestedData = nutrientData.map((k, v) => MapEntry('$fieldName.$k', v));
 
-  final create = nutrient.firestoreUtilData.create;
-  firestoreData.addAll(create ? mergeNestedFields(nestedData) : nestedData);
+  final mergeFields = nutrient.firestoreUtilData.create || clearFields;
+  firestoreData
+      .addAll(mergeFields ? mergeNestedFields(nestedData) : nestedData);
 }
 
 Map<String, dynamic> getNutrientFirestoreData(

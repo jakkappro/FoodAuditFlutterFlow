@@ -130,8 +130,10 @@ class _SlidingUpPanelFromEanWidgetState
                                 ),
                                 AutoSizeText(
                                   valueOrDefault<String>(
-                                    widget.doc?.category,
-                                    'No category',
+                                    (String var1) {
+                                      return var1.split("|").last;
+                                    }(widget.doc!.category),
+                                    'Milk',
                                   ).maybeHandleOverflow(
                                     maxChars: 25,
                                     replacement: '…',
@@ -410,51 +412,7 @@ class _SlidingUpPanelFromEanWidgetState
                         ),
                       ),
                     ),
-                    Padding(
-                      padding:
-                          EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
-                      child: Container(
-                        width: double.infinity,
-                        height: 55.0,
-                        decoration: BoxDecoration(
-                          color: Color(0xFFF7F7F7),
-                          borderRadius: BorderRadius.circular(10.0),
-                        ),
-                        child: Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              10.0, 0.0, 10.0, 0.0),
-                          child: Row(
-                            mainAxisSize: MainAxisSize.max,
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              AutoSizeText(
-                                FFLocalizations.of(context).getText(
-                                  'aq7d4bgi' /* Túto potravinu vyhoďte do plas... */,
-                                ),
-                                style: FlutterFlowTheme.of(context)
-                                    .bodyMedium
-                                    .override(
-                                      fontFamily: 'Lato',
-                                      color: Color(0xFF382F73),
-                                      fontSize: 18.0,
-                                      fontWeight: FontWeight.w800,
-                                    ),
-                              ),
-                              ClipRRect(
-                                borderRadius: BorderRadius.circular(8.0),
-                                child: Image.asset(
-                                  'assets/images/PET_RECYCLED.png',
-                                  width: 25.0,
-                                  height: 32.0,
-                                  fit: BoxFit.cover,
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ),
-                    ),
-                  ].addToEnd(SizedBox(height: 30.0)),
+                  ].addToEnd(SizedBox(height: 50.0)),
                 ),
               ),
             ),
