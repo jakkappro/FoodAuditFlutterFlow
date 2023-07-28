@@ -201,7 +201,8 @@ class _SetUpWizardWidgetState extends State<SetUpWizardWidget>
                                         Icons.ten_k,
                                         size: 0.0,
                                       ),
-                                      fillColor: Colors.transparent,
+                                      fillColor:
+                                          FlutterFlowTheme.of(context).accent1,
                                       elevation: 2.0,
                                       borderColor: Colors.transparent,
                                       borderWidth: 2.0,
