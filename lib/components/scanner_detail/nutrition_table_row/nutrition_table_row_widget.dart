@@ -52,8 +52,7 @@ class _NutritionTableRowWidgetState extends State<NutritionTableRowWidget> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          '${widget.nutrient?.nutrientType} ${widget.nutrient?.value}${widget.nutrient?.unit}'
-              .maybeHandleOverflow(
+          '${widget.nutrient?.nutrientType}'.maybeHandleOverflow(
             maxChars: 25,
             replacement: '…',
           ),
@@ -66,9 +65,7 @@ class _NutritionTableRowWidgetState extends State<NutritionTableRowWidget> {
               ),
         ),
         Text(
-          FFLocalizations.of(context).getText(
-            '2zfp8t3l' /* 0% */,
-          ),
+          '${widget.nutrient?.value}${widget.nutrient?.unit}',
           style: FlutterFlowTheme.of(context).bodyMedium.override(
                 fontFamily: 'Lato',
                 color: Colors.white,

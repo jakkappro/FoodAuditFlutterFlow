@@ -89,57 +89,40 @@ class _AuthComponentWidgetState extends State<AuthComponentWidget> {
               ],
             ),
           ),
-          InkWell(
-            splashColor: Colors.transparent,
-            focusColor: Colors.transparent,
-            hoverColor: Colors.transparent,
-            highlightColor: Colors.transparent,
-            onTap: () async {
-              GoRouter.of(context).prepareAuthEvent();
-              final user = await authManager.signInWithFacebook(context);
-              if (user == null) {
-                return;
-              }
-              FFAppState().IsGuest = false;
-
-              context.goNamedAuth('Home', context.mounted);
-            },
-            child: Container(
-              width: MediaQuery.sizeOf(context).width * 0.8,
-              decoration: BoxDecoration(
-                color: Color(0xFF1877F2),
-                borderRadius: BorderRadius.circular(4.0),
-              ),
-              child: Row(
-                mainAxisSize: MainAxisSize.max,
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(8.0, 8.0, 8.0, 8.0),
-                    child: Icon(
-                      Icons.facebook_sharp,
-                      color: Color(0xFFFFFFFE),
-                      size: 24.0,
-                    ),
+          Container(
+            width: MediaQuery.sizeOf(context).width * 0.8,
+            decoration: BoxDecoration(
+              color: Color(0xFF1877F2),
+              borderRadius: BorderRadius.circular(4.0),
+            ),
+            child: Row(
+              mainAxisSize: MainAxisSize.max,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Padding(
+                  padding: EdgeInsetsDirectional.fromSTEB(8.0, 8.0, 8.0, 8.0),
+                  child: Icon(
+                    Icons.facebook_sharp,
+                    color: Color(0xFFFFFFFE),
+                    size: 24.0,
                   ),
-                  Padding(
-                    padding:
-                        EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 10.0),
-                    child: Text(
-                      FFLocalizations.of(context).getText(
-                        'gbe6jirv' /* Continue with Facebook */,
-                      ),
-                      style: FlutterFlowTheme.of(context).bodyMedium.override(
-                            fontFamily: 'Lato',
-                            color: Colors.white,
-                            fontSize: 16.0,
-                            letterSpacing: 0.32,
-                            fontWeight: FontWeight.w600,
-                          ),
+                ),
+                Padding(
+                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 10.0),
+                  child: Text(
+                    FFLocalizations.of(context).getText(
+                      'gbe6jirv' /* Continue with Facebook */,
                     ),
+                    style: FlutterFlowTheme.of(context).bodyMedium.override(
+                          fontFamily: 'Lato',
+                          color: Colors.white,
+                          fontSize: 16.0,
+                          letterSpacing: 0.32,
+                          fontWeight: FontWeight.w600,
+                        ),
                   ),
-                ],
-              ),
+                ),
+              ],
             ),
           ),
           InkWell(

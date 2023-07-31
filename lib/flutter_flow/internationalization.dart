@@ -336,10 +336,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // SlidingUpPanelFromEan
   {
-    '7kcmujud': {
-      'en': 'Nu3Score',
-      'sk': 'Nu3Score',
-    },
     'pb3y62q9': {
       'en': 'Nova4',
       'sk': 'Nova4',
@@ -449,13 +445,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     'rju430wl': {
       'en': 'Hold barcode or ingredients list \ninside square area',
       'sk': 'Držte čiarový kód alebo zoznam zložiek\nvnútri štvorcovej plochy',
-    },
-  },
-  // NutritionTableRow
-  {
-    '2zfp8t3l': {
-      'en': '0%',
-      'sk': '0%',
     },
   },
   // AuthComponent

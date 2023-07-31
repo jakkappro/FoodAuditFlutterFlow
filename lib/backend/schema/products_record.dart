@@ -66,6 +66,11 @@ class ProductsRecord extends FirestoreRecord {
   String get sizeUnit => _sizeUnit ?? '';
   bool hasSizeUnit() => _sizeUnit != null;
 
+  // "NutriScoreGrade" field.
+  String? _nutriScoreGrade;
+  String get nutriScoreGrade => _nutriScoreGrade ?? '';
+  bool hasNutriScoreGrade() => _nutriScoreGrade != null;
+
   void _initializeFields() {
     _isCompleted = snapshotData['IsCompleted'] as bool?;
     _name = snapshotData['Name'] as String?;
@@ -83,6 +88,7 @@ class ProductsRecord extends FirestoreRecord {
     _origin = snapshotData['Origin'] as String?;
     _size = snapshotData['Size'] as String?;
     _sizeUnit = snapshotData['SizeUnit'] as String?;
+    _nutriScoreGrade = snapshotData['NutriScoreGrade'] as String?;
   }
 
   static CollectionReference get collection =>
@@ -126,6 +132,7 @@ Map<String, dynamic> createProductsRecordData({
   String? origin,
   String? size,
   String? sizeUnit,
+  String? nutriScoreGrade,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
@@ -135,6 +142,7 @@ Map<String, dynamic> createProductsRecordData({
       'Origin': origin,
       'Size': size,
       'SizeUnit': sizeUnit,
+      'NutriScoreGrade': nutriScoreGrade,
     }.withoutNulls,
   );
 
@@ -156,7 +164,8 @@ class ProductsRecordDocumentEquality implements Equality<ProductsRecord> {
         listEquality.equals(e1?.nutrients, e2?.nutrients) &&
         e1?.origin == e2?.origin &&
         e1?.size == e2?.size &&
-        e1?.sizeUnit == e2?.sizeUnit;
+        e1?.sizeUnit == e2?.sizeUnit &&
+        e1?.nutriScoreGrade == e2?.nutriScoreGrade;
   }
 
   @override
@@ -170,7 +179,8 @@ class ProductsRecordDocumentEquality implements Equality<ProductsRecord> {
         e?.nutrients,
         e?.origin,
         e?.size,
-        e?.sizeUnit
+        e?.sizeUnit,
+        e?.nutriScoreGrade
       ]);
 
   @override
