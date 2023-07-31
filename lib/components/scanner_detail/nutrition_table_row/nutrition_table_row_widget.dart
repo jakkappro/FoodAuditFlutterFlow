@@ -53,13 +53,14 @@ class _NutritionTableRowWidgetState extends State<NutritionTableRowWidget> {
       children: [
         Text(
           '${widget.nutrient?.nutrientType}'.maybeHandleOverflow(
-            maxChars: 25,
+            maxChars: 20,
             replacement: '…',
           ),
           maxLines: 1,
           style: FlutterFlowTheme.of(context).bodyMedium.override(
                 fontFamily: 'Lato',
                 color: Colors.white,
+                fontSize: 15.0,
                 letterSpacing: 0.15,
                 fontWeight: FontWeight.w800,
               ),
@@ -69,6 +70,7 @@ class _NutritionTableRowWidgetState extends State<NutritionTableRowWidget> {
           style: FlutterFlowTheme.of(context).bodyMedium.override(
                 fontFamily: 'Lato',
                 color: Colors.white,
+                fontSize: 15.0,
                 letterSpacing: 0.15,
                 fontWeight: FontWeight.w800,
               ),
