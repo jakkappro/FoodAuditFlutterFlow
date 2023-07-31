@@ -18,7 +18,7 @@ Future<ProductsRecord?> getFoodFromEAN(String ean, bool? updateFood) async {
   if (!snapshot.exists) {
     snapshot = await firestoreInstance
         .collection("products")
-        .doc("998586003765099")
+        .doc("8594000771401")
         .get();
   }
 
