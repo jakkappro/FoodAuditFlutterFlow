@@ -81,28 +81,46 @@ class _IntoleranciesWidgetState extends State<IntoleranciesWidget> {
               child: FlutterFlowChoiceChips(
                 options: [
                   ChipData(FFLocalizations.of(context).getText(
-                    'wk3wjgs4' /* Milk */,
+                    'wk3wjgs4' /* Wheat */,
                   )),
                   ChipData(FFLocalizations.of(context).getText(
-                    'p2mshd0m' /* Eggs */,
+                    'p2mshd0m' /* Crustaceans */,
                   )),
                   ChipData(FFLocalizations.of(context).getText(
-                    '3jo6ppbt' /* Peanuts */,
+                    '3jo6ppbt' /* Eggs */,
                   )),
                   ChipData(FFLocalizations.of(context).getText(
-                    'l9fty51k' /* Soy */,
+                    'l9fty51k' /* Fish */,
                   )),
                   ChipData(FFLocalizations.of(context).getText(
-                    't9nu3dx8' /* Sesame */,
+                    't9nu3dx8' /* Peanuts */,
                   )),
                   ChipData(FFLocalizations.of(context).getText(
-                    '56yvj6gf' /* Fish */,
+                    '56yvj6gf' /* Soybeans */,
                   )),
                   ChipData(FFLocalizations.of(context).getText(
-                    '70ryefpb' /* Shellfish */,
+                    '70ryefpb' /* Milk */,
                   )),
                   ChipData(FFLocalizations.of(context).getText(
-                    'snee8f0w' /* Wheat */,
+                    'snee8f0w' /* Nuts */,
+                  )),
+                  ChipData(FFLocalizations.of(context).getText(
+                    '9ux8lpst' /* Celery */,
+                  )),
+                  ChipData(FFLocalizations.of(context).getText(
+                    'km3fczi3' /* Mustard */,
+                  )),
+                  ChipData(FFLocalizations.of(context).getText(
+                    'hoeugyln' /* Sesame */,
+                  )),
+                  ChipData(FFLocalizations.of(context).getText(
+                    's9x4vj8y' /* Sulphites */,
+                  )),
+                  ChipData(FFLocalizations.of(context).getText(
+                    '5oztm4nk' /* Lupin */,
+                  )),
+                  ChipData(FFLocalizations.of(context).getText(
+                    'cjorje3a' /* Molluscs */,
                   ))
                 ],
                 onChanged: (val) async {

@@ -18,10 +18,6 @@ class FFAppState extends ChangeNotifier {
   Future initializePersistedState() async {
     secureStorage = FlutterSecureStorage();
     await _safeInitAsync(() async {
-      _FirstTimeOpened =
-          await secureStorage.getBool('ff_FirstTimeOpened') ?? _FirstTimeOpened;
-    });
-    await _safeInitAsync(() async {
       _ScannedItems = (await secureStorage.getStringList('ff_ScannedItems'))
               ?.map((x) {
                 try {
@@ -42,6 +38,19 @@ class FFAppState extends ChangeNotifier {
       _Allergies =
           await secureStorage.getStringList('ff_Allergies') ?? _Allergies;
     });
+    await _safeInitAsync(() async {
+      _dateOfBirdth = await secureStorage.read(key: 'ff_dateOfBirdth') != null
+          ? DateTime.fromMillisecondsSinceEpoch(
+              (await secureStorage.getInt('ff_dateOfBirdth'))!)
+          : _dateOfBirdth;
+    });
+    await _safeInitAsync(() async {
+      _gender = await secureStorage.getString('ff_gender') ?? _gender;
+    });
+    await _safeInitAsync(() async {
+      _DoneWizzard =
+          await secureStorage.getBool('ff_DoneWizzard') ?? _DoneWizzard;
+    });
   }
 
   void update(VoidCallback callback) {
@@ -50,17 +59,6 @@ class FFAppState extends ChangeNotifier {
   }
 
   late FlutterSecureStorage secureStorage;
-
-  bool _FirstTimeOpened = true;
-  bool get FirstTimeOpened => _FirstTimeOpened;
-  set FirstTimeOpened(bool _value) {
-    _FirstTimeOpened = _value;
-    secureStorage.setBool('ff_FirstTimeOpened', _value);
-  }
-
-  void deleteFirstTimeOpened() {
-    secureStorage.delete(key: 'ff_FirstTimeOpened');
-  }
 
   List<ScannedItemStruct> _ScannedItems = [
     ScannedItemStruct.fromSerializableMap(jsonDecode(
@@ -149,6 +147,41 @@ class FFAppState extends ChangeNotifier {
   ) {
     _Allergies[_index] = updateFn(_Allergies[_index]);
     secureStorage.setStringList('ff_Allergies', _Allergies);
+  }
+
+  DateTime? _dateOfBirdth;
+  DateTime? get dateOfBirdth => _dateOfBirdth;
+  set dateOfBirdth(DateTime? _value) {
+    _dateOfBirdth = _value;
+    _value != null
+        ? secureStorage.setInt('ff_dateOfBirdth', _value.millisecondsSinceEpoch)
+        : secureStorage.remove('ff_dateOfBirdth');
+  }
+
+  void deleteDateOfBirdth() {
+    secureStorage.delete(key: 'ff_dateOfBirdth');
+  }
+
+  String _gender = '';
+  String get gender => _gender;
+  set gender(String _value) {
+    _gender = _value;
+    secureStorage.setString('ff_gender', _value);
+  }
+
+  void deleteGender() {
+    secureStorage.delete(key: 'ff_gender');
+  }
+
+  bool _DoneWizzard = false;
+  bool get DoneWizzard => _DoneWizzard;
+  set DoneWizzard(bool _value) {
+    _DoneWizzard = _value;
+    secureStorage.setBool('ff_DoneWizzard', _value);
+  }
+
+  void deleteDoneWizzard() {
+    secureStorage.delete(key: 'ff_DoneWizzard');
   }
 }
 

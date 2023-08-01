@@ -379,36 +379,60 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'sk': 'Intolerancie',
     },
     'wk3wjgs4': {
-      'en': 'Milk',
-      'sk': 'Mlieko',
+      'en': 'Wheat',
+      'sk': 'Pšenica',
     },
     'p2mshd0m': {
+      'en': 'Crustaceans',
+      'sk': 'Kôrovce',
+    },
+    '3jo6ppbt': {
       'en': 'Eggs',
       'sk': 'Vajcia',
     },
-    '3jo6ppbt': {
-      'en': 'Peanuts',
-      'sk': 'Arašidy',
-    },
     'l9fty51k': {
-      'en': 'Soy',
-      'sk': 'Sója',
-    },
-    't9nu3dx8': {
-      'en': 'Sesame',
-      'sk': 'sezam',
-    },
-    '56yvj6gf': {
       'en': 'Fish',
       'sk': 'Ryby',
     },
+    't9nu3dx8': {
+      'en': 'Peanuts',
+      'sk': 'Arašidy',
+    },
+    '56yvj6gf': {
+      'en': 'Soybeans',
+      'sk': 'Sójové zrná',
+    },
     '70ryefpb': {
-      'en': 'Shellfish',
-      'sk': 'Mäkkýše',
+      'en': 'Milk',
+      'sk': 'Mlieko',
     },
     'snee8f0w': {
-      'en': 'Wheat',
-      'sk': 'Pšenica',
+      'en': 'Nuts',
+      'sk': 'Orechy',
+    },
+    '9ux8lpst': {
+      'en': 'Celery',
+      'sk': 'Zeler',
+    },
+    'km3fczi3': {
+      'en': 'Mustard',
+      'sk': 'Horčica',
+    },
+    'hoeugyln': {
+      'en': 'Sesame',
+      'sk': 'Sezam',
+    },
+    's9x4vj8y': {
+      'en': 'Sulphites',
+      'sk': 'Oxid siričitý a siričitany',
+    },
+    '5oztm4nk': {
+      'en': 'Lupin',
+      'sk': 'Vlčí bôb',
+    },
+    'cjorje3a': {
+      'en': 'Molluscs',
+      'sk': 'Mäkkýše',
     },
   },
   // ScannedItem

@@ -171,6 +171,8 @@ class _SetUpWizardWidgetState extends State<SetUpWizardWidget>
                                             .update(createUsersRecordData(
                                           gender: _model.dropDownValue,
                                         ));
+                                        FFAppState().gender =
+                                            _model.dropDownValue!;
                                         if (animationsMap[
                                                 'buttonOnActionTriggerAnimation1'] !=
                                             null) {
@@ -262,6 +264,7 @@ class _SetUpWizardWidgetState extends State<SetUpWizardWidget>
                                     .update(createUsersRecordData(
                                   dateOfBirth: _model.datePicked,
                                 ));
+                                FFAppState().dateOfBirdth = _model.datePicked;
                                 if (animationsMap[
                                         'intoleranciesOnActionTriggerAnimation'] !=
                                     null) {
@@ -356,6 +359,8 @@ class _SetUpWizardWidgetState extends State<SetUpWizardWidget>
                               0.0, 15.0, 0.0, 0.0),
                           child: FFButtonWidget(
                             onPressed: () async {
+                              FFAppState().DoneWizzard = true;
+
                               context.goNamed('Home');
                             },
                             text: FFLocalizations.of(context).getText(
