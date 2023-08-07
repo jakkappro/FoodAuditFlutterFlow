@@ -500,20 +500,20 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   // Medication
   {
     '8ebakrts': {
-      'en': 'Liečivá',
-      'sk': '',
+      'en': 'Medication',
+      'sk': 'Liečivá',
     },
     'x0l4523o': {
-      'en': 'Aké lieky užívate?',
-      'sk': '',
+      'en': 'Which medication you use?',
+      'sk': 'Aké lieky užívate?',
     },
     'pzvtqcye': {
       'en': '',
       'sk': '',
     },
-    'phk2u46l': {
-      'en': 'Začnite písať pre zobrazenie lieku...',
-      'sk': '',
+    'jv8nw803': {
+      'en': 'Start typing name of product...',
+      'sk': 'Začnite písať pre zobrazenie lieku...',
     },
   },
   // Miscellaneous

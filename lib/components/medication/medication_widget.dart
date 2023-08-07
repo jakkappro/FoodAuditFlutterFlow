@@ -56,7 +56,7 @@ class _MedicationWidgetState extends State<MedicationWidget> {
         children: [
           Text(
             FFLocalizations.of(context).getText(
-              '8ebakrts' /* Liečivá */,
+              '8ebakrts' /* Medication */,
             ),
             style: FlutterFlowTheme.of(context).bodyMedium.override(
                   fontFamily: 'Roboto',
@@ -69,7 +69,7 @@ class _MedicationWidgetState extends State<MedicationWidget> {
           ),
           Text(
             FFLocalizations.of(context).getText(
-              'x0l4523o' /* Aké lieky užívate? */,
+              'x0l4523o' /* Which medication you use? */,
             ),
             style: FlutterFlowTheme.of(context).bodyMedium.override(
                   fontFamily: 'Roboto',
@@ -155,7 +155,7 @@ class _MedicationWidgetState extends State<MedicationWidget> {
               decoration: InputDecoration(
                 labelStyle: FlutterFlowTheme.of(context).labelMedium,
                 hintText: FFLocalizations.of(context).getText(
-                  'phk2u46l' /* Začnite písať pre zobrazenie l... */,
+                  'jv8nw803' /* Start typing name of product..... */,
                 ),
                 hintStyle: FlutterFlowTheme.of(context).labelMedium.override(
                       fontFamily: 'Roboto',
@@ -203,35 +203,51 @@ class _MedicationWidgetState extends State<MedicationWidget> {
             builder: (context) {
               final medicament =
                   _model.simpleSearchResults.toList().take(3).toList();
-              return Row(
-                mainAxisSize: MainAxisSize.max,
-                children: List.generate(medicament.length, (medicamentIndex) {
-                  final medicamentItem = medicament[medicamentIndex];
-                  return Container(
-                    height: 35.0,
-                    decoration: BoxDecoration(
-                      color: Colors.transparent,
-                      borderRadius: BorderRadius.circular(6.0),
-                      border: Border.all(
-                        color: Color(0xFFAFACC7),
-                        width: 1.3,
+              return SingleChildScrollView(
+                scrollDirection: Axis.horizontal,
+                child: Row(
+                  mainAxisSize: MainAxisSize.max,
+                  children: List.generate(medicament.length, (medicamentIndex) {
+                    final medicamentItem = medicament[medicamentIndex];
+                    return InkWell(
+                      splashColor: Colors.transparent,
+                      focusColor: Colors.transparent,
+                      hoverColor: Colors.transparent,
+                      highlightColor: Colors.transparent,
+                      onTap: () async {
+                        setState(() {
+                          FFAppState().addToMedication(medicamentItem.name);
+                        });
+                      },
+                      child: Container(
+                        height: 35.0,
+                        decoration: BoxDecoration(
+                          color: Colors.transparent,
+                          borderRadius: BorderRadius.circular(6.0),
+                          border: Border.all(
+                            color: Color(0xFFAFACC7),
+                            width: 1.3,
+                          ),
+                        ),
+                        child: Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              12.0, 10.0, 12.0, 10.0),
+                          child: Text(
+                            medicamentItem.name,
+                            style: FlutterFlowTheme.of(context)
+                                .bodyMedium
+                                .override(
+                                  fontFamily: 'Roboto',
+                                  color: Color(0xFFAFACC7),
+                                  letterSpacing: 0.15,
+                                  fontWeight: FontWeight.w800,
+                                ),
+                          ),
+                        ),
                       ),
-                    ),
-                    child: Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(
-                          12.0, 10.0, 12.0, 10.0),
-                      child: Text(
-                        medicamentItem.name,
-                        style: FlutterFlowTheme.of(context).bodyMedium.override(
-                              fontFamily: 'Roboto',
-                              color: Color(0xFFF7F7F7),
-                              letterSpacing: 0.15,
-                              fontWeight: FontWeight.w800,
-                            ),
-                      ),
-                    ),
-                  );
-                }).divide(SizedBox(width: 12.0)),
+                    );
+                  }).divide(SizedBox(width: 12.0)),
+                ),
               );
             },
           ),
