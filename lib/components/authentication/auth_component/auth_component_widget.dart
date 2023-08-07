@@ -77,7 +77,7 @@ class _AuthComponentWidgetState extends State<AuthComponentWidget> {
                       'nltnyzvs' /* Sign in with Apple */,
                     ),
                     style: FlutterFlowTheme.of(context).bodyMedium.override(
-                          fontFamily: 'Lato',
+                          fontFamily: 'Roboto',
                           color: Colors.white,
                           fontSize: 16.0,
                           letterSpacing: 0.32,
@@ -113,7 +113,7 @@ class _AuthComponentWidgetState extends State<AuthComponentWidget> {
                       'gbe6jirv' /* Continue with Facebook */,
                     ),
                     style: FlutterFlowTheme.of(context).bodyMedium.override(
-                          fontFamily: 'Lato',
+                          fontFamily: 'Roboto',
                           color: Colors.white,
                           fontSize: 16.0,
                           letterSpacing: 0.32,
@@ -179,7 +179,7 @@ class _AuthComponentWidgetState extends State<AuthComponentWidget> {
                           '7s7pf04t' /* Sign in with Google */,
                         ),
                         style: FlutterFlowTheme.of(context).bodyMedium.override(
-                              fontFamily: 'Lato',
+                              fontFamily: 'Roboto',
                               color: Color(0xFF757575),
                               fontSize: 14.0,
                               letterSpacing: 0.32,
@@ -224,7 +224,7 @@ class _AuthComponentWidgetState extends State<AuthComponentWidget> {
                         'nodogpy4' /* Pokračujte ako hosť */,
                       ),
                       style: FlutterFlowTheme.of(context).bodyMedium.override(
-                            fontFamily: 'Lato',
+                            fontFamily: 'Roboto',
                             color: Color(0xFF382F73),
                             fontSize: 14.0,
                             letterSpacing: 0.15,

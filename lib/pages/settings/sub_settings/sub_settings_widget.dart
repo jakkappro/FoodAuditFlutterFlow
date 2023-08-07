@@ -50,7 +50,7 @@ class _SubSettingsWidgetState extends State<SubSettingsWidget> {
             'hc06njtk' /* My Profile */,
           ),
           style: FlutterFlowTheme.of(context).displaySmall.override(
-                fontFamily: 'Lato',
+                fontFamily: 'Roboto',
                 color: FlutterFlowTheme.of(context).primaryText,
               ),
         ),
@@ -107,7 +107,7 @@ class _SubSettingsWidgetState extends State<SubSettingsWidget> {
                       'ld7ofmbx' /* Casper Ghost */,
                     ),
                     style: FlutterFlowTheme.of(context).bodyMedium.override(
-                          fontFamily: 'Lato',
+                          fontFamily: 'Roboto',
                           color: FlutterFlowTheme.of(context).primary,
                           fontWeight: FontWeight.bold,
                         ),
@@ -119,7 +119,7 @@ class _SubSettingsWidgetState extends State<SubSettingsWidget> {
                         'bg589h68' /* casper@ghustbusters.com */,
                       ),
                       style: FlutterFlowTheme.of(context).bodyMedium.override(
-                            fontFamily: 'Lato',
+                            fontFamily: 'Roboto',
                             color: FlutterFlowTheme.of(context).primaryText,
                           ),
                     ),
@@ -215,7 +215,7 @@ class _SubSettingsWidgetState extends State<SubSettingsWidget> {
                                 style: FlutterFlowTheme.of(context)
                                     .bodyLarge
                                     .override(
-                                      fontFamily: 'Lato',
+                                      fontFamily: 'Roboto',
                                       color: FlutterFlowTheme.of(context)
                                           .primaryText,
                                     ),
@@ -272,7 +272,7 @@ class _SubSettingsWidgetState extends State<SubSettingsWidget> {
                             style: FlutterFlowTheme.of(context)
                                 .bodyLarge
                                 .override(
-                                  fontFamily: 'Lato',
+                                  fontFamily: 'Roboto',
                                   color:
                                       FlutterFlowTheme.of(context).primaryText,
                                 ),
@@ -353,7 +353,7 @@ class _SubSettingsWidgetState extends State<SubSettingsWidget> {
                   color: FlutterFlowTheme.of(context).primaryBackground,
                   borderRadius: BorderRadius.circular(12.0),
                   border: Border.all(
-                    color: FlutterFlowTheme.of(context).lineColor,
+                    color: Colors.black,
                     width: 1.0,
                   ),
                 ),
@@ -371,7 +371,7 @@ class _SubSettingsWidgetState extends State<SubSettingsWidget> {
                             color: FlutterFlowTheme.of(context).secondary,
                             borderRadius: BorderRadius.circular(10.0),
                             border: Border.all(
-                              color: FlutterFlowTheme.of(context).lineColor,
+                              color: Colors.black,
                               width: 1.0,
                             ),
                           ),
@@ -394,7 +394,7 @@ class _SubSettingsWidgetState extends State<SubSettingsWidget> {
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
-                                        fontFamily: 'Lato',
+                                        fontFamily: 'Roboto',
                                         color: FlutterFlowTheme.of(context)
                                             .primaryText,
                                       ),
@@ -435,7 +435,7 @@ class _SubSettingsWidgetState extends State<SubSettingsWidget> {
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
-                                        fontFamily: 'Lato',
+                                        fontFamily: 'Roboto',
                                         color: FlutterFlowTheme.of(context)
                                             .primaryText,
                                       ),
@@ -474,7 +474,7 @@ class _SubSettingsWidgetState extends State<SubSettingsWidget> {
                       textStyle: FlutterFlowTheme.of(context)
                           .titleSmall
                           .override(
-                            fontFamily: 'Lato',
+                            fontFamily: 'Roboto',
                             color: FlutterFlowTheme.of(context).secondaryText,
                             fontWeight: FontWeight.w500,
                           ),

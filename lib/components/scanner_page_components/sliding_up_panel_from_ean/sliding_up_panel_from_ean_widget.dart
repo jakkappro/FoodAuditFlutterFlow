@@ -108,7 +108,7 @@ class _SlidingUpPanelFromEanWidgetState
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
                                         .override(
-                                          fontFamily: 'Lato',
+                                          fontFamily: 'Roboto',
                                           color: Color(0xFFF7F7F7),
                                           fontSize: 32.0,
                                           letterSpacing: 0.25,
@@ -123,7 +123,7 @@ class _SlidingUpPanelFromEanWidgetState
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
                                         .override(
-                                          fontFamily: 'Lato',
+                                          fontFamily: 'Roboto',
                                           color: Color(0xFFAFACC7),
                                           fontSize: 18.0,
                                           letterSpacing: 0.15,
@@ -144,7 +144,7 @@ class _SlidingUpPanelFromEanWidgetState
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
                                         .override(
-                                          fontFamily: 'Lato',
+                                          fontFamily: 'Roboto',
                                           color: Color(0xFFAFACC7),
                                           fontSize: 18.0,
                                           letterSpacing: 0.15,
@@ -249,7 +249,7 @@ class _SlidingUpPanelFromEanWidgetState
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
-                                      fontFamily: 'Lato',
+                                      fontFamily: 'Roboto',
                                       color: Color(0xFFAFACC7),
                                       fontSize: 20.0,
                                       letterSpacing: 0.15,
@@ -302,7 +302,7 @@ class _SlidingUpPanelFromEanWidgetState
                                                     FlutterFlowTheme.of(context)
                                                         .bodyMedium
                                                         .override(
-                                                          fontFamily: 'Lato',
+                                                          fontFamily: 'Roboto',
                                                           color:
                                                               Color(0xFFF7F7F7),
                                                           fontWeight:
@@ -348,7 +348,7 @@ class _SlidingUpPanelFromEanWidgetState
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
                                         .override(
-                                          fontFamily: 'Lato',
+                                          fontFamily: 'Roboto',
                                           color: Color(0xFFAFACC7),
                                           fontSize: 20.0,
                                           letterSpacing: 0.15,
@@ -362,7 +362,7 @@ class _SlidingUpPanelFromEanWidgetState
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
                                         .override(
-                                          fontFamily: 'Lato',
+                                          fontFamily: 'Roboto',
                                           color: Color(0xFFF7F7F7),
                                           letterSpacing: 0.25,
                                         ),
@@ -453,7 +453,7 @@ class _SlidingUpPanelFromEanWidgetState
                               style: FlutterFlowTheme.of(context)
                                   .bodyMedium
                                   .override(
-                                    fontFamily: 'Lato',
+                                    fontFamily: 'Roboto',
                                     color: Color(0xFFF7F7F7),
                                     fontSize: 32.0,
                                     letterSpacing: 0.25,
@@ -468,7 +468,7 @@ class _SlidingUpPanelFromEanWidgetState
                               style: FlutterFlowTheme.of(context)
                                   .bodyMedium
                                   .override(
-                                    fontFamily: 'Lato',
+                                    fontFamily: 'Roboto',
                                     color: Color(0xFFAFACC7),
                                     fontSize: 18.0,
                                     letterSpacing: 0.15,
@@ -518,7 +518,7 @@ class _SlidingUpPanelFromEanWidgetState
                             style: FlutterFlowTheme.of(context)
                                 .bodyMedium
                                 .override(
-                                  fontFamily: 'Lato',
+                                  fontFamily: 'Roboto',
                                   color: Color(0xFFAFACC7),
                                   fontSize: 12.64,
                                   letterSpacing: 0.5,

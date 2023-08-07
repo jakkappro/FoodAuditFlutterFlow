@@ -61,7 +61,7 @@ class _RecycleInfoWidgetState extends State<RecycleInfoWidget> {
                 ),
                 textAlign: TextAlign.start,
                 style: FlutterFlowTheme.of(context).bodyMedium.override(
-                      fontFamily: 'Lato',
+                      fontFamily: 'Roboto',
                       color: Color(0xFF382F73),
                       fontSize: 16.0,
                       fontWeight: FontWeight.w800,

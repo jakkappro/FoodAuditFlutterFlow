@@ -79,7 +79,7 @@ class _OpenScannerButtonWidgetState extends State<OpenScannerButtonWidget> {
                       '83m0yhl8' /* Open scanner */,
                     ),
                     style: FlutterFlowTheme.of(context).bodyMedium.override(
-                          fontFamily: 'Lato',
+                          fontFamily: 'Roboto',
                           color: Color(0xFFB7C1FA),
                           fontSize: 18.0,
                           letterSpacing: 0.15,

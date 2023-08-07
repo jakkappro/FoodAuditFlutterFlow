@@ -58,7 +58,7 @@ class _ScanProductMessageWidgetState extends State<ScanProductMessageWidget> {
                 'cz2154o8' /* Scan your product */,
               ),
               style: FlutterFlowTheme.of(context).bodyMedium.override(
-                    fontFamily: 'Lato',
+                    fontFamily: 'Roboto',
                     color: Color(0xFFF7F7F7),
                     fontSize: 32.0,
                     fontWeight: FontWeight.w800,
@@ -71,7 +71,7 @@ class _ScanProductMessageWidgetState extends State<ScanProductMessageWidget> {
                   'rju430wl' /* Hold barcode or ingredients li... */,
                 ),
                 style: FlutterFlowTheme.of(context).bodyMedium.override(
-                      fontFamily: 'Lato',
+                      fontFamily: 'Roboto',
                       color: Color(0xFFAFACC7),
                       fontSize: 18.0,
                       fontWeight: FontWeight.bold,

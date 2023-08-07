@@ -84,7 +84,7 @@ class _SettingsWidgetState extends State<SettingsWidget> {
                           style: FlutterFlowTheme.of(context)
                               .bodyMedium
                               .override(
-                                fontFamily: 'Lato',
+                                fontFamily: 'Roboto',
                                 color: FlutterFlowTheme.of(context).secondary,
                                 fontSize: 24.0,
                                 fontWeight: FontWeight.bold,
@@ -151,7 +151,7 @@ class _SettingsWidgetState extends State<SettingsWidget> {
                                                           context)
                                                       .bodyLarge
                                                       .override(
-                                                        fontFamily: 'Lato',
+                                                        fontFamily: 'Roboto',
                                                         color:
                                                             FlutterFlowTheme.of(
                                                                     context)
@@ -170,7 +170,7 @@ class _SettingsWidgetState extends State<SettingsWidget> {
                                                           context)
                                                       .bodyMedium
                                                       .override(
-                                                        fontFamily: 'Lato',
+                                                        fontFamily: 'Roboto',
                                                         color:
                                                             FlutterFlowTheme.of(
                                                                     context)
@@ -259,7 +259,7 @@ class _SettingsWidgetState extends State<SettingsWidget> {
                                                                     .bodyMedium
                                                                     .override(
                                                                       fontFamily:
-                                                                          'Lato',
+                                                                          'Roboto',
                                                                       fontSize:
                                                                           16.0,
                                                                       fontWeight:
@@ -312,7 +312,7 @@ class _SettingsWidgetState extends State<SettingsWidget> {
                                                             context)
                                                         .bodyMedium
                                                         .override(
-                                                          fontFamily: 'Lato',
+                                                          fontFamily: 'Roboto',
                                                           fontSize: 14.0,
                                                           fontWeight:
                                                               FontWeight.w800,
@@ -396,7 +396,7 @@ class _SettingsWidgetState extends State<SettingsWidget> {
                                                                       .bodyMedium
                                                                       .override(
                                                                         fontFamily:
-                                                                            'Lato',
+                                                                            'Roboto',
                                                                         fontSize:
                                                                             16.0,
                                                                         fontWeight:
@@ -449,7 +449,8 @@ class _SettingsWidgetState extends State<SettingsWidget> {
                                                               .of(context)
                                                           .bodyMedium
                                                           .override(
-                                                            fontFamily: 'Lato',
+                                                            fontFamily:
+                                                                'Roboto',
                                                             fontSize: 14.0,
                                                             fontWeight:
                                                                 FontWeight.w800,
@@ -556,7 +557,7 @@ class _SettingsWidgetState extends State<SettingsWidget> {
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
-                                        fontFamily: 'Lato',
+                                        fontFamily: 'Roboto',
                                         fontSize: 22.0,
                                         fontWeight: FontWeight.w500,
                                       ),
@@ -581,7 +582,7 @@ class _SettingsWidgetState extends State<SettingsWidget> {
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
                                         .override(
-                                          fontFamily: 'Lato',
+                                          fontFamily: 'Roboto',
                                           color: FlutterFlowTheme.of(context)
                                               .secondary,
                                           fontSize: 13.0,
@@ -651,7 +652,7 @@ class _SettingsWidgetState extends State<SettingsWidget> {
                                       textStyle: FlutterFlowTheme.of(context)
                                           .bodyMedium
                                           .override(
-                                            fontFamily: 'Lato',
+                                            fontFamily: 'Roboto',
                                             color: FlutterFlowTheme.of(context)
                                                 .primary,
                                           ),
@@ -668,7 +669,7 @@ class _SettingsWidgetState extends State<SettingsWidget> {
                                       textStyle: FlutterFlowTheme.of(context)
                                           .bodyMedium
                                           .override(
-                                            fontFamily: 'Lato',
+                                            fontFamily: 'Roboto',
                                             color: FlutterFlowTheme.of(context)
                                                 .primaryText,
                                             fontSize: 18.0,

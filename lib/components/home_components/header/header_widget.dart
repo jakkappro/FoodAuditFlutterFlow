@@ -71,7 +71,7 @@ class _HeaderWidgetState extends State<HeaderWidget> {
                       replacement: '…',
                     ),
                     style: FlutterFlowTheme.of(context).bodyMedium.override(
-                          fontFamily: 'Lato',
+                          fontFamily: 'Roboto',
                           color: Color(0xFFF7F7F7),
                           fontWeight: FontWeight.w800,
                         ),
@@ -82,7 +82,7 @@ class _HeaderWidgetState extends State<HeaderWidget> {
                     'uy4uktgo' /* Scan your first product. */,
                   ),
                   style: FlutterFlowTheme.of(context).bodyMedium.override(
-                        fontFamily: 'Lato',
+                        fontFamily: 'Roboto',
                         color: Color(0xFFAFACC7),
                         fontSize: 18.0,
                         fontWeight: FontWeight.bold,

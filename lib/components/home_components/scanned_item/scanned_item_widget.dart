@@ -130,7 +130,7 @@ class _ScannedItemWidgetState extends State<ScannedItemWidget> {
                               style: FlutterFlowTheme.of(context)
                                   .bodyMedium
                                   .override(
-                                    fontFamily: 'Lato',
+                                    fontFamily: 'Roboto',
                                     color: Color(0xFFC4C4C4),
                                     fontSize: 11.0,
                                     letterSpacing: 1.05,
@@ -151,7 +151,7 @@ class _ScannedItemWidgetState extends State<ScannedItemWidget> {
                             style: FlutterFlowTheme.of(context)
                                 .bodyMedium
                                 .override(
-                                  fontFamily: 'Lato',
+                                  fontFamily: 'Roboto',
                                   color: Color(0xFF382F73),
                                   fontSize: 18.0,
                                   letterSpacing: 0.15,
@@ -168,7 +168,7 @@ class _ScannedItemWidgetState extends State<ScannedItemWidget> {
                           ),
                           style:
                               FlutterFlowTheme.of(context).bodyMedium.override(
-                                    fontFamily: 'Lato',
+                                    fontFamily: 'Roboto',
                                     color: Color(0xFF382F73),
                                     fontWeight: FontWeight.w800,
                                   ),
@@ -180,7 +180,7 @@ class _ScannedItemWidgetState extends State<ScannedItemWidget> {
                           ),
                           style:
                               FlutterFlowTheme.of(context).bodyMedium.override(
-                                    fontFamily: 'Lato',
+                                    fontFamily: 'Roboto',
                                     color: Color(0xFFAFACC7),
                                     fontSize: 12.64,
                                     letterSpacing: 0.5,
@@ -203,7 +203,7 @@ class _ScannedItemWidgetState extends State<ScannedItemWidget> {
                           '01ip2n0c' /* 1,2,3,4 */,
                         ),
                         style: FlutterFlowTheme.of(context).bodyMedium.override(
-                              fontFamily: 'Lato',
+                              fontFamily: 'Roboto',
                               color: Color(0xFF82D680),
                               letterSpacing: 0.15,
                               fontWeight: FontWeight.w800,

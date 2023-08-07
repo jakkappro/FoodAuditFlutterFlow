@@ -58,7 +58,7 @@ class _NutritionTableRowWidgetState extends State<NutritionTableRowWidget> {
           ),
           maxLines: 1,
           style: FlutterFlowTheme.of(context).bodyMedium.override(
-                fontFamily: 'Lato',
+                fontFamily: 'Roboto',
                 color: Colors.white,
                 fontSize: 15.0,
                 letterSpacing: 0.15,
@@ -68,7 +68,7 @@ class _NutritionTableRowWidgetState extends State<NutritionTableRowWidget> {
         Text(
           '${widget.nutrient?.value}${widget.nutrient?.unit}',
           style: FlutterFlowTheme.of(context).bodyMedium.override(
-                fontFamily: 'Lato',
+                fontFamily: 'Roboto',
                 color: Colors.white,
                 fontSize: 15.0,
                 letterSpacing: 0.15,

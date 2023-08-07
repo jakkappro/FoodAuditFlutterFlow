@@ -54,7 +54,7 @@ class _AddManuallyButtonWidgetState extends State<AddManuallyButtonWidget> {
             '7dl2baci' /* Add manualy */,
           ),
           style: FlutterFlowTheme.of(context).bodyMedium.override(
-                fontFamily: 'Lato',
+                fontFamily: 'Roboto',
                 color: Color(0xFF382F73),
                 fontSize: 18.0,
                 letterSpacing: 0.15,

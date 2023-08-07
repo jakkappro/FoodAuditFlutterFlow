@@ -69,7 +69,7 @@ class _NotificationsWidgetState extends State<NotificationsWidget> {
                 'ituuabx5' /* Notifications */,
               ),
               style: FlutterFlowTheme.of(context).headlineMedium.override(
-                    fontFamily: 'Lato',
+                    fontFamily: 'Roboto',
                     color: Color(0xFF1C0D26),
                     fontSize: 20.0,
                     fontWeight: FontWeight.w800,
@@ -123,7 +123,7 @@ class _NotificationsWidgetState extends State<NotificationsWidget> {
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
-                                        fontFamily: 'Lato',
+                                        fontFamily: 'Roboto',
                                         fontSize: 16.0,
                                         letterSpacing: 0.15,
                                         fontWeight: FontWeight.w800,
@@ -152,7 +152,7 @@ class _NotificationsWidgetState extends State<NotificationsWidget> {
                                     textStyle: FlutterFlowTheme.of(context)
                                         .titleSmall
                                         .override(
-                                          fontFamily: 'Lato',
+                                          fontFamily: 'Roboto',
                                           color: Color(0xFF382F73),
                                           fontSize: 14.0,
                                           letterSpacing: 0.15,

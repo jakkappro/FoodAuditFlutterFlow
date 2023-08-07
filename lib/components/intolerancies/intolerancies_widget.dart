@@ -57,7 +57,7 @@ class _IntoleranciesWidgetState extends State<IntoleranciesWidget> {
                 'x8bene62' /* My preferences */,
               ),
               style: FlutterFlowTheme.of(context).displayMedium.override(
-                    fontFamily: 'Lato',
+                    fontFamily: 'Roboto',
                     color: Color(0xFF1C0D26),
                     fontSize: 20.0,
                     fontWeight: FontWeight.w800,
@@ -70,7 +70,7 @@ class _IntoleranciesWidgetState extends State<IntoleranciesWidget> {
                   '2h01pai8' /* Intolerances */,
                 ),
                 style: FlutterFlowTheme.of(context).bodySmall.override(
-                      fontFamily: 'Lato',
+                      fontFamily: 'Roboto',
                       color: Color(0xFF7A7A7A),
                       fontSize: 16.0,
                     ),
@@ -133,7 +133,7 @@ class _IntoleranciesWidgetState extends State<IntoleranciesWidget> {
                 selectedChipStyle: ChipStyle(
                   backgroundColor: Color(0xFF4B64F2),
                   textStyle: FlutterFlowTheme.of(context).bodyMedium.override(
-                        fontFamily: 'Lato',
+                        fontFamily: 'Roboto',
                         color: Color(0xFFF7F7F7),
                         fontWeight: FontWeight.w800,
                       ),
@@ -147,7 +147,7 @@ class _IntoleranciesWidgetState extends State<IntoleranciesWidget> {
                 unselectedChipStyle: ChipStyle(
                   backgroundColor: Colors.transparent,
                   textStyle: FlutterFlowTheme.of(context).bodyMedium.override(
-                        fontFamily: 'Lato',
+                        fontFamily: 'Roboto',
                         color: Color(0xFF7A7A7A),
                         fontWeight: FontWeight.w800,
                       ),

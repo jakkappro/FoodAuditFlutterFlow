@@ -191,7 +191,7 @@ class _SetUpWizardWidgetState extends State<SetUpWizardWidget>
                                       textStyle: FlutterFlowTheme.of(context)
                                           .bodyMedium
                                           .override(
-                                            fontFamily: 'Lato',
+                                            fontFamily: 'Roboto',
                                             fontSize: 10.0,
                                             fontWeight: FontWeight.bold,
                                           ),
@@ -311,7 +311,7 @@ class _SetUpWizardWidgetState extends State<SetUpWizardWidget>
                                 textStyle: FlutterFlowTheme.of(context)
                                     .titleSmall
                                     .override(
-                                      fontFamily: 'Lato',
+                                      fontFamily: 'Roboto',
                                       color: FlutterFlowTheme.of(context)
                                           .primaryText,
                                     ),
@@ -376,7 +376,7 @@ class _SetUpWizardWidgetState extends State<SetUpWizardWidget>
                               textStyle: FlutterFlowTheme.of(context)
                                   .titleSmall
                                   .override(
-                                    fontFamily: 'Lato',
+                                    fontFamily: 'Roboto',
                                     color: FlutterFlowTheme.of(context)
                                         .primaryText,
                                   ),
