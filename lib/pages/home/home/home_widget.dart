@@ -1,6 +1,7 @@
 import '/components/home_components/header/header_widget.dart';
 import '/components/home_components/scanned_items/scanned_items_widget.dart';
 import '/components/intolerancies/intolerancies_widget.dart';
+import '/components/medication_widget.dart';
 import '/components/scanner_page_components/open_scanner_button/open_scanner_button_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -85,6 +86,26 @@ class _HomeWidgetState extends State<HomeWidget> {
                       updateCallback: () => setState(() {}),
                       updateOnChange: true,
                       child: IntoleranciesWidget(),
+                    ),
+                    Padding(
+                      padding:
+                          EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
+                      child: Container(
+                        height: 300.0,
+                        decoration: BoxDecoration(),
+                        child: wrapWithModel(
+                          model: _model.medicationModel,
+                          updateCallback: () => setState(() {}),
+                          child: MedicationWidget(),
+                        ),
+                      ),
+                    ),
+                    Container(
+                      width: 0.0,
+                      height: 200.0,
+                      decoration: BoxDecoration(
+                        color: Colors.transparent,
+                      ),
                     ),
                   ].addToEnd(SizedBox(height: 15.0)),
                 ),

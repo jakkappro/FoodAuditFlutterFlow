@@ -497,6 +497,25 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'sk': 'Túto potravinu vyhoďte do plastov',
     },
   },
+  // Medication
+  {
+    '8ebakrts': {
+      'en': 'Liečivá',
+      'sk': '',
+    },
+    'x0l4523o': {
+      'en': 'Aké lieky užívate?',
+      'sk': '',
+    },
+    'pzvtqcye': {
+      'en': '',
+      'sk': '',
+    },
+    'phk2u46l': {
+      'en': 'Začnite písať pre zobrazenie lieku...',
+      'sk': '',
+    },
+  },
   // Miscellaneous
   {
     '0pmcra0v': {

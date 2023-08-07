@@ -51,6 +51,10 @@ class FFAppState extends ChangeNotifier {
       _DoneWizzard =
           await secureStorage.getBool('ff_DoneWizzard') ?? _DoneWizzard;
     });
+    await _safeInitAsync(() async {
+      _Medication =
+          await secureStorage.getStringList('ff_Medication') ?? _Medication;
+    });
   }
 
   void update(VoidCallback callback) {
@@ -182,6 +186,40 @@ class FFAppState extends ChangeNotifier {
 
   void deleteDoneWizzard() {
     secureStorage.delete(key: 'ff_DoneWizzard');
+  }
+
+  List<String> _Medication = ['Xanax 150mg'];
+  List<String> get Medication => _Medication;
+  set Medication(List<String> _value) {
+    _Medication = _value;
+    secureStorage.setStringList('ff_Medication', _value);
+  }
+
+  void deleteMedication() {
+    secureStorage.delete(key: 'ff_Medication');
+  }
+
+  void addToMedication(String _value) {
+    _Medication.add(_value);
+    secureStorage.setStringList('ff_Medication', _Medication);
+  }
+
+  void removeFromMedication(String _value) {
+    _Medication.remove(_value);
+    secureStorage.setStringList('ff_Medication', _Medication);
+  }
+
+  void removeAtIndexFromMedication(int _index) {
+    _Medication.removeAt(_index);
+    secureStorage.setStringList('ff_Medication', _Medication);
+  }
+
+  void updateMedicationAtIndex(
+    int _index,
+    String Function(String) updateFn,
+  ) {
+    _Medication[_index] = updateFn(_Medication[_index]);
+    secureStorage.setStringList('ff_Medication', _Medication);
   }
 }
 
