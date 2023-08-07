@@ -228,9 +228,30 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'sk':
           'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
     },
-    'p4snof83': {
-      'en': 'Papaj zravo ne?',
-      'sk': 'Papaj zravo ne?',
+    'mkv4663x': {
+      'en': 'Shop smarter, live helthier',
+      'sk': '',
+    },
+    'f3olbm79': {
+      'en':
+          'Discover every information about your food. Register for better personalization and information tailored for you',
+      'sk': '',
+    },
+    'jxo4sfdl': {
+      'en': 'Register for free',
+      'sk': '',
+    },
+    'vrs43w0j': {
+      'en': 'Continue without registration',
+      'sk': '',
+    },
+    'oltqxqnb': {
+      'en': 'Registration',
+      'sk': '',
+    },
+    'nbgy9scs': {
+      'en': 'Registrate with following platforms',
+      'sk': '',
     },
     '25x4uzl2': {
       'en': 'Home',
@@ -290,29 +311,75 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // SetUpWizard
   {
-    'x85xnccp': {
+    's2jlw2ps': {
+      'en': 'Tell us something about yourself',
+      'sk': '',
+    },
+    '79rj6c2w': {
+      'en':
+          'Filled information will be used only for personalisation of results for you and won\'t be provided to third parties.',
+      'sk': '',
+    },
+    'gnmmag3h': {
+      'en': 'Continue to next step',
+      'sk': '',
+    },
+    '4r1fe3w6': {
+      'en': 'Continue without registration',
+      'sk': '',
+    },
+    'sskvope2': {
+      'en': 'Create your profile',
+      'sk': '',
+    },
+    '99tutfdt': {
+      'en':
+          'Selected information will be used only for personalisation of results for you and won\'t be provided for third parties.',
+      'sk': '',
+    },
+    'gb75oux8': {
+      'en': 'Choose your avatar',
+      'sk': '',
+    },
+    '8zbo2p2z': {
+      'en': 'Fill out your information',
+      'sk': '',
+    },
+    'es34ovk4': {
+      'en': 'Name',
+      'sk': '',
+    },
+    '22weqlf7': {
+      'en': 'Date of birdth',
+      'sk': '',
+    },
+    'lux2x0ia': {
       'en': 'Male',
-      'sk': 'Muž',
+      'sk': '',
     },
-    'a6mpwtmr': {
-      'en': 'Female',
-      'sk': 'Žena',
+    'jh132p75': {
+      'en': 'Femlae',
+      'sk': '',
     },
-    'isl7gm5u': {
-      'en': 'Attack helicopter',
-      'sk': 'Útočný vrtuľník',
+    'd75yo52s': {
+      'en': 'Attach hellicopter',
+      'sk': '',
     },
-    'w61s7h17': {
-      'en': 'Please select gender',
-      'sk': 'Vyberte pohlavie',
+    'j46z0bml': {
+      'en': 'Pohlavie',
+      'sk': '',
     },
-    '88sutfez': {
+    '0y3fg93m': {
       'en': 'Search for an item...',
-      'sk': 'Vyhľadať položku...',
+      'sk': '',
     },
-    'cdn68h8g': {
-      'en': 'Hotofo',
-      'sk': 'Hotofo',
+    'rndxakl3': {
+      'en': 'Finish registration',
+      'sk': '',
+    },
+    '2rkqmci5': {
+      'en': 'Continue without registration',
+      'sk': '',
     },
     'gwn7oggo': {
       'en': 'Home',
@@ -533,6 +600,10 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     'octmx5xr': {
       'en': 'Notification please',
       'sk': 'Prosím o oznámenie',
+    },
+    '9qvstekx': {
+      'en': 'Flahslight please',
+      'sk': '',
     },
     'm53ynt3i': {
       'en': '',

@@ -150,7 +150,6 @@ class _MedicationWidgetState extends State<MedicationWidget> {
                       .whenComplete(() => setState(() {}));
                 },
               ),
-              autofocus: true,
               obscureText: false,
               decoration: InputDecoration(
                 labelStyle: FlutterFlowTheme.of(context).labelMedium,

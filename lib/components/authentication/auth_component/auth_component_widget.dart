@@ -48,10 +48,11 @@ class _AuthComponentWidgetState extends State<AuthComponentWidget> {
       ),
       child: Column(
         mainAxisSize: MainAxisSize.max,
-        mainAxisAlignment: MainAxisAlignment.end,
+        mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Container(
-            width: MediaQuery.sizeOf(context).width * 0.8,
+            width: double.infinity,
             decoration: BoxDecoration(
               color: Colors.black,
               borderRadius: BorderRadius.circular(4.0),
@@ -89,7 +90,7 @@ class _AuthComponentWidgetState extends State<AuthComponentWidget> {
             ),
           ),
           Container(
-            width: MediaQuery.sizeOf(context).width * 0.8,
+            width: double.infinity,
             decoration: BoxDecoration(
               color: Color(0xFF1877F2),
               borderRadius: BorderRadius.circular(4.0),
@@ -149,7 +150,7 @@ class _AuthComponentWidgetState extends State<AuthComponentWidget> {
                 borderRadius: BorderRadius.circular(4.0),
               ),
               child: Container(
-                width: MediaQuery.sizeOf(context).width * 0.8,
+                width: double.infinity,
                 decoration: BoxDecoration(
                   color: Colors.white,
                   borderRadius: BorderRadius.circular(4.0),
@@ -208,7 +209,7 @@ class _AuthComponentWidgetState extends State<AuthComponentWidget> {
               context.goNamedAuth('Home', context.mounted);
             },
             child: Container(
-              width: MediaQuery.sizeOf(context).width * 0.8,
+              width: double.infinity,
               decoration: BoxDecoration(
                 color: Colors.transparent,
                 borderRadius: BorderRadius.circular(4.0),
@@ -236,7 +237,7 @@ class _AuthComponentWidgetState extends State<AuthComponentWidget> {
               ),
             ),
           ),
-        ].divide(SizedBox(height: 30.0)).addToEnd(SizedBox(height: 60.0)),
+        ].divide(SizedBox(height: 12.0)),
       ),
     );
   }

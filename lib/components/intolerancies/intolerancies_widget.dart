@@ -41,138 +41,135 @@ class _IntoleranciesWidgetState extends State<IntoleranciesWidget> {
   Widget build(BuildContext context) {
     context.watch<FFAppState>();
 
-    return Padding(
-      padding: EdgeInsetsDirectional.fromSTEB(24.0, 10.0, 24.0, 0.0),
-      child: Container(
-        width: double.infinity,
-        decoration: BoxDecoration(
-          color: Colors.transparent,
-        ),
-        child: Column(
-          mainAxisSize: MainAxisSize.max,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
+    return Container(
+      width: double.infinity,
+      decoration: BoxDecoration(
+        color: Colors.transparent,
+      ),
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            FFLocalizations.of(context).getText(
+              'x8bene62' /* My preferences */,
+            ),
+            style: FlutterFlowTheme.of(context).displayMedium.override(
+                  fontFamily: 'Roboto',
+                  color: Color(0xFF1C0D26),
+                  fontSize: 20.0,
+                  fontWeight: FontWeight.w800,
+                ),
+          ),
+          Padding(
+            padding: EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 8.0, 0.0),
+            child: Text(
               FFLocalizations.of(context).getText(
-                'x8bene62' /* My preferences */,
+                '2h01pai8' /* Intolerances */,
               ),
-              style: FlutterFlowTheme.of(context).displayMedium.override(
+              style: FlutterFlowTheme.of(context).bodySmall.override(
                     fontFamily: 'Roboto',
-                    color: Color(0xFF1C0D26),
-                    fontSize: 20.0,
-                    fontWeight: FontWeight.w800,
+                    color: Color(0xFF7A7A7A),
+                    fontSize: 16.0,
                   ),
             ),
-            Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 8.0, 0.0),
-              child: Text(
-                FFLocalizations.of(context).getText(
-                  '2h01pai8' /* Intolerances */,
-                ),
-                style: FlutterFlowTheme.of(context).bodySmall.override(
+          ),
+          Padding(
+            padding: EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
+            child: FlutterFlowChoiceChips(
+              options: [
+                ChipData(FFLocalizations.of(context).getText(
+                  'wk3wjgs4' /* Wheat */,
+                )),
+                ChipData(FFLocalizations.of(context).getText(
+                  'p2mshd0m' /* Crustaceans */,
+                )),
+                ChipData(FFLocalizations.of(context).getText(
+                  '3jo6ppbt' /* Eggs */,
+                )),
+                ChipData(FFLocalizations.of(context).getText(
+                  'l9fty51k' /* Fish */,
+                )),
+                ChipData(FFLocalizations.of(context).getText(
+                  't9nu3dx8' /* Peanuts */,
+                )),
+                ChipData(FFLocalizations.of(context).getText(
+                  '56yvj6gf' /* Soybeans */,
+                )),
+                ChipData(FFLocalizations.of(context).getText(
+                  '70ryefpb' /* Milk */,
+                )),
+                ChipData(FFLocalizations.of(context).getText(
+                  'snee8f0w' /* Nuts */,
+                )),
+                ChipData(FFLocalizations.of(context).getText(
+                  '9ux8lpst' /* Celery */,
+                )),
+                ChipData(FFLocalizations.of(context).getText(
+                  'km3fczi3' /* Mustard */,
+                )),
+                ChipData(FFLocalizations.of(context).getText(
+                  'hoeugyln' /* Sesame */,
+                )),
+                ChipData(FFLocalizations.of(context).getText(
+                  's9x4vj8y' /* Sulphites */,
+                )),
+                ChipData(FFLocalizations.of(context).getText(
+                  '5oztm4nk' /* Lupin */,
+                )),
+                ChipData(FFLocalizations.of(context).getText(
+                  'cjorje3a' /* Molluscs */,
+                ))
+              ],
+              onChanged: (val) async {
+                setState(() => _model.choiceChipsValues = val);
+                _model.updatePage(() {
+                  FFAppState().Allergies =
+                      _model.choiceChipsValues!.toList().cast<String>();
+                });
+              },
+              selectedChipStyle: ChipStyle(
+                backgroundColor: Color(0xFF4B64F2),
+                textStyle: FlutterFlowTheme.of(context).bodyMedium.override(
+                      fontFamily: 'Roboto',
+                      color: Color(0xFFF7F7F7),
+                      fontWeight: FontWeight.w800,
+                    ),
+                iconColor: Color(0x00000000),
+                iconSize: 18.0,
+                labelPadding:
+                    EdgeInsetsDirectional.fromSTEB(12.0, 5.0, 12.0, 5.0),
+                elevation: 0.0,
+                borderRadius: BorderRadius.circular(6.0),
+              ),
+              unselectedChipStyle: ChipStyle(
+                backgroundColor: Colors.transparent,
+                textStyle: FlutterFlowTheme.of(context).bodyMedium.override(
                       fontFamily: 'Roboto',
                       color: Color(0xFF7A7A7A),
-                      fontSize: 16.0,
+                      fontWeight: FontWeight.w800,
                     ),
+                iconColor: Color(0xFF7A7A7A),
+                iconSize: 18.0,
+                labelPadding:
+                    EdgeInsetsDirectional.fromSTEB(12.0, 5.0, 12.0, 5.0),
+                elevation: 0.0,
+                borderColor: Color(0xFF7A7A7A),
+                borderWidth: 1.3,
+                borderRadius: BorderRadius.circular(6.0),
+              ),
+              chipSpacing: 15.0,
+              rowSpacing: 12.0,
+              multiselect: true,
+              initialized: _model.choiceChipsValues != null,
+              alignment: WrapAlignment.start,
+              controller: _model.choiceChipsValueController ??=
+                  FormFieldController<List<String>>(
+                FFAppState().Allergies,
               ),
             ),
-            Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
-              child: FlutterFlowChoiceChips(
-                options: [
-                  ChipData(FFLocalizations.of(context).getText(
-                    'wk3wjgs4' /* Wheat */,
-                  )),
-                  ChipData(FFLocalizations.of(context).getText(
-                    'p2mshd0m' /* Crustaceans */,
-                  )),
-                  ChipData(FFLocalizations.of(context).getText(
-                    '3jo6ppbt' /* Eggs */,
-                  )),
-                  ChipData(FFLocalizations.of(context).getText(
-                    'l9fty51k' /* Fish */,
-                  )),
-                  ChipData(FFLocalizations.of(context).getText(
-                    't9nu3dx8' /* Peanuts */,
-                  )),
-                  ChipData(FFLocalizations.of(context).getText(
-                    '56yvj6gf' /* Soybeans */,
-                  )),
-                  ChipData(FFLocalizations.of(context).getText(
-                    '70ryefpb' /* Milk */,
-                  )),
-                  ChipData(FFLocalizations.of(context).getText(
-                    'snee8f0w' /* Nuts */,
-                  )),
-                  ChipData(FFLocalizations.of(context).getText(
-                    '9ux8lpst' /* Celery */,
-                  )),
-                  ChipData(FFLocalizations.of(context).getText(
-                    'km3fczi3' /* Mustard */,
-                  )),
-                  ChipData(FFLocalizations.of(context).getText(
-                    'hoeugyln' /* Sesame */,
-                  )),
-                  ChipData(FFLocalizations.of(context).getText(
-                    's9x4vj8y' /* Sulphites */,
-                  )),
-                  ChipData(FFLocalizations.of(context).getText(
-                    '5oztm4nk' /* Lupin */,
-                  )),
-                  ChipData(FFLocalizations.of(context).getText(
-                    'cjorje3a' /* Molluscs */,
-                  ))
-                ],
-                onChanged: (val) async {
-                  setState(() => _model.choiceChipsValues = val);
-                  _model.updatePage(() {
-                    FFAppState().Allergies =
-                        _model.choiceChipsValues!.toList().cast<String>();
-                  });
-                },
-                selectedChipStyle: ChipStyle(
-                  backgroundColor: Color(0xFF4B64F2),
-                  textStyle: FlutterFlowTheme.of(context).bodyMedium.override(
-                        fontFamily: 'Roboto',
-                        color: Color(0xFFF7F7F7),
-                        fontWeight: FontWeight.w800,
-                      ),
-                  iconColor: Color(0x00000000),
-                  iconSize: 18.0,
-                  labelPadding:
-                      EdgeInsetsDirectional.fromSTEB(12.0, 5.0, 12.0, 5.0),
-                  elevation: 0.0,
-                  borderRadius: BorderRadius.circular(6.0),
-                ),
-                unselectedChipStyle: ChipStyle(
-                  backgroundColor: Colors.transparent,
-                  textStyle: FlutterFlowTheme.of(context).bodyMedium.override(
-                        fontFamily: 'Roboto',
-                        color: Color(0xFF7A7A7A),
-                        fontWeight: FontWeight.w800,
-                      ),
-                  iconColor: Color(0xFF7A7A7A),
-                  iconSize: 18.0,
-                  labelPadding:
-                      EdgeInsetsDirectional.fromSTEB(12.0, 5.0, 12.0, 5.0),
-                  elevation: 0.0,
-                  borderColor: Color(0xFF7A7A7A),
-                  borderWidth: 1.3,
-                  borderRadius: BorderRadius.circular(6.0),
-                ),
-                chipSpacing: 15.0,
-                rowSpacing: 12.0,
-                multiselect: true,
-                initialized: _model.choiceChipsValues != null,
-                alignment: WrapAlignment.start,
-                controller: _model.choiceChipsValueController ??=
-                    FormFieldController<List<String>>(
-                  FFAppState().Allergies,
-                ),
-              ),
-            ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
