@@ -43,6 +43,7 @@ class _BarCodeScannerState extends State<BarCodeScanner>
   late Color _backdropColor; //initial color
   bool _panelOpened = false;
   String _ean = '';
+  bool isTorchOn = false;
 
   @override
   void initState() {
@@ -101,7 +102,10 @@ class _BarCodeScannerState extends State<BarCodeScanner>
         isDraggable: false,
         body: Stack(
           children: <Widget>[
-            _ScannerPage(onEanScanned: _onEanScanned),
+            _ScannerPage(
+              onEanScanned: _onEanScanned,
+              isTorchOn: isTorchOn,
+            ),
             ClipPath(
               clipper: HoleClipper(),
               child: Container(
@@ -117,11 +121,34 @@ class _BarCodeScannerState extends State<BarCodeScanner>
               width: double.infinity,
               height: 204,
             ),
+            Align(
+              child: _switchTorchToggle(),
+              alignment: Alignment(-0.9, 0.9),
+            ),
           ],
         ),
       ),
     );
   }
+
+  Widget _switchTorchToggle() => SizedBox(
+        height: 60.0,
+        width: 60.0,
+        child: FloatingActionButton(
+            heroTag: Object(),
+            onPressed: () {
+              setState(() {
+                isTorchOn = !isTorchOn;
+              });
+            },
+            backgroundColor: Color.fromRGBO(183, 193, 250, 1),
+            foregroundColor: Color.fromRGBO(56, 47, 115, 1),
+            child: Image.asset(
+              "assets/images/lightBulb.png",
+              width: 34,
+              height: 34,
+            )),
+      );
 
   Future<void> _onEanScanned(String ean) async {
     if (ean == _ean || _panelOpened) return;
@@ -187,9 +214,11 @@ class _ScannerPage extends StatefulWidget {
   const _ScannerPage({
     Key? key,
     required this.onEanScanned,
+    this.isTorchOn = false,
   }) : super(key: key);
 
   final Function(String) onEanScanned;
+  final bool isTorchOn;
 
   @override
   _ScannerPageState createState() => _ScannerPageState();
@@ -212,6 +241,7 @@ class _ScannerPageState extends State<_ScannerPage> {
       onImage: _processImage,
       initialCameraLensDirection: _cameraLensDirection,
       onCameraLensDirectionChanged: (value) => _cameraLensDirection = value,
+      isTorchOn: widget.isTorchOn,
     );
   }
 

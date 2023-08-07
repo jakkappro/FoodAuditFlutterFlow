@@ -23,9 +23,11 @@ class CameraView extends StatefulWidget {
       required this.onImage,
       this.onCameraFeedReady,
       this.onCameraLensDirectionChanged,
+      this.isTorchOn = false,
       this.initialCameraLensDirection = CameraLensDirection.back})
       : super(key: key);
 
+  final bool isTorchOn;
   final CustomPaint? customPaint;
   final Function(InputImage inputImage) onImage;
   final VoidCallback? onCameraFeedReady;
@@ -47,6 +49,7 @@ class _CameraViewState extends State<CameraView> {
   double _maxAvailableExposureOffset = 0.0;
   double _currentExposureOffset = 0.0;
   bool _changingCameraLens = false;
+  bool _isTorchOn = false;
 
   @override
   void initState() {
@@ -88,6 +91,11 @@ class _CameraViewState extends State<CameraView> {
     if (_cameras.isEmpty) return Container();
     if (_controller == null) return Container();
     if (_controller?.value.isInitialized == false) return Container();
+    if (widget.isTorchOn) {
+      _controller?.setFlashMode(FlashMode.torch);
+    } else {
+      _controller?.setFlashMode(FlashMode.off);
+    }
     return Container(
       color: Colors.black,
       child: Stack(
@@ -104,6 +112,7 @@ class _CameraViewState extends State<CameraView> {
           //_switchLiveCameraToggle(),
           //_zoomControl(),
           //_exposureControl(),
+          //_switchTorchToggle(),
         ],
       ),
     );
@@ -118,6 +127,34 @@ class _CameraViewState extends State<CameraView> {
           child: FloatingActionButton(
             heroTag: Object(),
             onPressed: _switchLiveCamera,
+            backgroundColor: Colors.black54,
+            foregroundColor: Colors.white,
+            child: Icon(
+              Platform.isIOS
+                  ? Icons.flip_camera_ios_outlined
+                  : Icons.flip_camera_android_outlined,
+              size: 25,
+            ),
+          ),
+        ),
+      );
+
+  Widget _switchTorchToggle() => Positioned(
+        bottom: 100,
+        left: 8,
+        child: SizedBox(
+          height: 50.0,
+          width: 50.0,
+          child: FloatingActionButton(
+            heroTag: Object(),
+            onPressed: () async {
+              await _controller?.setFlashMode(_isTorchOn
+                  ? FlashMode.off
+                  : FlashMode.torch); // or FlashMode.always
+              setState(() {
+                _isTorchOn = !_isTorchOn;
+              });
+            },
             backgroundColor: Colors.black54,
             foregroundColor: Colors.white,
             child: Icon(
