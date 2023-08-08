@@ -13,7 +13,7 @@ class MedicationModel extends FlutterFlowModel {
   // State field(s) for TextField widget.
   TextEditingController? textController;
   String? Function(BuildContext, String?)? textControllerValidator;
-  List<ProductsRecord> simpleSearchResults = [];
+  List<MedicationRecord> simpleSearchResults = [];
 
   /// Initialization and disposal methods.
 

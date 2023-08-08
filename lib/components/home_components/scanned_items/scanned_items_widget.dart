@@ -60,7 +60,7 @@ class _ScannedItemsWidgetState extends State<ScannedItemsWidget> {
             return Container(
               width: 170.0,
               decoration: BoxDecoration(
-                color: FlutterFlowTheme.of(context).secondaryBackground,
+                color: Colors.transparent,
               ),
               child: ScannedItemWidget(
                 key: Key('Key5c6_${scannedItemIndex}_of_${scannedItem.length}'),

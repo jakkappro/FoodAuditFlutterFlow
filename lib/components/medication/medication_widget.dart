@@ -131,7 +131,7 @@ class _MedicationWidgetState extends State<MedicationWidget> {
                 '_model.textController',
                 Duration(milliseconds: 2000),
                 () async {
-                  await queryProductsRecordOnce()
+                  await queryMedicationRecordOnce()
                       .then(
                         (records) => _model.simpleSearchResults = TextSearch(
                           records

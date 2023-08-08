@@ -20,30 +20,30 @@ class SetUpWizardModel extends FlutterFlowModel {
           pageViewController!.page != null
       ? pageViewController!.page!.round()
       : 0;
-  // Model for Intolerancies component.
-  late IntoleranciesModel intoleranciesModel;
-  // Model for Medication component.
-  late MedicationModel medicationModel;
   // Model for AvatarMenu component.
   late AvatarMenuModel avatarMenuModel;
   // Model for PersonalInfo component.
   late PersonalInfoModel personalInfoModel;
+  // Model for Intolerancies component.
+  late IntoleranciesModel intoleranciesModel;
+  // Model for Medication component.
+  late MedicationModel medicationModel;
 
   /// Initialization and disposal methods.
 
   void initState(BuildContext context) {
-    intoleranciesModel = createModel(context, () => IntoleranciesModel());
-    medicationModel = createModel(context, () => MedicationModel());
     avatarMenuModel = createModel(context, () => AvatarMenuModel());
     personalInfoModel = createModel(context, () => PersonalInfoModel());
+    intoleranciesModel = createModel(context, () => IntoleranciesModel());
+    medicationModel = createModel(context, () => MedicationModel());
   }
 
   void dispose() {
     unfocusNode.dispose();
-    intoleranciesModel.dispose();
-    medicationModel.dispose();
     avatarMenuModel.dispose();
     personalInfoModel.dispose();
+    intoleranciesModel.dispose();
+    medicationModel.dispose();
   }
 
   /// Action blocks are added here.

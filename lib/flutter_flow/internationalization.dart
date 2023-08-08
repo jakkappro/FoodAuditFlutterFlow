@@ -224,39 +224,39 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // SetUpWizard
   {
-    's2jlw2ps': {
-      'en': 'Tell us something about yourself',
-      'sk': 'Povedz nám niečo o sebe',
-    },
-    '79rj6c2w': {
-      'en':
-          'Filled information will be used only for personalisation of results for you and won\'t be provided to third parties.',
-      'sk':
-          'Vyplnené informácie budú použité iba na personalizáciu výsledkov pre vás a nebudú poskytnuté tretím stranám.',
-    },
-    'gnmmag3h': {
-      'en': 'Continue to next step',
-      'sk': 'Pokračujte ďalším krokom',
-    },
-    '4r1fe3w6': {
-      'en': 'Continue without registration',
-      'sk': 'Pokračovať bez registrácie',
-    },
-    'sskvope2': {
+    'ifbezgj8': {
       'en': 'Create your profile',
       'sk': 'Vytvorte si profil',
     },
-    '99tutfdt': {
+    'r247e285': {
       'en':
           'Selected information will be used only for personalisation of results for you and won\'t be provided for third parties.',
       'sk':
           'Vybrané informácie budú použité iba na prispôsobenie výsledkov pre vás a nebudú poskytnuté tretím stranám.',
     },
-    'xpyhbzo6': {
+    '8eppnzcp': {
       'en': 'Finish registration',
       'sk': 'Dokončite registráciu',
     },
-    '4akg6i4y': {
+    '0baleo44': {
+      'en': 'Continue without registration',
+      'sk': 'Pokračovať bez registrácie',
+    },
+    '1p2e8too': {
+      'en': 'Tell us something about yourself',
+      'sk': 'Povedz nám niečo o sebe',
+    },
+    'lpyawdzf': {
+      'en':
+          'Filled information will be used only for personalisation of results for you and won\'t be provided to third parties.',
+      'sk':
+          'Vyplnené informácie budú použité iba na personalizáciu výsledkov pre vás a nebudú poskytnuté tretím stranám.',
+    },
+    '2s43wfag': {
+      'en': 'Continue to next step',
+      'sk': 'Pokračujte ďalším krokom',
+    },
+    'hohgw3hm': {
       'en': 'Continue without registration',
       'sk': 'Pokračovať bez registrácie',
     },

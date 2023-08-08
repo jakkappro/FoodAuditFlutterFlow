@@ -61,174 +61,6 @@ class _SetUpWizardWidgetState extends State<SetUpWizardWidget> {
                   padding: EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
                   child: SingleChildScrollView(
                     child: Column(
-                      mainAxisSize: MainAxisSize.min,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        ClipRRect(
-                          borderRadius: BorderRadius.circular(8.0),
-                          child: Image.asset(
-                            'assets/images/nu3foodLogo.png',
-                            width: 176.0,
-                            height: 54.0,
-                            fit: BoxFit.cover,
-                          ),
-                        ),
-                        Text(
-                          FFLocalizations.of(context).getText(
-                            's2jlw2ps' /* Tell us something about yourse... */,
-                          ),
-                          style:
-                              FlutterFlowTheme.of(context).bodyMedium.override(
-                                    fontFamily: 'Roboto',
-                                    color: Color(0xFF382F73),
-                                    fontSize: 24.0,
-                                    letterSpacing: 0.15,
-                                    fontWeight: FontWeight.w800,
-                                    lineHeight: 1.4,
-                                  ),
-                        ),
-                        Text(
-                          FFLocalizations.of(context).getText(
-                            '79rj6c2w' /* Filled information will be use... */,
-                          ),
-                          style:
-                              FlutterFlowTheme.of(context).bodyMedium.override(
-                                    fontFamily: 'Roboto',
-                                    color: Color(0xFFAFACC7),
-                                    fontSize: 18.0,
-                                    letterSpacing: 0.15,
-                                    lineHeight: 1.5,
-                                  ),
-                        ),
-                        wrapWithModel(
-                          model: _model.intoleranciesModel,
-                          updateCallback: () => setState(() {}),
-                          child: IntoleranciesWidget(),
-                        ),
-                        Container(
-                          width: double.infinity,
-                          height: 300.0,
-                          decoration: BoxDecoration(
-                            color: Colors.transparent,
-                          ),
-                          child: wrapWithModel(
-                            model: _model.medicationModel,
-                            updateCallback: () => setState(() {}),
-                            child: MedicationWidget(),
-                          ),
-                        ),
-                        Container(
-                          width: double.infinity,
-                          decoration: BoxDecoration(
-                            color: Colors.transparent,
-                          ),
-                          child: Column(
-                            mainAxisSize: MainAxisSize.min,
-                            children: [
-                              InkWell(
-                                splashColor: Colors.transparent,
-                                focusColor: Colors.transparent,
-                                hoverColor: Colors.transparent,
-                                highlightColor: Colors.transparent,
-                                onTap: () async {
-                                  await _model.pageViewController?.nextPage(
-                                    duration: Duration(milliseconds: 300),
-                                    curve: Curves.ease,
-                                  );
-                                },
-                                child: Container(
-                                  width: double.infinity,
-                                  decoration: BoxDecoration(
-                                    color: Color(0xFF382F73),
-                                    borderRadius: BorderRadius.circular(6.0),
-                                  ),
-                                  child: Row(
-                                    mainAxisSize: MainAxisSize.max,
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: [
-                                      Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            12.0, 10.0, 12.0, 10.0),
-                                        child: Text(
-                                          FFLocalizations.of(context).getText(
-                                            'gnmmag3h' /* Continue to next step */,
-                                          ),
-                                          textAlign: TextAlign.center,
-                                          style: FlutterFlowTheme.of(context)
-                                              .bodyMedium
-                                              .override(
-                                                fontFamily: 'Roboto',
-                                                color: Color(0xFFB7C1FA),
-                                                letterSpacing: 0.15,
-                                                fontWeight: FontWeight.w800,
-                                                lineHeight: 1.5,
-                                              ),
-                                        ),
-                                      ),
-                                      ClipRRect(
-                                        borderRadius:
-                                            BorderRadius.circular(8.0),
-                                        child: Image.asset(
-                                          'assets/images/arrow.png',
-                                          width: 15.0,
-                                          height: 15.8,
-                                          fit: BoxFit.scaleDown,
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                              ),
-                              Container(
-                                width: double.infinity,
-                                decoration: BoxDecoration(
-                                  color: Colors.transparent,
-                                  borderRadius: BorderRadius.circular(6.0),
-                                ),
-                                child: Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      12.0, 10.0, 12.0, 10.0),
-                                  child: InkWell(
-                                    splashColor: Colors.transparent,
-                                    focusColor: Colors.transparent,
-                                    hoverColor: Colors.transparent,
-                                    highlightColor: Colors.transparent,
-                                    onTap: () async {
-                                      FFAppState().IsGuest = true;
-
-                                      context.goNamed('Home');
-                                    },
-                                    child: Text(
-                                      FFLocalizations.of(context).getText(
-                                        '4r1fe3w6' /* Continue without registration */,
-                                      ),
-                                      textAlign: TextAlign.center,
-                                      style: FlutterFlowTheme.of(context)
-                                          .bodyMedium
-                                          .override(
-                                            fontFamily: 'Roboto',
-                                            color: Color(0xFF382F73),
-                                            letterSpacing: 0.15,
-                                            fontWeight: FontWeight.w800,
-                                            lineHeight: 1.5,
-                                          ),
-                                    ),
-                                  ),
-                                ),
-                              ),
-                            ].divide(SizedBox(height: 12.0)),
-                          ),
-                        ),
-                      ]
-                          .divide(SizedBox(height: 24.0))
-                          .addToEnd(SizedBox(height: 25.0)),
-                    ),
-                  ),
-                ),
-                Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
-                  child: SingleChildScrollView(
-                    child: Column(
                       mainAxisSize: MainAxisSize.max,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
@@ -252,7 +84,7 @@ class _SetUpWizardWidgetState extends State<SetUpWizardWidget> {
                             children: [
                               Text(
                                 FFLocalizations.of(context).getText(
-                                  'sskvope2' /* Create your profile */,
+                                  'ifbezgj8' /* Create your profile */,
                                 ),
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
@@ -267,7 +99,7 @@ class _SetUpWizardWidgetState extends State<SetUpWizardWidget> {
                               ),
                               Text(
                                 FFLocalizations.of(context).getText(
-                                  '99tutfdt' /* Selected information will be u... */,
+                                  'r247e285' /* Selected information will be u... */,
                                 ),
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
@@ -367,7 +199,7 @@ class _SetUpWizardWidgetState extends State<SetUpWizardWidget> {
                                             child: Text(
                                               FFLocalizations.of(context)
                                                   .getText(
-                                                'xpyhbzo6' /* Finish registration */,
+                                                '8eppnzcp' /* Finish registration */,
                                               ),
                                               textAlign: TextAlign.center,
                                               style: FlutterFlowTheme.of(
@@ -408,7 +240,7 @@ class _SetUpWizardWidgetState extends State<SetUpWizardWidget> {
                                         12.0, 10.0, 12.0, 10.0),
                                     child: Text(
                                       FFLocalizations.of(context).getText(
-                                        '4akg6i4y' /* Continue without registration */,
+                                        '0baleo44' /* Continue without registration */,
                                       ),
                                       textAlign: TextAlign.center,
                                       style: FlutterFlowTheme.of(context)
@@ -428,6 +260,174 @@ class _SetUpWizardWidgetState extends State<SetUpWizardWidget> {
                           ),
                         ),
                       ].divide(SizedBox(height: 24.0)),
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding: EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
+                  child: SingleChildScrollView(
+                    child: Column(
+                      mainAxisSize: MainAxisSize.min,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        ClipRRect(
+                          borderRadius: BorderRadius.circular(8.0),
+                          child: Image.asset(
+                            'assets/images/nu3foodLogo.png',
+                            width: 176.0,
+                            height: 54.0,
+                            fit: BoxFit.cover,
+                          ),
+                        ),
+                        Text(
+                          FFLocalizations.of(context).getText(
+                            '1p2e8too' /* Tell us something about yourse... */,
+                          ),
+                          style:
+                              FlutterFlowTheme.of(context).bodyMedium.override(
+                                    fontFamily: 'Roboto',
+                                    color: Color(0xFF382F73),
+                                    fontSize: 24.0,
+                                    letterSpacing: 0.15,
+                                    fontWeight: FontWeight.w800,
+                                    lineHeight: 1.4,
+                                  ),
+                        ),
+                        Text(
+                          FFLocalizations.of(context).getText(
+                            'lpyawdzf' /* Filled information will be use... */,
+                          ),
+                          style:
+                              FlutterFlowTheme.of(context).bodyMedium.override(
+                                    fontFamily: 'Roboto',
+                                    color: Color(0xFFAFACC7),
+                                    fontSize: 18.0,
+                                    letterSpacing: 0.15,
+                                    lineHeight: 1.5,
+                                  ),
+                        ),
+                        wrapWithModel(
+                          model: _model.intoleranciesModel,
+                          updateCallback: () => setState(() {}),
+                          child: IntoleranciesWidget(),
+                        ),
+                        Container(
+                          width: double.infinity,
+                          height: 300.0,
+                          decoration: BoxDecoration(
+                            color: Colors.transparent,
+                          ),
+                          child: wrapWithModel(
+                            model: _model.medicationModel,
+                            updateCallback: () => setState(() {}),
+                            child: MedicationWidget(),
+                          ),
+                        ),
+                        Container(
+                          width: double.infinity,
+                          decoration: BoxDecoration(
+                            color: Colors.transparent,
+                          ),
+                          child: Column(
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              InkWell(
+                                splashColor: Colors.transparent,
+                                focusColor: Colors.transparent,
+                                hoverColor: Colors.transparent,
+                                highlightColor: Colors.transparent,
+                                onTap: () async {
+                                  await _model.pageViewController?.nextPage(
+                                    duration: Duration(milliseconds: 300),
+                                    curve: Curves.ease,
+                                  );
+                                },
+                                child: Container(
+                                  width: double.infinity,
+                                  decoration: BoxDecoration(
+                                    color: Color(0xFF382F73),
+                                    borderRadius: BorderRadius.circular(6.0),
+                                  ),
+                                  child: Row(
+                                    mainAxisSize: MainAxisSize.max,
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            12.0, 10.0, 12.0, 10.0),
+                                        child: Text(
+                                          FFLocalizations.of(context).getText(
+                                            '2s43wfag' /* Continue to next step */,
+                                          ),
+                                          textAlign: TextAlign.center,
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodyMedium
+                                              .override(
+                                                fontFamily: 'Roboto',
+                                                color: Color(0xFFB7C1FA),
+                                                letterSpacing: 0.15,
+                                                fontWeight: FontWeight.w800,
+                                                lineHeight: 1.5,
+                                              ),
+                                        ),
+                                      ),
+                                      ClipRRect(
+                                        borderRadius:
+                                            BorderRadius.circular(8.0),
+                                        child: Image.asset(
+                                          'assets/images/arrow.png',
+                                          width: 15.0,
+                                          height: 15.8,
+                                          fit: BoxFit.scaleDown,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ),
+                              Container(
+                                width: double.infinity,
+                                decoration: BoxDecoration(
+                                  color: Colors.transparent,
+                                  borderRadius: BorderRadius.circular(6.0),
+                                ),
+                                child: Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      12.0, 10.0, 12.0, 10.0),
+                                  child: InkWell(
+                                    splashColor: Colors.transparent,
+                                    focusColor: Colors.transparent,
+                                    hoverColor: Colors.transparent,
+                                    highlightColor: Colors.transparent,
+                                    onTap: () async {
+                                      FFAppState().IsGuest = true;
+
+                                      context.goNamed('Home');
+                                    },
+                                    child: Text(
+                                      FFLocalizations.of(context).getText(
+                                        'hohgw3hm' /* Continue without registration */,
+                                      ),
+                                      textAlign: TextAlign.center,
+                                      style: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .override(
+                                            fontFamily: 'Roboto',
+                                            color: Color(0xFF382F73),
+                                            letterSpacing: 0.15,
+                                            fontWeight: FontWeight.w800,
+                                            lineHeight: 1.5,
+                                          ),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ].divide(SizedBox(height: 12.0)),
+                          ),
+                        ),
+                      ]
+                          .divide(SizedBox(height: 24.0))
+                          .addToEnd(SizedBox(height: 25.0)),
                     ),
                   ),
                 ),

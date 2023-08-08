@@ -57,36 +57,36 @@ class _HomeWidgetState extends State<HomeWidget> {
             ),
             child: Stack(
               children: [
-                SingleChildScrollView(
-                  child: Column(
-                    mainAxisSize: MainAxisSize.max,
-                    children: [
-                      wrapWithModel(
-                        model: _model.headerModel,
-                        updateCallback: () => setState(() {}),
-                        child: HeaderWidget(),
-                      ),
-                      Padding(
-                        padding:
-                            EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
-                        child: Container(
-                          width: double.infinity,
-                          height: 228.0,
-                          decoration: BoxDecoration(
-                            color: Colors.transparent,
-                          ),
-                          child: wrapWithModel(
-                            model: _model.scannedItemsModel,
-                            updateCallback: () => setState(() {}),
-                            updateOnChange: true,
-                            child: ScannedItemsWidget(),
+                Padding(
+                  padding: EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
+                  child: SingleChildScrollView(
+                    child: Column(
+                      mainAxisSize: MainAxisSize.max,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        wrapWithModel(
+                          model: _model.headerModel,
+                          updateCallback: () => setState(() {}),
+                          child: HeaderWidget(),
+                        ),
+                        Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              0.0, 10.0, 0.0, 0.0),
+                          child: Container(
+                            width: double.infinity,
+                            height: 228.0,
+                            decoration: BoxDecoration(
+                              color: Colors.transparent,
+                            ),
+                            child: wrapWithModel(
+                              model: _model.scannedItemsModel,
+                              updateCallback: () => setState(() {}),
+                              updateOnChange: true,
+                              child: ScannedItemsWidget(),
+                            ),
                           ),
                         ),
-                      ),
-                      Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(
-                            24.0, 28.0, 24.0, 0.0),
-                        child: Container(
+                        Container(
                           decoration: BoxDecoration(
                             color: Colors.transparent,
                           ),
@@ -97,11 +97,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                             child: IntoleranciesWidget(),
                           ),
                         ),
-                      ),
-                      Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(
-                            24.0, 0.0, 24.0, 0.0),
-                        child: Container(
+                        Container(
                           height: 300.0,
                           decoration: BoxDecoration(),
                           child: wrapWithModel(
@@ -110,8 +106,10 @@ class _HomeWidgetState extends State<HomeWidget> {
                             child: MedicationWidget(),
                           ),
                         ),
-                      ),
-                    ].addToEnd(SizedBox(height: 90.0)),
+                      ]
+                          .divide(SizedBox(height: 28.0))
+                          .addToEnd(SizedBox(height: 90.0)),
+                    ),
                   ),
                 ),
                 Align(

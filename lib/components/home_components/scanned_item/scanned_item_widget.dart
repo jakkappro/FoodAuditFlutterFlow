@@ -165,6 +165,7 @@ class _ScannedItemWidgetState extends State<ScannedItemWidget> {
                                 _model.food?.addressLines?.first,
                                 'Couldn\'t find producer',
                               ),
+                              maxLines: 1,
                               style: FlutterFlowTheme.of(context)
                                   .bodyMedium
                                   .override(
@@ -182,6 +183,7 @@ class _ScannedItemWidgetState extends State<ScannedItemWidget> {
                                 }(_model.newFood!.category),
                                 'Mlieko',
                               ),
+                              maxLines: 1,
                               style: FlutterFlowTheme.of(context)
                                   .bodyMedium
                                   .override(
@@ -207,7 +209,9 @@ class _ScannedItemWidgetState extends State<ScannedItemWidget> {
                         _model.isFoodSafe ? 'Safe for you' : 'Contains alergen',
                         style: FlutterFlowTheme.of(context).bodyMedium.override(
                               fontFamily: 'Roboto',
-                              color: Color(0xFF82D680),
+                              color: _model.isFoodSafe
+                                  ? FlutterFlowTheme.of(context).success
+                                  : FlutterFlowTheme.of(context).error,
                               letterSpacing: 0.15,
                               fontWeight: FontWeight.w800,
                             ),
