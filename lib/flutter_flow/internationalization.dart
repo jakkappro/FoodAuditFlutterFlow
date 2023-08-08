@@ -341,43 +341,43 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Choose your avatar',
       'sk': '',
     },
-    '8zbo2p2z': {
+    'qfoz89yq': {
       'en': 'Fill out your information',
       'sk': '',
     },
-    'es34ovk4': {
+    'unfsnm9d': {
       'en': 'Name',
       'sk': '',
     },
-    '22weqlf7': {
+    'c50pq66g': {
       'en': 'Date of birdth',
       'sk': '',
     },
-    'lux2x0ia': {
+    '34glw7np': {
       'en': 'Male',
       'sk': '',
     },
-    'jh132p75': {
+    '6emn5jy4': {
       'en': 'Femlae',
       'sk': '',
     },
-    'd75yo52s': {
+    'r8zdm8lg': {
       'en': 'Attach hellicopter',
       'sk': '',
     },
-    'j46z0bml': {
+    'qczcjtfi': {
       'en': 'Pohlavie',
       'sk': '',
     },
-    '0y3fg93m': {
+    'r4somth3': {
       'en': 'Search for an item...',
       'sk': '',
     },
-    'rndxakl3': {
+    'xpyhbzo6': {
       'en': 'Finish registration',
       'sk': '',
     },
-    '2rkqmci5': {
+    '4akg6i4y': {
       'en': 'Continue without registration',
       'sk': '',
     },
@@ -403,24 +403,24 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // SlidingUpPanelFromEan
   {
-    'pb3y62q9': {
-      'en': 'Nova4',
-      'sk': 'Nova4',
-    },
-    'z0p07f7g': {
-      'en': 'Kliknite pre viac informácií*',
-      'sk': 'Kliknite pre viac informácií*',
-    },
     'jk4xh0b8': {
       'en': 'Allergens',
       'sk': 'Alergény',
+    },
+    'y8m0aogt': {
+      'en': 'Medication contraindications',
+      'sk': '',
+    },
+    'q0dyp4hv': {
+      'en': 'Hello World',
+      'sk': '',
     },
     'ysgynb85': {
       'en': 'Nutrition data',
       'sk': 'Údaje o výžive',
     },
     'mettjq8p': {
-      'en': '100 g',
+      'en': '100 g/100ml',
       'sk': '100 g',
     },
     '6n80je7x': {
@@ -601,7 +601,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Notification please',
       'sk': 'Prosím o oznámenie',
     },
-    '9qvstekx': {
+    '0fxz3xex': {
       'en': 'Flahslight please',
       'sk': '',
     },

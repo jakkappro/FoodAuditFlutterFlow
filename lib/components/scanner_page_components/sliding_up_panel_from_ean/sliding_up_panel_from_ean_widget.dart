@@ -59,7 +59,7 @@ class _SlidingUpPanelFromEanWidgetState
       width: MediaQuery.sizeOf(context).width * 1.0,
       height: MediaQuery.sizeOf(context).height * 0.8,
       decoration: BoxDecoration(
-        color: Color(0xFF1C0D26),
+        color: Color(0xFFF7F7F7),
         borderRadius: BorderRadius.only(
           bottomLeft: Radius.circular(20.0),
           bottomRight: Radius.circular(20.0),
@@ -109,10 +109,12 @@ class _SlidingUpPanelFromEanWidgetState
                                         .bodyMedium
                                         .override(
                                           fontFamily: 'Roboto',
-                                          color: Color(0xFFF7F7F7),
+                                          color: FlutterFlowTheme.of(context)
+                                              .primary,
                                           fontSize: 32.0,
                                           letterSpacing: 0.25,
                                           fontWeight: FontWeight.w800,
+                                          lineHeight: 1.4,
                                         ),
                                   ),
                                   Text(
@@ -128,6 +130,7 @@ class _SlidingUpPanelFromEanWidgetState
                                           fontSize: 18.0,
                                           letterSpacing: 0.15,
                                           fontWeight: FontWeight.bold,
+                                          lineHeight: 1.5,
                                         ),
                                   ),
                                   AutoSizeText(
@@ -149,9 +152,10 @@ class _SlidingUpPanelFromEanWidgetState
                                           fontSize: 18.0,
                                           letterSpacing: 0.15,
                                           fontWeight: FontWeight.bold,
+                                          lineHeight: 1.55,
                                         ),
                                   ),
-                                ].divide(SizedBox(height: 15.0)),
+                                ],
                               ),
                             ),
                             Container(
@@ -166,159 +170,172 @@ class _SlidingUpPanelFromEanWidgetState
                           ],
                         ),
                       ),
-                      Padding(
-                        padding:
-                            EdgeInsetsDirectional.fromSTEB(0.0, 15.0, 0.0, 0.0),
-                        child: Row(
-                          mainAxisSize: MainAxisSize.max,
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Container(
-                              width: MediaQuery.sizeOf(context).width * 0.4,
-                              height: 105.0,
-                              decoration: BoxDecoration(
-                                color: Colors.transparent,
-                                borderRadius: BorderRadius.circular(10.0),
-                              ),
-                              child: ClipRRect(
-                                borderRadius: BorderRadius.circular(8.0),
-                                child: Image.asset(
-                                  'assets/images/NSC.png',
-                                  width: 300.0,
-                                  height: 200.0,
-                                  fit: BoxFit.scaleDown,
-                                ),
+                      Row(
+                        mainAxisSize: MainAxisSize.max,
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Container(
+                            width: MediaQuery.sizeOf(context).width * 0.4,
+                            height: 105.0,
+                            decoration: BoxDecoration(
+                              color: Colors.transparent,
+                              borderRadius: BorderRadius.circular(10.0),
+                            ),
+                            child: ClipRRect(
+                              borderRadius: BorderRadius.circular(8.0),
+                              child: Image.asset(
+                                'assets/images/NSC.png',
+                                width: 300.0,
+                                height: 200.0,
+                                fit: BoxFit.scaleDown,
                               ),
                             ),
-                            if (false == false)
-                              Container(
-                                width: MediaQuery.sizeOf(context).width * 0.4,
-                                height: 105.0,
-                                decoration: BoxDecoration(
-                                  color: FlutterFlowTheme.of(context)
-                                      .secondaryBackground,
-                                  borderRadius: BorderRadius.circular(10.0),
-                                ),
-                                child: Align(
-                                  alignment: AlignmentDirectional(0.0, 0.0),
-                                  child: Text(
-                                    FFLocalizations.of(context).getText(
-                                      'pb3y62q9' /* Nova4 */,
-                                    ),
-                                    style:
-                                        FlutterFlowTheme.of(context).bodyMedium,
-                                  ),
-                                ),
+                          ),
+                        ],
+                      ),
+                      Container(
+                        width: MediaQuery.sizeOf(context).width * 1.0,
+                        height: 70.0,
+                        decoration: BoxDecoration(
+                          color: Colors.transparent,
+                        ),
+                        child: Column(
+                          mainAxisSize: MainAxisSize.max,
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              FFLocalizations.of(context).getText(
+                                'jk4xh0b8' /* Allergens */,
                               ),
+                              style: FlutterFlowTheme.of(context)
+                                  .bodyMedium
+                                  .override(
+                                    fontFamily: 'Roboto',
+                                    color: FlutterFlowTheme.of(context).primary,
+                                    fontSize: 20.0,
+                                    letterSpacing: 0.15,
+                                    fontWeight: FontWeight.w800,
+                                    lineHeight: 1.4,
+                                  ),
+                            ),
+                            Container(
+                              width: double.infinity,
+                              height: 40.0,
+                              decoration: BoxDecoration(
+                                color: Colors.transparent,
+                              ),
+                              child: Builder(
+                                builder: (context) {
+                                  final allert =
+                                      widget.doc?.allergens?.toList() ?? [];
+                                  return ListView.separated(
+                                    padding: EdgeInsets.zero,
+                                    primary: false,
+                                    shrinkWrap: true,
+                                    scrollDirection: Axis.horizontal,
+                                    itemCount: allert.length,
+                                    separatorBuilder: (_, __) =>
+                                        SizedBox(width: 10.0),
+                                    itemBuilder: (context, allertIndex) {
+                                      final allertItem = allert[allertIndex];
+                                      return Container(
+                                        decoration: BoxDecoration(
+                                          color: FlutterFlowTheme.of(context)
+                                              .error,
+                                          borderRadius:
+                                              BorderRadius.circular(6.0),
+                                          border: Border.all(
+                                            color: Color(0xFFF7F7F7),
+                                            width: 1.3,
+                                          ),
+                                        ),
+                                        child: Align(
+                                          alignment:
+                                              AlignmentDirectional(0.0, 0.0),
+                                          child: Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    12.0, 10.0, 12.0, 10.0),
+                                            child: Text(
+                                              allertItem,
+                                              style: FlutterFlowTheme.of(
+                                                      context)
+                                                  .bodyMedium
+                                                  .override(
+                                                    fontFamily: 'Roboto',
+                                                    color: Color(0xFFF7F7F7),
+                                                    letterSpacing: 0.15,
+                                                    fontWeight: FontWeight.w800,
+                                                    lineHeight: 1.5,
+                                                  ),
+                                            ),
+                                          ),
+                                        ),
+                                      );
+                                    },
+                                  );
+                                },
+                              ),
+                            ),
                           ],
                         ),
                       ),
-                      Padding(
-                        padding:
-                            EdgeInsetsDirectional.fromSTEB(0.0, 15.0, 0.0, 0.0),
-                        child: Text(
-                          FFLocalizations.of(context).getText(
-                            'z0p07f7g' /* Kliknite pre viac informácií* */,
-                          ),
-                          style: GoogleFonts.getFont(
-                            'Lato',
-                            color: Color(0xFFF7F7F7),
-                            fontWeight: FontWeight.w600,
-                            fontSize: 11.0,
-                          ),
+                      Container(
+                        width: double.infinity,
+                        decoration: BoxDecoration(
+                          color: Colors.transparent,
                         ),
-                      ),
-                      Padding(
-                        padding:
-                            EdgeInsetsDirectional.fromSTEB(0.0, 15.0, 0.0, 0.0),
-                        child: Container(
-                          width: MediaQuery.sizeOf(context).width * 1.0,
-                          height: 70.0,
-                          decoration: BoxDecoration(
-                            color: Colors.transparent,
-                          ),
-                          child: Column(
-                            mainAxisSize: MainAxisSize.max,
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                FFLocalizations.of(context).getText(
-                                  'jk4xh0b8' /* Allergens */,
-                                ),
-                                style: FlutterFlowTheme.of(context)
-                                    .bodyMedium
-                                    .override(
-                                      fontFamily: 'Roboto',
-                                      color: Color(0xFFAFACC7),
-                                      fontSize: 20.0,
-                                      letterSpacing: 0.15,
-                                      fontWeight: FontWeight.w800,
+                        child: Column(
+                          mainAxisSize: MainAxisSize.max,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              FFLocalizations.of(context).getText(
+                                'y8m0aogt' /* Medication contraindications */,
+                              ),
+                              style: FlutterFlowTheme.of(context)
+                                  .bodyMedium
+                                  .override(
+                                    fontFamily: 'Roboto',
+                                    color: FlutterFlowTheme.of(context).primary,
+                                    fontSize: 20.0,
+                                    letterSpacing: 0.15,
+                                    fontWeight: FontWeight.w800,
+                                    lineHeight: 1.4,
+                                  ),
+                            ),
+                            Row(
+                              mainAxisSize: MainAxisSize.max,
+                              children: [
+                                Container(
+                                  decoration: BoxDecoration(
+                                    color: FlutterFlowTheme.of(context).success,
+                                    borderRadius: BorderRadius.circular(6.0),
+                                  ),
+                                  child: Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        12.0, 10.0, 12.0, 10.0),
+                                    child: Text(
+                                      FFLocalizations.of(context).getText(
+                                        'q0dyp4hv' /* Hello World */,
+                                      ),
+                                      style: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .override(
+                                            fontFamily: 'Roboto',
+                                            color: FlutterFlowTheme.of(context)
+                                                .primary,
+                                            letterSpacing: 0.15,
+                                            fontWeight: FontWeight.w800,
+                                            lineHeight: 1.5,
+                                          ),
                                     ),
-                              ),
-                              Container(
-                                width: double.infinity,
-                                height: 40.0,
-                                decoration: BoxDecoration(
-                                  color: Colors.transparent,
+                                  ),
                                 ),
-                                child: Builder(
-                                  builder: (context) {
-                                    final allert =
-                                        widget.doc?.allergens?.toList() ?? [];
-                                    return ListView.separated(
-                                      padding: EdgeInsets.zero,
-                                      primary: false,
-                                      shrinkWrap: true,
-                                      scrollDirection: Axis.horizontal,
-                                      itemCount: allert.length,
-                                      separatorBuilder: (_, __) =>
-                                          SizedBox(width: 10.0),
-                                      itemBuilder: (context, allertIndex) {
-                                        final allertItem = allert[allertIndex];
-                                        return Container(
-                                          height: MediaQuery.sizeOf(context)
-                                                  .height *
-                                              1.0,
-                                          decoration: BoxDecoration(
-                                            color: Colors.transparent,
-                                            borderRadius:
-                                                BorderRadius.circular(6.0),
-                                            border: Border.all(
-                                              color: Color(0xFFF7F7F7),
-                                              width: 1.3,
-                                            ),
-                                          ),
-                                          child: Align(
-                                            alignment:
-                                                AlignmentDirectional(0.0, 0.0),
-                                            child: Padding(
-                                              padding: EdgeInsetsDirectional
-                                                  .fromSTEB(
-                                                      12.0, 10.0, 12.0, 10.0),
-                                              child: Text(
-                                                allertItem,
-                                                style:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyMedium
-                                                        .override(
-                                                          fontFamily: 'Roboto',
-                                                          color:
-                                                              Color(0xFFF7F7F7),
-                                                          fontWeight:
-                                                              FontWeight.w800,
-                                                        ),
-                                              ),
-                                            ),
-                                          ),
-                                        );
-                                      },
-                                    );
-                                  },
-                                ),
-                              ),
-                            ],
-                          ),
+                              ].divide(SizedBox(width: 8.0)),
+                            ),
+                          ].divide(SizedBox(height: 12.0)),
                         ),
                       ),
                       Padding(
@@ -349,78 +366,79 @@ class _SlidingUpPanelFromEanWidgetState
                                         .bodyMedium
                                         .override(
                                           fontFamily: 'Roboto',
-                                          color: Color(0xFFAFACC7),
-                                          fontSize: 20.0,
+                                          color: FlutterFlowTheme.of(context)
+                                              .primary,
+                                          fontSize: 16.0,
                                           letterSpacing: 0.15,
-                                          fontWeight: FontWeight.w800,
+                                          fontWeight: FontWeight.w500,
+                                          lineHeight: 1.55,
                                         ),
                                   ),
                                   Text(
                                     FFLocalizations.of(context).getText(
-                                      'mettjq8p' /* 100 g */,
+                                      'mettjq8p' /* 100 g/100ml */,
                                     ),
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
                                         .override(
                                           fontFamily: 'Roboto',
-                                          color: Color(0xFFF7F7F7),
-                                          letterSpacing: 0.25,
+                                          color: FlutterFlowTheme.of(context)
+                                              .primary,
+                                          fontSize: 16.0,
+                                          letterSpacing: 0.15,
+                                          fontWeight: FontWeight.w500,
+                                          lineHeight: 1.55,
                                         ),
                                   ),
                                 ],
                               ),
-                              Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    1.0, 1.0, 1.0, 1.0),
-                                child: Container(
-                                  width: double.infinity,
-                                  height: 187.0,
-                                  decoration: BoxDecoration(
-                                    color: Colors.transparent,
-                                    borderRadius: BorderRadius.circular(10.0),
-                                    border: Border.all(
-                                      color: Colors.white,
-                                      width: 1.0,
-                                    ),
-                                  ),
-                                  child: Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        24.0, 10.0, 24.0, 10.0),
-                                    child: Builder(
-                                      builder: (context) {
-                                        final nutrition =
-                                            widget.doc?.nutrients?.toList() ??
-                                                [];
-                                        return Column(
-                                          mainAxisSize: MainAxisSize.max,
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.spaceAround,
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.start,
-                                          children:
-                                              List.generate(nutrition.length,
-                                                  (nutritionIndex) {
-                                            final nutritionItem =
-                                                nutrition[nutritionIndex];
-                                            return Expanded(
-                                              child: NutritionTableRowWidget(
-                                                key: Key(
-                                                    'Keycb7_${nutritionIndex}_of_${nutrition.length}'),
-                                                nutrient: nutritionItem,
-                                              ),
-                                            );
-                                          }),
+                              Container(
+                                width: double.infinity,
+                                height: 1.0,
+                                decoration: BoxDecoration(
+                                  color: FlutterFlowTheme.of(context).primary,
+                                ),
+                              ),
+                              Container(
+                                width: double.infinity,
+                                height: 187.0,
+                                decoration: BoxDecoration(
+                                  color: Colors.transparent,
+                                  borderRadius: BorderRadius.circular(0.0),
+                                ),
+                                child: Builder(
+                                  builder: (context) {
+                                    final nutrition =
+                                        widget.doc?.nutrients?.toList() ?? [];
+                                    return Column(
+                                      mainAxisSize: MainAxisSize.min,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceAround,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: List.generate(nutrition.length,
+                                          (nutritionIndex) {
+                                        final nutritionItem =
+                                            nutrition[nutritionIndex];
+                                        return Expanded(
+                                          child: NutritionTableRowWidget(
+                                            key: Key(
+                                                'Keycb7_${nutritionIndex}_of_${nutrition.length}'),
+                                            nutrient: nutritionItem,
+                                          ),
                                         );
-                                      },
-                                    ),
-                                  ),
+                                      }),
+                                    );
+                                  },
                                 ),
                               ),
                             ],
                           ),
                         ),
                       ),
-                    ].addToEnd(SizedBox(height: 50.0)),
+                    ]
+                        .divide(SizedBox(height: 16.0))
+                        .addToEnd(SizedBox(height: 50.0)),
                   ),
                 ),
               ),
@@ -454,7 +472,7 @@ class _SlidingUpPanelFromEanWidgetState
                                   .bodyMedium
                                   .override(
                                     fontFamily: 'Roboto',
-                                    color: Color(0xFFF7F7F7),
+                                    color: FlutterFlowTheme.of(context).primary,
                                     fontSize: 32.0,
                                     letterSpacing: 0.25,
                                     fontWeight: FontWeight.w800,

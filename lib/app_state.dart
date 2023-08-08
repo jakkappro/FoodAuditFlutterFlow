@@ -55,6 +55,9 @@ class FFAppState extends ChangeNotifier {
       _Medication =
           await secureStorage.getStringList('ff_Medication') ?? _Medication;
     });
+    await _safeInitAsync(() async {
+      _imageName = await secureStorage.getString('ff_imageName') ?? _imageName;
+    });
   }
 
   void update(VoidCallback callback) {
@@ -220,6 +223,17 @@ class FFAppState extends ChangeNotifier {
   ) {
     _Medication[_index] = updateFn(_Medication[_index]);
     secureStorage.setStringList('ff_Medication', _Medication);
+  }
+
+  String _imageName = '';
+  String get imageName => _imageName;
+  set imageName(String _value) {
+    _imageName = _value;
+    secureStorage.setString('ff_imageName', _value);
+  }
+
+  void deleteImageName() {
+    secureStorage.delete(key: 'ff_imageName');
   }
 }
 

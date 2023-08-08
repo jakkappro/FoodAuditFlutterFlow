@@ -44,7 +44,7 @@ class _ScanProductMessageWidgetState extends State<ScanProductMessageWidget> {
       width: double.infinity,
       height: double.infinity,
       decoration: BoxDecoration(
-        color: Color(0xFF1C0D26),
+        color: Colors.transparent,
       ),
       child: Padding(
         padding: EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 0.0, 20.0),
@@ -59,24 +59,25 @@ class _ScanProductMessageWidgetState extends State<ScanProductMessageWidget> {
               ),
               style: FlutterFlowTheme.of(context).bodyMedium.override(
                     fontFamily: 'Roboto',
-                    color: Color(0xFFF7F7F7),
+                    color: Color(0xFFD7D5E3),
                     fontSize: 32.0,
+                    letterSpacing: 0.25,
                     fontWeight: FontWeight.w800,
+                    lineHeight: 1.3,
                   ),
             ),
-            Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 0.0),
-              child: Text(
-                FFLocalizations.of(context).getText(
-                  'rju430wl' /* Hold barcode or ingredients li... */,
-                ),
-                style: FlutterFlowTheme.of(context).bodyMedium.override(
-                      fontFamily: 'Roboto',
-                      color: Color(0xFFAFACC7),
-                      fontSize: 18.0,
-                      fontWeight: FontWeight.bold,
-                    ),
+            Text(
+              FFLocalizations.of(context).getText(
+                'rju430wl' /* Hold barcode or ingredients li... */,
               ),
+              style: FlutterFlowTheme.of(context).bodyMedium.override(
+                    fontFamily: 'Roboto',
+                    color: Color(0xFFF7F7F7),
+                    fontSize: 18.0,
+                    letterSpacing: 0.15,
+                    fontWeight: FontWeight.w500,
+                    lineHeight: 1.5,
+                  ),
             ),
           ],
         ),

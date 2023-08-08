@@ -46,7 +46,7 @@ class _HeaderWidgetState extends State<HeaderWidget> {
       width: double.infinity,
       height: 177.0,
       decoration: BoxDecoration(
-        color: Color(0xFF1C0D26),
+        color: Colors.transparent,
       ),
       child: Padding(
         padding: EdgeInsetsDirectional.fromSTEB(24.0, 15.0, 24.0, 20.0),
@@ -72,7 +72,7 @@ class _HeaderWidgetState extends State<HeaderWidget> {
                     ),
                     style: FlutterFlowTheme.of(context).bodyMedium.override(
                           fontFamily: 'Roboto',
-                          color: Color(0xFFF7F7F7),
+                          color: FlutterFlowTheme.of(context).primary,
                           fontWeight: FontWeight.w800,
                         ),
                   ),
@@ -90,57 +90,38 @@ class _HeaderWidgetState extends State<HeaderWidget> {
                 ),
               ],
             ),
-            Container(
-              width: 60.0,
-              height: 70.0,
-              child: Stack(
-                children: [
-                  Align(
-                    alignment: AlignmentDirectional(0.0, 1.0),
-                    child: AuthUserStreamWidget(
-                      builder: (context) => InkWell(
-                        splashColor: Colors.transparent,
-                        focusColor: Colors.transparent,
-                        hoverColor: Colors.transparent,
-                        highlightColor: Colors.transparent,
-                        onTap: () async {
-                          if (FFAppState().IsGuest == true) {
-                            context.pushNamed('Onborading');
-                          } else {
-                            context.pushNamed('Settings');
-                          }
-                        },
-                        child: Container(
-                          width: 60.0,
-                          height: 60.0,
-                          clipBehavior: Clip.antiAlias,
-                          decoration: BoxDecoration(
-                            shape: BoxShape.circle,
-                          ),
-                          child: CachedNetworkImage(
-                            fadeInDuration: Duration(milliseconds: 1000),
-                            fadeOutDuration: Duration(milliseconds: 1000),
-                            imageUrl: FFAppState().IsGuest
-                                ? 'https://picsum.photos/seed/232/600'
-                                : currentUserPhoto,
-                            fit: BoxFit.cover,
-                          ),
-                        ),
-                      ),
+            Align(
+              alignment: AlignmentDirectional(0.0, 1.0),
+              child: AuthUserStreamWidget(
+                builder: (context) => InkWell(
+                  splashColor: Colors.transparent,
+                  focusColor: Colors.transparent,
+                  hoverColor: Colors.transparent,
+                  highlightColor: Colors.transparent,
+                  onTap: () async {
+                    if (FFAppState().IsGuest == true) {
+                      context.pushNamed('Onborading');
+                    } else {
+                      context.pushNamed('Settings');
+                    }
+                  },
+                  child: Container(
+                    width: 60.0,
+                    height: 60.0,
+                    clipBehavior: Clip.antiAlias,
+                    decoration: BoxDecoration(
+                      shape: BoxShape.circle,
+                    ),
+                    child: CachedNetworkImage(
+                      fadeInDuration: Duration(milliseconds: 1000),
+                      fadeOutDuration: Duration(milliseconds: 1000),
+                      imageUrl: FFAppState().IsGuest
+                          ? 'https://picsum.photos/seed/232/600'
+                          : currentUserPhoto,
+                      fit: BoxFit.cover,
                     ),
                   ),
-                  Align(
-                    alignment: AlignmentDirectional(1.0, -1.0),
-                    child: Container(
-                      width: 10.0,
-                      height: 10.0,
-                      decoration: BoxDecoration(
-                        color: FlutterFlowTheme.of(context).secondaryBackground,
-                        shape: BoxShape.circle,
-                      ),
-                    ),
-                  ),
-                ],
+                ),
               ),
             ),
           ],

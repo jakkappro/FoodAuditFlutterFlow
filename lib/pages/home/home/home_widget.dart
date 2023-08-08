@@ -81,11 +81,20 @@ class _HomeWidgetState extends State<HomeWidget> {
                         ),
                       ),
                     ),
-                    wrapWithModel(
-                      model: _model.intoleranciesModel,
-                      updateCallback: () => setState(() {}),
-                      updateOnChange: true,
-                      child: IntoleranciesWidget(),
+                    Padding(
+                      padding:
+                          EdgeInsetsDirectional.fromSTEB(24.0, 28.0, 24.0, 0.0),
+                      child: Container(
+                        decoration: BoxDecoration(
+                          color: Colors.transparent,
+                        ),
+                        child: wrapWithModel(
+                          model: _model.intoleranciesModel,
+                          updateCallback: () => setState(() {}),
+                          updateOnChange: true,
+                          child: IntoleranciesWidget(),
+                        ),
+                      ),
                     ),
                     Padding(
                       padding:

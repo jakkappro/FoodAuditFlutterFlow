@@ -1,9 +1,14 @@
+import '/auth/firebase_auth/auth_util.dart';
+import '/backend/backend.dart';
 import '/components/intolerancies/intolerancies_widget.dart';
 import '/components/medication/medication_widget.dart';
 import '/flutter_flow/flutter_flow_drop_down.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/form_field_controller.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:easy_debounce/easy_debounce.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -28,6 +33,7 @@ class _SetUpWizardWidgetState extends State<SetUpWizardWidget> {
     _model = createModel(context, () => SetUpWizardModel());
 
     logFirebaseEvent('screen_view', parameters: {'screen_name': 'SetUpWizard'});
+    _model.textController ??= TextEditingController();
   }
 
   @override
@@ -316,31 +322,64 @@ class _SetUpWizardWidgetState extends State<SetUpWizardWidget> {
                               verticalDirection: VerticalDirection.down,
                               clipBehavior: Clip.none,
                               children: [
-                                ClipRRect(
-                                  borderRadius: BorderRadius.circular(0.0),
-                                  child: Image.asset(
-                                    'assets/images/Frame_32.png',
-                                    width: 47.5,
-                                    height: 47.5,
-                                    fit: BoxFit.scaleDown,
+                                InkWell(
+                                  splashColor: Colors.transparent,
+                                  focusColor: Colors.transparent,
+                                  hoverColor: Colors.transparent,
+                                  highlightColor: Colors.transparent,
+                                  onTap: () async {
+                                    setState(() {
+                                      FFAppState().imageName = '1';
+                                    });
+                                  },
+                                  child: ClipRRect(
+                                    borderRadius: BorderRadius.circular(0.0),
+                                    child: Image.asset(
+                                      'assets/images/Frame_32.png',
+                                      width: 47.5,
+                                      height: 47.5,
+                                      fit: BoxFit.scaleDown,
+                                    ),
                                   ),
                                 ),
-                                ClipRRect(
-                                  borderRadius: BorderRadius.circular(0.0),
-                                  child: Image.asset(
-                                    'assets/images/Frame_33.png',
-                                    width: 47.5,
-                                    height: 47.5,
-                                    fit: BoxFit.scaleDown,
+                                InkWell(
+                                  splashColor: Colors.transparent,
+                                  focusColor: Colors.transparent,
+                                  hoverColor: Colors.transparent,
+                                  highlightColor: Colors.transparent,
+                                  onTap: () async {
+                                    setState(() {
+                                      FFAppState().imageName = '2';
+                                    });
+                                  },
+                                  child: ClipRRect(
+                                    borderRadius: BorderRadius.circular(0.0),
+                                    child: Image.asset(
+                                      'assets/images/Frame_33.png',
+                                      width: 47.5,
+                                      height: 47.5,
+                                      fit: BoxFit.scaleDown,
+                                    ),
                                   ),
                                 ),
-                                ClipRRect(
-                                  borderRadius: BorderRadius.circular(0.0),
-                                  child: Image.asset(
-                                    'assets/images/Frame_34.png',
-                                    width: 47.5,
-                                    height: 47.5,
-                                    fit: BoxFit.scaleDown,
+                                InkWell(
+                                  splashColor: Colors.transparent,
+                                  focusColor: Colors.transparent,
+                                  hoverColor: Colors.transparent,
+                                  highlightColor: Colors.transparent,
+                                  onTap: () async {
+                                    setState(() {
+                                      FFAppState().imageName = '03';
+                                    });
+                                  },
+                                  child: ClipRRect(
+                                    borderRadius: BorderRadius.circular(0.0),
+                                    child: Image.asset(
+                                      'assets/images/Frame_34.png',
+                                      width: 47.5,
+                                      height: 47.5,
+                                      fit: BoxFit.scaleDown,
+                                    ),
                                   ),
                                 ),
                                 ClipRRect(
@@ -440,7 +479,7 @@ class _SetUpWizardWidgetState extends State<SetUpWizardWidget> {
                             children: [
                               Text(
                                 FFLocalizations.of(context).getText(
-                                  '8zbo2p2z' /* Fill out your information */,
+                                  'qfoz89yq' /* Fill out your information */,
                                 ),
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
@@ -463,69 +502,131 @@ class _SetUpWizardWidgetState extends State<SetUpWizardWidget> {
                                     width: 2.0,
                                   ),
                                 ),
-                                child: Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      15.0, 10.0, 16.0, 10.0),
-                                  child: Text(
-                                    FFLocalizations.of(context).getText(
-                                      'es34ovk4' /* Name */,
+                                child: Container(
+                                  width: double.infinity,
+                                  child: TextFormField(
+                                    controller: _model.textController,
+                                    onChanged: (_) => EasyDebounce.debounce(
+                                      '_model.textController',
+                                      Duration(milliseconds: 2000),
+                                      () async {
+                                        await currentUserReference!
+                                            .update(createUsersRecordData(
+                                          displayName:
+                                              _model.textController.text,
+                                        ));
+                                      },
+                                    ),
+                                    obscureText: false,
+                                    decoration: InputDecoration(
+                                      labelText:
+                                          FFLocalizations.of(context).getText(
+                                        'unfsnm9d' /* Name */,
+                                      ),
+                                      labelStyle: FlutterFlowTheme.of(context)
+                                          .labelMedium
+                                          .override(
+                                            fontFamily: 'Roboto',
+                                            color: Color(0xFF382F73),
+                                            fontSize: 16.0,
+                                            fontWeight: FontWeight.normal,
+                                            lineHeight: 1.5,
+                                          ),
+                                      enabledBorder: InputBorder.none,
+                                      focusedBorder: InputBorder.none,
+                                      errorBorder: InputBorder.none,
+                                      focusedErrorBorder: InputBorder.none,
+                                      contentPadding:
+                                          EdgeInsetsDirectional.fromSTEB(
+                                              15.0, 10.0, 16.0, 10.0),
                                     ),
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
                                         .override(
                                           fontFamily: 'Roboto',
-                                          color: Color(0xFF382F73),
+                                          color: FlutterFlowTheme.of(context)
+                                              .primary,
                                           fontSize: 16.0,
                                           lineHeight: 1.5,
                                         ),
+                                    validator: _model.textControllerValidator
+                                        .asValidator(context),
                                   ),
                                 ),
                               ),
-                              Container(
-                                width: double.infinity,
-                                decoration: BoxDecoration(
-                                  color: Colors.transparent,
-                                  borderRadius: BorderRadius.circular(6.0),
-                                  border: Border.all(
-                                    color: Color(0xFFAFACC7),
-                                    width: 2.0,
+                              InkWell(
+                                splashColor: Colors.transparent,
+                                focusColor: Colors.transparent,
+                                hoverColor: Colors.transparent,
+                                highlightColor: Colors.transparent,
+                                onTap: () async {
+                                  final _datePickedDate = await showDatePicker(
+                                    context: context,
+                                    initialDate: getCurrentTimestamp,
+                                    firstDate: DateTime(1900),
+                                    lastDate: getCurrentTimestamp,
+                                  );
+
+                                  if (_datePickedDate != null) {
+                                    setState(() {
+                                      _model.datePicked = DateTime(
+                                        _datePickedDate.year,
+                                        _datePickedDate.month,
+                                        _datePickedDate.day,
+                                      );
+                                    });
+                                  }
+                                  setState(() {
+                                    FFAppState().dateOfBirdth =
+                                        _model.datePicked;
+                                  });
+                                },
+                                child: Container(
+                                  width: double.infinity,
+                                  decoration: BoxDecoration(
+                                    color: Colors.transparent,
+                                    borderRadius: BorderRadius.circular(6.0),
+                                    border: Border.all(
+                                      color: Color(0xFFAFACC7),
+                                      width: 2.0,
+                                    ),
                                   ),
-                                ),
-                                child: Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      15.0, 10.0, 16.0, 10.0),
-                                  child: Row(
-                                    mainAxisSize: MainAxisSize.min,
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      Text(
-                                        FFLocalizations.of(context).getText(
-                                          '22weqlf7' /* Date of birdth */,
+                                  child: Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        15.0, 10.0, 16.0, 10.0),
+                                    child: Row(
+                                      mainAxisSize: MainAxisSize.min,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        Text(
+                                          FFLocalizations.of(context).getText(
+                                            'c50pq66g' /* Date of birdth */,
+                                          ),
+                                          textAlign: TextAlign.start,
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodyMedium
+                                              .override(
+                                                fontFamily: 'Roboto',
+                                                color: Color(0xFF382F73),
+                                                fontSize: 16.0,
+                                                letterSpacing: 0.15,
+                                                fontWeight: FontWeight.w600,
+                                                lineHeight: 1.55,
+                                              ),
                                         ),
-                                        textAlign: TextAlign.start,
-                                        style: FlutterFlowTheme.of(context)
-                                            .bodyMedium
-                                            .override(
-                                              fontFamily: 'Roboto',
-                                              color: Color(0xFF382F73),
-                                              fontSize: 16.0,
-                                              letterSpacing: 0.15,
-                                              fontWeight: FontWeight.w600,
-                                              lineHeight: 1.55,
-                                            ),
-                                      ),
-                                      ClipRRect(
-                                        borderRadius:
-                                            BorderRadius.circular(0.0),
-                                        child: Image.asset(
-                                          'assets/images/Calendar.png',
-                                          width: 24.0,
-                                          height: 24.0,
-                                          fit: BoxFit.cover,
+                                        ClipRRect(
+                                          borderRadius:
+                                              BorderRadius.circular(0.0),
+                                          child: Image.asset(
+                                            'assets/images/Calendar.png',
+                                            width: 24.0,
+                                            height: 24.0,
+                                            fit: BoxFit.cover,
+                                          ),
                                         ),
-                                      ),
-                                    ].divide(SizedBox(width: 10.0)),
+                                      ].divide(SizedBox(width: 10.0)),
+                                    ),
                                   ),
                                 ),
                               ),
@@ -539,17 +640,22 @@ class _SetUpWizardWidgetState extends State<SetUpWizardWidget> {
                                       FormFieldController<String>(null),
                                   options: [
                                     FFLocalizations.of(context).getText(
-                                      'lux2x0ia' /* Male */,
+                                      '34glw7np' /* Male */,
                                     ),
                                     FFLocalizations.of(context).getText(
-                                      'jh132p75' /* Femlae */,
+                                      '6emn5jy4' /* Femlae */,
                                     ),
                                     FFLocalizations.of(context).getText(
-                                      'd75yo52s' /* Attach hellicopter */,
+                                      'r8zdm8lg' /* Attach hellicopter */,
                                     )
                                   ],
-                                  onChanged: (val) => setState(
-                                      () => _model.dropDownValue = val),
+                                  onChanged: (val) async {
+                                    setState(() => _model.dropDownValue = val);
+                                    setState(() {
+                                      FFAppState().gender =
+                                          _model.dropDownValue!;
+                                    });
+                                  },
                                   width: double.infinity,
                                   height: 45.0,
                                   textStyle: FlutterFlowTheme.of(context)
@@ -563,7 +669,7 @@ class _SetUpWizardWidgetState extends State<SetUpWizardWidget> {
                                         lineHeight: 1.55,
                                       ),
                                   hintText: FFLocalizations.of(context).getText(
-                                    'j46z0bml' /* Pohlavie */,
+                                    'qczcjtfi' /* Pohlavie */,
                                   ),
                                   icon: Icon(
                                     Icons.fingerprint,
@@ -658,7 +764,7 @@ class _SetUpWizardWidgetState extends State<SetUpWizardWidget> {
                                                   12.0, 10.0, 12.0, 10.0),
                                           child: Text(
                                             FFLocalizations.of(context).getText(
-                                              'rndxakl3' /* Finish registration */,
+                                              'xpyhbzo6' /* Finish registration */,
                                             ),
                                             textAlign: TextAlign.center,
                                             style: FlutterFlowTheme.of(context)
@@ -698,7 +804,7 @@ class _SetUpWizardWidgetState extends State<SetUpWizardWidget> {
                                       12.0, 10.0, 12.0, 10.0),
                                   child: Text(
                                     FFLocalizations.of(context).getText(
-                                      '2rkqmci5' /* Continue without registration */,
+                                      '4akg6i4y' /* Continue without registration */,
                                     ),
                                     textAlign: TextAlign.center,
                                     style: FlutterFlowTheme.of(context)
