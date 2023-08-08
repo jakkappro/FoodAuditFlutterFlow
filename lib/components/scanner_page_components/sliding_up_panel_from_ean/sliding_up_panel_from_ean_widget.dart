@@ -292,7 +292,7 @@ class _SlidingUpPanelFromEanWidgetState
                           children: [
                             Text(
                               FFLocalizations.of(context).getText(
-                                'y8m0aogt' /* Medication contraindications */,
+                                'z861kbv3' /* Medication contraindications */,
                               ),
                               style: FlutterFlowTheme.of(context)
                                   .bodyMedium
@@ -318,7 +318,7 @@ class _SlidingUpPanelFromEanWidgetState
                                         12.0, 10.0, 12.0, 10.0),
                                     child: Text(
                                       FFLocalizations.of(context).getText(
-                                        'q0dyp4hv' /* Hello World */,
+                                        'rojrz0sj' /* Hello World */,
                                       ),
                                       style: FlutterFlowTheme.of(context)
                                           .bodyMedium

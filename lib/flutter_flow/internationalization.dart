@@ -230,28 +230,29 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     },
     'mkv4663x': {
       'en': 'Shop smarter, live helthier',
-      'sk': '',
+      'sk': 'Nakupujte inteligentnejšie, žite zdravšie',
     },
     'f3olbm79': {
       'en':
           'Discover every information about your food. Register for better personalization and information tailored for you',
-      'sk': '',
+      'sk':
+          'Zistite všetky informácie o svojom jedle. Zaregistrujte sa pre lepšiu personalizáciu a informácie prispôsobené pre vás',
     },
     'jxo4sfdl': {
       'en': 'Register for free',
-      'sk': '',
+      'sk': 'Zaregistrujte sa zadarmo',
     },
     'vrs43w0j': {
       'en': 'Continue without registration',
-      'sk': '',
+      'sk': 'Pokračovať bez registrácie',
     },
     'oltqxqnb': {
       'en': 'Registration',
-      'sk': '',
+      'sk': 'Registrácia',
     },
     'nbgy9scs': {
       'en': 'Registrate with following platforms',
-      'sk': '',
+      'sk': 'Zaregistrujte sa na nasledujúcich platformách',
     },
     '25x4uzl2': {
       'en': 'Home',
@@ -313,73 +314,75 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   {
     's2jlw2ps': {
       'en': 'Tell us something about yourself',
-      'sk': '',
+      'sk': 'Povedz nám niečo o sebe',
     },
     '79rj6c2w': {
       'en':
           'Filled information will be used only for personalisation of results for you and won\'t be provided to third parties.',
-      'sk': '',
+      'sk':
+          'Vyplnené informácie budú použité iba na personalizáciu výsledkov pre vás a nebudú poskytnuté tretím stranám.',
     },
     'gnmmag3h': {
       'en': 'Continue to next step',
-      'sk': '',
+      'sk': 'Pokračujte ďalším krokom',
     },
     '4r1fe3w6': {
       'en': 'Continue without registration',
-      'sk': '',
+      'sk': 'Pokračovať bez registrácie',
     },
     'sskvope2': {
       'en': 'Create your profile',
-      'sk': '',
+      'sk': 'Vytvorte si profil',
     },
     '99tutfdt': {
       'en':
           'Selected information will be used only for personalisation of results for you and won\'t be provided for third parties.',
-      'sk': '',
+      'sk':
+          'Vybrané informácie budú použité iba na prispôsobenie výsledkov pre vás a nebudú poskytnuté tretím stranám.',
     },
     'gb75oux8': {
       'en': 'Choose your avatar',
-      'sk': '',
+      'sk': 'Vyberte si svojho avatara',
     },
     'qfoz89yq': {
       'en': 'Fill out your information',
-      'sk': '',
+      'sk': 'Vyplňte svoje údaje',
     },
-    'unfsnm9d': {
+    'kx71vf2v': {
       'en': 'Name',
-      'sk': '',
+      'sk': 'názov',
     },
     'c50pq66g': {
       'en': 'Date of birdth',
-      'sk': '',
+      'sk': 'Dátum narodenia',
     },
     '34glw7np': {
       'en': 'Male',
-      'sk': '',
+      'sk': 'Muž',
     },
     '6emn5jy4': {
       'en': 'Femlae',
-      'sk': '',
+      'sk': 'Femlae',
     },
     'r8zdm8lg': {
       'en': 'Attach hellicopter',
-      'sk': '',
+      'sk': 'Pripojte helikoptéru',
     },
     'qczcjtfi': {
       'en': 'Pohlavie',
-      'sk': '',
+      'sk': 'Pohlavie',
     },
     'r4somth3': {
       'en': 'Search for an item...',
-      'sk': '',
+      'sk': 'Vyhľadať položku...',
     },
     'xpyhbzo6': {
       'en': 'Finish registration',
-      'sk': '',
+      'sk': 'Dokončite registráciu',
     },
     '4akg6i4y': {
       'en': 'Continue without registration',
-      'sk': '',
+      'sk': 'Pokračovať bez registrácie',
     },
     'gwn7oggo': {
       'en': 'Home',
@@ -407,13 +410,13 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Allergens',
       'sk': 'Alergény',
     },
-    'y8m0aogt': {
+    'z861kbv3': {
       'en': 'Medication contraindications',
-      'sk': '',
+      'sk': 'Kontraindikácie liekov',
     },
-    'q0dyp4hv': {
+    'rojrz0sj': {
       'en': 'Hello World',
-      'sk': '',
+      'sk': 'Ahoj svet',
     },
     'ysgynb85': {
       'en': 'Nutrition data',
@@ -421,7 +424,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     },
     'mettjq8p': {
       'en': '100 g/100ml',
-      'sk': '100 g',
+      'sk': '100 g/100 ml',
     },
     '6n80je7x': {
       'en': 'Potiahni pre viac informácií',
@@ -568,7 +571,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   {
     '8ebakrts': {
       'en': 'Medication',
-      'sk': 'Liečivá',
+      'sk': 'Lieky',
     },
     'x0l4523o': {
       'en': 'Which medication you use?',
@@ -580,7 +583,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     },
     'jv8nw803': {
       'en': 'Start typing name of product...',
-      'sk': 'Začnite písať pre zobrazenie lieku...',
+      'sk': 'Začnite písať názov produktu...',
     },
   },
   // Miscellaneous
@@ -603,7 +606,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     },
     '0fxz3xex': {
       'en': 'Flahslight please',
-      'sk': '',
+      'sk': 'Baterku prosím',
     },
     'm53ynt3i': {
       'en': '',

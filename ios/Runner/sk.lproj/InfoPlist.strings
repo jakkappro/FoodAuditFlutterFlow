@@ -2,3 +2,4 @@ NSCameraUsageDescription = "Fotoaparát prosím";
 NSPhotoLibraryUsageDescription = "Fotoknižnica prosím";
 NSLocationWhenInUseUsageDescription = "Miesto prosím";
 PermissionGroupNotification = "Prosím o oznámenie";
+ = "Baterku prosím";

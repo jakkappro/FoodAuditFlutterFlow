@@ -521,7 +521,7 @@ class _SetUpWizardWidgetState extends State<SetUpWizardWidget> {
                                     decoration: InputDecoration(
                                       labelText:
                                           FFLocalizations.of(context).getText(
-                                        'unfsnm9d' /* Name */,
+                                        'kx71vf2v' /* Name */,
                                       ),
                                       labelStyle: FlutterFlowTheme.of(context)
                                           .labelMedium
