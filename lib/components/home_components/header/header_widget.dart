@@ -58,49 +58,55 @@ class _HeaderWidgetState extends State<HeaderWidget> {
             mainAxisAlignment: MainAxisAlignment.end,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Container(
-                width: MediaQuery.sizeOf(context).width * 0.8,
-                decoration: BoxDecoration(
-                  color: Colors.transparent,
-                ),
-                child: AuthUserStreamWidget(
-                  builder: (context) => AutoSizeText(
-                    '${FFLocalizations.of(context).languageCode == 'SK' ? 'Ahoj ' : 'Hi '}${valueOrDefault<String>(
-                      currentUserDisplayName,
-                      'user',
-                    )}!'
-                        .maybeHandleOverflow(
-                      maxChars: 20,
-                      replacement: '…',
+              Flexible(
+                child: Container(
+                  width: MediaQuery.sizeOf(context).width * 0.6,
+                  decoration: BoxDecoration(
+                    color: Colors.transparent,
+                  ),
+                  child: AuthUserStreamWidget(
+                    builder: (context) => AutoSizeText(
+                      '${FFLocalizations.of(context).languageCode == 'SK' ? 'Ahoj ' : 'Hi '}${valueOrDefault<String>(
+                        currentUserDisplayName,
+                        'user',
+                      )}!'
+                          .maybeHandleOverflow(
+                        maxChars: 20,
+                        replacement: '…',
+                      ),
+                      maxLines: 1,
+                      style: FlutterFlowTheme.of(context).bodyMedium.override(
+                            fontFamily: 'Roboto',
+                            color: FlutterFlowTheme.of(context).primary,
+                            fontSize: 32.0,
+                            letterSpacing: 0.25,
+                            fontWeight: FontWeight.w800,
+                            lineHeight: 1.3,
+                          ),
                     ),
-                    style: FlutterFlowTheme.of(context).bodyMedium.override(
-                          fontFamily: 'Roboto',
-                          color: FlutterFlowTheme.of(context).primary,
-                          fontSize: 32.0,
-                          letterSpacing: 0.25,
-                          fontWeight: FontWeight.w800,
-                          lineHeight: 1.3,
-                        ),
                   ),
                 ),
               ),
-              Container(
-                width: MediaQuery.sizeOf(context).width * 0.8,
-                decoration: BoxDecoration(
-                  color: Colors.transparent,
-                ),
-                child: AutoSizeText(
-                  FFLocalizations.of(context).getText(
-                    'uy4uktgo' /* Scan your first product. */,
+              Flexible(
+                child: Container(
+                  width: MediaQuery.sizeOf(context).width * 0.6,
+                  decoration: BoxDecoration(
+                    color: Colors.transparent,
                   ),
-                  style: FlutterFlowTheme.of(context).bodyMedium.override(
-                        fontFamily: 'Roboto',
-                        color: Color(0xFFAFACC7),
-                        fontSize: 18.0,
-                        letterSpacing: 0.15,
-                        fontWeight: FontWeight.w500,
-                        lineHeight: 1.5,
-                      ),
+                  child: AutoSizeText(
+                    FFLocalizations.of(context).getText(
+                      'uy4uktgo' /* Scan your first product. */,
+                    ),
+                    maxLines: 1,
+                    style: FlutterFlowTheme.of(context).bodyMedium.override(
+                          fontFamily: 'Roboto',
+                          color: Color(0xFFAFACC7),
+                          fontSize: 18.0,
+                          letterSpacing: 0.15,
+                          fontWeight: FontWeight.w500,
+                          lineHeight: 1.5,
+                        ),
+                  ),
                 ),
               ),
             ].divide(SizedBox(height: 4.0)),
