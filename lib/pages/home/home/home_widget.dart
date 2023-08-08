@@ -61,7 +61,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                   padding: EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
                   child: SingleChildScrollView(
                     child: Column(
-                      mainAxisSize: MainAxisSize.max,
+                      mainAxisSize: MainAxisSize.min,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         wrapWithModel(
@@ -98,7 +98,6 @@ class _HomeWidgetState extends State<HomeWidget> {
                           ),
                         ),
                         Container(
-                          height: 300.0,
                           decoration: BoxDecoration(),
                           child: wrapWithModel(
                             model: _model.medicationModel,

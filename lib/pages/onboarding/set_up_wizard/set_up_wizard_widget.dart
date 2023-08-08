@@ -313,7 +313,6 @@ class _SetUpWizardWidgetState extends State<SetUpWizardWidget> {
                         ),
                         Container(
                           width: double.infinity,
-                          height: 300.0,
                           decoration: BoxDecoration(
                             color: Colors.transparent,
                           ),
