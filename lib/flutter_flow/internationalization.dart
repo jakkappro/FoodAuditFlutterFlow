@@ -114,75 +114,17 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // Settings
   {
-    'y759luz3': {
-      'en': 'Profil',
-      'sk': 'Profil',
+    's8m3njvu': {
+      'en': 'Settings of profile',
+      'sk': 'Nastavenia profilu',
     },
-    '4942gnd9': {
-      'en': 'Jakub Kapitulcin',
-      'sk': 'Jakub Kapitulčín',
+    'z4exo5ew': {
+      'en': 'Change your information',
+      'sk': 'Zmeňte svoje informácie',
     },
-    '2vkyiwcw': {
-      'en': 'Toto je tvoj profil',
-      'sk': 'Toto je tvoj profil',
-    },
-    'sri8tvgh': {
-      'en': '11.5.2002',
-      'sk': '11.5.2002',
-    },
-    'lc08qk6x': {
-      'en': 'Dátum narodenia',
-      'sk': 'Dátum narodenia',
-    },
-    'qsrkk0ru': {
-      'en': 'Muž',
-      'sk': 'Muž',
-    },
-    'y7cit8lg': {
-      'en': 'Pohlavie',
-      'sk': 'Pohlavie',
-    },
-    '2splis0j': {
-      'en': 'Moje intolerancie',
-      'sk': 'Moja intolerancia',
-    },
-    'fsalxms0': {
-      'en':
-          'System ta bude automaticky informovat ak bude pre teba produkt nevhodny',
-      'sk':
-          'System ta bude automaticky informovat ak bude pre teba produkt nevhodne',
-    },
-    'diccmxd3': {
-      'en': 'Arasidy',
-      'sk': 'Arasidy',
-    },
-    'l5zdh933': {
-      'en': 'Morske plody',
-      'sk': 'Morske plody',
-    },
-    'h6k1cbyv': {
-      'en': 'Orechy',
-      'sk': 'Orechy',
-    },
-    'ugpos46i': {
-      'en': 'Psenica',
-      'sk': 'Psenica',
-    },
-    'i2tsrrfb': {
-      'en': 'Ryby',
-      'sk': 'Ryby',
-    },
-    'yeezmylp': {
-      'en': 'Sezam',
-      'sk': 'Sezam',
-    },
-    'klwoy4de': {
-      'en': 'Soja',
-      'sk': 'Soja',
-    },
-    'k6vb14wo': {
-      'en': 'Vajcia',
-      'sk': 'Vajcia',
+    'mg17prl1': {
+      'en': 'Save settings',
+      'sk': 'Uložiť nastavenia',
     },
     'hkfm3k80': {
       'en': 'Profile',
@@ -309,42 +251,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
           'Selected information will be used only for personalisation of results for you and won\'t be provided for third parties.',
       'sk':
           'Vybrané informácie budú použité iba na prispôsobenie výsledkov pre vás a nebudú poskytnuté tretím stranám.',
-    },
-    'gb75oux8': {
-      'en': 'Choose your avatar',
-      'sk': 'Vyberte si svojho avatara',
-    },
-    'qfoz89yq': {
-      'en': 'Fill out your information',
-      'sk': 'Vyplňte svoje údaje',
-    },
-    'kx71vf2v': {
-      'en': 'Name',
-      'sk': 'názov',
-    },
-    'c50pq66g': {
-      'en': 'Date of birdth',
-      'sk': 'Dátum narodenia',
-    },
-    '34glw7np': {
-      'en': 'Male',
-      'sk': 'Muž',
-    },
-    '6emn5jy4': {
-      'en': 'Femlae',
-      'sk': 'Femlae',
-    },
-    'r8zdm8lg': {
-      'en': 'Attach hellicopter',
-      'sk': 'Pripojte helikoptéru',
-    },
-    'qczcjtfi': {
-      'en': 'Pohlavie',
-      'sk': 'Pohlavie',
-    },
-    'r4somth3': {
-      'en': 'Search for an item...',
-      'sk': 'Vyhľadať položku...',
     },
     'xpyhbzo6': {
       'en': 'Finish registration',
@@ -477,10 +383,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // ScannedItem
   {
-    '01ip2n0c': {
-      'en': '1,2,3,4',
-      'sk': '1,2,3,4',
-    },
     'h1rwoyzn': {
       'en': '50%',
       'sk': '50 %',
@@ -554,6 +456,40 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     'jv8nw803': {
       'en': 'Start typing name of product...',
       'sk': 'Začnite písať názov produktu...',
+    },
+  },
+  // AvatarMenu
+  {
+    'c7ui5zar': {
+      'en': 'Choose your avatar',
+      'sk': 'Vyberte si svojho avatara',
+    },
+  },
+  // PersonalInfo
+  {
+    'tl0j5ukv': {
+      'en': '',
+      'sk': 'názov',
+    },
+    'ulejwi2y': {
+      'en': 'Male',
+      'sk': 'Muž',
+    },
+    'xk29a6ac': {
+      'en': 'Femlae',
+      'sk': 'Femlae',
+    },
+    'oa8xf1yu': {
+      'en': 'Attach hellicopter',
+      'sk': 'Pripojte helikoptéru',
+    },
+    'bdrrcflo': {
+      'en': 'Pohlavie',
+      'sk': 'Pohlavie',
+    },
+    'hwg21qi2': {
+      'en': 'Search for an item...',
+      'sk': 'Vyhľadať položku...',
     },
   },
   // Miscellaneous

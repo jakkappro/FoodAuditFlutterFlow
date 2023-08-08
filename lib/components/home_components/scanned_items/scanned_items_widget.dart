@@ -40,32 +40,36 @@ class _ScannedItemsWidgetState extends State<ScannedItemsWidget> {
   Widget build(BuildContext context) {
     context.watch<FFAppState>();
 
-    return Padding(
-      padding: EdgeInsetsDirectional.fromSTEB(24.0, 10.0, 0.0, 0.0),
-      child: Builder(
-        builder: (context) {
-          final scannedItem = FFAppState().ScannedItems.toList();
-          return ListView.separated(
-            padding: EdgeInsets.fromLTRB(
-              0,
-              0,
-              5.0,
-              0,
-            ),
-            primary: false,
-            scrollDirection: Axis.horizontal,
-            itemCount: scannedItem.length,
-            separatorBuilder: (_, __) => SizedBox(width: 15.0),
-            itemBuilder: (context, scannedItemIndex) {
-              final scannedItemItem = scannedItem[scannedItemIndex];
-              return ScannedItemWidget(
-                key: Key('Keygzp_${scannedItemIndex}_of_${scannedItem.length}'),
+    return Builder(
+      builder: (context) {
+        final scannedItem = FFAppState().ScannedItems.toList();
+        return ListView.separated(
+          padding: EdgeInsets.fromLTRB(
+            0,
+            0,
+            5.0,
+            0,
+          ),
+          primary: false,
+          shrinkWrap: true,
+          scrollDirection: Axis.horizontal,
+          itemCount: scannedItem.length,
+          separatorBuilder: (_, __) => SizedBox(width: 12.0),
+          itemBuilder: (context, scannedItemIndex) {
+            final scannedItemItem = scannedItem[scannedItemIndex];
+            return Container(
+              width: 170.0,
+              decoration: BoxDecoration(
+                color: FlutterFlowTheme.of(context).secondaryBackground,
+              ),
+              child: ScannedItemWidget(
+                key: Key('Key5c6_${scannedItemIndex}_of_${scannedItem.length}'),
                 scannedItem: scannedItemItem,
-              );
-            },
-          );
-        },
-      ),
+              ),
+            );
+          },
+        );
+      },
     );
   }
 }

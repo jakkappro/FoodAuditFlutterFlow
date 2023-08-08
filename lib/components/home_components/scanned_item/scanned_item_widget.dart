@@ -3,7 +3,6 @@ import '/backend/schema/structs/index.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/custom_code/actions/index.dart' as actions;
-import '/custom_code/widgets/index.dart' as custom_widgets;
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -67,8 +66,6 @@ class _ScannedItemWidgetState extends State<ScannedItemWidget> {
     context.watch<FFAppState>();
 
     return Container(
-      width: 225.0,
-      height: 229.0,
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(10.0),
@@ -77,12 +74,12 @@ class _ScannedItemWidgetState extends State<ScannedItemWidget> {
         builder: (context) {
           if (_model.loadedEan) {
             return Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(15.0, 10.0, 15.0, 10.0),
-              child: Stack(
+              padding: EdgeInsetsDirectional.fromSTEB(20.0, 20.0, 20.0, 20.0),
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Container(
-                    width: double.infinity,
-                    height: double.infinity,
                     decoration: BoxDecoration(
                       color: Colors.transparent,
                     ),
@@ -120,7 +117,7 @@ class _ScannedItemWidgetState extends State<ScannedItemWidget> {
                             Text(
                               valueOrDefault<String>(
                                 dateTimeFormat(
-                                  'd.M.y, H:mm',
+                                  'EEEE, H:mm',
                                   widget.scannedItem?.lastScanned,
                                   locale:
                                       FFLocalizations.of(context).languageCode,
@@ -137,57 +134,65 @@ class _ScannedItemWidgetState extends State<ScannedItemWidget> {
                                     fontWeight: FontWeight.bold,
                                   ),
                             ),
-                          ].divide(SizedBox(width: 10.0)),
+                          ].divide(SizedBox(width: 8.0)),
                         ),
-                        Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              0.0, 15.0, 0.0, 0.0),
-                          child: Text(
-                            valueOrDefault<String>(
-                              _model.food?.name,
-                              'Couldn\'t find name',
-                            ),
-                            maxLines: 2,
-                            style: FlutterFlowTheme.of(context)
-                                .bodyMedium
-                                .override(
-                                  fontFamily: 'Roboto',
-                                  color: Color(0xFF382F73),
-                                  fontSize: 18.0,
-                                  letterSpacing: 0.15,
-                                  fontWeight: FontWeight.w800,
+                        Column(
+                          mainAxisSize: MainAxisSize.max,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Padding(
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 15.0, 0.0, 0.0),
+                              child: Text(
+                                valueOrDefault<String>(
+                                  _model.food?.name,
+                                  'Couldn\'t find name',
                                 ),
-                          ),
-                        ),
-                        Text(
-                          valueOrDefault<String>(
-                            (String var1) {
-                              return var1.split("|").last;
-                            }(_model.newFood!.category),
-                            'Mlieko',
-                          ),
-                          style:
-                              FlutterFlowTheme.of(context).bodyMedium.override(
-                                    fontFamily: 'Roboto',
-                                    color: Color(0xFF382F73),
-                                    fontWeight: FontWeight.w800,
-                                  ),
-                        ),
-                        Text(
-                          valueOrDefault<String>(
-                            _model.food?.addressLines?.first,
-                            'Couldn\'t find producer',
-                          ),
-                          style:
-                              FlutterFlowTheme.of(context).bodyMedium.override(
+                                maxLines: 2,
+                                style: FlutterFlowTheme.of(context)
+                                    .bodyMedium
+                                    .override(
+                                      fontFamily: 'Roboto',
+                                      color: Color(0xFF382F73),
+                                      fontSize: 18.0,
+                                      letterSpacing: 0.15,
+                                      fontWeight: FontWeight.w800,
+                                    ),
+                              ),
+                            ),
+                            Text(
+                              valueOrDefault<String>(
+                                _model.food?.addressLines?.first,
+                                'Couldn\'t find producer',
+                              ),
+                              style: FlutterFlowTheme.of(context)
+                                  .bodyMedium
+                                  .override(
                                     fontFamily: 'Roboto',
                                     color: Color(0xFFAFACC7),
                                     fontSize: 12.64,
                                     letterSpacing: 0.5,
                                     fontWeight: FontWeight.w600,
                                   ),
+                            ),
+                            Text(
+                              valueOrDefault<String>(
+                                (String var1) {
+                                  return var1.split("|").last;
+                                }(_model.newFood!.category),
+                                'Mlieko',
+                              ),
+                              style: FlutterFlowTheme.of(context)
+                                  .bodyMedium
+                                  .override(
+                                    fontFamily: 'Roboto',
+                                    color: Color(0xFF382F73),
+                                    fontWeight: FontWeight.w800,
+                                  ),
+                            ),
+                          ].divide(SizedBox(height: 6.0)),
                         ),
-                      ],
+                      ].divide(SizedBox(height: 6.0)),
                     ),
                   ),
                   Align(
@@ -199,9 +204,7 @@ class _ScannedItemWidgetState extends State<ScannedItemWidget> {
                         color: Colors.transparent,
                       ),
                       child: Text(
-                        FFLocalizations.of(context).getText(
-                          '01ip2n0c' /* 1,2,3,4 */,
-                        ),
+                        _model.isFoodSafe ? 'Safe for you' : 'Contains alergen',
                         style: FlutterFlowTheme.of(context).bodyMedium.override(
                               fontFamily: 'Roboto',
                               color: Color(0xFF82D680),
@@ -211,19 +214,7 @@ class _ScannedItemWidgetState extends State<ScannedItemWidget> {
                       ),
                     ),
                   ),
-                  Align(
-                    alignment: AlignmentDirectional(1.0, -1.0),
-                    child: Container(
-                      width: 10.0,
-                      height: 10.0,
-                      child: custom_widgets.SafetyDot(
-                        width: 10.0,
-                        height: 10.0,
-                        allergens: _model.food!.allergens,
-                      ),
-                    ),
-                  ),
-                ],
+                ].divide(SizedBox(height: 24.0)),
               ),
             );
           } else {

@@ -47,87 +47,83 @@ class _HomeWidgetState extends State<HomeWidget> {
       child: Scaffold(
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
-        body: Container(
-          width: double.infinity,
-          height: double.infinity,
-          decoration: BoxDecoration(
-            color: Color(0xFFF7F7F7),
-          ),
-          child: Stack(
-            children: [
-              SingleChildScrollView(
-                child: Column(
-                  mainAxisSize: MainAxisSize.max,
-                  children: [
-                    wrapWithModel(
-                      model: _model.headerModel,
-                      updateCallback: () => setState(() {}),
-                      child: HeaderWidget(),
-                    ),
-                    Padding(
-                      padding:
-                          EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
-                      child: Container(
-                        width: double.infinity,
-                        height: 228.0,
-                        decoration: BoxDecoration(
-                          color: Colors.transparent,
-                        ),
-                        child: wrapWithModel(
-                          model: _model.scannedItemsModel,
-                          updateCallback: () => setState(() {}),
-                          updateOnChange: true,
-                          child: ScannedItemsWidget(),
+        body: SafeArea(
+          top: true,
+          child: Container(
+            width: double.infinity,
+            height: double.infinity,
+            decoration: BoxDecoration(
+              color: Color(0xFFF7F7F7),
+            ),
+            child: Stack(
+              children: [
+                SingleChildScrollView(
+                  child: Column(
+                    mainAxisSize: MainAxisSize.max,
+                    children: [
+                      wrapWithModel(
+                        model: _model.headerModel,
+                        updateCallback: () => setState(() {}),
+                        child: HeaderWidget(),
+                      ),
+                      Padding(
+                        padding:
+                            EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
+                        child: Container(
+                          width: double.infinity,
+                          height: 228.0,
+                          decoration: BoxDecoration(
+                            color: Colors.transparent,
+                          ),
+                          child: wrapWithModel(
+                            model: _model.scannedItemsModel,
+                            updateCallback: () => setState(() {}),
+                            updateOnChange: true,
+                            child: ScannedItemsWidget(),
+                          ),
                         ),
                       ),
-                    ),
-                    Padding(
-                      padding:
-                          EdgeInsetsDirectional.fromSTEB(24.0, 28.0, 24.0, 0.0),
-                      child: Container(
-                        decoration: BoxDecoration(
-                          color: Colors.transparent,
-                        ),
-                        child: wrapWithModel(
-                          model: _model.intoleranciesModel,
-                          updateCallback: () => setState(() {}),
-                          updateOnChange: true,
-                          child: IntoleranciesWidget(),
-                        ),
-                      ),
-                    ),
-                    Padding(
-                      padding:
-                          EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
-                      child: Container(
-                        height: 300.0,
-                        decoration: BoxDecoration(),
-                        child: wrapWithModel(
-                          model: _model.medicationModel,
-                          updateCallback: () => setState(() {}),
-                          child: MedicationWidget(),
+                      Padding(
+                        padding: EdgeInsetsDirectional.fromSTEB(
+                            24.0, 28.0, 24.0, 0.0),
+                        child: Container(
+                          decoration: BoxDecoration(
+                            color: Colors.transparent,
+                          ),
+                          child: wrapWithModel(
+                            model: _model.intoleranciesModel,
+                            updateCallback: () => setState(() {}),
+                            updateOnChange: true,
+                            child: IntoleranciesWidget(),
+                          ),
                         ),
                       ),
-                    ),
-                    Container(
-                      width: 0.0,
-                      height: 200.0,
-                      decoration: BoxDecoration(
-                        color: Colors.transparent,
+                      Padding(
+                        padding: EdgeInsetsDirectional.fromSTEB(
+                            24.0, 0.0, 24.0, 0.0),
+                        child: Container(
+                          height: 300.0,
+                          decoration: BoxDecoration(),
+                          child: wrapWithModel(
+                            model: _model.medicationModel,
+                            updateCallback: () => setState(() {}),
+                            child: MedicationWidget(),
+                          ),
+                        ),
                       ),
-                    ),
-                  ].addToEnd(SizedBox(height: 15.0)),
+                    ].addToEnd(SizedBox(height: 90.0)),
+                  ),
                 ),
-              ),
-              Align(
-                alignment: AlignmentDirectional(0.0, 0.0),
-                child: wrapWithModel(
-                  model: _model.openScannerButtonModel,
-                  updateCallback: () => setState(() {}),
-                  child: OpenScannerButtonWidget(),
+                Align(
+                  alignment: AlignmentDirectional(0.0, 0.0),
+                  child: wrapWithModel(
+                    model: _model.openScannerButtonModel,
+                    updateCallback: () => setState(() {}),
+                    child: OpenScannerButtonWidget(),
+                  ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
       ),

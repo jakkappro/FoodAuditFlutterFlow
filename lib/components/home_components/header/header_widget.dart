@@ -44,88 +44,90 @@ class _HeaderWidgetState extends State<HeaderWidget> {
 
     return Container(
       width: double.infinity,
-      height: 177.0,
+      height: 150.0,
       decoration: BoxDecoration(
         color: Colors.transparent,
       ),
-      child: Padding(
-        padding: EdgeInsetsDirectional.fromSTEB(24.0, 15.0, 24.0, 20.0),
-        child: Row(
-          mainAxisSize: MainAxisSize.max,
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          crossAxisAlignment: CrossAxisAlignment.end,
-          children: [
-            Column(
-              mainAxisSize: MainAxisSize.max,
-              mainAxisAlignment: MainAxisAlignment.end,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                AuthUserStreamWidget(
-                  builder: (context) => AutoSizeText(
-                    '${FFLocalizations.of(context).languageCode == 'SK' ? 'Ahoj ' : 'Hi '}${valueOrDefault<String>(
-                      currentUserDisplayName,
-                      'user',
-                    )}!'
-                        .maybeHandleOverflow(
-                      maxChars: 20,
-                      replacement: '…',
-                    ),
-                    style: FlutterFlowTheme.of(context).bodyMedium.override(
-                          fontFamily: 'Roboto',
-                          color: FlutterFlowTheme.of(context).primary,
-                          fontWeight: FontWeight.w800,
-                        ),
-                  ),
-                ),
-                Text(
-                  FFLocalizations.of(context).getText(
-                    'uy4uktgo' /* Scan your first product. */,
+      child: Row(
+        mainAxisSize: MainAxisSize.max,
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        crossAxisAlignment: CrossAxisAlignment.end,
+        children: [
+          Column(
+            mainAxisSize: MainAxisSize.min,
+            mainAxisAlignment: MainAxisAlignment.end,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              AuthUserStreamWidget(
+                builder: (context) => AutoSizeText(
+                  '${FFLocalizations.of(context).languageCode == 'SK' ? 'Ahoj ' : 'Hi '}${valueOrDefault<String>(
+                    currentUserDisplayName,
+                    'user',
+                  )}!'
+                      .maybeHandleOverflow(
+                    maxChars: 20,
+                    replacement: '…',
                   ),
                   style: FlutterFlowTheme.of(context).bodyMedium.override(
                         fontFamily: 'Roboto',
-                        color: Color(0xFFAFACC7),
-                        fontSize: 18.0,
-                        fontWeight: FontWeight.bold,
+                        color: FlutterFlowTheme.of(context).primary,
+                        fontSize: 32.0,
+                        letterSpacing: 0.25,
+                        fontWeight: FontWeight.w800,
+                        lineHeight: 1.3,
                       ),
                 ),
-              ],
-            ),
-            Align(
-              alignment: AlignmentDirectional(0.0, 1.0),
-              child: AuthUserStreamWidget(
-                builder: (context) => InkWell(
-                  splashColor: Colors.transparent,
-                  focusColor: Colors.transparent,
-                  hoverColor: Colors.transparent,
-                  highlightColor: Colors.transparent,
-                  onTap: () async {
-                    if (FFAppState().IsGuest == true) {
-                      context.pushNamed('Onborading');
-                    } else {
-                      context.pushNamed('Settings');
-                    }
-                  },
-                  child: Container(
-                    width: 60.0,
-                    height: 60.0,
-                    clipBehavior: Clip.antiAlias,
-                    decoration: BoxDecoration(
-                      shape: BoxShape.circle,
+              ),
+              Text(
+                FFLocalizations.of(context).getText(
+                  'uy4uktgo' /* Scan your first product. */,
+                ),
+                style: FlutterFlowTheme.of(context).bodyMedium.override(
+                      fontFamily: 'Roboto',
+                      color: Color(0xFFAFACC7),
+                      fontSize: 18.0,
+                      letterSpacing: 0.15,
+                      fontWeight: FontWeight.w500,
+                      lineHeight: 1.5,
                     ),
-                    child: CachedNetworkImage(
-                      fadeInDuration: Duration(milliseconds: 1000),
-                      fadeOutDuration: Duration(milliseconds: 1000),
-                      imageUrl: FFAppState().IsGuest
-                          ? 'https://picsum.photos/seed/232/600'
-                          : currentUserPhoto,
-                      fit: BoxFit.cover,
-                    ),
+              ),
+            ].divide(SizedBox(height: 4.0)),
+          ),
+          Align(
+            alignment: AlignmentDirectional(0.0, 1.0),
+            child: AuthUserStreamWidget(
+              builder: (context) => InkWell(
+                splashColor: Colors.transparent,
+                focusColor: Colors.transparent,
+                hoverColor: Colors.transparent,
+                highlightColor: Colors.transparent,
+                onTap: () async {
+                  if (FFAppState().IsGuest == true) {
+                    context.pushNamed('Onborading');
+                  } else {
+                    context.pushNamed('Settings');
+                  }
+                },
+                child: Container(
+                  width: 73.0,
+                  height: 73.0,
+                  clipBehavior: Clip.antiAlias,
+                  decoration: BoxDecoration(
+                    shape: BoxShape.circle,
+                  ),
+                  child: CachedNetworkImage(
+                    fadeInDuration: Duration(milliseconds: 1000),
+                    fadeOutDuration: Duration(milliseconds: 1000),
+                    imageUrl: FFAppState().IsGuest
+                        ? 'https://picsum.photos/seed/232/600'
+                        : currentUserPhoto,
+                    fit: BoxFit.cover,
                   ),
                 ),
               ),
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }

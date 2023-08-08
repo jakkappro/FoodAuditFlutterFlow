@@ -58,6 +58,9 @@ class FFAppState extends ChangeNotifier {
     await _safeInitAsync(() async {
       _imageName = await secureStorage.getString('ff_imageName') ?? _imageName;
     });
+    await _safeInitAsync(() async {
+      _dobSet = await secureStorage.getBool('ff_dobSet') ?? _dobSet;
+    });
   }
 
   void update(VoidCallback callback) {
@@ -234,6 +237,17 @@ class FFAppState extends ChangeNotifier {
 
   void deleteImageName() {
     secureStorage.delete(key: 'ff_imageName');
+  }
+
+  bool _dobSet = false;
+  bool get dobSet => _dobSet;
+  set dobSet(bool _value) {
+    _dobSet = _value;
+    secureStorage.setBool('ff_dobSet', _value);
+  }
+
+  void deleteDobSet() {
+    secureStorage.delete(key: 'ff_dobSet');
   }
 }
 
