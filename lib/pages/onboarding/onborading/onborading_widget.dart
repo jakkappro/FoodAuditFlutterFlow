@@ -45,160 +45,19 @@ class _OnboradingWidgetState extends State<OnboradingWidget> {
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
         body: SafeArea(
           top: true,
-          child: Column(
-            mainAxisSize: MainAxisSize.max,
-            children: [
-              Expanded(
-                child: Container(
+          child: SingleChildScrollView(
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Container(
                   width: double.infinity,
-                  height: double.infinity,
+                  height: 850.0,
                   child: PageView(
                     physics: const NeverScrollableScrollPhysics(),
                     controller: _model.pageViewController ??=
-                        PageController(initialPage: 3),
+                        PageController(initialPage: 1),
                     scrollDirection: Axis.horizontal,
                     children: [
-                      Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(
-                            12.0, 12.0, 12.0, 12.0),
-                        child: Column(
-                          mainAxisSize: MainAxisSize.max,
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Expanded(
-                              child: Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    0.0, 0.0, 0.0, 12.0),
-                                child: ClipRRect(
-                                  borderRadius: BorderRadius.circular(12.0),
-                                  child: Image.network(
-                                    'https://images.unsplash.com/photo-1677668804466-64aae62eb2d4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=987&q=80',
-                                    width: double.infinity,
-                                    height: 300.0,
-                                    fit: BoxFit.cover,
-                                  ),
-                                ),
-                              ),
-                            ),
-                            Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  12.0, 0.0, 0.0, 0.0),
-                              child: Text(
-                                FFLocalizations.of(context).getText(
-                                  'x9kdqi9v' /* Header One */,
-                                ),
-                                style:
-                                    FlutterFlowTheme.of(context).headlineLarge,
-                              ),
-                            ),
-                            Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  12.0, 4.0, 12.0, 0.0),
-                              child: Text(
-                                FFLocalizations.of(context).getText(
-                                  'lvek099c' /* Lorem ipsum dolor sit amet, co... */,
-                                ),
-                                style: FlutterFlowTheme.of(context).labelLarge,
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                      Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(
-                            12.0, 12.0, 12.0, 12.0),
-                        child: Column(
-                          mainAxisSize: MainAxisSize.max,
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Expanded(
-                              child: Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    0.0, 0.0, 0.0, 12.0),
-                                child: ClipRRect(
-                                  borderRadius: BorderRadius.circular(12.0),
-                                  child: Image.network(
-                                    'https://images.unsplash.com/photo-1678115039222-662c78072a6b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwxMHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=60',
-                                    width: double.infinity,
-                                    height: 300.0,
-                                    fit: BoxFit.cover,
-                                  ),
-                                ),
-                              ),
-                            ),
-                            Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  12.0, 0.0, 0.0, 0.0),
-                              child: Text(
-                                FFLocalizations.of(context).getText(
-                                  '97f7i7kl' /* Header Two */,
-                                ),
-                                style:
-                                    FlutterFlowTheme.of(context).headlineLarge,
-                              ),
-                            ),
-                            Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  12.0, 4.0, 12.0, 0.0),
-                              child: Text(
-                                FFLocalizations.of(context).getText(
-                                  'zkby72iy' /* Lorem ipsum dolor sit amet, co... */,
-                                ),
-                                style: FlutterFlowTheme.of(context).labelLarge,
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                      Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(
-                            12.0, 12.0, 12.0, 12.0),
-                        child: Column(
-                          mainAxisSize: MainAxisSize.max,
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Expanded(
-                              child: Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    0.0, 0.0, 0.0, 12.0),
-                                child: ClipRRect(
-                                  borderRadius: BorderRadius.circular(12.0),
-                                  child: Image.network(
-                                    'https://images.unsplash.com/photo-1678132852119-c03c2e7d2740?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwzNnx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=60',
-                                    width: double.infinity,
-                                    height: 300.0,
-                                    fit: BoxFit.cover,
-                                  ),
-                                ),
-                              ),
-                            ),
-                            Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  12.0, 0.0, 0.0, 0.0),
-                              child: Text(
-                                FFLocalizations.of(context).getText(
-                                  'uqqtji87' /* Header Three */,
-                                ),
-                                style:
-                                    FlutterFlowTheme.of(context).headlineLarge,
-                              ),
-                            ),
-                            Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  12.0, 4.0, 12.0, 0.0),
-                              child: Text(
-                                FFLocalizations.of(context).getText(
-                                  'g95o5fqr' /* Lorem ipsum dolor sit amet, co... */,
-                                ),
-                                style: FlutterFlowTheme.of(context).labelLarge,
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
                       Align(
                         alignment: AlignmentDirectional(0.0, 0.0),
                         child: Container(
@@ -214,7 +73,7 @@ class _OnboradingWidgetState extends State<OnboradingWidget> {
                             padding: EdgeInsetsDirectional.fromSTEB(
                                 24.0, 0.0, 24.0, 0.0),
                             child: Column(
-                              mainAxisSize: MainAxisSize.max,
+                              mainAxisSize: MainAxisSize.min,
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 ClipRRect(
@@ -366,7 +225,7 @@ class _OnboradingWidgetState extends State<OnboradingWidget> {
                           padding: EdgeInsetsDirectional.fromSTEB(
                               24.0, 0.0, 24.0, 0.0),
                           child: Column(
-                            mainAxisSize: MainAxisSize.max,
+                            mainAxisSize: MainAxisSize.min,
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Container(
@@ -432,7 +291,12 @@ class _OnboradingWidgetState extends State<OnboradingWidget> {
                                       ),
                                 ),
                               ),
-                              Expanded(
+                              Container(
+                                width: double.infinity,
+                                height: 200.0,
+                                decoration: BoxDecoration(
+                                  color: Colors.transparent,
+                                ),
                                 child: wrapWithModel(
                                   model: _model.authComponentModel,
                                   updateCallback: () => setState(() {}),
@@ -446,8 +310,8 @@ class _OnboradingWidgetState extends State<OnboradingWidget> {
                     ],
                   ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
       ),

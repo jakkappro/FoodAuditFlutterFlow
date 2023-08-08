@@ -198,36 +198,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // Onborading
   {
-    'x9kdqi9v': {
-      'en': 'Header One',
-      'sk': 'Hlavička jedna',
-    },
-    'lvek099c': {
-      'en':
-          'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ',
-      'sk':
-          'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-    },
-    '97f7i7kl': {
-      'en': 'Header Two',
-      'sk': 'Hlavička dva',
-    },
-    'zkby72iy': {
-      'en':
-          'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ',
-      'sk':
-          'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-    },
-    'uqqtji87': {
-      'en': 'Header Three',
-      'sk': 'Hlavička tri',
-    },
-    'g95o5fqr': {
-      'en':
-          'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ',
-      'sk':
-          'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-    },
     'mkv4663x': {
       'en': 'Shop smarter, live helthier',
       'sk': 'Nakupujte inteligentnejšie, žite zdravšie',
