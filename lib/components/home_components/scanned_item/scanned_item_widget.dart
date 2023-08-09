@@ -212,7 +212,7 @@ class _ScannedItemWidgetState extends State<ScannedItemWidget> {
                         child: custom_widgets.ScannedItemSafetyText(
                           width: double.infinity,
                           height: double.infinity,
-                          allergens: _model.allergens,
+                          allergens: _model.newFood!.allergens,
                         ),
                       ),
                     ),
