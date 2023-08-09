@@ -73,7 +73,7 @@ class _ImageUserWidgetState extends State<ImageUserWidget> {
             ClipRRect(
               borderRadius: BorderRadius.circular(8.0),
               child: Image.asset(
-                'assets/images/vnimc_1.png',
+                'assets/images/avatar_111.png',
                 width: 300.0,
                 height: 200.0,
                 fit: BoxFit.cover,
@@ -82,7 +82,7 @@ class _ImageUserWidgetState extends State<ImageUserWidget> {
             ClipRRect(
               borderRadius: BorderRadius.circular(8.0),
               child: Image.asset(
-                'assets/images/49svh_2.png',
+                'assets/images/avatar_112.png',
                 width: 300.0,
                 height: 200.0,
                 fit: BoxFit.cover,
@@ -91,7 +91,7 @@ class _ImageUserWidgetState extends State<ImageUserWidget> {
             ClipRRect(
               borderRadius: BorderRadius.circular(8.0),
               child: Image.asset(
-                'assets/images/3a9k2_3.png',
+                'assets/images/avatar_113.png',
                 width: 300.0,
                 height: 200.0,
                 fit: BoxFit.cover,
@@ -100,7 +100,7 @@ class _ImageUserWidgetState extends State<ImageUserWidget> {
             ClipRRect(
               borderRadius: BorderRadius.circular(8.0),
               child: Image.asset(
-                'assets/images/fijek_4.png',
+                'assets/images/avatar_114.png',
                 width: 300.0,
                 height: 200.0,
                 fit: BoxFit.cover,
@@ -109,7 +109,7 @@ class _ImageUserWidgetState extends State<ImageUserWidget> {
             ClipRRect(
               borderRadius: BorderRadius.circular(8.0),
               child: Image.asset(
-                'assets/images/2emqy_5.png',
+                'assets/images/avatar_115.png',
                 width: 300.0,
                 height: 200.0,
                 fit: BoxFit.cover,
@@ -118,7 +118,7 @@ class _ImageUserWidgetState extends State<ImageUserWidget> {
             ClipRRect(
               borderRadius: BorderRadius.circular(8.0),
               child: Image.asset(
-                'assets/images/dfjsb_6.png',
+                'assets/images/avatar_116.png',
                 width: 300.0,
                 height: 200.0,
                 fit: BoxFit.cover,
@@ -127,7 +127,7 @@ class _ImageUserWidgetState extends State<ImageUserWidget> {
             ClipRRect(
               borderRadius: BorderRadius.circular(8.0),
               child: Image.asset(
-                'assets/images/x7hc1_7.png',
+                'assets/images/avatar_117.png',
                 width: 300.0,
                 height: 200.0,
                 fit: BoxFit.cover,
@@ -136,7 +136,7 @@ class _ImageUserWidgetState extends State<ImageUserWidget> {
             ClipRRect(
               borderRadius: BorderRadius.circular(8.0),
               child: Image.asset(
-                'assets/images/k7eg7_8.png',
+                'assets/images/avatar_118.png',
                 width: 300.0,
                 height: 200.0,
                 fit: BoxFit.cover,
@@ -145,7 +145,7 @@ class _ImageUserWidgetState extends State<ImageUserWidget> {
             ClipRRect(
               borderRadius: BorderRadius.circular(8.0),
               child: Image.asset(
-                'assets/images/nswz3_9.png',
+                'assets/images/avatar_119.png',
                 width: 300.0,
                 height: 200.0,
                 fit: BoxFit.cover,
@@ -154,7 +154,7 @@ class _ImageUserWidgetState extends State<ImageUserWidget> {
             ClipRRect(
               borderRadius: BorderRadius.circular(8.0),
               child: Image.asset(
-                'assets/images/10.png',
+                'assets/images/avatar_120.png',
                 width: 300.0,
                 height: 200.0,
                 fit: BoxFit.cover,
@@ -163,7 +163,7 @@ class _ImageUserWidgetState extends State<ImageUserWidget> {
             ClipRRect(
               borderRadius: BorderRadius.circular(8.0),
               child: Image.asset(
-                'assets/images/11.png',
+                'assets/images/avatar_121.png',
                 width: 300.0,
                 height: 200.0,
                 fit: BoxFit.cover,
@@ -172,7 +172,7 @@ class _ImageUserWidgetState extends State<ImageUserWidget> {
             ClipRRect(
               borderRadius: BorderRadius.circular(8.0),
               child: Image.asset(
-                'assets/images/12.png',
+                'assets/images/avatar_122.png',
                 width: 300.0,
                 height: 200.0,
                 fit: BoxFit.cover,
