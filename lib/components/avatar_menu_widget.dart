@@ -106,11 +106,23 @@ class _AvatarMenuWidgetState extends State<AvatarMenuWidget> {
                           Align(
                             alignment: AlignmentDirectional(1.0, -1.0),
                             child: Container(
-                              width: 10.0,
-                              height: 10.0,
+                              width: 29.0,
+                              height: 29.0,
                               decoration: BoxDecoration(
-                                color: FlutterFlowTheme.of(context)
-                                    .secondaryBackground,
+                                color: FlutterFlowTheme.of(context).primary,
+                                shape: BoxShape.circle,
+                              ),
+                              child: Align(
+                                alignment: AlignmentDirectional(0.0, 0.0),
+                                child: ClipRRect(
+                                  borderRadius: BorderRadius.circular(8.0),
+                                  child: Image.asset(
+                                    'assets/images/check.png',
+                                    width: 17.0,
+                                    height: 17.0,
+                                    fit: BoxFit.scaleDown,
+                                  ),
+                                ),
                               ),
                             ),
                           ),
