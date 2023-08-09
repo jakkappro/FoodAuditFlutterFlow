@@ -28,5 +28,17 @@ bool listContainsItem(
   String allergen,
   List<String> allergies,
 ) {
-  return allergies.contains(allergen);
+  return allergies.map((e) => e.toLowerCase()).contains(allergen.toLowerCase());
+}
+
+List<String> getEveryOtherFromList(
+  List<String> list,
+  bool odd,
+) {
+  // get every odd item from list and then retur the list
+  List<String> result = [];
+  for (int i = odd ? 1 : 0; i < list.length; i += 2) {
+    result.add(list[i]);
+  }
+  return result;
 }

@@ -230,8 +230,13 @@ class _SlidingUpPanelFromEanWidgetState
                             ),
                             Builder(
                               builder: (context) {
-                                final allergen =
-                                    widget.doc?.allergens?.toList() ?? [];
+                                final allergen = functions
+                                    .getEveryOtherFromList(
+                                        widget.doc!.allergens.toList(),
+                                        FFLocalizations.of(context)
+                                                .languageCode ==
+                                            'EN')
+                                    .toList();
                                 return SingleChildScrollView(
                                   scrollDirection: Axis.horizontal,
                                   child: Row(
