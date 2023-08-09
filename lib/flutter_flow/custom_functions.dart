@@ -46,7 +46,7 @@ List<String> getEveryOtherFromList(
 List<String> getListOfAvatars() {
   List<String> result = [];
   for (int i = 111; i <= 122; i++) {
-    result.add("avatar_" + i.toString());
+    result.add("avatar_" + i.toString() + ".png");
   }
 
   return result;
