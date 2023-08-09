@@ -62,9 +62,10 @@ class _SlidingUpPanelFromEanWidgetState
         gradient: LinearGradient(
           colors: [
             Color(0xFFF7F7F7),
+            FlutterFlowTheme.of(context).lNWhite,
             FlutterFlowTheme.of(context).primaryBackground
           ],
-          stops: [0.0, 1.0],
+          stops: [0.0, 0.5, 1.0],
           begin: AlignmentDirectional(0.0, -1.0),
           end: AlignmentDirectional(0, 1.0),
         ),
@@ -203,13 +204,12 @@ class _SlidingUpPanelFromEanWidgetState
                       ),
                       Container(
                         width: MediaQuery.sizeOf(context).width * 1.0,
-                        height: 70.0,
                         decoration: BoxDecoration(
                           color: Colors.transparent,
                         ),
                         child: Column(
-                          mainAxisSize: MainAxisSize.max,
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          mainAxisSize: MainAxisSize.min,
+                          mainAxisAlignment: MainAxisAlignment.start,
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
@@ -227,64 +227,47 @@ class _SlidingUpPanelFromEanWidgetState
                                     lineHeight: 1.4,
                                   ),
                             ),
-                            Container(
-                              width: double.infinity,
-                              height: 40.0,
-                              decoration: BoxDecoration(
-                                color: Colors.transparent,
-                              ),
-                              child: Builder(
-                                builder: (context) {
-                                  final allert =
-                                      widget.doc?.allergens?.toList() ?? [];
-                                  return ListView.separated(
-                                    padding: EdgeInsets.zero,
-                                    primary: false,
-                                    shrinkWrap: true,
-                                    scrollDirection: Axis.horizontal,
-                                    itemCount: allert.length,
-                                    separatorBuilder: (_, __) =>
-                                        SizedBox(width: 10.0),
-                                    itemBuilder: (context, allertIndex) {
-                                      final allertItem = allert[allertIndex];
+                            Builder(
+                              builder: (context) {
+                                final allergen =
+                                    widget.doc?.allergens?.toList() ?? [];
+                                return SingleChildScrollView(
+                                  scrollDirection: Axis.horizontal,
+                                  child: Row(
+                                    mainAxisSize: MainAxisSize.min,
+                                    children: List.generate(allergen.length,
+                                        (allergenIndex) {
+                                      final allergenItem =
+                                          allergen[allergenIndex];
                                       return Container(
                                         decoration: BoxDecoration(
                                           color: FlutterFlowTheme.of(context)
                                               .error,
                                           borderRadius:
                                               BorderRadius.circular(6.0),
-                                          border: Border.all(
-                                            color: Color(0xFFF7F7F7),
-                                            width: 1.3,
-                                          ),
                                         ),
-                                        child: Align(
-                                          alignment:
-                                              AlignmentDirectional(0.0, 0.0),
-                                          child: Padding(
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    12.0, 10.0, 12.0, 10.0),
-                                            child: Text(
-                                              allertItem,
-                                              style: FlutterFlowTheme.of(
-                                                      context)
-                                                  .bodyMedium
-                                                  .override(
-                                                    fontFamily: 'Roboto',
-                                                    color: Color(0xFFF7F7F7),
-                                                    letterSpacing: 0.15,
-                                                    fontWeight: FontWeight.w800,
-                                                    lineHeight: 1.5,
-                                                  ),
-                                            ),
+                                        child: Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  12.0, 10.0, 12.0, 10.0),
+                                          child: Text(
+                                            allergenItem,
+                                            style: FlutterFlowTheme.of(context)
+                                                .bodyMedium
+                                                .override(
+                                                  fontFamily: 'Roboto',
+                                                  color: Color(0xFFF7F7F7),
+                                                  letterSpacing: 0.15,
+                                                  fontWeight: FontWeight.w800,
+                                                  lineHeight: 1.5,
+                                                ),
                                           ),
                                         ),
                                       );
-                                    },
-                                  );
-                                },
-                              ),
+                                    }).divide(SizedBox(width: 8.0)),
+                                  ),
+                                );
+                              },
                             ),
                           ],
                         ),
@@ -351,12 +334,11 @@ class _SlidingUpPanelFromEanWidgetState
                             EdgeInsetsDirectional.fromSTEB(0.0, 15.0, 0.0, 0.0),
                         child: Container(
                           width: double.infinity,
-                          height: 220.0,
                           decoration: BoxDecoration(
                             color: Colors.transparent,
                           ),
                           child: Column(
-                            mainAxisSize: MainAxisSize.max,
+                            mainAxisSize: MainAxisSize.min,
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
@@ -409,7 +391,6 @@ class _SlidingUpPanelFromEanWidgetState
                               ),
                               Container(
                                 width: double.infinity,
-                                height: 187.0,
                                 decoration: BoxDecoration(
                                   color: Colors.transparent,
                                   borderRadius: BorderRadius.circular(0.0),
@@ -421,21 +402,19 @@ class _SlidingUpPanelFromEanWidgetState
                                     return Column(
                                       mainAxisSize: MainAxisSize.min,
                                       mainAxisAlignment:
-                                          MainAxisAlignment.spaceAround,
+                                          MainAxisAlignment.start,
                                       crossAxisAlignment:
                                           CrossAxisAlignment.start,
                                       children: List.generate(nutrition.length,
                                           (nutritionIndex) {
                                         final nutritionItem =
                                             nutrition[nutritionIndex];
-                                        return Expanded(
-                                          child: NutritionTableRowWidget(
-                                            key: Key(
-                                                'Keycb7_${nutritionIndex}_of_${nutrition.length}'),
-                                            nutrient: nutritionItem,
-                                          ),
+                                        return NutritionTableRowWidget(
+                                          key: Key(
+                                              'Keycb7_${nutritionIndex}_of_${nutrition.length}'),
+                                          nutrient: nutritionItem,
                                         );
-                                      }),
+                                      }).divide(SizedBox(height: 4.0)),
                                     );
                                   },
                                 ),

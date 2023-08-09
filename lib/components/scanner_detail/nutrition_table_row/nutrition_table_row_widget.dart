@@ -46,50 +46,58 @@ class _NutritionTableRowWidgetState extends State<NutritionTableRowWidget> {
   Widget build(BuildContext context) {
     context.watch<FFAppState>();
 
-    return Column(
-      mainAxisSize: MainAxisSize.max,
-      children: [
-        Row(
-          mainAxisSize: MainAxisSize.max,
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          crossAxisAlignment: CrossAxisAlignment.start,
+    return Container(
+      decoration: BoxDecoration(
+        color: Colors.transparent,
+      ),
+      child: Padding(
+        padding: EdgeInsetsDirectional.fromSTEB(4.0, 4.0, 4.0, 4.0),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
           children: [
-            Text(
-              '${widget.nutrient?.nutrientType}'.maybeHandleOverflow(
-                maxChars: 20,
-                replacement: '…',
-              ),
-              maxLines: 1,
-              style: FlutterFlowTheme.of(context).bodyMedium.override(
-                    fontFamily: 'Roboto',
-                    color: Color(0xFFAFACC7),
-                    fontSize: 14.0,
-                    letterSpacing: 0.25,
-                    fontWeight: FontWeight.normal,
-                    lineHeight: 1.65,
+            Row(
+              mainAxisSize: MainAxisSize.max,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  '${widget.nutrient?.nutrientType}'.maybeHandleOverflow(
+                    maxChars: 20,
+                    replacement: '…',
                   ),
+                  maxLines: 1,
+                  style: FlutterFlowTheme.of(context).bodyMedium.override(
+                        fontFamily: 'Roboto',
+                        color: Color(0xFFAFACC7),
+                        fontSize: 14.0,
+                        letterSpacing: 0.25,
+                        fontWeight: FontWeight.normal,
+                        lineHeight: 1.65,
+                      ),
+                ),
+                Text(
+                  '${widget.nutrient?.value}${widget.nutrient?.unit}',
+                  style: FlutterFlowTheme.of(context).bodyMedium.override(
+                        fontFamily: 'Roboto',
+                        color: Color(0xFFAFACC7),
+                        fontSize: 14.0,
+                        letterSpacing: 0.25,
+                        fontWeight: FontWeight.normal,
+                        lineHeight: 1.65,
+                      ),
+                ),
+              ],
             ),
-            Text(
-              '${widget.nutrient?.value}${widget.nutrient?.unit}',
-              style: FlutterFlowTheme.of(context).bodyMedium.override(
-                    fontFamily: 'Roboto',
-                    color: Color(0xFFAFACC7),
-                    fontSize: 14.0,
-                    letterSpacing: 0.25,
-                    fontWeight: FontWeight.normal,
-                    lineHeight: 1.65,
-                  ),
+            Container(
+              width: double.infinity,
+              height: 1.0,
+              decoration: BoxDecoration(
+                color: Color(0xFFDEDEDE),
+              ),
             ),
           ],
         ),
-        Container(
-          width: double.infinity,
-          height: 1.0,
-          decoration: BoxDecoration(
-            color: Color(0xFFDEDEDE),
-          ),
-        ),
-      ],
+      ),
     );
   }
 }
