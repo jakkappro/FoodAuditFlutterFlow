@@ -23,3 +23,10 @@ String? ingredientsToString(List<IngredientStruct>? ingredients) {
       )
       .join(", ");
 }
+
+bool listContainsItem(
+  String allergen,
+  List<String> allergies,
+) {
+  return allergies.contains(allergen);
+}
