@@ -3,6 +3,7 @@ import '/backend/schema/structs/index.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/custom_code/actions/index.dart' as actions;
+import '/custom_code/widgets/index.dart' as custom_widgets;
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -205,16 +206,14 @@ class _ScannedItemWidgetState extends State<ScannedItemWidget> {
                       decoration: BoxDecoration(
                         color: Colors.transparent,
                       ),
-                      child: Text(
-                        _model.isFoodSafe ? 'Safe for you' : 'Contains alergen',
-                        style: FlutterFlowTheme.of(context).bodyMedium.override(
-                              fontFamily: 'Roboto',
-                              color: _model.isFoodSafe
-                                  ? FlutterFlowTheme.of(context).success
-                                  : FlutterFlowTheme.of(context).error,
-                              letterSpacing: 0.15,
-                              fontWeight: FontWeight.w800,
-                            ),
+                      child: Container(
+                        width: double.infinity,
+                        height: double.infinity,
+                        child: custom_widgets.ScannedItemSafetyText(
+                          width: double.infinity,
+                          height: double.infinity,
+                          allergens: _model.allergens,
+                        ),
                       ),
                     ),
                   ),
