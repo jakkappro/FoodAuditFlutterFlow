@@ -46,7 +46,7 @@ class _HomeWidgetState extends State<HomeWidget> {
       onTap: () => FocusScope.of(context).requestFocus(_model.unfocusNode),
       child: Scaffold(
         key: scaffoldKey,
-        backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+        backgroundColor: Colors.transparent,
         body: SafeArea(
           top: true,
           child: Container(

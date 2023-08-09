@@ -46,109 +46,116 @@ class _SettingsWidgetState extends State<SettingsWidget> {
       onTap: () => FocusScope.of(context).requestFocus(_model.unfocusNode),
       child: Scaffold(
         key: scaffoldKey,
-        backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+        backgroundColor: Colors.transparent,
         body: SafeArea(
           top: true,
-          child: Padding(
-            padding: EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
-            child: Stack(
-              children: [
-                SingleChildScrollView(
-                  child: Column(
-                    mainAxisSize: MainAxisSize.min,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      ClipRRect(
-                        borderRadius: BorderRadius.circular(8.0),
-                        child: Image.asset(
-                          'assets/images/nu3foodLogo.png',
-                          width: 176.0,
-                          height: 54.0,
-                          fit: BoxFit.cover,
-                        ),
-                      ),
-                      Text(
-                        FFLocalizations.of(context).getText(
-                          's8m3njvu' /* Settings of profile */,
-                        ),
-                        style: FlutterFlowTheme.of(context).bodyMedium.override(
-                              fontFamily: 'Roboto',
-                              color: FlutterFlowTheme.of(context).primary,
-                              fontSize: 24.0,
-                              letterSpacing: 0.15,
-                              fontWeight: FontWeight.w800,
-                              lineHeight: 1.4,
-                            ),
-                      ),
-                      wrapWithModel(
-                        model: _model.avatarMenuModel,
-                        updateCallback: () => setState(() {}),
-                        child: AvatarMenuWidget(),
-                      ),
-                      wrapWithModel(
-                        model: _model.personalInfoModel,
-                        updateCallback: () => setState(() {}),
-                        child: PersonalInfoWidget(
-                          greetingText: FFLocalizations.of(context).getText(
-                            'z4exo5ew' /* Change your information */,
+          child: Container(
+            decoration: BoxDecoration(
+              color: FlutterFlowTheme.of(context).primaryBackground,
+            ),
+            child: Padding(
+              padding: EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
+              child: Stack(
+                children: [
+                  SingleChildScrollView(
+                    child: Column(
+                      mainAxisSize: MainAxisSize.min,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        ClipRRect(
+                          borderRadius: BorderRadius.circular(8.0),
+                          child: Image.asset(
+                            'assets/images/nu3foodLogo.png',
+                            width: 176.0,
+                            height: 54.0,
+                            fit: BoxFit.cover,
                           ),
                         ),
-                      ),
-                      wrapWithModel(
-                        model: _model.intoleranciesModel,
-                        updateCallback: () => setState(() {}),
-                        child: IntoleranciesWidget(),
-                      ),
-                      Container(
-                        height: 300.0,
-                        decoration: BoxDecoration(
-                          color: Colors.transparent,
+                        Text(
+                          FFLocalizations.of(context).getText(
+                            's8m3njvu' /* Settings of profile */,
+                          ),
+                          style:
+                              FlutterFlowTheme.of(context).bodyMedium.override(
+                                    fontFamily: 'Roboto',
+                                    color: FlutterFlowTheme.of(context).primary,
+                                    fontSize: 24.0,
+                                    letterSpacing: 0.15,
+                                    fontWeight: FontWeight.w800,
+                                    lineHeight: 1.4,
+                                  ),
                         ),
-                        child: wrapWithModel(
-                          model: _model.medicationModel,
+                        wrapWithModel(
+                          model: _model.avatarMenuModel,
                           updateCallback: () => setState(() {}),
-                          child: MedicationWidget(),
+                          child: AvatarMenuWidget(),
                         ),
-                      ),
-                    ].divide(SizedBox(height: 24.0)),
-                  ),
-                ),
-                Align(
-                  alignment: AlignmentDirectional(1.0, -1.0),
-                  child: wrapWithModel(
-                    model: _model.closeScannerButtonModel,
-                    updateCallback: () => setState(() {}),
-                    child: CloseScannerButtonWidget(),
-                  ),
-                ),
-                Align(
-                  alignment: AlignmentDirectional(0.0, 0.95),
-                  child: Container(
-                    width: double.infinity,
-                    decoration: BoxDecoration(
-                      color: FlutterFlowTheme.of(context).primary,
-                      borderRadius: BorderRadius.circular(6.0),
-                    ),
-                    child: Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(
-                          12.0, 10.0, 12.0, 10.0),
-                      child: Text(
-                        FFLocalizations.of(context).getText(
-                          'mg17prl1' /* Save settings */,
-                        ),
-                        textAlign: TextAlign.center,
-                        style: FlutterFlowTheme.of(context).bodyMedium.override(
-                              fontFamily: 'Roboto',
-                              color: Color(0xFFB7C1FA),
-                              letterSpacing: 0.15,
-                              fontWeight: FontWeight.w800,
-                              lineHeight: 1.5,
+                        wrapWithModel(
+                          model: _model.personalInfoModel,
+                          updateCallback: () => setState(() {}),
+                          child: PersonalInfoWidget(
+                            greetingText: FFLocalizations.of(context).getText(
+                              'z4exo5ew' /* Change your information */,
                             ),
+                          ),
+                        ),
+                        wrapWithModel(
+                          model: _model.intoleranciesModel,
+                          updateCallback: () => setState(() {}),
+                          child: IntoleranciesWidget(),
+                        ),
+                        Container(
+                          height: 300.0,
+                          decoration: BoxDecoration(
+                            color: Colors.transparent,
+                          ),
+                          child: wrapWithModel(
+                            model: _model.medicationModel,
+                            updateCallback: () => setState(() {}),
+                            child: MedicationWidget(),
+                          ),
+                        ),
+                      ].divide(SizedBox(height: 24.0)),
+                    ),
+                  ),
+                  Align(
+                    alignment: AlignmentDirectional(1.0, -1.0),
+                    child: wrapWithModel(
+                      model: _model.closeScannerButtonModel,
+                      updateCallback: () => setState(() {}),
+                      child: CloseScannerButtonWidget(),
+                    ),
+                  ),
+                  Align(
+                    alignment: AlignmentDirectional(0.0, 0.95),
+                    child: Container(
+                      width: double.infinity,
+                      decoration: BoxDecoration(
+                        color: FlutterFlowTheme.of(context).primary,
+                        borderRadius: BorderRadius.circular(6.0),
+                      ),
+                      child: Padding(
+                        padding: EdgeInsetsDirectional.fromSTEB(
+                            12.0, 10.0, 12.0, 10.0),
+                        child: Text(
+                          FFLocalizations.of(context).getText(
+                            'mg17prl1' /* Save settings */,
+                          ),
+                          textAlign: TextAlign.center,
+                          style:
+                              FlutterFlowTheme.of(context).bodyMedium.override(
+                                    fontFamily: 'Roboto',
+                                    color: Color(0xFFB7C1FA),
+                                    letterSpacing: 0.15,
+                                    fontWeight: FontWeight.w800,
+                                    lineHeight: 1.5,
+                                  ),
+                        ),
                       ),
                     ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
           ),
         ),
