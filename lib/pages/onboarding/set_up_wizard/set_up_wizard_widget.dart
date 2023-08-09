@@ -130,117 +130,84 @@ class _SetUpWizardWidgetState extends State<SetUpWizardWidget> {
                             color: Colors.transparent,
                           ),
                           child: Column(
-                            mainAxisSize: MainAxisSize.max,
+                            mainAxisSize: MainAxisSize.min,
                             children: [
-                              Container(
-                                width: double.infinity,
-                                decoration: BoxDecoration(
-                                  color: Colors.transparent,
-                                ),
-                                child: Row(
-                                  mainAxisSize: MainAxisSize.max,
-                                  children: [
-                                    InkWell(
-                                      splashColor: Colors.transparent,
-                                      focusColor: Colors.transparent,
-                                      hoverColor: Colors.transparent,
-                                      highlightColor: Colors.transparent,
-                                      onTap: () async {
-                                        await _model.pageViewController
-                                            ?.previousPage(
-                                          duration: Duration(milliseconds: 300),
-                                          curve: Curves.ease,
-                                        );
-                                      },
-                                      child: Container(
-                                        decoration: BoxDecoration(
-                                          color: Color(0xFF382F73),
-                                          borderRadius:
-                                              BorderRadius.circular(6.0),
-                                        ),
-                                        child: Padding(
-                                          padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  12.0, 10.0, 12.0, 10.0),
-                                          child: ClipRRect(
-                                            borderRadius:
-                                                BorderRadius.circular(0.0),
-                                            child: Image.asset(
-                                              'assets/images/arrow_back.png',
-                                              width: 15.0,
-                                              height: 15.75,
-                                              fit: BoxFit.scaleDown,
-                                            ),
-                                          ),
-                                        ),
-                                      ),
-                                    ),
-                                    Expanded(
-                                      child: InkWell(
-                                        splashColor: Colors.transparent,
-                                        focusColor: Colors.transparent,
-                                        hoverColor: Colors.transparent,
-                                        highlightColor: Colors.transparent,
-                                        onTap: () async {
-                                          FFAppState().IsGuest = false;
-
-                                          context.goNamed('Home');
-                                        },
-                                        child: Container(
-                                          decoration: BoxDecoration(
-                                            color: Color(0xFF382F73),
-                                            borderRadius:
-                                                BorderRadius.circular(6.0),
-                                          ),
-                                          child: Padding(
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    12.0, 10.0, 12.0, 10.0),
-                                            child: Text(
-                                              FFLocalizations.of(context)
-                                                  .getText(
-                                                '8eppnzcp' /* Finish registration */,
-                                              ),
-                                              textAlign: TextAlign.center,
-                                              style: FlutterFlowTheme.of(
-                                                      context)
-                                                  .bodyMedium
-                                                  .override(
-                                                    fontFamily: 'Roboto',
-                                                    color: Color(0xFFB7C1FA),
-                                                    letterSpacing: 0.15,
-                                                    fontWeight: FontWeight.w800,
-                                                    lineHeight: 1.5,
-                                                  ),
-                                            ),
-                                          ),
-                                        ),
-                                      ),
-                                    ),
-                                  ].divide(SizedBox(width: 12.0)),
-                                ),
-                              ),
                               InkWell(
                                 splashColor: Colors.transparent,
                                 focusColor: Colors.transparent,
                                 hoverColor: Colors.transparent,
                                 highlightColor: Colors.transparent,
                                 onTap: () async {
-                                  FFAppState().IsGuest = true;
-
-                                  context.goNamed('Home');
+                                  await _model.pageViewController?.nextPage(
+                                    duration: Duration(milliseconds: 300),
+                                    curve: Curves.ease,
+                                  );
                                 },
                                 child: Container(
                                   width: double.infinity,
                                   decoration: BoxDecoration(
-                                    color: Colors.transparent,
+                                    color: Color(0xFF382F73),
+                                    borderRadius: BorderRadius.circular(6.0),
                                   ),
-                                  child: Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        12.0, 10.0, 12.0, 10.0),
+                                  child: Row(
+                                    mainAxisSize: MainAxisSize.max,
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            12.0, 10.0, 12.0, 10.0),
+                                        child: Text(
+                                          FFLocalizations.of(context).getText(
+                                            'v9zuktnc' /* Continue to next step */,
+                                          ),
+                                          textAlign: TextAlign.center,
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodyMedium
+                                              .override(
+                                                fontFamily: 'Roboto',
+                                                color: Color(0xFFB7C1FA),
+                                                letterSpacing: 0.15,
+                                                fontWeight: FontWeight.w800,
+                                                lineHeight: 1.5,
+                                              ),
+                                        ),
+                                      ),
+                                      ClipRRect(
+                                        borderRadius:
+                                            BorderRadius.circular(8.0),
+                                        child: Image.asset(
+                                          'assets/images/arrow.png',
+                                          width: 15.0,
+                                          height: 15.8,
+                                          fit: BoxFit.scaleDown,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ),
+                              Container(
+                                width: double.infinity,
+                                decoration: BoxDecoration(
+                                  color: Colors.transparent,
+                                  borderRadius: BorderRadius.circular(6.0),
+                                ),
+                                child: Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      12.0, 10.0, 12.0, 10.0),
+                                  child: InkWell(
+                                    splashColor: Colors.transparent,
+                                    focusColor: Colors.transparent,
+                                    hoverColor: Colors.transparent,
+                                    highlightColor: Colors.transparent,
+                                    onTap: () async {
+                                      FFAppState().IsGuest = true;
+
+                                      context.goNamed('Home');
+                                    },
                                     child: Text(
                                       FFLocalizations.of(context).getText(
-                                        '0baleo44' /* Continue without registration */,
+                                        '0ntgcuf1' /* Continue without registration */,
                                       ),
                                       textAlign: TextAlign.center,
                                       style: FlutterFlowTheme.of(context)
@@ -328,84 +295,117 @@ class _SetUpWizardWidgetState extends State<SetUpWizardWidget> {
                             color: Colors.transparent,
                           ),
                           child: Column(
-                            mainAxisSize: MainAxisSize.min,
+                            mainAxisSize: MainAxisSize.max,
                             children: [
+                              Container(
+                                width: double.infinity,
+                                decoration: BoxDecoration(
+                                  color: Colors.transparent,
+                                ),
+                                child: Row(
+                                  mainAxisSize: MainAxisSize.max,
+                                  children: [
+                                    InkWell(
+                                      splashColor: Colors.transparent,
+                                      focusColor: Colors.transparent,
+                                      hoverColor: Colors.transparent,
+                                      highlightColor: Colors.transparent,
+                                      onTap: () async {
+                                        await _model.pageViewController
+                                            ?.previousPage(
+                                          duration: Duration(milliseconds: 300),
+                                          curve: Curves.ease,
+                                        );
+                                      },
+                                      child: Container(
+                                        decoration: BoxDecoration(
+                                          color: Color(0xFF382F73),
+                                          borderRadius:
+                                              BorderRadius.circular(6.0),
+                                        ),
+                                        child: Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  12.0, 10.0, 12.0, 10.0),
+                                          child: ClipRRect(
+                                            borderRadius:
+                                                BorderRadius.circular(0.0),
+                                            child: Image.asset(
+                                              'assets/images/arrow_back.png',
+                                              width: 15.0,
+                                              height: 15.75,
+                                              fit: BoxFit.scaleDown,
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                    Expanded(
+                                      child: InkWell(
+                                        splashColor: Colors.transparent,
+                                        focusColor: Colors.transparent,
+                                        hoverColor: Colors.transparent,
+                                        highlightColor: Colors.transparent,
+                                        onTap: () async {
+                                          FFAppState().IsGuest = false;
+
+                                          context.goNamed('Home');
+                                        },
+                                        child: Container(
+                                          decoration: BoxDecoration(
+                                            color: Color(0xFF382F73),
+                                            borderRadius:
+                                                BorderRadius.circular(6.0),
+                                          ),
+                                          child: Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    12.0, 10.0, 12.0, 10.0),
+                                            child: Text(
+                                              FFLocalizations.of(context)
+                                                  .getText(
+                                                'dvh22apf' /* Finish registration */,
+                                              ),
+                                              textAlign: TextAlign.center,
+                                              style: FlutterFlowTheme.of(
+                                                      context)
+                                                  .bodyMedium
+                                                  .override(
+                                                    fontFamily: 'Roboto',
+                                                    color: Color(0xFFB7C1FA),
+                                                    letterSpacing: 0.15,
+                                                    fontWeight: FontWeight.w800,
+                                                    lineHeight: 1.5,
+                                                  ),
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                  ].divide(SizedBox(width: 12.0)),
+                                ),
+                              ),
                               InkWell(
                                 splashColor: Colors.transparent,
                                 focusColor: Colors.transparent,
                                 hoverColor: Colors.transparent,
                                 highlightColor: Colors.transparent,
                                 onTap: () async {
-                                  await _model.pageViewController?.nextPage(
-                                    duration: Duration(milliseconds: 300),
-                                    curve: Curves.ease,
-                                  );
+                                  FFAppState().IsGuest = true;
+
+                                  context.goNamed('Home');
                                 },
                                 child: Container(
                                   width: double.infinity,
                                   decoration: BoxDecoration(
-                                    color: Color(0xFF382F73),
-                                    borderRadius: BorderRadius.circular(6.0),
+                                    color: Colors.transparent,
                                   ),
-                                  child: Row(
-                                    mainAxisSize: MainAxisSize.max,
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: [
-                                      Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            12.0, 10.0, 12.0, 10.0),
-                                        child: Text(
-                                          FFLocalizations.of(context).getText(
-                                            '2s43wfag' /* Continue to next step */,
-                                          ),
-                                          textAlign: TextAlign.center,
-                                          style: FlutterFlowTheme.of(context)
-                                              .bodyMedium
-                                              .override(
-                                                fontFamily: 'Roboto',
-                                                color: Color(0xFFB7C1FA),
-                                                letterSpacing: 0.15,
-                                                fontWeight: FontWeight.w800,
-                                                lineHeight: 1.5,
-                                              ),
-                                        ),
-                                      ),
-                                      ClipRRect(
-                                        borderRadius:
-                                            BorderRadius.circular(8.0),
-                                        child: Image.asset(
-                                          'assets/images/arrow.png',
-                                          width: 15.0,
-                                          height: 15.8,
-                                          fit: BoxFit.scaleDown,
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                              ),
-                              Container(
-                                width: double.infinity,
-                                decoration: BoxDecoration(
-                                  color: Colors.transparent,
-                                  borderRadius: BorderRadius.circular(6.0),
-                                ),
-                                child: Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      12.0, 10.0, 12.0, 10.0),
-                                  child: InkWell(
-                                    splashColor: Colors.transparent,
-                                    focusColor: Colors.transparent,
-                                    hoverColor: Colors.transparent,
-                                    highlightColor: Colors.transparent,
-                                    onTap: () async {
-                                      FFAppState().IsGuest = true;
-
-                                      context.goNamed('Home');
-                                    },
+                                  child: Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        12.0, 10.0, 12.0, 10.0),
                                     child: Text(
                                       FFLocalizations.of(context).getText(
-                                        'hohgw3hm' /* Continue without registration */,
+                                        'fed90zl7' /* Continue without registration */,
                                       ),
                                       textAlign: TextAlign.center,
                                       style: FlutterFlowTheme.of(context)

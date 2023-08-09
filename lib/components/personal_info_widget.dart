@@ -241,7 +241,7 @@ class _PersonalInfoWidgetState extends State<PersonalInfoWidget> {
                   color: Color(0xFF382F73),
                   size: 24.0,
                 ),
-                fillColor: Colors.transparent,
+                fillColor: FlutterFlowTheme.of(context).primaryBackground,
                 elevation: 3.0,
                 borderColor: Color(0xFFAFACC7),
                 borderWidth: 2.0,

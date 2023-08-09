@@ -234,11 +234,11 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'sk':
           'Vybrané informácie budú použité iba na prispôsobenie výsledkov pre vás a nebudú poskytnuté tretím stranám.',
     },
-    '8eppnzcp': {
-      'en': 'Finish registration',
-      'sk': 'Dokončite registráciu',
+    'v9zuktnc': {
+      'en': 'Continue to next step',
+      'sk': 'Pokračujte ďalším krokom',
     },
-    '0baleo44': {
+    '0ntgcuf1': {
       'en': 'Continue without registration',
       'sk': 'Pokračovať bez registrácie',
     },
@@ -252,11 +252,11 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'sk':
           'Vyplnené informácie budú použité iba na personalizáciu výsledkov pre vás a nebudú poskytnuté tretím stranám.',
     },
-    '2s43wfag': {
-      'en': 'Continue to next step',
-      'sk': 'Pokračujte ďalším krokom',
+    'dvh22apf': {
+      'en': 'Finish registration',
+      'sk': 'Dokončite registráciu',
     },
-    'hohgw3hm': {
+    'fed90zl7': {
       'en': 'Continue without registration',
       'sk': 'Pokračovať bez registrácie',
     },

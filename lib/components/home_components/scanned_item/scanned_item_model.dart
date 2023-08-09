@@ -18,6 +18,13 @@ class ScannedItemModel extends FlutterFlowModel {
 
   bool isFoodSafe = false;
 
+  List<String> allergens = [];
+  void addToAllergens(String item) => allergens.add(item);
+  void removeFromAllergens(String item) => allergens.remove(item);
+  void removeAtIndexFromAllergens(int index) => allergens.removeAt(index);
+  void updateAllergensAtIndex(int index, Function(String) updateFn) =>
+      allergens[index] = updateFn(allergens[index]);
+
   ///  State fields for stateful widgets in this component.
 
   // Stores action output result for [Custom Action - getFoodFromEAN] action in ScannedItem widget.

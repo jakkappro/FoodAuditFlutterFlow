@@ -59,7 +59,15 @@ class _SlidingUpPanelFromEanWidgetState
       width: MediaQuery.sizeOf(context).width * 1.0,
       height: MediaQuery.sizeOf(context).height * 0.8,
       decoration: BoxDecoration(
-        color: Color(0xFFF7F7F7),
+        gradient: LinearGradient(
+          colors: [
+            Color(0xFFF7F7F7),
+            FlutterFlowTheme.of(context).primaryBackground
+          ],
+          stops: [0.0, 1.0],
+          begin: AlignmentDirectional(0.0, -1.0),
+          end: AlignmentDirectional(0, 1.0),
+        ),
         borderRadius: BorderRadius.only(
           bottomLeft: Radius.circular(20.0),
           bottomRight: Radius.circular(20.0),
@@ -172,7 +180,7 @@ class _SlidingUpPanelFromEanWidgetState
                       ),
                       Row(
                         mainAxisSize: MainAxisSize.max,
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Container(
                             width: MediaQuery.sizeOf(context).width * 0.4,
@@ -506,12 +514,7 @@ class _SlidingUpPanelFromEanWidgetState
                 width: double.infinity,
                 height: 55.0,
                 decoration: BoxDecoration(
-                  gradient: LinearGradient(
-                    colors: [Colors.transparent, Colors.black],
-                    stops: [0.0, 0.4],
-                    begin: AlignmentDirectional(0.0, -1.0),
-                    end: AlignmentDirectional(0, 1.0),
-                  ),
+                  color: Colors.transparent,
                   borderRadius: BorderRadius.only(
                     bottomLeft: Radius.circular(20.0),
                     bottomRight: Radius.circular(20.0),
@@ -537,18 +540,19 @@ class _SlidingUpPanelFromEanWidgetState
                                 .bodyMedium
                                 .override(
                                   fontFamily: 'Roboto',
-                                  color: Color(0xFFAFACC7),
+                                  color: Color(0xFF382F73),
                                   fontSize: 12.64,
                                   letterSpacing: 0.5,
-                                  fontWeight: FontWeight.w600,
+                                  fontWeight: FontWeight.w500,
+                                  lineHeight: 1.7,
                                 ),
                           ),
                         ),
                       Container(
-                        width: 66.0,
-                        height: 6.0,
+                        width: 60.0,
+                        height: 4.0,
                         decoration: BoxDecoration(
-                          color: Color(0xFFB7C1FA),
+                          color: Color(0xFFAFACC7),
                           borderRadius: BorderRadius.circular(20.0),
                         ),
                       ),
