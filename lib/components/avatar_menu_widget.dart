@@ -77,41 +77,45 @@ class _AvatarMenuWidgetState extends State<AvatarMenuWidget> {
                 clipBehavior: Clip.none,
                 children: List.generate(image.length, (imageIndex) {
                   final imageItem = image[imageIndex];
-                  return Stack(
-                    children: [
-                      InkWell(
-                        splashColor: Colors.transparent,
-                        focusColor: Colors.transparent,
-                        hoverColor: Colors.transparent,
-                        highlightColor: Colors.transparent,
-                        onTap: () async {
-                          setState(() {
-                            FFAppState().imageName = imageItem;
-                          });
-                        },
-                        child: Container(
-                          width: 47.5,
-                          height: 47.5,
-                          child: custom_widgets.ImageFromString(
+                  return Container(
+                    width: 47.5,
+                    height: 47.5,
+                    child: Stack(
+                      children: [
+                        InkWell(
+                          splashColor: Colors.transparent,
+                          focusColor: Colors.transparent,
+                          hoverColor: Colors.transparent,
+                          highlightColor: Colors.transparent,
+                          onTap: () async {
+                            setState(() {
+                              FFAppState().imageName = imageItem;
+                            });
+                          },
+                          child: Container(
                             width: 47.5,
                             height: 47.5,
-                            name: imageItem,
-                          ),
-                        ),
-                      ),
-                      if (imageItem == FFAppState().imageName)
-                        Align(
-                          alignment: AlignmentDirectional(1.0, -1.0),
-                          child: Container(
-                            width: 10.0,
-                            height: 10.0,
-                            decoration: BoxDecoration(
-                              color: FlutterFlowTheme.of(context)
-                                  .secondaryBackground,
+                            child: custom_widgets.ImageFromString(
+                              width: 47.5,
+                              height: 47.5,
+                              name: imageItem,
                             ),
                           ),
                         ),
-                    ],
+                        if (imageItem == FFAppState().imageName)
+                          Align(
+                            alignment: AlignmentDirectional(1.0, -1.0),
+                            child: Container(
+                              width: 10.0,
+                              height: 10.0,
+                              decoration: BoxDecoration(
+                                color: FlutterFlowTheme.of(context)
+                                    .secondaryBackground,
+                              ),
+                            ),
+                          ),
+                      ],
+                    ),
                   );
                 }),
               );

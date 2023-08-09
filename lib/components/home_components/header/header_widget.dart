@@ -1,8 +1,8 @@
 import '/auth/firebase_auth/auth_util.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/custom_code/widgets/index.dart' as custom_widgets;
 import 'package:auto_size_text/auto_size_text.dart';
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -111,37 +111,25 @@ class _HeaderWidgetState extends State<HeaderWidget> {
               ),
             ].divide(SizedBox(height: 4.0)),
           ),
-          Align(
-            alignment: AlignmentDirectional(0.0, 1.0),
-            child: AuthUserStreamWidget(
-              builder: (context) => InkWell(
-                splashColor: Colors.transparent,
-                focusColor: Colors.transparent,
-                hoverColor: Colors.transparent,
-                highlightColor: Colors.transparent,
-                onTap: () async {
-                  if (FFAppState().IsGuest == true) {
-                    context.pushNamed('Onborading');
-                  } else {
-                    context.pushNamed('Settings');
-                  }
-                },
-                child: Container(
-                  width: 73.0,
-                  height: 73.0,
-                  clipBehavior: Clip.antiAlias,
-                  decoration: BoxDecoration(
-                    shape: BoxShape.circle,
-                  ),
-                  child: CachedNetworkImage(
-                    fadeInDuration: Duration(milliseconds: 1000),
-                    fadeOutDuration: Duration(milliseconds: 1000),
-                    imageUrl: FFAppState().IsGuest
-                        ? 'https://picsum.photos/seed/232/600'
-                        : currentUserPhoto,
-                    fit: BoxFit.cover,
-                  ),
-                ),
+          InkWell(
+            splashColor: Colors.transparent,
+            focusColor: Colors.transparent,
+            hoverColor: Colors.transparent,
+            highlightColor: Colors.transparent,
+            onTap: () async {
+              if (FFAppState().IsGuest) {
+                context.pushNamed('Onborading');
+              } else {
+                context.pushNamed('Settings');
+              }
+            },
+            child: Container(
+              width: 73.0,
+              height: 73.0,
+              child: custom_widgets.ImageFromString(
+                width: 73.0,
+                height: 73.0,
+                name: FFAppState().imageName,
               ),
             ),
           ),
