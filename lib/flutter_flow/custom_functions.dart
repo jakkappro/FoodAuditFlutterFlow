@@ -42,3 +42,7 @@ List<String> getEveryOtherFromList(
   }
   return result;
 }
+
+List<String> getListOfAvatars() {
+  return new List<String>.generate(12, (i) => "assets/images/$i.png");
+}
