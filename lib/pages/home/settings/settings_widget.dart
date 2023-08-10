@@ -1,3 +1,5 @@
+import '/auth/firebase_auth/auth_util.dart';
+import '/backend/schema/structs/index.dart';
 import '/components/avatar_menu_widget.dart';
 import '/components/intolerancies/intolerancies_widget.dart';
 import '/components/medication/medication_widget.dart';
@@ -54,7 +56,7 @@ class _SettingsWidgetState extends State<SettingsWidget> {
               color: FlutterFlowTheme.of(context).primaryBackground,
             ),
             child: Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
+              padding: EdgeInsetsDirectional.fromSTEB(24.0, 50.0, 24.0, 0.0),
               child: Stack(
                 children: [
                   SingleChildScrollView(
@@ -115,7 +117,65 @@ class _SettingsWidgetState extends State<SettingsWidget> {
                             child: MedicationWidget(),
                           ),
                         ),
-                      ].divide(SizedBox(height: 24.0)),
+                        InkWell(
+                          splashColor: Colors.transparent,
+                          focusColor: Colors.transparent,
+                          hoverColor: Colors.transparent,
+                          highlightColor: Colors.transparent,
+                          onTap: () async {
+                            GoRouter.of(context).prepareAuthEvent();
+                            await authManager.signOut();
+                            GoRouter.of(context).clearRedirectLocation();
+
+                            FFAppState().deleteScannedItems();
+                            FFAppState().ScannedItems = [];
+
+                            FFAppState().IsGuest = true;
+                            FFAppState().deleteAllergies();
+                            FFAppState().Allergies = [];
+
+                            FFAppState().deleteDateOfBirdth();
+                            FFAppState().dateOfBirdth = null;
+
+                            FFAppState().deleteGender();
+                            FFAppState().gender = '';
+
+                            FFAppState().DoneWizzard = false;
+                            FFAppState().imageName = 'avatar_111.png';
+                            FFAppState().dobSet = false;
+                            FFAppState().deleteMedication();
+                            FFAppState().Medication = [];
+
+                            context.goNamedAuth('Onborading', context.mounted);
+                          },
+                          child: Container(
+                            width: double.infinity,
+                            decoration: BoxDecoration(
+                              color: FlutterFlowTheme.of(context).primary,
+                              borderRadius: BorderRadius.circular(6.0),
+                            ),
+                            child: Padding(
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  12.0, 10.0, 12.0, 10.0),
+                              child: Text(
+                                FFLocalizations.of(context).getText(
+                                  '4vsgzcx4' /* Logout */,
+                                ),
+                                textAlign: TextAlign.center,
+                                style: FlutterFlowTheme.of(context)
+                                    .bodyMedium
+                                    .override(
+                                      fontFamily: 'Roboto',
+                                      color: Color(0xFFB7C1FA),
+                                      fontSize: 18.0,
+                                    ),
+                              ),
+                            ),
+                          ),
+                        ),
+                      ]
+                          .divide(SizedBox(height: 24.0))
+                          .addToEnd(SizedBox(height: 60.0)),
                     ),
                   ),
                   Align(

@@ -91,23 +91,35 @@ class _MedicationWidgetState extends State<MedicationWidget> {
                 clipBehavior: Clip.none,
                 children: List.generate(medication.length, (medicationIndex) {
                   final medicationItem = medication[medicationIndex];
-                  return Container(
-                    height: 35.0,
-                    decoration: BoxDecoration(
-                      color: FlutterFlowTheme.of(context).primary,
-                      borderRadius: BorderRadius.circular(6.0),
-                    ),
-                    child: Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(
-                          12.0, 10.0, 12.0, 10.0),
-                      child: Text(
-                        medicationItem,
-                        style: FlutterFlowTheme.of(context).bodyMedium.override(
-                              fontFamily: 'Roboto',
-                              color: Color(0xFFF7F7F7),
-                              letterSpacing: 0.15,
-                              fontWeight: FontWeight.w800,
-                            ),
+                  return InkWell(
+                    splashColor: Colors.transparent,
+                    focusColor: Colors.transparent,
+                    hoverColor: Colors.transparent,
+                    highlightColor: Colors.transparent,
+                    onTap: () async {
+                      setState(() {
+                        FFAppState().removeFromAllergies(medicationItem);
+                      });
+                    },
+                    child: Container(
+                      height: 35.0,
+                      decoration: BoxDecoration(
+                        color: FlutterFlowTheme.of(context).primary,
+                        borderRadius: BorderRadius.circular(6.0),
+                      ),
+                      child: Padding(
+                        padding: EdgeInsetsDirectional.fromSTEB(
+                            12.0, 10.0, 12.0, 10.0),
+                        child: Text(
+                          medicationItem,
+                          style:
+                              FlutterFlowTheme.of(context).bodyMedium.override(
+                                    fontFamily: 'Roboto',
+                                    color: Color(0xFFF7F7F7),
+                                    letterSpacing: 0.15,
+                                    fontWeight: FontWeight.w800,
+                                  ),
+                        ),
                       ),
                     ),
                   );

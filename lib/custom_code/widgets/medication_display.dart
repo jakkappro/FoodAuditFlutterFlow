@@ -44,13 +44,30 @@ class _MedicationDisplayState extends State<MedicationDisplay> {
 
     final medicationItem = medication.docs[0];
 
-    final classifications = medicationItem.get("Classifications");
+    final classifications = medicationItem.get("Classification") as List;
 
-    final classificationsKeys = classifications.keys.toList();
+    final classificationsKeys = <String>[];
+
+    for (var item in classifications) {
+      if (item is Map<String, dynamic>) {
+        var map = Map<String, String>.from(item).values;
+        classificationsKeys.addAll(map);
+      } else {
+        throw FormatException(
+            'Unexpected item format'); // or handle it in another way
+      }
+    }
+
+    if (classificationsKeys.length == 0) {
+      return MedicationStruct(false, name);
+    }
+
+    final fileteredClassificationKeys =
+        getEveryOtherFromList(classificationsKeys, false);
 
     final businessRules = await fbInstance
         .collection('business_rules')
-        .where("Name", whereIn: classificationsKeys)
+        .where("name", whereIn: fileteredClassificationKeys)
         .get();
 
     final allergens = widget.product!.allergens;
@@ -70,17 +87,20 @@ class _MedicationDisplayState extends State<MedicationDisplay> {
       }
 
       for (var ingredient in ingredients) {
-        if (booleanValues.containsKey(ingredient.name.toLowerCase()) &&
-            booleanValues[ingredient] == true) {
+        var ingredientName = ingredient.name.toLowerCase();
+        if (booleanValues.containsKey(ingredientName) &&
+            booleanValues[ingredientName] == true) {
           return MedicationStruct(false, name);
         }
       }
 
-      for (var nutrition in nutritions) {
-        final numericalValues = businessRule.get("numerical_values");
+      final numericalValues = businessRule.get("numerical_values");
 
-        if (numericalValues.containsKey(nutrition.unit.toLowerCase()) &&
-            numericalValues[nutrition] < nutrition.value) {
+      for (var nutrition in nutritions) {
+        final unit = nutrition.nutrientType.toLowerCase().replaceFirst(':', '');
+        if (numericalValues.containsKey(unit) &&
+            numericalValues[unit] <
+                double.parse(nutrition.value.replaceAll(",", "."))) {
           return MedicationStruct(false, name);
         }
       }

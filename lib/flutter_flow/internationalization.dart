@@ -122,6 +122,10 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Change your information',
       'sk': 'Zmeňte svoje informácie',
     },
+    '4vsgzcx4': {
+      'en': 'Logout',
+      'sk': '',
+    },
     'mg17prl1': {
       'en': 'Save settings',
       'sk': 'Uložiť nastavenia',

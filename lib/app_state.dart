@@ -228,7 +228,7 @@ class FFAppState extends ChangeNotifier {
     secureStorage.setStringList('ff_Medication', _Medication);
   }
 
-  String _imageName = 'avatar_111';
+  String _imageName = 'avatar_111.png';
   String get imageName => _imageName;
   set imageName(String _value) {
     _imageName = _value;
