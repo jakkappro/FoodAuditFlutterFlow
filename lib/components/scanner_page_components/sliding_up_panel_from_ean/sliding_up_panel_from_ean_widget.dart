@@ -1,4 +1,5 @@
 import '/backend/backend.dart';
+import '/components/medication_container_widget.dart';
 import '/components/scanner_detail/nutrition_table_row/nutrition_table_row_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -57,7 +58,7 @@ class _SlidingUpPanelFromEanWidgetState
     context.watch<FFAppState>();
 
     return Container(
-      width: MediaQuery.sizeOf(context).width * 1.0,
+      width: double.infinity,
       height: MediaQuery.sizeOf(context).height * 0.8,
       decoration: BoxDecoration(
         gradient: LinearGradient(
@@ -320,35 +321,26 @@ class _SlidingUpPanelFromEanWidgetState
                                     lineHeight: 1.4,
                                   ),
                             ),
-                            Row(
-                              mainAxisSize: MainAxisSize.max,
-                              children: [
-                                Container(
-                                  decoration: BoxDecoration(
-                                    color: FlutterFlowTheme.of(context).success,
-                                    borderRadius: BorderRadius.circular(6.0),
+                            Builder(
+                              builder: (context) {
+                                final medication =
+                                    FFAppState().Medication.toList();
+                                return SingleChildScrollView(
+                                  scrollDirection: Axis.horizontal,
+                                  child: Row(
+                                    mainAxisSize: MainAxisSize.max,
+                                    children: List.generate(medication.length,
+                                        (medicationIndex) {
+                                      final medicationItem =
+                                          medication[medicationIndex];
+                                      return MedicationContainerWidget(
+                                        key: Key(
+                                            'Keyylg_${medicationIndex}_of_${medication.length}'),
+                                      );
+                                    }).divide(SizedBox(width: 8.0)),
                                   ),
-                                  child: Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        12.0, 10.0, 12.0, 10.0),
-                                    child: Text(
-                                      FFLocalizations.of(context).getText(
-                                        'rojrz0sj' /* Hello World */,
-                                      ),
-                                      style: FlutterFlowTheme.of(context)
-                                          .bodyMedium
-                                          .override(
-                                            fontFamily: 'Roboto',
-                                            color: FlutterFlowTheme.of(context)
-                                                .primary,
-                                            letterSpacing: 0.15,
-                                            fontWeight: FontWeight.w800,
-                                            lineHeight: 1.5,
-                                          ),
-                                    ),
-                                  ),
-                                ),
-                              ].divide(SizedBox(width: 8.0)),
+                                );
+                              },
                             ),
                           ].divide(SizedBox(height: 12.0)),
                         ),

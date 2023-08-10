@@ -290,10 +290,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Medication contraindications',
       'sk': 'Kontraindikácie liekov',
     },
-    'rojrz0sj': {
-      'en': 'Hello World',
-      'sk': 'Ahoj svet',
-    },
     'ysgynb85': {
       'en': 'Nutrition data',
       'sk': 'Údaje o výžive',
