@@ -10,21 +10,85 @@ import 'package:flutter/material.dart';
 // Begin custom widget code
 // DO NOT REMOVE OR MODIFY THE CODE ABOVE!
 
+// mine
+import '../../components/medication_container_widget.dart';
+
 class MedicationDisplay extends StatefulWidget {
   const MedicationDisplay({
     Key? key,
     this.width,
     this.height,
+    this.product,
   }) : super(key: key);
 
   final double? width;
   final double? height;
+  final ProductsRecord? product;
 
   @override
   _MedicationDisplayState createState() => _MedicationDisplayState();
 }
 
 class _MedicationDisplayState extends State<MedicationDisplay> {
+  Future<MedicationStruct> getMedicationStruct(String name) async {
+    final fbInstance = FirebaseFirestore.instance;
+
+    final medication = await fbInstance
+        .collection('medication')
+        .where("Name", isEqualTo: name)
+        .get();
+
+    if (medication.docs.length == 0) {
+      return MedicationStruct(false, name);
+    }
+
+    final medicationItem = medication.docs[0];
+
+    final classifications = medicationItem.get("Classifications");
+
+    final classificationsKeys = classifications.keys.toList();
+
+    final businessRules = await fbInstance
+        .collection('business_rules')
+        .where("Name", whereIn: classificationsKeys)
+        .get();
+
+    final allergens = widget.product!.allergens;
+
+    final ingredients = widget.product!.ingredients;
+
+    final nutritions = widget.product!.nutrients;
+
+    for (var businessRule in businessRules.docs) {
+      final booleanValues = businessRule.get("boolean_values");
+
+      for (var allergen in allergens) {
+        if (booleanValues.containsKey(allergen.toLowerCase()) &&
+            booleanValues[allergen] == true) {
+          return MedicationStruct(false, name);
+        }
+      }
+
+      for (var ingredient in ingredients) {
+        if (booleanValues.containsKey(ingredient.name.toLowerCase()) &&
+            booleanValues[ingredient] == true) {
+          return MedicationStruct(false, name);
+        }
+      }
+
+      for (var nutrition in nutritions) {
+        final numericalValues = businessRule.get("numerical_values");
+
+        if (numericalValues.containsKey(nutrition.unit.toLowerCase()) &&
+            numericalValues[nutrition] < nutrition.value) {
+          return MedicationStruct(false, name);
+        }
+      }
+    }
+
+    return MedicationStruct(true, name);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Builder(
@@ -34,15 +98,57 @@ class _MedicationDisplayState extends State<MedicationDisplay> {
           scrollDirection: Axis.horizontal,
           child: Row(
             mainAxisSize: MainAxisSize.max,
-            children: List.generate(medication.length, (medicationIndex) {
-              final medicationItem = medication[medicationIndex];
-              return FutureBuilder(builder: (BuildContext context,
-                  AsyncSnapshot<MedicationStruct> snapshot) {
-                return MedicationContainerWidget(
-                  key: Key('Keyylg_${medicationIndex}_of_${medication.length}'),
-                );
-              });
-            }).divide(SizedBox(width: 8.0)),
+            children: List.generate(
+              medication.length,
+              (medicationIndex) {
+                final medicationItem = medication[medicationIndex];
+                var f = getMedicationStruct(medicationItem);
+                return FutureBuilder(
+                    future: f,
+                    builder: (BuildContext context,
+                        AsyncSnapshot<MedicationStruct> snapshot) {
+                      if (snapshot.connectionState == ConnectionState.waiting) {
+                        return Container(
+                          width: 30,
+                          height: 25,
+                          decoration: BoxDecoration(
+                            color: FlutterFlowTheme.of(context).primary,
+                            borderRadius: BorderRadius.circular(8),
+                          ),
+                          child: CircularProgressIndicator(
+                            color: Colors.white,
+                          ),
+                        );
+                      }
+
+                      if (snapshot.hasError) {
+                        return Container(
+                          width: 30,
+                          height: 25,
+                          decoration: BoxDecoration(
+                            color: FlutterFlowTheme.of(context).primary,
+                            borderRadius: BorderRadius.circular(8),
+                          ),
+                          child: Icon(
+                            Icons.error,
+                            color: Colors.white,
+                          ),
+                        );
+                      }
+
+                      if (!snapshot.hasData) {
+                        return Container();
+                      }
+
+                      return MedicationContainerWidget(
+                        key: Key(
+                            'Keyylg_${medicationIndex}_of_${medication.length}'),
+                        safe: snapshot.data!.safe,
+                        name: snapshot.data!.name,
+                      );
+                    });
+              },
+            ).divide(SizedBox(width: 8.0)),
           ),
         );
       },
@@ -50,4 +156,9 @@ class _MedicationDisplayState extends State<MedicationDisplay> {
   }
 }
 
-class MedicationStruct {}
+class MedicationStruct {
+  bool safe;
+  String name;
+
+  MedicationStruct(this.safe, this.name);
+}

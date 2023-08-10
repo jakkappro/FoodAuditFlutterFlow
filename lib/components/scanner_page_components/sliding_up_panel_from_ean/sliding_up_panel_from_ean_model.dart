@@ -1,5 +1,4 @@
 import '/backend/backend.dart';
-import '/components/medication_container_widget.dart';
 import '/components/scanner_detail/nutrition_table_row/nutrition_table_row_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';

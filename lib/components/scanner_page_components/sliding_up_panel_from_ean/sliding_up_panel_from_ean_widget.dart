@@ -1,5 +1,4 @@
 import '/backend/backend.dart';
-import '/components/medication_container_widget.dart';
 import '/components/scanner_detail/nutrition_table_row/nutrition_table_row_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -321,26 +320,12 @@ class _SlidingUpPanelFromEanWidgetState
                                     lineHeight: 1.4,
                                   ),
                             ),
-                            Builder(
-                              builder: (context) {
-                                final medication =
-                                    FFAppState().Medication.toList();
-                                return SingleChildScrollView(
-                                  scrollDirection: Axis.horizontal,
-                                  child: Row(
-                                    mainAxisSize: MainAxisSize.max,
-                                    children: List.generate(medication.length,
-                                        (medicationIndex) {
-                                      final medicationItem =
-                                          medication[medicationIndex];
-                                      return MedicationContainerWidget(
-                                        key: Key(
-                                            'Keyylg_${medicationIndex}_of_${medication.length}'),
-                                      );
-                                    }).divide(SizedBox(width: 8.0)),
-                                  ),
-                                );
-                              },
+                            Container(
+                              width: double.infinity,
+                              child: custom_widgets.MedicationDisplay(
+                                width: double.infinity,
+                                product: widget.doc,
+                              ),
                             ),
                           ].divide(SizedBox(height: 12.0)),
                         ),
