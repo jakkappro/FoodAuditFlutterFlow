@@ -159,7 +159,7 @@ class _SettingsWidgetState extends State<SettingsWidget> {
                                   12.0, 10.0, 12.0, 10.0),
                               child: Text(
                                 FFLocalizations.of(context).getText(
-                                  '4vsgzcx4' /* Logout */,
+                                  'cfdmbpol' /* Logout */,
                                 ),
                                 textAlign: TextAlign.center,
                                 style: FlutterFlowTheme.of(context)

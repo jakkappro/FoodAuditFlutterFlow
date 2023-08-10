@@ -98,7 +98,7 @@ class _MedicationWidgetState extends State<MedicationWidget> {
                     highlightColor: Colors.transparent,
                     onTap: () async {
                       setState(() {
-                        FFAppState().removeFromAllergies(medicationItem);
+                        FFAppState().removeFromMedication(medicationItem);
                       });
                     },
                     child: Container(
