@@ -177,7 +177,10 @@ class _PersonalInfoWidgetState extends State<PersonalInfoWidget> {
                                   locale:
                                       FFLocalizations.of(context).languageCode,
                                 )
-                              : 'Date of birdth',
+                              : (FFLocalizations.of(context).languageCode ==
+                                      'en'
+                                  ? 'Date of birdth'
+                                  : 'Dátum narodenia'),
                           'Date of birdth',
                         ),
                         textAlign: TextAlign.start,

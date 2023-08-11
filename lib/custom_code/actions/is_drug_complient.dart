@@ -19,7 +19,7 @@ Future<bool> isDrugComplient(ProductsRecord? product) async {
 
   for (var medication in medications) {
     var res = await getMedicationStruct(medication, product);
-    if (!res.safe) {
+    if (!res.isSafe) {
       return false;
     }
   }

@@ -62,7 +62,7 @@ class _NutritionTableRowWidgetState extends State<NutritionTableRowWidget> {
               children: [
                 Text(
                   '${widget.nutrient?.nutrientType}'.maybeHandleOverflow(
-                    maxChars: 20,
+                    maxChars: 30,
                     replacement: '…',
                   ),
                   maxLines: 1,

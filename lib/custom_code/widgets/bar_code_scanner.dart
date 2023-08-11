@@ -185,7 +185,7 @@ class _BarCodeScannerState extends State<BarCodeScanner>
       var isFineWithDrugs = await isDrugComplient(_scannedFood!);
       _backdropColor = !isSafe
           ? _dangerounsFoodColor
-          : isFineWithDrugs
+          : !isFineWithDrugs
               ? _mildFoodColor
               : _safeFoodColor;
     } else {
