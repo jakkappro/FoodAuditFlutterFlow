@@ -10,6 +10,7 @@ import '../../flutter_flow/flutter_flow_util.dart';
 import '/backend/backend.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:stream_transform/stream_transform.dart';
+import 'facebook_auth.dart';
 import 'firebase_auth_manager.dart';
 
 export 'firebase_auth_manager.dart';

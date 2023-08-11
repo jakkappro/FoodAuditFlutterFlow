@@ -37,6 +37,7 @@ class _BarCodeScannerState extends State<BarCodeScanner>
   final Color _safeFoodColor = Colors.green.withOpacity(0.5);
   final Color _dangerounsFoodColor = Colors.red.withOpacity(0.5);
   final Color _neutralColor = Color(0x1C0D26).withOpacity(0.5);
+  final Color _mildFoodColor = Colors.yellow.withOpacity(0.5);
 
   PanelController _panelController = PanelController();
   ProductsRecord? _scannedFood;
@@ -181,7 +182,12 @@ class _BarCodeScannerState extends State<BarCodeScanner>
     _scannedFood = await getFoodFromEAN(ean, true);
     if (_scannedFood != null) {
       var isSafe = await isFoodSafe(_scannedFood!.allergens);
-      _backdropColor = isSafe ? _safeFoodColor : _dangerounsFoodColor;
+      var isFineWithDrugs = await isDrugComplient(_scannedFood!);
+      _backdropColor = !isSafe
+          ? _dangerounsFoodColor
+          : isFineWithDrugs
+              ? _mildFoodColor
+              : _safeFoodColor;
     } else {
       _backdropColor = _neutralColor;
     }
