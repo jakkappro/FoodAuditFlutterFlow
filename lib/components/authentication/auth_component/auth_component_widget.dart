@@ -261,7 +261,7 @@ class _AuthComponentWidgetState extends State<AuthComponentWidget> {
                   children: [
                     Text(
                       FFLocalizations.of(context).getText(
-                        'nodogpy4' /* Pokračujte ako hosť */,
+                        'nodogpy4' /* Continue as guest */,
                       ),
                       style: FlutterFlowTheme.of(context).bodyMedium.override(
                             fontFamily: 'Roboto',

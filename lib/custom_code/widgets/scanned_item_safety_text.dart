@@ -10,34 +10,54 @@ import 'package:flutter/material.dart';
 // Begin custom widget code
 // DO NOT REMOVE OR MODIFY THE CODE ABOVE!
 
+enum _Wrong { ALLERGEN, MEDS, NONE }
+
 class ScannedItemSafetyText extends StatefulWidget {
   const ScannedItemSafetyText({
     Key? key,
     this.width,
     this.height,
+    this.ean,
     required this.allergens,
   }) : super(key: key);
 
   final double? width;
   final double? height;
   final List<String> allergens;
+  final String? ean;
 
   @override
   _ScannedItemSafetyTextState createState() => _ScannedItemSafetyTextState();
 }
 
 class _ScannedItemSafetyTextState extends State<ScannedItemSafetyText> {
-  Future<bool> getFoodSafety() async {
-    final food = await isFoodSafe(widget.allergens);
-    return food;
+  Future<_Wrong> getFoodSafety() async {
+    final allergic = await isFoodSafe(widget.allergens);
+    if (!allergic) {
+      return _Wrong.ALLERGEN;
+    }
+
+    if (widget.ean == null) return _Wrong.NONE;
+
+    final food = await getFoodFromEAN(widget.ean!, false);
+
+    if (food == null) {
+      return _Wrong.NONE;
+    }
+
+    final meds = await isDrugComplient(food);
+    if (meds) {
+      return _Wrong.MEDS;
+    }
+    return _Wrong.NONE;
   }
 
   @override
   Widget build(BuildContext context) {
     return FutureBuilder(
       future: getFoodSafety(),
-      initialData: false,
-      builder: (BuildContext context, AsyncSnapshot<bool> snapshot) {
+      initialData: _Wrong.NONE,
+      builder: (BuildContext context, AsyncSnapshot<_Wrong> snapshot) {
         if (snapshot.connectionState == ConnectionState.waiting) {
           return Container(
             width: 10.0,
@@ -50,11 +70,30 @@ class _ScannedItemSafetyTextState extends State<ScannedItemSafetyText> {
         } else if (snapshot.hasError) {
           return Text('Error: ${snapshot.error}');
         } else {
+          String displayText = '';
+          switch (snapshot.data!) {
+            case _Wrong.ALLERGEN:
+              displayText = FFLocalizations.of(context).languageCode == 'en'
+                  ? 'Contains allergen'
+                  : 'Obsahuje alergén';
+              break;
+            case _Wrong.MEDS:
+              displayText = FFLocalizations.of(context).languageCode == 'en'
+                  ? 'Not compatible with drugs'
+                  : 'Nekompatibilné s liekmi';
+              break;
+            case _Wrong.NONE:
+              displayText = FFLocalizations.of(context).languageCode == 'en'
+                  ? 'Safe for you'
+                  : 'Bezpečné pre Vás';
+              break;
+          }
+
           return Text(
-            snapshot.data! ? 'Safe for you' : 'Contains alergen',
+            displayText,
             style: FlutterFlowTheme.of(context).bodyMedium.override(
                   fontFamily: 'Roboto',
-                  color: snapshot.data!
+                  color: snapshot.data! == _Wrong.NONE
                       ? FlutterFlowTheme.of(context).success
                       : FlutterFlowTheme.of(context).error,
                   letterSpacing: 0.15,

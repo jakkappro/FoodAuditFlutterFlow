@@ -213,6 +213,7 @@ class _ScannedItemWidgetState extends State<ScannedItemWidget> {
                           width: double.infinity,
                           height: double.infinity,
                           allergens: _model.newFood!.allergens,
+                          ean: widget.scannedItem?.ean,
                         ),
                       ),
                     ),

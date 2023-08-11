@@ -428,7 +428,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'sk': 'Prihláste sa pomocou Google',
     },
     'nodogpy4': {
-      'en': 'Pokračujte ako hosť',
+      'en': 'Continue as guest',
       'sk': 'Pokračujte ako hosť',
     },
   },
