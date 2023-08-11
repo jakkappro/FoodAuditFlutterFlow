@@ -476,8 +476,8 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'sk': 'Muž',
     },
     'xk29a6ac': {
-      'en': 'Femlae',
-      'sk': 'Femlae',
+      'en': 'Female',
+      'sk': 'Žena',
     },
     'oa8xf1yu': {
       'en': 'Attach hellicopter',

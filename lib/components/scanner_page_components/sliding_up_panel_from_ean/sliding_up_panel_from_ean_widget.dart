@@ -302,7 +302,7 @@ class _SlidingUpPanelFromEanWidgetState
                           color: Colors.transparent,
                         ),
                         child: Column(
-                          mainAxisSize: MainAxisSize.max,
+                          mainAxisSize: MainAxisSize.min,
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
@@ -320,12 +320,10 @@ class _SlidingUpPanelFromEanWidgetState
                                     lineHeight: 1.4,
                                   ),
                             ),
-                            Container(
+                            custom_widgets.MedicationDisplay(
                               width: double.infinity,
-                              child: custom_widgets.MedicationDisplay(
-                                width: double.infinity,
-                                product: widget.doc,
-                              ),
+                              height: 120.0,
+                              product: widget.doc,
                             ),
                           ].divide(SizedBox(height: 12.0)),
                         ),

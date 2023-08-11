@@ -211,7 +211,7 @@ class _PersonalInfoWidgetState extends State<PersonalInfoWidget> {
                     'ulejwi2y' /* Male */,
                   ),
                   FFLocalizations.of(context).getText(
-                    'xk29a6ac' /* Femlae */,
+                    'xk29a6ac' /* Female */,
                   ),
                   FFLocalizations.of(context).getText(
                     'oa8xf1yu' /* Attach hellicopter */,
