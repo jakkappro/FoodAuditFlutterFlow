@@ -156,10 +156,12 @@ class _BarCodeScannerState extends State<BarCodeScanner>
       _scannedFood = null;
       _backdropColor = _neutralColor;
       _ean = '';
-      await _panelController.animatePanelToPosition(
-        0,
-        duration: Duration(milliseconds: 300),
-      );
+      if (_panelController.isAttached) {
+        await _panelController.animatePanelToPosition(
+          0,
+          duration: Duration(milliseconds: 300),
+        );
+      }
 
       setState(() {
         _panelOpened = false;
@@ -177,7 +179,7 @@ class _BarCodeScannerState extends State<BarCodeScanner>
       _backdropColor = _neutralColor;
     }
 
-    if (_panelController.isPanelClosed) {
+    if (_panelController.isAttached && _panelController.isPanelClosed) {
       _panelController.animatePanelToSnapPoint(
         duration: Duration(milliseconds: 300),
       );

@@ -90,7 +90,7 @@ class _NamedSliderState extends State<NamedSlider> {
                   value: currentValue,
                   min: widget.minValue,
                   max: widget.maxValue,
-                  onChanged: ((value) async {
+                  onChanged: ((value) {
                     // update global state user and api call to save it
                     setState(() {
                       currentValue = value;

@@ -53,8 +53,8 @@ class _MedicationDisplayState extends State<MedicationDisplay> {
         var map = Map<String, String>.from(item).values;
         classificationsKeys.addAll(map);
       } else {
-        throw FormatException(
-            'Unexpected item format'); // or handle it in another way
+        // throw FormatException(
+        //     'Unexpected item format'); // or handle it in another way
       }
     }
 
@@ -127,7 +127,8 @@ class _MedicationDisplayState extends State<MedicationDisplay> {
                     future: f,
                     builder: (BuildContext context,
                         AsyncSnapshot<MedicationStruct> snapshot) {
-                      if (snapshot.connectionState == ConnectionState.waiting) {
+                      if (snapshot.connectionState == ConnectionState.waiting &&
+                          mounted) {
                         return Container(
                           width: 30,
                           height: 25,
@@ -141,7 +142,7 @@ class _MedicationDisplayState extends State<MedicationDisplay> {
                         );
                       }
 
-                      if (snapshot.hasError) {
+                      if (snapshot.hasError && mounted) {
                         return Container(
                           width: 30,
                           height: 25,
@@ -156,7 +157,7 @@ class _MedicationDisplayState extends State<MedicationDisplay> {
                         );
                       }
 
-                      if (!snapshot.hasData) {
+                      if (!snapshot.hasData && mounted) {
                         return Container();
                       }
 

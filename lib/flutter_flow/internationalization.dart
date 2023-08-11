@@ -115,7 +115,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   // Settings
   {
     's8m3njvu': {
-      'en': 'Settings of profile',
+      'en': 'Profile settings',
       'sk': 'Nastavenia profilu',
     },
     'z4exo5ew': {
@@ -152,7 +152,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en':
           'Discover every information about your food. Register for better personalization and information tailored for you',
       'sk':
-          'Zistite všetky informácie o svojom jedle. Zaregistrujte sa pre lepšiu personalizáciu a informácie prispôsobené pre vás',
+          'Zistite všetky informácie o svojom jedle. Zaregistrujte sa pre lepšiu personalizáciu a informácie prispôsobené pre Vás',
     },
     'jxo4sfdl': {
       'en': 'Register for free',
@@ -238,11 +238,11 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'sk':
           'Vybrané informácie budú použité iba na prispôsobenie výsledkov pre vás a nebudú poskytnuté tretím stranám.',
     },
-    'v9zuktnc': {
+    'ju5x2gug': {
       'en': 'Continue to next step',
       'sk': 'Pokračujte ďalším krokom',
     },
-    '0ntgcuf1': {
+    '5zwswdbw': {
       'en': 'Continue without registration',
       'sk': 'Pokračovať bez registrácie',
     },
@@ -256,11 +256,11 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'sk':
           'Vyplnené informácie budú použité iba na personalizáciu výsledkov pre vás a nebudú poskytnuté tretím stranám.',
     },
-    'dvh22apf': {
+    'iyvefphs': {
       'en': 'Finish registration',
       'sk': 'Dokončite registráciu',
     },
-    'fed90zl7': {
+    'dav0p1kv': {
       'en': 'Continue without registration',
       'sk': 'Pokračovať bez registrácie',
     },
@@ -435,8 +435,8 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   // RecycleInfo
   {
     'ps7rr3mp': {
-      'en': 'Túto potravinu vyhoďte do plastov',
-      'sk': 'Túto potravinu vyhoďte do plastov',
+      'en': 'Put this product into yellow bin',
+      'sk': 'Vložte tento produkt do žltého koša',
     },
   },
   // Medication
@@ -468,8 +468,8 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   // PersonalInfo
   {
     'tl0j5ukv': {
-      'en': '',
-      'sk': 'názov',
+      'en': 'Title',
+      'sk': 'Názov',
     },
     'ulejwi2y': {
       'en': 'Male',
@@ -480,11 +480,11 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'sk': 'Žena',
     },
     'oa8xf1yu': {
-      'en': 'Attach hellicopter',
-      'sk': 'Pripojte helikoptéru',
+      'en': 'Attack hellicopter',
+      'sk': 'Útočná helikoptéra',
     },
     'bdrrcflo': {
-      'en': 'Pohlavie',
+      'en': 'Gender',
       'sk': 'Pohlavie',
     },
     'hwg21qi2': {

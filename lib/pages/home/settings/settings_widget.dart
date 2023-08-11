@@ -75,7 +75,7 @@ class _SettingsWidgetState extends State<SettingsWidget> {
                         ),
                         Text(
                           FFLocalizations.of(context).getText(
-                            's8m3njvu' /* Settings of profile */,
+                            's8m3njvu' /* Profile settings */,
                           ),
                           style:
                               FlutterFlowTheme.of(context).bodyMedium.override(
@@ -175,7 +175,7 @@ class _SettingsWidgetState extends State<SettingsWidget> {
                         ),
                       ]
                           .divide(SizedBox(height: 24.0))
-                          .addToEnd(SizedBox(height: 60.0)),
+                          .addToEnd(SizedBox(height: 70.0)),
                     ),
                   ),
                   Align(

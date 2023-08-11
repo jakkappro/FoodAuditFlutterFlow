@@ -63,75 +63,87 @@ class _SetUpWizardWidgetState extends State<SetUpWizardWidget> {
                       PageController(initialPage: 0),
                   scrollDirection: Axis.horizontal,
                   children: [
-                    Padding(
-                      padding:
-                          EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
-                      child: SingleChildScrollView(
-                        child: Column(
-                          mainAxisSize: MainAxisSize.max,
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            ClipRRect(
-                              borderRadius: BorderRadius.circular(8.0),
-                              child: Image.asset(
-                                'assets/images/nu3foodLogo.png',
-                                width: 176.0,
-                                height: 54.0,
-                                fit: BoxFit.cover,
-                              ),
-                            ),
-                            Container(
-                              width: double.infinity,
-                              decoration: BoxDecoration(
-                                color: Colors.transparent,
-                              ),
-                              child: Column(
-                                mainAxisSize: MainAxisSize.max,
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Text(
-                                    FFLocalizations.of(context).getText(
-                                      'ifbezgj8' /* Create your profile */,
-                                    ),
-                                    style: FlutterFlowTheme.of(context)
-                                        .bodyMedium
-                                        .override(
-                                          fontFamily: 'Roboto',
-                                          color: Color(0xFF382F73),
-                                          fontSize: 24.0,
-                                          letterSpacing: 0.15,
-                                          fontWeight: FontWeight.w800,
-                                          lineHeight: 1.4,
-                                        ),
+                    Stack(
+                      children: [
+                        Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              24.0, 0.0, 24.0, 0.0),
+                          child: SingleChildScrollView(
+                            child: Column(
+                              mainAxisSize: MainAxisSize.max,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                ClipRRect(
+                                  borderRadius: BorderRadius.circular(8.0),
+                                  child: Image.asset(
+                                    'assets/images/nu3foodLogo.png',
+                                    width: 176.0,
+                                    height: 54.0,
+                                    fit: BoxFit.cover,
                                   ),
-                                  Text(
-                                    FFLocalizations.of(context).getText(
-                                      'r247e285' /* Selected information will be u... */,
-                                    ),
-                                    style: FlutterFlowTheme.of(context)
-                                        .bodyMedium
-                                        .override(
-                                          fontFamily: 'Roboto',
-                                          color: Color(0xFFAFACC7),
-                                          fontSize: 18.0,
-                                          letterSpacing: 0.15,
-                                          lineHeight: 1.5,
-                                        ),
+                                ),
+                                Container(
+                                  width: double.infinity,
+                                  decoration: BoxDecoration(
+                                    color: Colors.transparent,
                                   ),
-                                ].divide(SizedBox(height: 6.0)),
-                              ),
+                                  child: Column(
+                                    mainAxisSize: MainAxisSize.max,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Text(
+                                        FFLocalizations.of(context).getText(
+                                          'ifbezgj8' /* Create your profile */,
+                                        ),
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .override(
+                                              fontFamily: 'Roboto',
+                                              color: Color(0xFF382F73),
+                                              fontSize: 24.0,
+                                              letterSpacing: 0.15,
+                                              fontWeight: FontWeight.w800,
+                                              lineHeight: 1.4,
+                                            ),
+                                      ),
+                                      Text(
+                                        FFLocalizations.of(context).getText(
+                                          'r247e285' /* Selected information will be u... */,
+                                        ),
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .override(
+                                              fontFamily: 'Roboto',
+                                              color: Color(0xFFAFACC7),
+                                              fontSize: 18.0,
+                                              letterSpacing: 0.15,
+                                              lineHeight: 1.5,
+                                            ),
+                                      ),
+                                    ].divide(SizedBox(height: 6.0)),
+                                  ),
+                                ),
+                                wrapWithModel(
+                                  model: _model.avatarMenuModel,
+                                  updateCallback: () => setState(() {}),
+                                  child: AvatarMenuWidget(),
+                                ),
+                                wrapWithModel(
+                                  model: _model.personalInfoModel,
+                                  updateCallback: () => setState(() {}),
+                                  child: PersonalInfoWidget(),
+                                ),
+                              ].divide(SizedBox(height: 24.0)),
                             ),
-                            wrapWithModel(
-                              model: _model.avatarMenuModel,
-                              updateCallback: () => setState(() {}),
-                              child: AvatarMenuWidget(),
-                            ),
-                            wrapWithModel(
-                              model: _model.personalInfoModel,
-                              updateCallback: () => setState(() {}),
-                              child: PersonalInfoWidget(),
-                            ),
-                            Container(
+                          ),
+                        ),
+                        Align(
+                          alignment: AlignmentDirectional(0.0, 0.95),
+                          child: Padding(
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                24.0, 0.0, 24.0, 0.0),
+                            child: Container(
                               width: double.infinity,
                               decoration: BoxDecoration(
                                 color: Colors.transparent,
@@ -169,7 +181,7 @@ class _SetUpWizardWidgetState extends State<SetUpWizardWidget> {
                                             child: Text(
                                               FFLocalizations.of(context)
                                                   .getText(
-                                                'v9zuktnc' /* Continue to next step */,
+                                                'ju5x2gug' /* Continue to next step */,
                                               ),
                                               textAlign: TextAlign.center,
                                               style: FlutterFlowTheme.of(
@@ -219,7 +231,7 @@ class _SetUpWizardWidgetState extends State<SetUpWizardWidget> {
                                         },
                                         child: Text(
                                           FFLocalizations.of(context).getText(
-                                            '0ntgcuf1' /* Continue without registration */,
+                                            '5zwswdbw' /* Continue without registration */,
                                           ),
                                           textAlign: TextAlign.center,
                                           style: FlutterFlowTheme.of(context)
@@ -238,79 +250,92 @@ class _SetUpWizardWidgetState extends State<SetUpWizardWidget> {
                                 ].divide(SizedBox(height: 12.0)),
                               ),
                             ),
-                          ].divide(SizedBox(height: 24.0)),
+                          ),
                         ),
-                      ),
+                      ],
                     ),
-                    Padding(
-                      padding:
-                          EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
-                      child: SingleChildScrollView(
-                        child: Column(
-                          mainAxisSize: MainAxisSize.min,
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            ClipRRect(
-                              borderRadius: BorderRadius.circular(8.0),
-                              child: Image.asset(
-                                'assets/images/nu3foodLogo.png',
-                                width: 176.0,
-                                height: 54.0,
-                                fit: BoxFit.cover,
-                              ),
-                            ),
-                            Text(
-                              FFLocalizations.of(context).getText(
-                                '1p2e8too' /* Tell us something about yourse... */,
-                              ),
-                              style: FlutterFlowTheme.of(context)
-                                  .bodyMedium
-                                  .override(
-                                    fontFamily: 'Roboto',
-                                    color: Color(0xFF382F73),
-                                    fontSize: 24.0,
-                                    letterSpacing: 0.15,
-                                    fontWeight: FontWeight.w800,
-                                    lineHeight: 1.4,
+                    Stack(
+                      children: [
+                        Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              24.0, 0.0, 24.0, 0.0),
+                          child: SingleChildScrollView(
+                            child: Column(
+                              mainAxisSize: MainAxisSize.min,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                ClipRRect(
+                                  borderRadius: BorderRadius.circular(8.0),
+                                  child: Image.asset(
+                                    'assets/images/nu3foodLogo.png',
+                                    width: 176.0,
+                                    height: 54.0,
+                                    fit: BoxFit.cover,
                                   ),
-                            ),
-                            Text(
-                              FFLocalizations.of(context).getText(
-                                'lpyawdzf' /* Filled information will be use... */,
-                              ),
-                              style: FlutterFlowTheme.of(context)
-                                  .bodyMedium
-                                  .override(
-                                    fontFamily: 'Roboto',
-                                    color: Color(0xFFAFACC7),
-                                    fontSize: 18.0,
-                                    letterSpacing: 0.15,
-                                    lineHeight: 1.5,
+                                ),
+                                Text(
+                                  FFLocalizations.of(context).getText(
+                                    '1p2e8too' /* Tell us something about yourse... */,
                                   ),
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .override(
+                                        fontFamily: 'Roboto',
+                                        color: Color(0xFF382F73),
+                                        fontSize: 24.0,
+                                        letterSpacing: 0.15,
+                                        fontWeight: FontWeight.w800,
+                                        lineHeight: 1.4,
+                                      ),
+                                ),
+                                Text(
+                                  FFLocalizations.of(context).getText(
+                                    'lpyawdzf' /* Filled information will be use... */,
+                                  ),
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .override(
+                                        fontFamily: 'Roboto',
+                                        color: Color(0xFFAFACC7),
+                                        fontSize: 18.0,
+                                        letterSpacing: 0.15,
+                                        lineHeight: 1.5,
+                                      ),
+                                ),
+                                wrapWithModel(
+                                  model: _model.intoleranciesModel,
+                                  updateCallback: () => setState(() {}),
+                                  child: IntoleranciesWidget(),
+                                ),
+                                Container(
+                                  width: double.infinity,
+                                  decoration: BoxDecoration(
+                                    color: Colors.transparent,
+                                  ),
+                                  child: wrapWithModel(
+                                    model: _model.medicationModel,
+                                    updateCallback: () => setState(() {}),
+                                    child: MedicationWidget(),
+                                  ),
+                                ),
+                              ]
+                                  .divide(SizedBox(height: 24.0))
+                                  .addToEnd(SizedBox(height: 90.0)),
                             ),
-                            wrapWithModel(
-                              model: _model.intoleranciesModel,
-                              updateCallback: () => setState(() {}),
-                              child: IntoleranciesWidget(),
-                            ),
-                            Container(
-                              width: double.infinity,
-                              decoration: BoxDecoration(
-                                color: Colors.transparent,
-                              ),
-                              child: wrapWithModel(
-                                model: _model.medicationModel,
-                                updateCallback: () => setState(() {}),
-                                child: MedicationWidget(),
-                              ),
-                            ),
-                            Container(
+                          ),
+                        ),
+                        Align(
+                          alignment: AlignmentDirectional(0.0, 0.95),
+                          child: Padding(
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                24.0, 0.0, 24.0, 0.0),
+                            child: Container(
                               width: double.infinity,
                               decoration: BoxDecoration(
                                 color: Colors.transparent,
                               ),
                               child: Column(
-                                mainAxisSize: MainAxisSize.max,
+                                mainAxisSize: MainAxisSize.min,
                                 children: [
                                   Container(
                                     width: double.infinity,
@@ -380,7 +405,7 @@ class _SetUpWizardWidgetState extends State<SetUpWizardWidget> {
                                                 child: Text(
                                                   FFLocalizations.of(context)
                                                       .getText(
-                                                    'dvh22apf' /* Finish registration */,
+                                                    'iyvefphs' /* Finish registration */,
                                                   ),
                                                   textAlign: TextAlign.center,
                                                   style: FlutterFlowTheme.of(
@@ -423,7 +448,7 @@ class _SetUpWizardWidgetState extends State<SetUpWizardWidget> {
                                             12.0, 10.0, 12.0, 10.0),
                                         child: Text(
                                           FFLocalizations.of(context).getText(
-                                            'fed90zl7' /* Continue without registration */,
+                                            'dav0p1kv' /* Continue without registration */,
                                           ),
                                           textAlign: TextAlign.center,
                                           style: FlutterFlowTheme.of(context)
@@ -442,11 +467,9 @@ class _SetUpWizardWidgetState extends State<SetUpWizardWidget> {
                                 ].divide(SizedBox(height: 12.0)),
                               ),
                             ),
-                          ]
-                              .divide(SizedBox(height: 24.0))
-                              .addToEnd(SizedBox(height: 25.0)),
+                          ),
                         ),
-                      ),
+                      ],
                     ),
                   ],
                 ),

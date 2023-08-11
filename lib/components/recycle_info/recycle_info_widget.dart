@@ -57,7 +57,7 @@ class _RecycleInfoWidgetState extends State<RecycleInfoWidget> {
             children: [
               AutoSizeText(
                 FFLocalizations.of(context).getText(
-                  'ps7rr3mp' /* Túto potravinu vyhoďte do plas... */,
+                  'ps7rr3mp' /* Put this product into yellow b... */,
                 ),
                 textAlign: TextAlign.start,
                 style: FlutterFlowTheme.of(context).bodyMedium.override(

@@ -102,6 +102,9 @@ class _PersonalInfoWidgetState extends State<PersonalInfoWidget> {
                     ),
                     obscureText: false,
                     decoration: InputDecoration(
+                      labelText: FFLocalizations.of(context).getText(
+                        'tl0j5ukv' /* Title */,
+                      ),
                       enabledBorder: InputBorder.none,
                       focusedBorder: InputBorder.none,
                       errorBorder: InputBorder.none,
@@ -214,7 +217,7 @@ class _PersonalInfoWidgetState extends State<PersonalInfoWidget> {
                     'xk29a6ac' /* Female */,
                   ),
                   FFLocalizations.of(context).getText(
-                    'oa8xf1yu' /* Attach hellicopter */,
+                    'oa8xf1yu' /* Attack hellicopter */,
                   )
                 ],
                 onChanged: (val) async {
@@ -234,7 +237,7 @@ class _PersonalInfoWidgetState extends State<PersonalInfoWidget> {
                       lineHeight: 1.55,
                     ),
                 hintText: FFLocalizations.of(context).getText(
-                  'bdrrcflo' /* Pohlavie */,
+                  'bdrrcflo' /* Gender */,
                 ),
                 icon: Icon(
                   Icons.fingerprint,
