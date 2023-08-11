@@ -51,78 +51,105 @@ class _AuthComponentWidgetState extends State<AuthComponentWidget> {
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Container(
-            width: double.infinity,
-            decoration: BoxDecoration(
-              color: Colors.black,
-              borderRadius: BorderRadius.circular(4.0),
-            ),
-            child: Row(
-              mainAxisSize: MainAxisSize.max,
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(8.0, 8.0, 8.0, 8.0),
-                  child: Icon(
-                    Icons.apple_outlined,
-                    color: Colors.white,
-                    size: 24.0,
-                  ),
-                ),
-                Padding(
-                  padding:
-                      EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 10.0, 10.0),
-                  child: Text(
-                    FFLocalizations.of(context).getText(
-                      'nltnyzvs' /* Sign in with Apple */,
+          InkWell(
+            splashColor: Colors.transparent,
+            focusColor: Colors.transparent,
+            hoverColor: Colors.transparent,
+            highlightColor: Colors.transparent,
+            onTap: () async {
+              GoRouter.of(context).prepareAuthEvent();
+              final user = await authManager.signInWithApple(context);
+              if (user == null) {
+                return;
+              }
+              FFAppState().IsGuest = false;
+              if (FFAppState().DoneWizzard == false) {
+                context.goNamedAuth('SetUpWizard', context.mounted);
+              } else {
+                context.goNamedAuth('Home', context.mounted);
+              }
+            },
+            child: Container(
+              width: double.infinity,
+              decoration: BoxDecoration(
+                color: Colors.black,
+                borderRadius: BorderRadius.circular(4.0),
+              ),
+              child: Row(
+                mainAxisSize: MainAxisSize.max,
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Padding(
+                    padding: EdgeInsetsDirectional.fromSTEB(8.0, 8.0, 8.0, 8.0),
+                    child: Icon(
+                      Icons.apple_outlined,
+                      color: Colors.white,
+                      size: 24.0,
                     ),
-                    style: FlutterFlowTheme.of(context).bodyMedium.override(
-                          fontFamily: 'Roboto',
-                          color: Colors.white,
-                          fontSize: 16.0,
-                          letterSpacing: 0.32,
-                          fontWeight: FontWeight.w500,
-                        ),
                   ),
-                ),
-              ],
+                  Padding(
+                    padding:
+                        EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 10.0, 10.0),
+                    child: Text(
+                      FFLocalizations.of(context).getText(
+                        'nltnyzvs' /* Sign in with Apple */,
+                      ),
+                      style: FlutterFlowTheme.of(context).bodyMedium.override(
+                            fontFamily: 'Roboto',
+                            color: Colors.white,
+                            fontSize: 16.0,
+                            letterSpacing: 0.32,
+                            fontWeight: FontWeight.w500,
+                          ),
+                    ),
+                  ),
+                ],
+              ),
             ),
           ),
-          Container(
-            width: double.infinity,
-            decoration: BoxDecoration(
-              color: Color(0xFF1877F2),
-              borderRadius: BorderRadius.circular(4.0),
-            ),
-            child: Row(
-              mainAxisSize: MainAxisSize.max,
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(8.0, 8.0, 8.0, 8.0),
-                  child: Icon(
-                    Icons.facebook_sharp,
-                    color: Color(0xFFFFFFFE),
-                    size: 24.0,
-                  ),
-                ),
-                Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 10.0),
-                  child: Text(
-                    FFLocalizations.of(context).getText(
-                      'gbe6jirv' /* Continue with Facebook */,
+          InkWell(
+            splashColor: Colors.transparent,
+            focusColor: Colors.transparent,
+            hoverColor: Colors.transparent,
+            highlightColor: Colors.transparent,
+            onTap: () async {},
+            child: Container(
+              width: double.infinity,
+              decoration: BoxDecoration(
+                color: Color(0xFF1877F2),
+                borderRadius: BorderRadius.circular(4.0),
+              ),
+              child: Row(
+                mainAxisSize: MainAxisSize.max,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Padding(
+                    padding: EdgeInsetsDirectional.fromSTEB(8.0, 8.0, 8.0, 8.0),
+                    child: Icon(
+                      Icons.facebook_sharp,
+                      color: Color(0xFFFFFFFE),
+                      size: 24.0,
                     ),
-                    style: FlutterFlowTheme.of(context).bodyMedium.override(
-                          fontFamily: 'Roboto',
-                          color: Colors.white,
-                          fontSize: 16.0,
-                          letterSpacing: 0.32,
-                          fontWeight: FontWeight.w600,
-                        ),
                   ),
-                ),
-              ],
+                  Padding(
+                    padding:
+                        EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 10.0),
+                    child: Text(
+                      FFLocalizations.of(context).getText(
+                        'gbe6jirv' /* Continue with Facebook */,
+                      ),
+                      style: FlutterFlowTheme.of(context).bodyMedium.override(
+                            fontFamily: 'Roboto',
+                            color: Colors.white,
+                            fontSize: 16.0,
+                            letterSpacing: 0.32,
+                            fontWeight: FontWeight.w600,
+                          ),
+                    ),
+                  ),
+                ],
+              ),
             ),
           ),
           InkWell(

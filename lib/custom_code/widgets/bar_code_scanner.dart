@@ -81,6 +81,13 @@ class _BarCodeScannerState extends State<BarCodeScanner>
           setState(() {});
         }
       },
+      onTap: () async {
+        if (_panelOpened && !_panelController.isPanelAnimating) {
+          await _panelController.close();
+          _panelOpened = false;
+          setState(() {});
+        }
+      },
       child: SlidingUpPanel(
         controller: _panelController,
         minHeight: 0,

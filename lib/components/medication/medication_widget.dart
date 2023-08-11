@@ -45,7 +45,7 @@ class _MedicationWidgetState extends State<MedicationWidget> {
     context.watch<FFAppState>();
 
     return Column(
-      mainAxisSize: MainAxisSize.max,
+      mainAxisSize: MainAxisSize.min,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
@@ -128,6 +128,56 @@ class _MedicationWidgetState extends State<MedicationWidget> {
             },
           ),
         ),
+        Builder(
+          builder: (context) {
+            final medicament =
+                _model.simpleSearchResults.toList().take(3).toList();
+            return SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              child: Row(
+                mainAxisSize: MainAxisSize.min,
+                children: List.generate(medicament.length, (medicamentIndex) {
+                  final medicamentItem = medicament[medicamentIndex];
+                  return InkWell(
+                    splashColor: Colors.transparent,
+                    focusColor: Colors.transparent,
+                    hoverColor: Colors.transparent,
+                    highlightColor: Colors.transparent,
+                    onTap: () async {
+                      setState(() {
+                        FFAppState().addToMedication(medicamentItem.name);
+                      });
+                    },
+                    child: Container(
+                      decoration: BoxDecoration(
+                        color: Colors.transparent,
+                        borderRadius: BorderRadius.circular(6.0),
+                        border: Border.all(
+                          color: Color(0xFFAFACC7),
+                          width: 1.3,
+                        ),
+                      ),
+                      child: Padding(
+                        padding: EdgeInsetsDirectional.fromSTEB(
+                            12.0, 10.0, 12.0, 10.0),
+                        child: Text(
+                          medicamentItem.name,
+                          style:
+                              FlutterFlowTheme.of(context).bodyMedium.override(
+                                    fontFamily: 'Roboto',
+                                    color: Color(0xFFAFACC7),
+                                    letterSpacing: 0.15,
+                                    fontWeight: FontWeight.w800,
+                                  ),
+                        ),
+                      ),
+                    ),
+                  );
+                }).divide(SizedBox(width: 12.0)),
+              ),
+            );
+          },
+        ),
         Container(
           width: double.infinity,
           child: TextFormField(
@@ -202,56 +252,6 @@ class _MedicationWidgetState extends State<MedicationWidget> {
             style: FlutterFlowTheme.of(context).bodyMedium,
             validator: _model.textControllerValidator.asValidator(context),
           ),
-        ),
-        Builder(
-          builder: (context) {
-            final medicament =
-                _model.simpleSearchResults.toList().take(3).toList();
-            return SingleChildScrollView(
-              scrollDirection: Axis.horizontal,
-              child: Row(
-                mainAxisSize: MainAxisSize.min,
-                children: List.generate(medicament.length, (medicamentIndex) {
-                  final medicamentItem = medicament[medicamentIndex];
-                  return InkWell(
-                    splashColor: Colors.transparent,
-                    focusColor: Colors.transparent,
-                    hoverColor: Colors.transparent,
-                    highlightColor: Colors.transparent,
-                    onTap: () async {
-                      setState(() {
-                        FFAppState().addToMedication(medicamentItem.name);
-                      });
-                    },
-                    child: Container(
-                      decoration: BoxDecoration(
-                        color: Colors.transparent,
-                        borderRadius: BorderRadius.circular(6.0),
-                        border: Border.all(
-                          color: Color(0xFFAFACC7),
-                          width: 1.3,
-                        ),
-                      ),
-                      child: Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(
-                            12.0, 10.0, 12.0, 10.0),
-                        child: Text(
-                          medicamentItem.name,
-                          style:
-                              FlutterFlowTheme.of(context).bodyMedium.override(
-                                    fontFamily: 'Roboto',
-                                    color: Color(0xFFAFACC7),
-                                    letterSpacing: 0.15,
-                                    fontWeight: FontWeight.w800,
-                                  ),
-                        ),
-                      ),
-                    ),
-                  );
-                }).divide(SizedBox(width: 12.0)),
-              ),
-            );
-          },
         ),
       ]
           .divide(SizedBox(height: 15.0))

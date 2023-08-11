@@ -171,7 +171,12 @@ class _PersonalInfoWidgetState extends State<PersonalInfoWidget> {
                       Text(
                         valueOrDefault<String>(
                           FFAppState().dobSet == true
-                              ? FFAppState().dateOfBirdth?.toString()
+                              ? dateTimeFormat(
+                                  'yMMMd',
+                                  FFAppState().dateOfBirdth,
+                                  locale:
+                                      FFLocalizations.of(context).languageCode,
+                                )
                               : 'Date of birdth',
                           'Date of birdth',
                         ),
