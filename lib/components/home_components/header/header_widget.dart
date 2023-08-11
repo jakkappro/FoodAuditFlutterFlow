@@ -66,7 +66,7 @@ class _HeaderWidgetState extends State<HeaderWidget> {
                   ),
                   child: AuthUserStreamWidget(
                     builder: (context) => AutoSizeText(
-                      '${FFLocalizations.of(context).languageCode == 'SK' ? 'Ahoj ' : 'Hi '}${valueOrDefault<String>(
+                      '${FFLocalizations.of(context).languageCode == 'EN' ? 'Hi' : 'Ahoj'}${valueOrDefault<String>(
                         currentUserDisplayName,
                         'user',
                       )}!'
