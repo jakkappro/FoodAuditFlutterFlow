@@ -46,7 +46,7 @@ class _ScannedItemSafetyTextState extends State<ScannedItemSafetyText> {
     }
 
     final meds = await isDrugComplient(food);
-    if (meds) {
+    if (!meds) {
       return _Wrong.MEDS;
     }
     return _Wrong.NONE;
