@@ -185,8 +185,14 @@ class _BarCodeScannerState extends State<BarCodeScanner>
       return;
     }
 
-    _ean = ean;
     _scannedFood = await getFoodFromEAN(ean, true);
+
+    if (_scannedFood == null) {
+      return;
+    }
+
+    _ean = ean;
+
     if (_scannedFood != null) {
       var isSafe = await isFoodSafe(_scannedFood!.allergens);
       var isFineWithDrugs = await isDrugComplient(_scannedFood!);

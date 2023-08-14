@@ -129,7 +129,12 @@ class _SetUpWizardWidgetState extends State<SetUpWizardWidget> {
                               wrapWithModel(
                                 model: _model.personalInfoModel,
                                 updateCallback: () => setState(() {}),
-                                child: PersonalInfoWidget(),
+                                child: PersonalInfoWidget(
+                                  greetingText:
+                                      FFLocalizations.of(context).getText(
+                                    'nhigx45s' /* Fill out your information */,
+                                  ),
+                                ),
                               ),
                             ]
                                 .divide(SizedBox(height: 24.0))
@@ -424,42 +429,6 @@ class _SetUpWizardWidgetState extends State<SetUpWizardWidget> {
                                         ),
                                       ),
                                     ].divide(SizedBox(width: 12.0)),
-                                  ),
-                                ),
-                                InkWell(
-                                  splashColor: Colors.transparent,
-                                  focusColor: Colors.transparent,
-                                  hoverColor: Colors.transparent,
-                                  highlightColor: Colors.transparent,
-                                  onTap: () async {
-                                    FFAppState().IsGuest = true;
-
-                                    context.goNamed('Home');
-                                  },
-                                  child: Container(
-                                    width: double.infinity,
-                                    decoration: BoxDecoration(
-                                      color: Colors.transparent,
-                                    ),
-                                    child: Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          12.0, 10.0, 12.0, 10.0),
-                                      child: Text(
-                                        FFLocalizations.of(context).getText(
-                                          'dav0p1kv' /* Continue without registration */,
-                                        ),
-                                        textAlign: TextAlign.center,
-                                        style: FlutterFlowTheme.of(context)
-                                            .bodyMedium
-                                            .override(
-                                              fontFamily: 'Roboto',
-                                              color: Color(0xFF382F73),
-                                              letterSpacing: 0.15,
-                                              fontWeight: FontWeight.w800,
-                                              lineHeight: 1.5,
-                                            ),
-                                      ),
-                                    ),
                                   ),
                                 ),
                               ].divide(SizedBox(height: 12.0)),

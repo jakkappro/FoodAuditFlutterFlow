@@ -69,12 +69,10 @@ class _HomeWidgetState extends State<HomeWidget> {
                           updateCallback: () => setState(() {}),
                           child: HeaderWidget(),
                         ),
-                        Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              0.0, 10.0, 0.0, 0.0),
-                          child: Container(
+                        if (FFAppState().ScannedItems.length > 0)
+                          Container(
                             width: double.infinity,
-                            height: 228.0,
+                            height: 238.0,
                             decoration: BoxDecoration(
                               color: Colors.transparent,
                             ),
@@ -85,7 +83,6 @@ class _HomeWidgetState extends State<HomeWidget> {
                               child: ScannedItemsWidget(),
                             ),
                           ),
-                        ),
                         Container(
                           decoration: BoxDecoration(
                             color: Colors.transparent,

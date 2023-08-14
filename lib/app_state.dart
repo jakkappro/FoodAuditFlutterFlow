@@ -70,12 +70,7 @@ class FFAppState extends ChangeNotifier {
 
   late FlutterSecureStorage secureStorage;
 
-  List<ScannedItemStruct> _ScannedItems = [
-    ScannedItemStruct.fromSerializableMap(jsonDecode(
-        '{\"EAN\":\"03216549\",\"LastScanned\":\"1689681622952\",\"IsFavourite\":\"true\",\"NumberOfScans\":\"1\"}')),
-    ScannedItemStruct.fromSerializableMap(jsonDecode(
-        '{\"EAN\":\"623598412\",\"LastScanned\":\"1689681639728\",\"IsFavourite\":\"true\",\"NumberOfScans\":\"36\"}'))
-  ];
+  List<ScannedItemStruct> _ScannedItems = [];
   List<ScannedItemStruct> get ScannedItems => _ScannedItems;
   set ScannedItems(List<ScannedItemStruct> _value) {
     _ScannedItems = _value;

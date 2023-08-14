@@ -238,6 +238,10 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'sk':
           'Vybrané informácie budú použité iba na prispôsobenie výsledkov pre vás a nebudú poskytnuté tretím stranám.',
     },
+    'nhigx45s': {
+      'en': 'Fill out your information',
+      'sk': 'Vyplňte svoje údaje',
+    },
     'ju5x2gug': {
       'en': 'Continue to next step',
       'sk': 'Pokračujte ďalším krokom',
@@ -259,10 +263,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     'iyvefphs': {
       'en': 'Finish registration',
       'sk': 'Dokončite registráciu',
-    },
-    'dav0p1kv': {
-      'en': 'Continue without registration',
-      'sk': 'Pokračovať bez registrácie',
     },
     'gwn7oggo': {
       'en': 'Home',
