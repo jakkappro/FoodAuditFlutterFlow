@@ -202,7 +202,7 @@ class _ScannedItemWidgetState extends State<ScannedItemWidget> {
                     alignment: AlignmentDirectional(-1.0, 1.0),
                     child: Container(
                       width: double.infinity,
-                      height: 30.0,
+                      height: 40.0,
                       decoration: BoxDecoration(
                         color: Colors.transparent,
                       ),

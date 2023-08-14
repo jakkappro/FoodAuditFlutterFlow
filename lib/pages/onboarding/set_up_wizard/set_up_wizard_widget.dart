@@ -365,7 +365,7 @@ class _SetUpWizardWidgetState extends State<SetUpWizardWidget> {
                                           child: Padding(
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
-                                                    12.0, 10.0, 12.0, 10.0),
+                                                    12.0, 12.0, 12.0, 12.0),
                                             child: ClipRRect(
                                               borderRadius:
                                                   BorderRadius.circular(0.0),
