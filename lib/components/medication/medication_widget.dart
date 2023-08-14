@@ -5,7 +5,6 @@ import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
-import 'package:text_search/text_search.dart';
 import 'medication_model.dart';
 export 'medication_model.dart';
 
@@ -130,8 +129,21 @@ class _MedicationWidgetState extends State<MedicationWidget> {
         ),
         Builder(
           builder: (context) {
+            if (_model.algoliaSearchResults == null) {
+              return Center(
+                child: SizedBox(
+                  width: 50.0,
+                  height: 50.0,
+                  child: CircularProgressIndicator(
+                    valueColor: AlwaysStoppedAnimation<Color>(
+                      FlutterFlowTheme.of(context).primary,
+                    ),
+                  ),
+                ),
+              );
+            }
             final medicament =
-                _model.simpleSearchResults.toList().take(3).toList();
+                (_model.algoliaSearchResults?.toList() ?? []).take(3).toList();
             return SingleChildScrollView(
               scrollDirection: Axis.horizontal,
               child: Row(
@@ -186,23 +198,16 @@ class _MedicationWidgetState extends State<MedicationWidget> {
               '_model.textController',
               Duration(milliseconds: 2000),
               () async {
-                await queryMedicationRecordOnce()
-                    .then(
-                      (records) => _model.simpleSearchResults = TextSearch(
-                        records
-                            .map(
-                              (record) =>
-                                  TextSearchItem(record, [record.name!]),
-                            )
-                            .toList(),
-                      )
-                          .search(_model.textController.text)
-                          .map((r) => r.object)
-                          .take(3)
-                          .toList(),
-                    )
-                    .onError((_, __) => _model.simpleSearchResults = [])
-                    .whenComplete(() => setState(() {}));
+                if (_model.textController.text.length > 3) {
+                  setState(() => _model.algoliaSearchResults = null);
+                  await MedicationRecord.search(
+                    term: _model.textController.text,
+                    maxResults: 3,
+                  )
+                      .then((r) => _model.algoliaSearchResults = r)
+                      .onError((_, __) => _model.algoliaSearchResults = [])
+                      .whenComplete(() => setState(() {}));
+                }
               },
             ),
             obscureText: false,
