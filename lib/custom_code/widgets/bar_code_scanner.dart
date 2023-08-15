@@ -193,7 +193,8 @@ class _BarCodeScannerState extends State<BarCodeScanner>
   Future<void> _onEanScanned(String ean) async {
     if (_panelOpened) return;
     if (ean.length < 13) return;
-    if (ean == _ean && _sameUnknownEanScanned == 0) return;
+    if (ean == _ean &&
+        (_sameUnknownEanScanned == 0 || _sameUnknownEanScanned > 5)) return;
 
     if (_requestedEans.contains(ean)) {
       // here tell user that this ean was requested already using snackbar that disappiers after some time

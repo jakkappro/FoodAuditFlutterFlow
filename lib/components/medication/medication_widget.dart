@@ -156,9 +156,13 @@ class _MedicationWidgetState extends State<MedicationWidget> {
                     hoverColor: Colors.transparent,
                     highlightColor: Colors.transparent,
                     onTap: () async {
-                      setState(() {
-                        FFAppState().addToMedication(medicamentItem.name);
-                      });
+                      if (!FFAppState()
+                          .Medication
+                          .contains(medicamentItem.name)) {
+                        setState(() {
+                          FFAppState().addToMedication(medicamentItem.name);
+                        });
+                      }
                     },
                     child: Container(
                       decoration: BoxDecoration(
