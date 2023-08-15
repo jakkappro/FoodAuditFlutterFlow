@@ -17,6 +17,7 @@ import 'package:sliding_up_panel/sliding_up_panel.dart';
 import '../../components/scanner_page_components/sliding_up_panel_from_ean/sliding_up_panel_from_ean_widget.dart';
 import '../../components/scanner_page_components/close_scanner_button/close_scanner_button_widget.dart';
 import '../../components/scanner_page_components/scan_product_message/scan_product_message_widget.dart';
+import 'package:nu3_food/components/scanner_page_components/add_manually_button/add_manually_button_widget.dart';
 
 class BarCodeScanner extends StatefulWidget {
   const BarCodeScanner({
@@ -38,6 +39,7 @@ class _BarCodeScannerState extends State<BarCodeScanner>
   final Color _dangerounsFoodColor = Colors.red.withOpacity(0.5);
   final Color _neutralColor = Color(0x1C0D26).withOpacity(0.5);
   final Color _mildFoodColor = Colors.yellow.withOpacity(0.5);
+  List<String> _requestedEans = [];
 
   PanelController _panelController = PanelController();
   ProductsRecord? _scannedFood;
@@ -45,16 +47,24 @@ class _BarCodeScannerState extends State<BarCodeScanner>
   bool _panelOpened = false;
   String _ean = '';
   bool isTorchOn = false;
+  int _sameUnknownEanScanned = 0;
+  bool _shouldShowUnknowEanButton = false;
 
   @override
   void initState() {
     super.initState();
     _backdropColor = _neutralColor;
+    _getRequestedEans();
   }
 
   @override
   void dispose() {
     super.dispose();
+  }
+
+  Future<void> _getRequestedEans() async {
+    final t = await queryRequestedEansRecordOnce();
+    _requestedEans = t.map((e) => e.ean).toList();
   }
 
   @override
@@ -140,6 +150,12 @@ class _BarCodeScannerState extends State<BarCodeScanner>
               child: _switchTorchToggle(),
               alignment: Alignment(-0.9, 0.9),
             ),
+            Align(
+              child: _shouldShowUnknowEanButton
+                  ? AddManuallyButtonWidget(ean: _ean)
+                  : Container(),
+              alignment: Alignment(0, 0.9),
+            )
           ],
         ),
       ),
@@ -166,7 +182,22 @@ class _BarCodeScannerState extends State<BarCodeScanner>
       );
 
   Future<void> _onEanScanned(String ean) async {
-    if (ean == _ean || _panelOpened) return;
+    if ((ean == _ean && _sameUnknownEanScanned != 0) ||
+        _panelOpened ||
+        ean.length < 13) return;
+
+    if (_requestedEans.contains(ean)) {
+      // here tell user that this ean was requested already using snackbar that disappiers after some time
+      // will translate later to slovak
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text('This product was requested already'),
+          duration: Duration(seconds: 2),
+        ),
+      );
+
+      return;
+    }
     if (ean.isEmpty) {
       _scannedFood = null;
       _backdropColor = _neutralColor;
@@ -191,8 +222,6 @@ class _BarCodeScannerState extends State<BarCodeScanner>
       return;
     }
 
-    _ean = ean;
-
     if (_scannedFood != null) {
       var isSafe = await isFoodSafe(_scannedFood!.allergens);
       var isFineWithDrugs = await isDrugComplient(_scannedFood!);
@@ -201,8 +230,27 @@ class _BarCodeScannerState extends State<BarCodeScanner>
           : !isFineWithDrugs
               ? _mildFoodColor
               : _safeFoodColor;
+      _shouldShowUnknowEanButton = false;
+      _sameUnknownEanScanned = 0;
     } else {
       _backdropColor = _neutralColor;
+
+      if (_ean == ean) {
+        _sameUnknownEanScanned++;
+      } else {
+        _sameUnknownEanScanned = 1;
+      }
+
+      _ean = ean;
+
+      if (_sameUnknownEanScanned >= 5) {
+        _shouldShowUnknowEanButton = true;
+      }
+
+      setState(() {
+        _panelOpened = false;
+      });
+      return;
     }
 
     if (_panelController.isAttached && _panelController.isPanelClosed) {

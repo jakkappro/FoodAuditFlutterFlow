@@ -116,25 +116,31 @@ class _ScannedItemWidgetState extends State<ScannedItemWidget> {
                                 ),
                               ),
                             ),
-                            AutoSizeText(
-                              valueOrDefault<String>(
-                                dateTimeFormat(
-                                  'EEEE, H:mm',
-                                  widget.scannedItem?.lastScanned,
-                                  locale:
-                                      FFLocalizations.of(context).languageCode,
-                                ),
-                                'no dateTime found',
+                            Container(
+                              width: MediaQuery.sizeOf(context).width * 0.5,
+                              decoration: BoxDecoration(
+                                color: Colors.transparent,
                               ),
-                              style: FlutterFlowTheme.of(context)
-                                  .bodyMedium
-                                  .override(
-                                    fontFamily: 'Roboto',
-                                    color: Color(0xFFC4C4C4),
-                                    fontSize: 11.0,
-                                    letterSpacing: 1.05,
-                                    fontWeight: FontWeight.bold,
+                              child: AutoSizeText(
+                                valueOrDefault<String>(
+                                  dateTimeFormat(
+                                    'EEEE, H:mm',
+                                    widget.scannedItem?.lastScanned,
+                                    locale: FFLocalizations.of(context)
+                                        .languageCode,
                                   ),
+                                  'no dateTime found',
+                                ),
+                                style: FlutterFlowTheme.of(context)
+                                    .bodyMedium
+                                    .override(
+                                      fontFamily: 'Roboto',
+                                      color: Color(0xFFC4C4C4),
+                                      fontSize: 11.0,
+                                      letterSpacing: 1.05,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                              ),
                             ),
                           ].divide(SizedBox(width: 8.0)),
                         ),
