@@ -13,9 +13,11 @@ class AddManuallyButtonWidget extends StatefulWidget {
   const AddManuallyButtonWidget({
     Key? key,
     required this.ean,
+    required this.onPressed,
   }) : super(key: key);
 
   final String? ean;
+  final Future<dynamic> Function()? onPressed;
 
   @override
   _AddManuallyButtonWidgetState createState() =>
@@ -61,6 +63,7 @@ class _AddManuallyButtonWidgetState extends State<AddManuallyButtonWidget> {
               createdBy: FFAppState().IsGuest ? 'guest' : currentUserUid,
               creationTime: getCurrentTimestamp,
             ));
+        await widget.onPressed?.call();
       },
       child: Container(
         width: 160.0,

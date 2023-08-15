@@ -117,7 +117,7 @@ class _ScannedItemWidgetState extends State<ScannedItemWidget> {
                               ),
                             ),
                             Container(
-                              width: MediaQuery.sizeOf(context).width * 0.5,
+                              width: 90.0,
                               decoration: BoxDecoration(
                                 color: Colors.transparent,
                               ),
