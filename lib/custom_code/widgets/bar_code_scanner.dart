@@ -49,6 +49,7 @@ class _BarCodeScannerState extends State<BarCodeScanner>
   bool isTorchOn = false;
   int _sameUnknownEanScanned = 0;
   bool _shouldShowUnknowEanButton = false;
+  bool _foundSomethingUseful = false;
 
   @override
   void initState() {
@@ -72,7 +73,7 @@ class _BarCodeScannerState extends State<BarCodeScanner>
     return GestureDetector(
       onVerticalDragEnd: (details) async {
         if (details.primaryVelocity! > 0 &&
-            _ean.isNotEmpty &&
+            _foundSomethingUseful &&
             !_panelOpened &&
             !_panelController.isPanelAnimating) {
           await _panelController.animatePanelToPosition(
@@ -93,7 +94,7 @@ class _BarCodeScannerState extends State<BarCodeScanner>
         }
       },
       onTap: () async {
-        if (_ean.isNotEmpty &&
+        if (_foundSomethingUseful &&
             !_panelOpened &&
             !_panelController.isPanelAnimating) {
           await _panelController.animatePanelToPosition(
@@ -152,7 +153,13 @@ class _BarCodeScannerState extends State<BarCodeScanner>
             ),
             Align(
               child: _shouldShowUnknowEanButton
-                  ? AddManuallyButtonWidget(ean: _ean)
+                  ? AddManuallyButtonWidget(
+                      ean: _ean,
+                      onPressed: () async {
+                        setState(() {
+                          _shouldShowUnknowEanButton = false;
+                        });
+                      })
                   : Container(),
               alignment: Alignment(0, 0.9),
             )
@@ -182,9 +189,9 @@ class _BarCodeScannerState extends State<BarCodeScanner>
       );
 
   Future<void> _onEanScanned(String ean) async {
-    if ((ean == _ean && _sameUnknownEanScanned != 0) ||
-        _panelOpened ||
-        ean.length < 13) return;
+    if (_panelOpened) return;
+    if (ean.length < 13) return;
+    if (ean == _ean && _sameUnknownEanScanned == 0) return;
 
     if (_requestedEans.contains(ean)) {
       // here tell user that this ean was requested already using snackbar that disappiers after some time
@@ -195,13 +202,17 @@ class _BarCodeScannerState extends State<BarCodeScanner>
           duration: Duration(seconds: 2),
         ),
       );
-
+      setState(() {
+        _sameUnknownEanScanned = 0;
+        _ean = ean;
+      });
       return;
     }
     if (ean.isEmpty) {
       _scannedFood = null;
       _backdropColor = _neutralColor;
       _ean = '';
+      _foundSomethingUseful = false;
       if (_panelController.isAttached) {
         await _panelController.animatePanelToPosition(
           0,
@@ -218,11 +229,8 @@ class _BarCodeScannerState extends State<BarCodeScanner>
 
     _scannedFood = await getFoodFromEAN(ean, true);
 
-    if (_scannedFood == null) {
-      return;
-    }
-
     if (_scannedFood != null) {
+      _foundSomethingUseful = true;
       var isSafe = await isFoodSafe(_scannedFood!.allergens);
       var isFineWithDrugs = await isDrugComplient(_scannedFood!);
       _backdropColor = !isSafe
@@ -234,7 +242,7 @@ class _BarCodeScannerState extends State<BarCodeScanner>
       _sameUnknownEanScanned = 0;
     } else {
       _backdropColor = _neutralColor;
-
+      _foundSomethingUseful = false;
       if (_ean == ean) {
         _sameUnknownEanScanned++;
       } else {
@@ -243,7 +251,7 @@ class _BarCodeScannerState extends State<BarCodeScanner>
 
       _ean = ean;
 
-      if (_sameUnknownEanScanned >= 5) {
+      if (_sameUnknownEanScanned >= 3) {
         _shouldShowUnknowEanButton = true;
       }
 

@@ -29,11 +29,20 @@ class ImageFromString extends StatefulWidget {
 class _ImageFromStringState extends State<ImageFromString> {
   @override
   Widget build(BuildContext context) {
-    return Image.asset(
-      'assets/images/' + widget.name,
-      width: widget.width,
-      height: widget.height,
-      fit: BoxFit.scaleDown,
-    );
+    if (widget.name.startsWith("avatar_")) {
+      return Image.asset(
+        'assets/images/' + widget.name,
+        width: widget.width,
+        height: widget.height,
+        fit: BoxFit.scaleDown,
+      );
+    } else {
+      return Image.network(
+        widget.name,
+        width: widget.width,
+        height: widget.height,
+        fit: BoxFit.scaleDown,
+      );
+    }
   }
 }

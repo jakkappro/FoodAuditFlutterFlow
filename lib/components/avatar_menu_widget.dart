@@ -65,7 +65,10 @@ class _AvatarMenuWidgetState extends State<AvatarMenuWidget> {
           ),
           Builder(
             builder: (context) {
-              final image = functions.getListOfAvatars().toList();
+              final image = functions
+                  .getListOfAvatars()
+                  .where((e) => e != null && e != '')
+                  .toList();
               return Wrap(
                 spacing: 12.0,
                 runSpacing: 12.0,
