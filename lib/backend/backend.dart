@@ -8,6 +8,7 @@ import 'schema/util/firestore_util.dart';
 import 'schema/products_record.dart';
 import 'schema/users_record.dart';
 import 'schema/medication_record.dart';
+import 'schema/requested_eans_record.dart';
 
 export 'dart:async' show StreamSubscription;
 export 'package:cloud_firestore/cloud_firestore.dart';
@@ -18,6 +19,7 @@ export 'schema/util/schema_util.dart';
 export 'schema/products_record.dart';
 export 'schema/users_record.dart';
 export 'schema/medication_record.dart';
+export 'schema/requested_eans_record.dart';
 
 /// Functions to query ProductsRecords (as a Stream and as a Future).
 Future<int> queryProductsRecordCount({
@@ -125,6 +127,43 @@ Future<List<MedicationRecord>> queryMedicationRecordOnce({
     queryCollectionOnce(
       MedicationRecord.collection,
       MedicationRecord.fromSnapshot,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+/// Functions to query RequestedEansRecords (as a Stream and as a Future).
+Future<int> queryRequestedEansRecordCount({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+}) =>
+    queryCollectionCount(
+      RequestedEansRecord.collection,
+      queryBuilder: queryBuilder,
+      limit: limit,
+    );
+
+Stream<List<RequestedEansRecord>> queryRequestedEansRecord({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollection(
+      RequestedEansRecord.collection,
+      RequestedEansRecord.fromSnapshot,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+Future<List<RequestedEansRecord>> queryRequestedEansRecordOnce({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollectionOnce(
+      RequestedEansRecord.collection,
+      RequestedEansRecord.fromSnapshot,
       queryBuilder: queryBuilder,
       limit: limit,
       singleRecord: singleRecord,
