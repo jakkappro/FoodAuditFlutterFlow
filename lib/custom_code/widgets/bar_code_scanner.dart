@@ -156,6 +156,8 @@ class _BarCodeScannerState extends State<BarCodeScanner>
                   ? AddManuallyButtonWidget(
                       ean: _ean,
                       onPressed: () async {
+                        await _getRequestedEans();
+
                         setState(() {
                           _shouldShowUnknowEanButton = false;
                         });
