@@ -56,8 +56,6 @@ class _AddManuallyButtonWidgetState extends State<AddManuallyButtonWidget> {
       hoverColor: Colors.transparent,
       highlightColor: Colors.transparent,
       onTap: () async {
-        await widget.onPressed?.call();
-
         await RequestedEansRecord.collection
             .doc()
             .set(createRequestedEansRecordData(
@@ -65,6 +63,7 @@ class _AddManuallyButtonWidgetState extends State<AddManuallyButtonWidget> {
               createdBy: FFAppState().IsGuest ? 'guest' : currentUserUid,
               creationTime: getCurrentTimestamp,
             ));
+        await widget.onPressed?.call();
       },
       child: Container(
         width: 160.0,

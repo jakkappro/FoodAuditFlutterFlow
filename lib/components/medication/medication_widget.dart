@@ -101,7 +101,6 @@ class _MedicationWidgetState extends State<MedicationWidget> {
                       });
                     },
                     child: Container(
-                      height: 35.0,
                       decoration: BoxDecoration(
                         color: FlutterFlowTheme.of(context).primary,
                         borderRadius: BorderRadius.circular(6.0),

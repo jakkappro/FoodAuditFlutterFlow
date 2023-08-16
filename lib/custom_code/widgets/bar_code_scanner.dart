@@ -40,7 +40,7 @@ class _BarCodeScannerState extends State<BarCodeScanner>
   final Color _neutralColor = Color(0x1C0D26).withOpacity(0.5);
   final Color _mildFoodColor = Colors.yellow.withOpacity(0.5);
   List<String> _requestedEans = [];
-
+  String _currentDisplayedEan = '';
   PanelController _panelController = PanelController();
   ProductsRecord? _scannedFood;
   late Color _backdropColor; //initial color
@@ -65,32 +65,37 @@ class _BarCodeScannerState extends State<BarCodeScanner>
 
   Future<void> _getRequestedEans() async {
     final t = await queryRequestedEansRecordOnce();
-    _requestedEans = t.map((e) => e.ean).toList();
+    final requestedEans = t.map((e) => e.ean).toList();
+    setState(() {
+      _requestedEans = requestedEans;
+    });
   }
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onVerticalDragEnd: (details) async {
-        if (details.primaryVelocity! > 0 &&
-            _foundSomethingUseful &&
-            !_panelOpened &&
-            !_panelController.isPanelAnimating) {
-          await _panelController.animatePanelToPosition(
-            1,
-            duration: Duration(milliseconds: 300),
-          );
-
-          _panelOpened = true;
-          setState(() {});
-          return;
-        } else if (details.primaryVelocity! < 0 &&
+        // if (details.primaryVelocity! > 0 &&
+        //     _foundSomethingUseful &&
+        //     !_panelOpened &&
+        //     !_panelController.isPanelAnimating) {
+        //   _panelOpened = true;
+        //   _currentDisplayedEan = _ean;
+        //   setState(() {});
+        //   await _panelController.animatePanelToPosition(
+        //     1,
+        //     duration: Duration(milliseconds: 300),
+        //   );
+        //   return;
+        // } else
+        if (details.primaryVelocity! < 0 &&
             _panelOpened &&
             !_panelController.isPanelShown &&
             !_panelController.isPanelAnimating) {
-          await _panelController.close();
           _panelOpened = false;
+          _currentDisplayedEan = '';
           setState(() {});
+          await _panelController.close();
         }
       },
       onTap: () async {
@@ -103,8 +108,17 @@ class _BarCodeScannerState extends State<BarCodeScanner>
           );
 
           _panelOpened = true;
+          _currentDisplayedEan = _ean;
           setState(() {});
+
           return;
+        } else if (_panelOpened &&
+            !_panelController.isPanelShown &&
+            !_panelController.isPanelAnimating) {
+          _panelOpened = false;
+          _currentDisplayedEan = '';
+          setState(() {});
+          await _panelController.close();
         }
       },
       child: SlidingUpPanel(
@@ -118,14 +132,17 @@ class _BarCodeScannerState extends State<BarCodeScanner>
               )
             : Container(),
         snapPoint: 0.4,
-        onPanelClosed: () => _panelOpened = false,
+        onPanelClosed: () {
+          _panelOpened = false;
+        },
         renderPanelSheet: false,
         backdropTapClosesPanel: true,
         backdropColor: Colors.grey,
         backdropEnabled: _panelOpened && !_panelController.isPanelAnimating,
         backdropOpacity: 0.8,
         slideDirection: SlideDirection.DOWN,
-        isDraggable: false,
+        defaultPanelState: PanelState.CLOSED,
+        isDraggable: true,
         body: Stack(
           children: <Widget>[
             _ScannerPage(
@@ -156,7 +173,7 @@ class _BarCodeScannerState extends State<BarCodeScanner>
                   ? AddManuallyButtonWidget(
                       ean: _ean,
                       onPressed: () async {
-                        await _getRequestedEans();
+                        _getRequestedEans();
 
                         setState(() {
                           _shouldShowUnknowEanButton = false;
@@ -192,8 +209,9 @@ class _BarCodeScannerState extends State<BarCodeScanner>
 
   Future<void> _onEanScanned(String ean) async {
     if (_panelOpened) return;
-    if (ean.length < 13) return;
+    if (_currentDisplayedEan == ean && ean.isNotEmpty) return;
     if (ean == _ean &&
+        ean.isNotEmpty &&
         (_sameUnknownEanScanned == 0 || _sameUnknownEanScanned > 5)) return;
 
     if (_requestedEans.contains(ean)) {
@@ -216,26 +234,28 @@ class _BarCodeScannerState extends State<BarCodeScanner>
       _backdropColor = _neutralColor;
       _ean = '';
       _foundSomethingUseful = false;
-      if (_panelController.isAttached) {
+      if (_panelController.isAttached &&
+          mounted &&
+          _panelController.isPanelShown &&
+          !_panelController.isPanelOpen) {
         await _panelController.animatePanelToPosition(
           0,
           duration: Duration(milliseconds: 300),
         );
+        _panelOpened = false;
       }
 
-      setState(() {
-        _panelOpened = false;
-      });
+      setState(() {});
 
       return;
     }
 
-    _scannedFood = await getFoodFromEAN(ean, true);
+    final scannedFood = await getFoodFromEAN(ean, true);
 
-    if (_scannedFood != null) {
+    if (scannedFood != null) {
       _foundSomethingUseful = true;
-      var isSafe = await isFoodSafe(_scannedFood!.allergens);
-      var isFineWithDrugs = await isDrugComplient(_scannedFood!);
+      var isSafe = await isFoodSafe(scannedFood!.allergens);
+      var isFineWithDrugs = await isDrugComplient(scannedFood!);
       _backdropColor = !isSafe
           ? _dangerounsFoodColor
           : !isFineWithDrugs
@@ -243,9 +263,19 @@ class _BarCodeScannerState extends State<BarCodeScanner>
               : _safeFoodColor;
       _shouldShowUnknowEanButton = false;
       _sameUnknownEanScanned = 0;
+      if (_panelController.isAttached &&
+          _panelController.isPanelClosed &&
+          mounted &&
+          !_panelController.isPanelAnimating) {
+        await _panelController.animatePanelToSnapPoint(
+            duration: Duration(milliseconds: 300));
+        _panelOpened = false;
+      }
+      setState(() {
+        _scannedFood = scannedFood;
+      });
     } else {
       _backdropColor = _neutralColor;
-      _foundSomethingUseful = false;
       if (_ean == ean) {
         _sameUnknownEanScanned++;
       } else {
@@ -258,21 +288,9 @@ class _BarCodeScannerState extends State<BarCodeScanner>
         _shouldShowUnknowEanButton = true;
       }
 
-      setState(() {
-        _panelOpened = false;
-      });
-      return;
+      _scannedFood = null;
+      setState(() {});
     }
-
-    if (_panelController.isAttached && _panelController.isPanelClosed) {
-      _panelController.animatePanelToSnapPoint(
-        duration: Duration(milliseconds: 300),
-      );
-    }
-
-    setState(() {
-      _panelOpened = false;
-    });
   }
 }
 

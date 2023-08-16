@@ -48,9 +48,11 @@ List<String> getListOfAvatars() {
   for (int i = 111; i <= 122; i++) {
     result.add("avatar_" + i.toString() + ".png");
   }
-  if (currentUserDocument != null) {
-    // Add user's profile picture to list
-    result.add(currentUserDocument!.photoUrl);
-  }
+
+  // if (currentUserDocument != null) {
+  //   // Add user's profile picture to list
+  //   result.add(currentUserDocument!.photoUrl);
+  // }
+
   return result;
 }
