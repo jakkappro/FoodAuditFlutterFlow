@@ -15,7 +15,7 @@ Future<MedicationStructStruct> getMedicationStruct(
 
   final medication = await fbInstance
       .collection('medication')
-      .where("Name", isEqualTo: name)
+      .where("Name", isGreaterThanOrEqualTo: name)
       .get();
 
   if (medication.docs.length == 0) {
