@@ -188,28 +188,38 @@ class _SettingsWidgetState extends State<SettingsWidget> {
                   ),
                   Align(
                     alignment: AlignmentDirectional(0.0, 0.95),
-                    child: Container(
-                      width: double.infinity,
-                      decoration: BoxDecoration(
-                        color: FlutterFlowTheme.of(context).primary,
-                        borderRadius: BorderRadius.circular(6.0),
-                      ),
-                      child: Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(
-                            12.0, 10.0, 12.0, 10.0),
-                        child: Text(
-                          FFLocalizations.of(context).getText(
-                            'mg17prl1' /* Save settings */,
+                    child: InkWell(
+                      splashColor: Colors.transparent,
+                      focusColor: Colors.transparent,
+                      hoverColor: Colors.transparent,
+                      highlightColor: Colors.transparent,
+                      onTap: () async {
+                        context.safePop();
+                      },
+                      child: Container(
+                        width: double.infinity,
+                        decoration: BoxDecoration(
+                          color: FlutterFlowTheme.of(context).primary,
+                          borderRadius: BorderRadius.circular(6.0),
+                        ),
+                        child: Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              12.0, 10.0, 12.0, 10.0),
+                          child: Text(
+                            FFLocalizations.of(context).getText(
+                              'mg17prl1' /* Save settings */,
+                            ),
+                            textAlign: TextAlign.center,
+                            style: FlutterFlowTheme.of(context)
+                                .bodyMedium
+                                .override(
+                                  fontFamily: 'Roboto',
+                                  color: Color(0xFFB7C1FA),
+                                  letterSpacing: 0.15,
+                                  fontWeight: FontWeight.w800,
+                                  lineHeight: 1.5,
+                                ),
                           ),
-                          textAlign: TextAlign.center,
-                          style:
-                              FlutterFlowTheme.of(context).bodyMedium.override(
-                                    fontFamily: 'Roboto',
-                                    color: Color(0xFFB7C1FA),
-                                    letterSpacing: 0.15,
-                                    fontWeight: FontWeight.w800,
-                                    lineHeight: 1.5,
-                                  ),
                         ),
                       ),
                     ),
