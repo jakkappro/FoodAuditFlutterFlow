@@ -60,19 +60,7 @@ class _AuthComponentWidgetState extends State<AuthComponentWidget> {
                 focusColor: Colors.transparent,
                 hoverColor: Colors.transparent,
                 highlightColor: Colors.transparent,
-                onTap: () async {
-                  GoRouter.of(context).prepareAuthEvent();
-                  final user = await authManager.signInWithApple(context);
-                  if (user == null) {
-                    return;
-                  }
-                  FFAppState().IsGuest = false;
-                  if (FFAppState().DoneWizzard == false) {
-                    context.goNamedAuth('SetUpWizard', context.mounted);
-                  } else {
-                    context.goNamedAuth('Home', context.mounted);
-                  }
-                },
+                onTap: () async {},
                 child: Container(
                   width: double.infinity,
                   decoration: BoxDecoration(

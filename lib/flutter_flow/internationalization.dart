@@ -346,7 +346,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     },
     '56yvj6gf': {
       'en': 'Soybeans',
-      'sk': 'Sójové zrná',
+      'sk': 'Sója',
     },
     '70ryefpb': {
       'en': 'Milk',

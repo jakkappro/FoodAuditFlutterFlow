@@ -126,73 +126,76 @@ class _MedicationWidgetState extends State<MedicationWidget> {
             },
           ),
         ),
-        Builder(
-          builder: (context) {
-            if (_model.algoliaSearchResults == null) {
-              return Center(
-                child: SizedBox(
-                  width: 50.0,
-                  height: 50.0,
-                  child: CircularProgressIndicator(
-                    valueColor: AlwaysStoppedAnimation<Color>(
-                      FlutterFlowTheme.of(context).primary,
+        if (_model.shouldShowSearch)
+          Builder(
+            builder: (context) {
+              if (_model.algoliaSearchResults == null) {
+                return Center(
+                  child: SizedBox(
+                    width: 50.0,
+                    height: 50.0,
+                    child: CircularProgressIndicator(
+                      valueColor: AlwaysStoppedAnimation<Color>(
+                        FlutterFlowTheme.of(context).primary,
+                      ),
                     ),
                   ),
+                );
+              }
+              final medicament = (_model.algoliaSearchResults?.toList() ?? [])
+                  .take(3)
+                  .toList();
+              return SingleChildScrollView(
+                scrollDirection: Axis.horizontal,
+                child: Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: List.generate(medicament.length, (medicamentIndex) {
+                    final medicamentItem = medicament[medicamentIndex];
+                    return InkWell(
+                      splashColor: Colors.transparent,
+                      focusColor: Colors.transparent,
+                      hoverColor: Colors.transparent,
+                      highlightColor: Colors.transparent,
+                      onTap: () async {
+                        if (!FFAppState()
+                            .Medication
+                            .contains(medicamentItem.name)) {
+                          setState(() {
+                            FFAppState().addToMedication(medicamentItem.name);
+                          });
+                        }
+                      },
+                      child: Container(
+                        decoration: BoxDecoration(
+                          color: Colors.transparent,
+                          borderRadius: BorderRadius.circular(6.0),
+                          border: Border.all(
+                            color: Color(0xFFAFACC7),
+                            width: 1.3,
+                          ),
+                        ),
+                        child: Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              12.0, 10.0, 12.0, 10.0),
+                          child: Text(
+                            medicamentItem.name,
+                            style: FlutterFlowTheme.of(context)
+                                .bodyMedium
+                                .override(
+                                  fontFamily: 'Roboto',
+                                  color: Color(0xFFAFACC7),
+                                  letterSpacing: 0.15,
+                                  fontWeight: FontWeight.w800,
+                                ),
+                          ),
+                        ),
+                      ),
+                    );
+                  }).divide(SizedBox(width: 12.0)),
                 ),
               );
-            }
-            final medicament =
-                (_model.algoliaSearchResults?.toList() ?? []).take(3).toList();
-            return SingleChildScrollView(
-              scrollDirection: Axis.horizontal,
-              child: Row(
-                mainAxisSize: MainAxisSize.min,
-                children: List.generate(medicament.length, (medicamentIndex) {
-                  final medicamentItem = medicament[medicamentIndex];
-                  return InkWell(
-                    splashColor: Colors.transparent,
-                    focusColor: Colors.transparent,
-                    hoverColor: Colors.transparent,
-                    highlightColor: Colors.transparent,
-                    onTap: () async {
-                      if (!FFAppState()
-                          .Medication
-                          .contains(medicamentItem.name)) {
-                        setState(() {
-                          FFAppState().addToMedication(medicamentItem.name);
-                        });
-                      }
-                    },
-                    child: Container(
-                      decoration: BoxDecoration(
-                        color: Colors.transparent,
-                        borderRadius: BorderRadius.circular(6.0),
-                        border: Border.all(
-                          color: Color(0xFFAFACC7),
-                          width: 1.3,
-                        ),
-                      ),
-                      child: Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(
-                            12.0, 10.0, 12.0, 10.0),
-                        child: Text(
-                          medicamentItem.name,
-                          style:
-                              FlutterFlowTheme.of(context).bodyMedium.override(
-                                    fontFamily: 'Roboto',
-                                    color: Color(0xFFAFACC7),
-                                    letterSpacing: 0.15,
-                                    fontWeight: FontWeight.w800,
-                                  ),
-                        ),
-                      ),
-                    ),
-                  );
-                }).divide(SizedBox(width: 12.0)),
-              ),
-            );
-          },
-        ),
+            },
+          ),
         Container(
           width: double.infinity,
           child: TextFormField(
@@ -201,7 +204,7 @@ class _MedicationWidgetState extends State<MedicationWidget> {
               '_model.textController',
               Duration(milliseconds: 2000),
               () async {
-                if (_model.textController.text.length > 3) {
+                if (_model.textController.text.length > 1) {
                   setState(() => _model.algoliaSearchResults = null);
                   await MedicationRecord.search(
                     term: _model.textController.text,
@@ -210,6 +213,14 @@ class _MedicationWidgetState extends State<MedicationWidget> {
                       .then((r) => _model.algoliaSearchResults = r)
                       .onError((_, __) => _model.algoliaSearchResults = [])
                       .whenComplete(() => setState(() {}));
+
+                  setState(() {
+                    _model.shouldShowSearch = true;
+                  });
+                } else {
+                  setState(() {
+                    _model.shouldShowSearch = false;
+                  });
                 }
               },
             ),
