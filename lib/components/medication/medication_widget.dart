@@ -205,6 +205,9 @@ class _MedicationWidgetState extends State<MedicationWidget> {
               Duration(milliseconds: 2000),
               () async {
                 if (_model.textController.text.length > 1) {
+                  setState(() {
+                    _model.shouldShowSearch = true;
+                  });
                   setState(() => _model.algoliaSearchResults = null);
                   await MedicationRecord.search(
                     term: _model.textController.text,
@@ -213,10 +216,6 @@ class _MedicationWidgetState extends State<MedicationWidget> {
                       .then((r) => _model.algoliaSearchResults = r)
                       .onError((_, __) => _model.algoliaSearchResults = [])
                       .whenComplete(() => setState(() {}));
-
-                  setState(() {
-                    _model.shouldShowSearch = true;
-                  });
                 } else {
                   setState(() {
                     _model.shouldShowSearch = false;

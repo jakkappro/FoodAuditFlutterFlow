@@ -1,3 +1,4 @@
+import '/auth/firebase_auth/auth_util.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/custom_code/widgets/index.dart' as custom_widgets;
@@ -63,78 +64,80 @@ class _AvatarMenuWidgetState extends State<AvatarMenuWidget> {
                   lineHeight: 1.4,
                 ),
           ),
-          Builder(
-            builder: (context) {
-              final image = functions
-                  .getListOfAvatars()
-                  .where((e) => e != null && e != '')
-                  .toList();
-              return Wrap(
-                spacing: 12.0,
-                runSpacing: 12.0,
-                alignment: WrapAlignment.start,
-                crossAxisAlignment: WrapCrossAlignment.start,
-                direction: Axis.horizontal,
-                runAlignment: WrapAlignment.start,
-                verticalDirection: VerticalDirection.down,
-                clipBehavior: Clip.none,
-                children: List.generate(image.length, (imageIndex) {
-                  final imageItem = image[imageIndex];
-                  return Container(
-                    width: 47.5,
-                    height: 47.5,
-                    child: Stack(
-                      children: [
-                        InkWell(
-                          splashColor: Colors.transparent,
-                          focusColor: Colors.transparent,
-                          hoverColor: Colors.transparent,
-                          highlightColor: Colors.transparent,
-                          onTap: () async {
-                            setState(() {
-                              FFAppState().imageName = imageItem;
-                            });
-                          },
-                          child: Container(
-                            width: 47.5,
-                            height: 47.5,
-                            child: custom_widgets.ImageFromString(
+          AuthUserStreamWidget(
+            builder: (context) => Builder(
+              builder: (context) {
+                final image = functions
+                    .getListOfAvatars(currentUserPhoto)
+                    .where((e) => e != null && e != '')
+                    .toList();
+                return Wrap(
+                  spacing: 12.0,
+                  runSpacing: 12.0,
+                  alignment: WrapAlignment.start,
+                  crossAxisAlignment: WrapCrossAlignment.start,
+                  direction: Axis.horizontal,
+                  runAlignment: WrapAlignment.start,
+                  verticalDirection: VerticalDirection.down,
+                  clipBehavior: Clip.none,
+                  children: List.generate(image.length, (imageIndex) {
+                    final imageItem = image[imageIndex];
+                    return Container(
+                      width: 47.5,
+                      height: 47.5,
+                      child: Stack(
+                        children: [
+                          InkWell(
+                            splashColor: Colors.transparent,
+                            focusColor: Colors.transparent,
+                            hoverColor: Colors.transparent,
+                            highlightColor: Colors.transparent,
+                            onTap: () async {
+                              setState(() {
+                                FFAppState().imageName = imageItem;
+                              });
+                            },
+                            child: Container(
                               width: 47.5,
                               height: 47.5,
-                              name: imageItem,
+                              child: custom_widgets.ImageFromString(
+                                width: 47.5,
+                                height: 47.5,
+                                name: imageItem,
+                              ),
                             ),
                           ),
-                        ),
-                        if (imageItem == FFAppState().imageName)
-                          Align(
-                            alignment: AlignmentDirectional(1.0, -1.0),
-                            child: Container(
-                              width: 18.7,
-                              height: 18.7,
-                              decoration: BoxDecoration(
-                                color: FlutterFlowTheme.of(context).primary,
-                                shape: BoxShape.circle,
-                              ),
-                              child: Align(
-                                alignment: AlignmentDirectional(0.0, 0.0),
-                                child: ClipRRect(
-                                  borderRadius: BorderRadius.circular(8.0),
-                                  child: Image.asset(
-                                    'assets/images/check.png',
-                                    width: 11.06,
-                                    height: 17.0,
-                                    fit: BoxFit.scaleDown,
+                          if (imageItem == FFAppState().imageName)
+                            Align(
+                              alignment: AlignmentDirectional(1.0, -1.0),
+                              child: Container(
+                                width: 18.7,
+                                height: 18.7,
+                                decoration: BoxDecoration(
+                                  color: FlutterFlowTheme.of(context).primary,
+                                  shape: BoxShape.circle,
+                                ),
+                                child: Align(
+                                  alignment: AlignmentDirectional(0.0, 0.0),
+                                  child: ClipRRect(
+                                    borderRadius: BorderRadius.circular(8.0),
+                                    child: Image.asset(
+                                      'assets/images/check.png',
+                                      width: 11.06,
+                                      height: 17.0,
+                                      fit: BoxFit.scaleDown,
+                                    ),
                                   ),
                                 ),
                               ),
                             ),
-                          ),
-                      ],
-                    ),
-                  );
-                }),
-              );
-            },
+                        ],
+                      ),
+                    );
+                  }),
+                );
+              },
+            ),
           ),
         ].divide(SizedBox(height: 12.0)),
       ),

@@ -15,7 +15,7 @@ Future<MedicationStructStruct> getMedicationStruct(
 
   final medication = await fbInstance
       .collection('medication')
-      .where("Name", isGreaterThanOrEqualTo: name)
+      .where("Name", isEqualTo: name)
       .get();
 
   if (medication.docs.length == 0) {
@@ -45,9 +45,11 @@ Future<MedicationStructStruct> getMedicationStruct(
   final fileteredClassificationKeys =
       getEveryOtherFromList(classificationsKeys, false);
 
+  // get businessRules where name of document must be start of last item in filteredClassificationKeys
   final businessRules = await fbInstance
       .collection('business_rules')
-      .where("name", whereIn: fileteredClassificationKeys)
+      .where(FieldPath.documentId,
+          isGreaterThanOrEqualTo: fileteredClassificationKeys.last)
       .get();
 
   final allergens = product.allergens;

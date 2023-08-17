@@ -189,7 +189,7 @@ class FFAppState extends ChangeNotifier {
     secureStorage.delete(key: 'ff_DoneWizzard');
   }
 
-  List<String> _Medication = ['Xanax 150mg'];
+  List<String> _Medication = [];
   List<String> get Medication => _Medication;
   set Medication(List<String> _value) {
     _Medication = _value;

@@ -43,16 +43,16 @@ List<String> getEveryOtherFromList(
   return result;
 }
 
-List<String> getListOfAvatars() {
+List<String> getListOfAvatars(String? photo) {
   List<String> result = [];
   for (int i = 111; i <= 122; i++) {
     result.add("avatar_" + i.toString() + ".png");
   }
 
-  // if (currentUserDocument != null) {
-  //   // Add user's profile picture to list
-  //   result.add(currentUserDocument!.photoUrl);
-  // }
+  if (photo != null) {
+    // Add user's profile picture to list
+    result.add(photo);
+  }
 
   return result;
 }

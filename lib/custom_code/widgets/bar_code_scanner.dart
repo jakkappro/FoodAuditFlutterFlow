@@ -143,6 +143,24 @@ class _BarCodeScannerState extends State<BarCodeScanner>
         slideDirection: SlideDirection.DOWN,
         defaultPanelState: PanelState.CLOSED,
         isDraggable: true,
+        onPanelOpened: () {
+          if (!_panelOpened)
+            setState(() {
+              _panelOpened = true;
+            });
+        },
+        onPanelSlide: (position) {
+          if (position <= 0.5 && _panelOpened) {
+            setState(() {
+              _panelOpened = false;
+            });
+          }
+          if (position > 0.5 && !_panelOpened) {
+            setState(() {
+              _panelOpened = true;
+            });
+          }
+        },
         body: Stack(
           children: <Widget>[
             _ScannerPage(
@@ -230,23 +248,32 @@ class _BarCodeScannerState extends State<BarCodeScanner>
       return;
     }
     if (ean.isEmpty) {
-      _scannedFood = null;
       _backdropColor = _neutralColor;
       _ean = '';
       _foundSomethingUseful = false;
+
       if (_panelController.isAttached &&
           mounted &&
           _panelController.isPanelShown &&
           !_panelController.isPanelOpen) {
+        if (mounted)
+          setState(() {
+            _backdropColor = _neutralColor;
+            _ean = '';
+            _foundSomethingUseful = false;
+          });
+
         await _panelController.animatePanelToPosition(
           0,
-          duration: Duration(milliseconds: 300),
+          duration: Duration(milliseconds: 200),
         );
         _panelOpened = false;
+
+        if (mounted)
+          setState(() {
+            _scannedFood = null;
+          });
       }
-
-      setState(() {});
-
       return;
     }
 
@@ -271,9 +298,11 @@ class _BarCodeScannerState extends State<BarCodeScanner>
             duration: Duration(milliseconds: 300));
         _panelOpened = false;
       }
-      setState(() {
-        _scannedFood = scannedFood;
-      });
+      if (mounted) {
+        setState(() {
+          _scannedFood = scannedFood;
+        });
+      }
     } else {
       _backdropColor = _neutralColor;
       if (_ean == ean) {
@@ -289,7 +318,9 @@ class _BarCodeScannerState extends State<BarCodeScanner>
       }
 
       _scannedFood = null;
-      setState(() {});
+      if (mounted) {
+        setState(() {});
+      }
     }
   }
 }
@@ -335,6 +366,7 @@ class _ScannerPageState extends State<_ScannerPage> {
   final BarcodeScanner _barcodeScanner = BarcodeScanner();
 
   int _timesDidntFoundEan = 0;
+  int _timesFoundEan = 0;
 
   bool _canProcess = true;
   bool _isBusy = false;
@@ -375,10 +407,16 @@ class _ScannerPageState extends State<_ScannerPage> {
       setState(() {
         if (foundEan) {
           _timesDidntFoundEan = 0;
+          _timesFoundEan++;
           // choose color based on food safety
+          if (_timesFoundEan > 5) {
+            _timesFoundEan = 0;
+            widget.onEanScanned(barcodes.first.displayValue!);
+          }
           widget.onEanScanned(barcodes.first.displayValue!);
-        } else if (!foundEan && _timesDidntFoundEan > 50) {
+        } else if (!foundEan && _timesDidntFoundEan > 25) {
           widget.onEanScanned('');
+          _timesFoundEan = 0;
         } else {
           _timesDidntFoundEan++;
         }
