@@ -166,9 +166,6 @@ class _AuthComponentWidgetState extends State<AuthComponentWidget> {
                 hoverColor: Colors.transparent,
                 highlightColor: Colors.transparent,
                 onTap: () async {
-                  setState(() {
-                    //_model.loading = true;
-                  });
                   GoRouter.of(context).prepareAuthEvent();
                   final user = await authManager.signInWithGoogle(context);
                   if (user == null) {

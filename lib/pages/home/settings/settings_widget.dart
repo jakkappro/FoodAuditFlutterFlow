@@ -4,7 +4,6 @@ import '/components/avatar_menu_widget.dart';
 import '/components/intolerancies/intolerancies_widget.dart';
 import '/components/medication/medication_widget.dart';
 import '/components/personal_info_widget.dart';
-import '/components/scanner_page_components/close_scanner_button/close_scanner_button_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
@@ -179,14 +178,6 @@ class _SettingsWidgetState extends State<SettingsWidget> {
                     ),
                   ),
                   Align(
-                    alignment: AlignmentDirectional(1.0, -1.0),
-                    child: wrapWithModel(
-                      model: _model.closeScannerButtonModel,
-                      updateCallback: () => setState(() {}),
-                      child: CloseScannerButtonWidget(),
-                    ),
-                  ),
-                  Align(
                     alignment: AlignmentDirectional(0.0, 0.95),
                     child: InkWell(
                       splashColor: Colors.transparent,
@@ -194,7 +185,7 @@ class _SettingsWidgetState extends State<SettingsWidget> {
                       hoverColor: Colors.transparent,
                       highlightColor: Colors.transparent,
                       onTap: () async {
-                        context.safePop();
+                        context.goNamed('Home');
                       },
                       child: Container(
                         width: double.infinity,
@@ -219,6 +210,38 @@ class _SettingsWidgetState extends State<SettingsWidget> {
                                   fontWeight: FontWeight.w800,
                                   lineHeight: 1.5,
                                 ),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                  Align(
+                    alignment: AlignmentDirectional(1.0, -1.0),
+                    child: InkWell(
+                      splashColor: Colors.transparent,
+                      focusColor: Colors.transparent,
+                      hoverColor: Colors.transparent,
+                      highlightColor: Colors.transparent,
+                      onTap: () async {
+                        context.goNamed('Home');
+                      },
+                      child: Container(
+                        width: 50.0,
+                        height: 50.0,
+                        decoration: BoxDecoration(
+                          color: Color(0xFFB7C1FA),
+                          shape: BoxShape.circle,
+                        ),
+                        child: Align(
+                          alignment: AlignmentDirectional(0.0, 0.0),
+                          child: ClipRRect(
+                            borderRadius: BorderRadius.circular(8.0),
+                            child: Image.asset(
+                              'assets/images/Frame.png',
+                              width: 22.0,
+                              height: 22.0,
+                              fit: BoxFit.contain,
+                            ),
                           ),
                         ),
                       ),

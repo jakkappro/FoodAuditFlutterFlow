@@ -13,6 +13,7 @@ import 'package:flutter/material.dart';
 import 'package:google_mlkit_barcode_scanning/google_mlkit_barcode_scanning.dart';
 import 'package:camera/camera.dart';
 import 'package:sliding_up_panel/sliding_up_panel.dart';
+import 'dart:async';
 
 import '../../components/scanner_page_components/sliding_up_panel_from_ean/sliding_up_panel_from_ean_widget.dart';
 import '../../components/scanner_page_components/close_scanner_button/close_scanner_button_widget.dart';
@@ -50,6 +51,7 @@ class _BarCodeScannerState extends State<BarCodeScanner>
   int _sameUnknownEanScanned = 0;
   bool _shouldShowUnknowEanButton = false;
   bool _foundSomethingUseful = false;
+  bool _canShowAddManuallyButton = true;
 
   @override
   void initState() {
@@ -187,7 +189,7 @@ class _BarCodeScannerState extends State<BarCodeScanner>
               alignment: Alignment(-0.9, 0.9),
             ),
             Align(
-              child: _shouldShowUnknowEanButton
+              child: _shouldShowUnknowEanButton && _canShowAddManuallyButton
                   ? AddManuallyButtonWidget(
                       ean: _ean,
                       onPressed: () async {
@@ -195,6 +197,12 @@ class _BarCodeScannerState extends State<BarCodeScanner>
 
                         setState(() {
                           _shouldShowUnknowEanButton = false;
+                          _canShowAddManuallyButton = false;
+                        });
+                        Timer(Duration(seconds: 2), () {
+                          setState(() {
+                            _canShowAddManuallyButton = true;
+                          });
                         });
                       })
                   : Container(),
