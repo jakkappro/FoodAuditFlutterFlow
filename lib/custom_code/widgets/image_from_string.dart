@@ -37,18 +37,11 @@ class _ImageFromStringState extends State<ImageFromString> {
         fit: BoxFit.scaleDown,
       );
     } else {
-      return Container(
+      return Image.network(
+        widget.name,
         width: widget.width,
         height: widget.height,
-        decoration: BoxDecoration(
-          image: DecorationImage(
-            image: NetworkImage(
-              widget.name,
-            ),
-            fit: BoxFit.scaleDown,
-          ),
-          shape: BoxShape.circle,
-        ),
+        fit: BoxFit.scaleDown,
       );
     }
   }

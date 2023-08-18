@@ -235,7 +235,7 @@ class _SlidingUpPanelFromEanWidgetState
                                         widget.doc!.allergens.toList(),
                                         FFLocalizations.of(context)
                                                 .languageCode ==
-                                            'EN')
+                                            'en')
                                     .toList();
                                 return SingleChildScrollView(
                                   scrollDirection: Axis.horizontal,

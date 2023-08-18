@@ -96,6 +96,13 @@ class _CameraViewState extends State<CameraView> {
     } else {
       _controller?.setFlashMode(FlashMode.off);
     }
+
+    final size = MediaQuery.of(context).size;
+
+    var scale = size.aspectRatio * _controller!.value.aspectRatio;
+
+    if (scale < 1) scale = 1 / scale;
+
     return Container(
       color: Colors.black,
       child: Stack(
@@ -105,9 +112,12 @@ class _CameraViewState extends State<CameraView> {
               ? Center(
                   child: const Text('Changing camera lens'),
                 )
-              : CameraPreview(
-                  _controller!,
-                  child: widget.customPaint,
+              : Transform.scale(
+                  scale: scale,
+                  child: CameraPreview(
+                    _controller!,
+                    child: widget.customPaint,
+                  ),
                 ),
           //_switchLiveCameraToggle(),
           //_zoomControl(),

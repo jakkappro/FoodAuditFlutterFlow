@@ -56,8 +56,6 @@
     <string>253088467507258</string>
     <key>FacebookDisplayName</key>
     <string>Nu3Food</string>
-	<key>FacebookClientToken</key>
-	<string>15d04bdcae1c88af5cd875f60e9c2865</string>
 
 	<key>CFBundleVersion</key>
 	<string>$(FLUTTER_BUILD_NUMBER)</string>

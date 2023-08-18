@@ -2,6 +2,5 @@
 <resources>
     <string name="app_name">Nu3Food</string>
     <string name="facebook_app_id">253088467507258</string>
-    <string name="fb_login_protocol_scheme">fb253088467507258</string>
-    <string name="facebook_client_token">15d04bdcae1c88af5cd875f60e9c2865</string>
+               <string name="fb_login_protocol_scheme">fb253088467507258</string>
 </resources>

@@ -4,7 +4,6 @@ import '/components/avatar_menu_widget.dart';
 import '/components/intolerancies/intolerancies_widget.dart';
 import '/components/medication/medication_widget.dart';
 import '/components/personal_info_widget.dart';
-import '/components/scanner_page_components/close_scanner_button/close_scanner_button_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
@@ -23,8 +22,6 @@ class SettingsModel extends FlutterFlowModel {
   late IntoleranciesModel intoleranciesModel;
   // Model for Medication component.
   late MedicationModel medicationModel;
-  // Model for CloseScannerButton component.
-  late CloseScannerButtonModel closeScannerButtonModel;
 
   /// Initialization and disposal methods.
 
@@ -33,8 +30,6 @@ class SettingsModel extends FlutterFlowModel {
     personalInfoModel = createModel(context, () => PersonalInfoModel());
     intoleranciesModel = createModel(context, () => IntoleranciesModel());
     medicationModel = createModel(context, () => MedicationModel());
-    closeScannerButtonModel =
-        createModel(context, () => CloseScannerButtonModel());
   }
 
   void dispose() {
@@ -43,7 +38,6 @@ class SettingsModel extends FlutterFlowModel {
     personalInfoModel.dispose();
     intoleranciesModel.dispose();
     medicationModel.dispose();
-    closeScannerButtonModel.dispose();
   }
 
   /// Action blocks are added here.

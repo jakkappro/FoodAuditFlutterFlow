@@ -19,8 +19,7 @@ Future<UserCredential> facebookSignIn() async {
   }
 
   // Trigger the sign-in flow
-  final LoginResult loginToken = await FacebookAuth.instance
-      .login(loginBehavior: LoginBehavior.dialogOnly);
+  final LoginResult loginToken = await FacebookAuth.instance.login();
   final AccessToken? result = loginToken.accessToken;
 
   // Create a credential from the access token

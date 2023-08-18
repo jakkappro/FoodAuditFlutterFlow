@@ -260,6 +260,7 @@ class _PersonalInfoWidgetState extends State<PersonalInfoWidget> {
                 margin: EdgeInsetsDirectional.fromSTEB(15.0, 10.0, 16.0, 10.0),
                 hidesUnderline: true,
                 isSearchable: false,
+                isMultiSelect: false,
               ),
             ),
           ].divide(SizedBox(height: 12.0)),
