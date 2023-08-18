@@ -202,7 +202,7 @@ class _MedicationWidgetState extends State<MedicationWidget> {
             controller: _model.textController,
             onChanged: (_) => EasyDebounce.debounce(
               '_model.textController',
-              Duration(milliseconds: 2000),
+              Duration(milliseconds: 1000),
               () async {
                 if (_model.textController.text.length > 1) {
                   setState(() {
@@ -271,10 +271,7 @@ class _MedicationWidgetState extends State<MedicationWidget> {
             validator: _model.textControllerValidator.asValidator(context),
           ),
         ),
-      ]
-          .divide(SizedBox(height: 15.0))
-          .addToStart(SizedBox(height: 15.0))
-          .addToEnd(SizedBox(height: 30.0)),
+      ].divide(SizedBox(height: 15.0)).addToStart(SizedBox(height: 15.0)),
     );
   }
 }

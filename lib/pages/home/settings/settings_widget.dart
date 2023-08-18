@@ -185,7 +185,7 @@ class _SettingsWidgetState extends State<SettingsWidget> {
                       hoverColor: Colors.transparent,
                       highlightColor: Colors.transparent,
                       onTap: () async {
-                        context.goNamed('Home');
+                        context.pushNamed('Home');
                       },
                       child: Container(
                         width: double.infinity,
@@ -223,7 +223,7 @@ class _SettingsWidgetState extends State<SettingsWidget> {
                       hoverColor: Colors.transparent,
                       highlightColor: Colors.transparent,
                       onTap: () async {
-                        context.goNamed('Home');
+                        context.pushNamed('Home');
                       },
                       child: Container(
                         width: 50.0,

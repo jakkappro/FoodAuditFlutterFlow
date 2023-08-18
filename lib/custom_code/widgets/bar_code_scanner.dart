@@ -422,7 +422,7 @@ class _ScannerPageState extends State<_ScannerPage> {
             widget.onEanScanned(barcodes.first.displayValue!);
           }
           widget.onEanScanned(barcodes.first.displayValue!);
-        } else if (!foundEan && _timesDidntFoundEan > 25) {
+        } else if (!foundEan && _timesDidntFoundEan > 50) {
           widget.onEanScanned('');
           _timesFoundEan = 0;
         } else {
