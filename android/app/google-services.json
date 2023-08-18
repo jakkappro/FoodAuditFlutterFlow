@@ -7,22 +7,30 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:1052547698119:android:50a5896b970b4dc1255de2",
+        "mobilesdk_app_id": "1:1052547698119:android:56e6464d03758a16255de2",
         "android_client_info": {
-          "package_name": "com.customdev.nu3food"
+          "package_name": "sk.customdev.nu3food"
         }
       },
       "oauth_client": [
         {
-          "client_id": "1052547698119-sjgibngdefogvsu01rat5n4gr1i5lkid.apps.googleusercontent.com",
+          "client_id": "1052547698119-5jodo0hjv5cbasqurl48786dk8dt5uej.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "com.customdev.nu3food",
+            "package_name": "sk.customdev.nu3food",
+            "certificate_hash": "485ee56ee0ecc991f5746fb6c8c106c6c3153036"
+          }
+        },
+        {
+          "client_id": "1052547698119-etn1epda1p5dq9ihidi7o2811b2717p9.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "sk.customdev.nu3food",
             "certificate_hash": "9bbb3186b2189ef16d8f272bdab59362c395cbb4"
           }
         },
         {
-          "client_id": "1052547698119-icu3cmkj3o025gl7qspvacvsd4qbn1hd.apps.googleusercontent.com",
+          "client_id": "1052547698119-mgn3egkeihj3nnapbfjitssgq63cqoeq.apps.googleusercontent.com",
           "client_type": 3
         }
       ],

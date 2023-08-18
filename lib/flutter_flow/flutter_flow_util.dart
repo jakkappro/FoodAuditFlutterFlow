@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:flutter/material.dart';
 import 'package:from_css_color/from_css_color.dart';
@@ -21,6 +22,8 @@ export 'dart:math' show min, max;
 export 'dart:typed_data' show Uint8List;
 export 'dart:convert' show jsonEncode, jsonDecode;
 export 'package:intl/intl.dart';
+export 'package:cloud_firestore/cloud_firestore.dart'
+    show DocumentReference, FirebaseFirestore;
 export 'package:page_transition/page_transition.dart';
 export 'internationalization.dart' show FFLocalizations;
 export '/backend/firebase_analytics/analytics.dart';
@@ -29,7 +32,10 @@ export 'nav/nav.dart';
 T valueOrDefault<T>(T? value, T defaultValue) =>
     (value is String && value.isEmpty) || value == null ? defaultValue : value;
 
-void _setTimeagoLocales() {}
+void _setTimeagoLocales() {
+  timeago.setLocaleMessages('en', timeago.EnMessages());
+  timeago.setLocaleMessages('en_short', timeago.EnShortMessages());
+}
 
 String dateTimeFormat(String format, DateTime? dateTime, {String? locale}) {
   if (dateTime == null) {
@@ -37,7 +43,7 @@ String dateTimeFormat(String format, DateTime? dateTime, {String? locale}) {
   }
   if (format == 'relative') {
     _setTimeagoLocales();
-    return timeago.format(dateTime, locale: locale);
+    return timeago.format(dateTime, locale: locale, allowFromNow: true);
   }
   return DateFormat(format, locale).format(dateTime);
 }
@@ -223,6 +229,10 @@ extension IterableExt<T> on Iterable<T> {
       .toList();
 }
 
+extension StringDocRef on String {
+  DocumentReference get ref => FirebaseFirestore.instance.doc(this);
+}
+
 void setAppLanguage(BuildContext context, String language) =>
     MyApp.of(context).setLocale(language);
 
@@ -278,9 +288,7 @@ extension ListDivideExt<T extends Widget> on Iterable<T> {
       : (enumerate.map((e) => [e.value, t]).expand((i) => i).toList()
         ..removeLast());
 
-  List<T> around(T t) => toList()
-    ..insert(0, t)
-    ..add(t);
+  List<Widget> around(Widget t) => addToStart(t).addToEnd(t);
 
   List<Widget> addToStart(Widget t) =>
       enumerate.map((e) => e.value).toList()..insert(0, t);

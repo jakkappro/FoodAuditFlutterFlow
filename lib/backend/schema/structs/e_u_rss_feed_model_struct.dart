@@ -1,16 +1,20 @@
 // ignore_for_file: unnecessary_getters_setters
+import 'package:cloud_firestore/cloud_firestore.dart';
 
+import '/backend/schema/util/firestore_util.dart';
 import '/backend/schema/util/schema_util.dart';
 
 import 'index.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 
-class EURssFeedModelStruct extends BaseStruct {
+class EURssFeedModelStruct extends FFFirebaseStruct {
   EURssFeedModelStruct({
     String? title,
     String? link,
+    FirestoreUtilData firestoreUtilData = const FirestoreUtilData(),
   })  : _title = title,
-        _link = link;
+        _link = link,
+        super(firestoreUtilData);
 
   // "Title" field.
   String? _title;
@@ -81,8 +85,82 @@ class EURssFeedModelStruct extends BaseStruct {
 EURssFeedModelStruct createEURssFeedModelStruct({
   String? title,
   String? link,
+  Map<String, dynamic> fieldValues = const {},
+  bool clearUnsetFields = true,
+  bool create = false,
+  bool delete = false,
 }) =>
     EURssFeedModelStruct(
       title: title,
       link: link,
+      firestoreUtilData: FirestoreUtilData(
+        clearUnsetFields: clearUnsetFields,
+        create: create,
+        delete: delete,
+        fieldValues: fieldValues,
+      ),
     );
+
+EURssFeedModelStruct? updateEURssFeedModelStruct(
+  EURssFeedModelStruct? eURssFeedModel, {
+  bool clearUnsetFields = true,
+  bool create = false,
+}) =>
+    eURssFeedModel
+      ?..firestoreUtilData = FirestoreUtilData(
+        clearUnsetFields: clearUnsetFields,
+        create: create,
+      );
+
+void addEURssFeedModelStructData(
+  Map<String, dynamic> firestoreData,
+  EURssFeedModelStruct? eURssFeedModel,
+  String fieldName, [
+  bool forFieldValue = false,
+]) {
+  firestoreData.remove(fieldName);
+  if (eURssFeedModel == null) {
+    return;
+  }
+  if (eURssFeedModel.firestoreUtilData.delete) {
+    firestoreData[fieldName] = FieldValue.delete();
+    return;
+  }
+  final clearFields =
+      !forFieldValue && eURssFeedModel.firestoreUtilData.clearUnsetFields;
+  if (clearFields) {
+    firestoreData[fieldName] = <String, dynamic>{};
+  }
+  final eURssFeedModelData =
+      getEURssFeedModelFirestoreData(eURssFeedModel, forFieldValue);
+  final nestedData =
+      eURssFeedModelData.map((k, v) => MapEntry('$fieldName.$k', v));
+
+  final mergeFields = eURssFeedModel.firestoreUtilData.create || clearFields;
+  firestoreData
+      .addAll(mergeFields ? mergeNestedFields(nestedData) : nestedData);
+}
+
+Map<String, dynamic> getEURssFeedModelFirestoreData(
+  EURssFeedModelStruct? eURssFeedModel, [
+  bool forFieldValue = false,
+]) {
+  if (eURssFeedModel == null) {
+    return {};
+  }
+  final firestoreData = mapToFirestore(eURssFeedModel.toMap());
+
+  // Add any Firestore field values
+  eURssFeedModel.firestoreUtilData.fieldValues
+      .forEach((k, v) => firestoreData[k] = v);
+
+  return forFieldValue ? mergeNestedFields(firestoreData) : firestoreData;
+}
+
+List<Map<String, dynamic>> getEURssFeedModelListFirestoreData(
+  List<EURssFeedModelStruct>? eURssFeedModels,
+) =>
+    eURssFeedModels
+        ?.map((e) => getEURssFeedModelFirestoreData(e, true))
+        .toList() ??
+    [];
