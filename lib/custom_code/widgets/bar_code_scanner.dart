@@ -1,4 +1,5 @@
 // Automatic FlutterFlow imports
+
 import '/backend/backend.dart';
 import '/backend/schema/structs/index.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
@@ -19,6 +20,7 @@ import '../../components/scanner_page_components/sliding_up_panel_from_ean/slidi
 import '../../components/scanner_page_components/close_scanner_button/close_scanner_button_widget.dart';
 import '../../components/scanner_page_components/scan_product_message/scan_product_message_widget.dart';
 import 'package:nu3_food/components/scanner_page_components/add_manually_button/add_manually_button_widget.dart';
+import 'package:flutter_svg/svg.dart';
 
 class BarCodeScanner extends StatefulWidget {
   const BarCodeScanner({
