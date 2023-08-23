@@ -42,97 +42,100 @@ class _HeaderWidgetState extends State<HeaderWidget> {
   Widget build(BuildContext context) {
     context.watch<FFAppState>();
 
-    return Container(
-      width: double.infinity,
-      decoration: BoxDecoration(
-        color: Colors.transparent,
-      ),
-      child: Row(
-        mainAxisSize: MainAxisSize.max,
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        crossAxisAlignment: CrossAxisAlignment.end,
-        children: [
-          Column(
-            mainAxisSize: MainAxisSize.min,
-            mainAxisAlignment: MainAxisAlignment.end,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Flexible(
-                child: Container(
-                  width: MediaQuery.sizeOf(context).width * 0.6,
-                  decoration: BoxDecoration(
-                    color: Colors.transparent,
+    return Padding(
+      padding: EdgeInsetsDirectional.fromSTEB(0.0, 30.0, 0.0, 0.0),
+      child: Container(
+        width: double.infinity,
+        decoration: BoxDecoration(
+          color: Colors.transparent,
+        ),
+        child: Row(
+          mainAxisSize: MainAxisSize.max,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          crossAxisAlignment: CrossAxisAlignment.end,
+          children: [
+            Column(
+              mainAxisSize: MainAxisSize.min,
+              mainAxisAlignment: MainAxisAlignment.end,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Flexible(
+                  child: Container(
+                    width: MediaQuery.sizeOf(context).width * 0.6,
+                    decoration: BoxDecoration(
+                      color: Colors.transparent,
+                    ),
+                    child: AuthUserStreamWidget(
+                      builder: (context) => AutoSizeText(
+                        '${FFLocalizations.of(context).languageCode == 'en' ? 'Hi ' : 'Ahoj '}${valueOrDefault<String>(
+                          currentUserDisplayName,
+                          'user',
+                        )}!'
+                            .maybeHandleOverflow(
+                          maxChars: 20,
+                          replacement: '…',
+                        ),
+                        maxLines: 1,
+                        style: FlutterFlowTheme.of(context).bodyMedium.override(
+                              fontFamily: 'Roboto',
+                              color: FlutterFlowTheme.of(context).primary,
+                              fontSize: 32.0,
+                              letterSpacing: 0.25,
+                              fontWeight: FontWeight.w800,
+                              lineHeight: 1.3,
+                            ),
+                      ),
+                    ),
                   ),
-                  child: AuthUserStreamWidget(
-                    builder: (context) => AutoSizeText(
-                      '${FFLocalizations.of(context).languageCode == 'en' ? 'Hi ' : 'Ahoj '}${valueOrDefault<String>(
-                        currentUserDisplayName,
-                        'user',
-                      )}!'
-                          .maybeHandleOverflow(
-                        maxChars: 20,
-                        replacement: '…',
+                ),
+                Flexible(
+                  child: Container(
+                    width: MediaQuery.sizeOf(context).width * 0.6,
+                    decoration: BoxDecoration(
+                      color: Colors.transparent,
+                    ),
+                    child: AutoSizeText(
+                      FFLocalizations.of(context).getText(
+                        'uy4uktgo' /* Scan your first product. */,
                       ),
                       maxLines: 1,
                       style: FlutterFlowTheme.of(context).bodyMedium.override(
                             fontFamily: 'Roboto',
-                            color: FlutterFlowTheme.of(context).primary,
-                            fontSize: 32.0,
-                            letterSpacing: 0.25,
-                            fontWeight: FontWeight.w800,
-                            lineHeight: 1.3,
+                            color: Color(0xFFAFACC7),
+                            fontSize: 18.0,
+                            letterSpacing: 0.15,
+                            fontWeight: FontWeight.w500,
+                            lineHeight: 1.5,
                           ),
                     ),
                   ),
                 ),
-              ),
-              Flexible(
-                child: Container(
-                  width: MediaQuery.sizeOf(context).width * 0.6,
-                  decoration: BoxDecoration(
-                    color: Colors.transparent,
-                  ),
-                  child: AutoSizeText(
-                    FFLocalizations.of(context).getText(
-                      'uy4uktgo' /* Scan your first product. */,
-                    ),
-                    maxLines: 1,
-                    style: FlutterFlowTheme.of(context).bodyMedium.override(
-                          fontFamily: 'Roboto',
-                          color: Color(0xFFAFACC7),
-                          fontSize: 18.0,
-                          letterSpacing: 0.15,
-                          fontWeight: FontWeight.w500,
-                          lineHeight: 1.5,
-                        ),
-                  ),
-                ),
-              ),
-            ].divide(SizedBox(height: 4.0)),
-          ),
-          InkWell(
-            splashColor: Colors.transparent,
-            focusColor: Colors.transparent,
-            hoverColor: Colors.transparent,
-            highlightColor: Colors.transparent,
-            onTap: () async {
-              if (FFAppState().IsGuest) {
-                context.pushNamed('Onborading');
-              } else {
-                context.pushNamed('Settings');
-              }
-            },
-            child: Container(
-              width: 73.0,
-              height: 73.0,
-              child: custom_widgets.ImageFromString(
+              ].divide(SizedBox(height: 4.0)),
+            ),
+            InkWell(
+              splashColor: Colors.transparent,
+              focusColor: Colors.transparent,
+              hoverColor: Colors.transparent,
+              highlightColor: Colors.transparent,
+              onTap: () async {
+                if (FFAppState().IsGuest) {
+                  context.pushNamed('Onborading');
+                } else {
+                  context.pushNamed('Settings');
+                }
+              },
+              child: Container(
                 width: 73.0,
                 height: 73.0,
-                name: FFAppState().imageName,
+                child: custom_widgets.ImageFromString(
+                  width: 73.0,
+                  height: 73.0,
+                  name: FFAppState().imageName,
+                ),
               ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

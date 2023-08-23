@@ -9,6 +9,8 @@ import 'package:flutter/material.dart';
 // Begin custom action code
 // DO NOT REMOVE OR MODIFY THE CODE ABOVE!
 
+import 'package:flutter_statusbarcolor_ns/flutter_statusbarcolor_ns.dart';
+
 Future setStatusBarColorToBlack() async {
   FlutterStatusbarcolor.setStatusBarWhiteForeground(false);
 }

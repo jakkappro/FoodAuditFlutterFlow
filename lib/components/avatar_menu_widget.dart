@@ -4,6 +4,7 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/custom_code/widgets/index.dart' as custom_widgets;
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'avatar_menu_model.dart';
@@ -121,8 +122,8 @@ class _AvatarMenuWidgetState extends State<AvatarMenuWidget> {
                                   alignment: AlignmentDirectional(0.0, 0.0),
                                   child: ClipRRect(
                                     borderRadius: BorderRadius.circular(8.0),
-                                    child: Image.asset(
-                                      'assets/images/check.png',
+                                    child: SvgPicture.asset(
+                                      'assets/images/check.svg',
                                       width: 11.06,
                                       height: 17.0,
                                       fit: BoxFit.scaleDown,
