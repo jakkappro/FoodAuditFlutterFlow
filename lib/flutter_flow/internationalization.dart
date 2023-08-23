@@ -107,6 +107,10 @@ Locale createLocale(String language) => language.contains('_')
 final kTranslationsMap = <Map<String, Map<String, String>>>[
   // Home
   {
+    '01o89ltf': {
+      'en': 'Last scanned items',
+      'sk': '',
+    },
     '7a876va4': {
       'en': 'Home',
       'sk': 'Domov',
@@ -407,10 +411,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     'cz2154o8': {
       'en': 'Scan your product',
       'sk': 'Naskenujte svoj produkt',
-    },
-    'rju430wl': {
-      'en': 'Hold barcode or ingredients list \ninside square area',
-      'sk': 'Držte čiarový kód alebo zoznam zložiek\nvnútri štvorcovej plochy',
     },
   },
   // AuthComponent

@@ -58,13 +58,15 @@ class _ScannedItemsWidgetState extends State<ScannedItemsWidget> {
           itemBuilder: (context, scannedItemIndex) {
             final scannedItemItem = scannedItem[scannedItemIndex];
             return Container(
-              width: 170.0,
-              decoration: BoxDecoration(
-                color: Colors.transparent,
-              ),
-              child: ScannedItemWidget(
-                key: Key('Key5c6_${scannedItemIndex}_of_${scannedItem.length}'),
-                scannedItem: scannedItemItem,
+              width: 231.0,
+              decoration: BoxDecoration(),
+              child: Align(
+                alignment: AlignmentDirectional(0.0, 0.0),
+                child: ScannedItemWidget(
+                  key: Key(
+                      'Key5c6_${scannedItemIndex}_of_${scannedItem.length}'),
+                  scannedItem: scannedItemItem,
+                ),
               ),
             );
           },

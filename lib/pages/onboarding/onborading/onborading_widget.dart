@@ -2,6 +2,7 @@ import '/components/authentication/auth_component/auth_component_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'onborading_model.dart';
@@ -42,7 +43,7 @@ class _OnboradingWidgetState extends State<OnboradingWidget> {
       onTap: () => FocusScope.of(context).requestFocus(_model.unfocusNode),
       child: Scaffold(
         key: scaffoldKey,
-        backgroundColor: Colors.transparent,
+        backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
         body: SafeArea(
           top: true,
           child: Container(
@@ -55,7 +56,7 @@ class _OnboradingWidgetState extends State<OnboradingWidget> {
                 children: [
                   Container(
                     width: double.infinity,
-                    height: 850.0,
+                    height: 750.0,
                     child: PageView(
                       physics: const NeverScrollableScrollPhysics(),
                       controller: _model.pageViewController ??=
@@ -82,8 +83,8 @@ class _OnboradingWidgetState extends State<OnboradingWidget> {
                                 children: [
                                   ClipRRect(
                                     borderRadius: BorderRadius.circular(0.0),
-                                    child: Image.asset(
-                                      'assets/images/onboardingMainImage.png',
+                                    child: SvgPicture.asset(
+                                      'assets/images/onboardingWelcomeImage.svg',
                                       width: 374.0,
                                       height: 394.0,
                                       fit: BoxFit.scaleDown,
@@ -243,8 +244,8 @@ class _OnboradingWidgetState extends State<OnboradingWidget> {
                                     alignment: AlignmentDirectional(0.0, 0.0),
                                     child: ClipRRect(
                                       borderRadius: BorderRadius.circular(0.0),
-                                      child: Image.asset(
-                                        'assets/images/onboardingMainImage.png',
+                                      child: SvgPicture.asset(
+                                        'assets/images/onboardingWelcomeImage.svg',
                                         width: 307.0,
                                         height: 348.0,
                                         fit: BoxFit.cover,

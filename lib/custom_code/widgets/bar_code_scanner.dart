@@ -215,8 +215,8 @@ class _BarCodeScannerState extends State<BarCodeScanner>
   }
 
   Widget _switchTorchToggle() => SizedBox(
-        height: 60.0,
-        width: 60.0,
+        height: 50.0,
+        width: 50.0,
         child: FloatingActionButton(
             heroTag: Object(),
             onPressed: () {
@@ -227,9 +227,9 @@ class _BarCodeScannerState extends State<BarCodeScanner>
             backgroundColor: Color.fromRGBO(183, 193, 250, 1),
             foregroundColor: Color.fromRGBO(56, 47, 115, 1),
             child: Image.asset(
-              "assets/images/lightBulb.png",
-              width: 34,
-              height: 34,
+              "assets/images/Light.svg",
+              width: 22,
+              height: 22,
             )),
       );
 
@@ -344,7 +344,7 @@ class HoleClipper extends CustomClipper<Path> {
       ..addRect(Rect.fromCenter(
         center: Offset(size.width / 2, size.height / 2),
         width: size.width * 0.75,
-        height: 250.0,
+        height: size.width * 0.75,
       ));
 
     return Path.combine(PathOperation.difference, outerPath, innerPath);

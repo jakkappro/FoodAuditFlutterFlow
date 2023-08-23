@@ -44,7 +44,6 @@ class _HeaderWidgetState extends State<HeaderWidget> {
 
     return Container(
       width: double.infinity,
-      height: 150.0,
       decoration: BoxDecoration(
         color: Colors.transparent,
       ),
