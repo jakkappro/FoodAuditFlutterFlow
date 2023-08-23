@@ -218,19 +218,21 @@ class _BarCodeScannerState extends State<BarCodeScanner>
         height: 50.0,
         width: 50.0,
         child: FloatingActionButton(
-            heroTag: Object(),
-            onPressed: () {
-              setState(() {
-                isTorchOn = !isTorchOn;
-              });
-            },
-            backgroundColor: Color.fromRGBO(183, 193, 250, 1),
-            foregroundColor: Color.fromRGBO(56, 47, 115, 1),
-            child: Image.asset(
-              "assets/images/Light.svg",
-              width: 22,
-              height: 22,
-            )),
+          heroTag: Object(),
+          onPressed: () {
+            setState(() {
+              isTorchOn = !isTorchOn;
+            });
+          },
+          backgroundColor: Color.fromRGBO(183, 193, 250, 1),
+          foregroundColor: Color.fromRGBO(56, 47, 115, 1),
+          child: SvgPicture.asset(
+            "assets/images/Light.svg",
+            width: 34,
+            height: 34,
+            fit: BoxFit.contain,
+          ),
+        ),
       );
 
   Future<void> _onEanScanned(String ean) async {
@@ -422,7 +424,7 @@ class _ScannerPageState extends State<_ScannerPage> {
             widget.onEanScanned(barcodes.first.displayValue!);
           }
           widget.onEanScanned(barcodes.first.displayValue!);
-        } else if (!foundEan && _timesDidntFoundEan > 25) {
+        } else if (!foundEan && _timesDidntFoundEan > 40) {
           widget.onEanScanned('');
           _timesFoundEan = 0;
         } else {
