@@ -66,19 +66,6 @@ class _ScanProductMessageWidgetState extends State<ScanProductMessageWidget> {
                     lineHeight: 1.3,
                   ),
             ),
-            Text(
-              FFLocalizations.of(context).getText(
-                'rju430wl' /* Hold barcode or ingredients li... */,
-              ),
-              style: FlutterFlowTheme.of(context).bodyMedium.override(
-                    fontFamily: 'Roboto',
-                    color: Color(0xFFF7F7F7),
-                    fontSize: 18.0,
-                    letterSpacing: 0.15,
-                    fontWeight: FontWeight.w500,
-                    lineHeight: 1.5,
-                  ),
-            ),
           ],
         ),
       ),

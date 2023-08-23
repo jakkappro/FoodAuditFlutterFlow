@@ -1,4 +1,5 @@
 // Automatic FlutterFlow imports
+
 import '/backend/backend.dart';
 import '/backend/schema/structs/index.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
@@ -19,6 +20,7 @@ import '../../components/scanner_page_components/sliding_up_panel_from_ean/slidi
 import '../../components/scanner_page_components/close_scanner_button/close_scanner_button_widget.dart';
 import '../../components/scanner_page_components/scan_product_message/scan_product_message_widget.dart';
 import 'package:nu3_food/components/scanner_page_components/add_manually_button/add_manually_button_widget.dart';
+import 'package:flutter_svg/svg.dart';
 
 class BarCodeScanner extends StatefulWidget {
   const BarCodeScanner({
@@ -215,22 +217,24 @@ class _BarCodeScannerState extends State<BarCodeScanner>
   }
 
   Widget _switchTorchToggle() => SizedBox(
-        height: 60.0,
-        width: 60.0,
+        height: 50.0,
+        width: 50.0,
         child: FloatingActionButton(
-            heroTag: Object(),
-            onPressed: () {
-              setState(() {
-                isTorchOn = !isTorchOn;
-              });
-            },
-            backgroundColor: Color.fromRGBO(183, 193, 250, 1),
-            foregroundColor: Color.fromRGBO(56, 47, 115, 1),
-            child: Image.asset(
-              "assets/images/lightBulb.png",
-              width: 34,
-              height: 34,
-            )),
+          heroTag: Object(),
+          onPressed: () {
+            setState(() {
+              isTorchOn = !isTorchOn;
+            });
+          },
+          backgroundColor: Color.fromRGBO(183, 193, 250, 1),
+          foregroundColor: Color.fromRGBO(56, 47, 115, 1),
+          child: SvgPicture.asset(
+            "assets/images/Light.svg",
+            width: 34,
+            height: 34,
+            fit: BoxFit.contain,
+          ),
+        ),
       );
 
   Future<void> _onEanScanned(String ean) async {
@@ -344,7 +348,7 @@ class HoleClipper extends CustomClipper<Path> {
       ..addRect(Rect.fromCenter(
         center: Offset(size.width / 2, size.height / 2),
         width: size.width * 0.75,
-        height: 250.0,
+        height: size.width * 0.75,
       ));
 
     return Path.combine(PathOperation.difference, outerPath, innerPath);
@@ -422,7 +426,7 @@ class _ScannerPageState extends State<_ScannerPage> {
             widget.onEanScanned(barcodes.first.displayValue!);
           }
           widget.onEanScanned(barcodes.first.displayValue!);
-        } else if (!foundEan && _timesDidntFoundEan > 50) {
+        } else if (!foundEan && _timesDidntFoundEan > 40) {
           widget.onEanScanned('');
           _timesFoundEan = 0;
         } else {

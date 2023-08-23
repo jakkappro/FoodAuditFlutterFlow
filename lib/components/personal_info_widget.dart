@@ -8,6 +8,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'personal_info_model.dart';
@@ -195,8 +196,8 @@ class _PersonalInfoWidgetState extends State<PersonalInfoWidget> {
                       ),
                       ClipRRect(
                         borderRadius: BorderRadius.circular(0.0),
-                        child: Image.asset(
-                          'assets/images/Calendar.png',
+                        child: SvgPicture.asset(
+                          'assets/images/Calendar.svg',
                           width: 24.0,
                           height: 24.0,
                           fit: BoxFit.cover,

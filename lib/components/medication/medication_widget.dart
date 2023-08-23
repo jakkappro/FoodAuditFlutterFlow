@@ -80,8 +80,8 @@ class _MedicationWidgetState extends State<MedicationWidget> {
             builder: (context) {
               final medication = FFAppState().Medication.toList();
               return Wrap(
-                spacing: 12.0,
-                runSpacing: 5.0,
+                spacing: 8.0,
+                runSpacing: 12.0,
                 alignment: WrapAlignment.start,
                 crossAxisAlignment: WrapCrossAlignment.start,
                 direction: Axis.horizontal,
@@ -191,7 +191,7 @@ class _MedicationWidgetState extends State<MedicationWidget> {
                         ),
                       ),
                     );
-                  }).divide(SizedBox(width: 12.0)),
+                  }).divide(SizedBox(width: 8.0)),
                 ),
               );
             },

@@ -5,6 +5,7 @@ import '/components/personal_info_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'set_up_wizard_model.dart';
@@ -201,8 +202,8 @@ class _SetUpWizardWidgetState extends State<SetUpWizardWidget> {
                                         ClipRRect(
                                           borderRadius:
                                               BorderRadius.circular(8.0),
-                                          child: Image.asset(
-                                            'assets/images/arrow.png',
+                                          child: SvgPicture.asset(
+                                            'assets/images/arrow.svg',
                                             width: 15.0,
                                             height: 15.8,
                                             fit: BoxFit.scaleDown,
@@ -374,8 +375,8 @@ class _SetUpWizardWidgetState extends State<SetUpWizardWidget> {
                                             child: ClipRRect(
                                               borderRadius:
                                                   BorderRadius.circular(0.0),
-                                              child: Image.asset(
-                                                'assets/images/arrow_back.png',
+                                              child: SvgPicture.asset(
+                                                'assets/images/arrow_back.svg',
                                                 width: 15.0,
                                                 height: 15.75,
                                                 fit: BoxFit.scaleDown,

@@ -7,6 +7,7 @@ import '/components/personal_info_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'settings_model.dart';
@@ -47,7 +48,7 @@ class _SettingsWidgetState extends State<SettingsWidget> {
       onTap: () => FocusScope.of(context).requestFocus(_model.unfocusNode),
       child: Scaffold(
         key: scaffoldKey,
-        backgroundColor: Colors.transparent,
+        backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
         body: SafeArea(
           top: true,
           child: Container(
@@ -236,8 +237,8 @@ class _SettingsWidgetState extends State<SettingsWidget> {
                           alignment: AlignmentDirectional(0.0, 0.0),
                           child: ClipRRect(
                             borderRadius: BorderRadius.circular(8.0),
-                            child: Image.asset(
-                              'assets/images/Frame.png',
+                            child: SvgPicture.asset(
+                              'assets/images/cross.svg',
                               width: 22.0,
                               height: 22.0,
                               fit: BoxFit.contain,

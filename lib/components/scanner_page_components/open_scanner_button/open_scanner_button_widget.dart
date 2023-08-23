@@ -1,6 +1,7 @@
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'open_scanner_button_model.dart';
@@ -65,8 +66,8 @@ class _OpenScannerButtonWidgetState extends State<OpenScannerButtonWidget> {
               children: [
                 ClipRRect(
                   borderRadius: BorderRadius.circular(0.0),
-                  child: Image.asset(
-                    'assets/images/Scan.png',
+                  child: SvgPicture.asset(
+                    'assets/images/Scan.svg',
                     width: 22.0,
                     height: 22.0,
                     fit: BoxFit.cover,

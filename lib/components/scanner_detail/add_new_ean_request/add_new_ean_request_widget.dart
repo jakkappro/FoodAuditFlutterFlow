@@ -1,6 +1,7 @@
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'add_new_ean_request_model.dart';
@@ -50,8 +51,8 @@ class _AddNewEanRequestWidgetState extends State<AddNewEanRequestWidget> {
         alignment: AlignmentDirectional(0.0, 0.0),
         child: ClipRRect(
           borderRadius: BorderRadius.circular(8.0),
-          child: Image.asset(
-            'assets/images/lightBulb.png',
+          child: SvgPicture.asset(
+            'assets/images/Light.svg',
             width: 34.0,
             height: 34.0,
             fit: BoxFit.scaleDown,
