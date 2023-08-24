@@ -65,7 +65,7 @@ class _HomeWidgetState extends State<HomeWidget> {
         appBar: PreferredSize(
           preferredSize: Size.fromHeight(0.0),
           child: AppBar(
-            backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+            backgroundColor: FlutterFlowTheme.of(context).lNWhite,
             automaticallyImplyLeading: false,
             actions: [],
             centerTitle: false,
