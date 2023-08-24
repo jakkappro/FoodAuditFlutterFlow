@@ -151,6 +151,8 @@ class _MedicationWidgetState extends State<MedicationWidget> {
                       .then((r) => _model.algoliaSearchResults = r)
                       .onError((_, __) => _model.algoliaSearchResults = [])
                       .whenComplete(() => setState(() {}));
+
+                  await widget.whereToScroll?.call();
                 } else {
                   setState(() {
                     _model.shouldShowSearch = false;
