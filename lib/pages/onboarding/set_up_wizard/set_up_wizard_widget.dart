@@ -68,6 +68,7 @@ class _SetUpWizardWidgetState extends State<SetUpWizardWidget> {
                         padding: EdgeInsetsDirectional.fromSTEB(
                             24.0, 0.0, 24.0, 0.0),
                         child: SingleChildScrollView(
+                          controller: _model.columnController1,
                           child: Column(
                             mainAxisSize: MainAxisSize.max,
                             crossAxisAlignment: CrossAxisAlignment.start,
@@ -263,6 +264,7 @@ class _SetUpWizardWidgetState extends State<SetUpWizardWidget> {
                         padding: EdgeInsetsDirectional.fromSTEB(
                             24.0, 0.0, 24.0, 0.0),
                         child: SingleChildScrollView(
+                          controller: _model.columnController2,
                           child: Column(
                             mainAxisSize: MainAxisSize.min,
                             crossAxisAlignment: CrossAxisAlignment.start,
@@ -318,7 +320,16 @@ class _SetUpWizardWidgetState extends State<SetUpWizardWidget> {
                                 child: wrapWithModel(
                                   model: _model.medicationModel,
                                   updateCallback: () => setState(() {}),
-                                  child: MedicationWidget(),
+                                  child: MedicationWidget(
+                                    whereToScroll: () async {
+                                      await _model.columnController2?.animateTo(
+                                        _model.columnController2!.position
+                                            .maxScrollExtent,
+                                        duration: Duration(milliseconds: 100),
+                                        curve: Curves.ease,
+                                      );
+                                    },
+                                  ),
                                 ),
                               ),
                             ]

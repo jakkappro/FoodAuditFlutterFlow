@@ -15,6 +15,8 @@ class SettingsModel extends FlutterFlowModel {
   ///  State fields for stateful widgets in this page.
 
   final unfocusNode = FocusNode();
+  // State field(s) for Column widget.
+  ScrollController? columnController;
   // Model for AvatarMenu component.
   late AvatarMenuModel avatarMenuModel;
   // Model for PersonalInfo component.
@@ -27,6 +29,7 @@ class SettingsModel extends FlutterFlowModel {
   /// Initialization and disposal methods.
 
   void initState(BuildContext context) {
+    columnController = ScrollController();
     avatarMenuModel = createModel(context, () => AvatarMenuModel());
     personalInfoModel = createModel(context, () => PersonalInfoModel());
     intoleranciesModel = createModel(context, () => IntoleranciesModel());
@@ -35,6 +38,7 @@ class SettingsModel extends FlutterFlowModel {
 
   void dispose() {
     unfocusNode.dispose();
+    columnController?.dispose();
     avatarMenuModel.dispose();
     personalInfoModel.dispose();
     intoleranciesModel.dispose();

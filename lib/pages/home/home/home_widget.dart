@@ -75,6 +75,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                 Padding(
                   padding: EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
                   child: SingleChildScrollView(
+                    controller: _model.columnController,
                     child: Column(
                       mainAxisSize: MainAxisSize.min,
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -135,7 +136,16 @@ class _HomeWidgetState extends State<HomeWidget> {
                           child: wrapWithModel(
                             model: _model.medicationModel,
                             updateCallback: () => setState(() {}),
-                            child: MedicationWidget(),
+                            child: MedicationWidget(
+                              whereToScroll: () async {
+                                await _model.columnController?.animateTo(
+                                  _model.columnController!.position
+                                      .maxScrollExtent,
+                                  duration: Duration(milliseconds: 100),
+                                  curve: Curves.ease,
+                                );
+                              },
+                            ),
                           ),
                         ),
                       ]

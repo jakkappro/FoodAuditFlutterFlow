@@ -60,6 +60,7 @@ class _SettingsWidgetState extends State<SettingsWidget> {
               child: Stack(
                 children: [
                   SingleChildScrollView(
+                    controller: _model.columnController,
                     child: Column(
                       mainAxisSize: MainAxisSize.min,
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -107,14 +108,22 @@ class _SettingsWidgetState extends State<SettingsWidget> {
                           child: IntoleranciesWidget(),
                         ),
                         Container(
-                          height: 300.0,
                           decoration: BoxDecoration(
                             color: Colors.transparent,
                           ),
                           child: wrapWithModel(
                             model: _model.medicationModel,
                             updateCallback: () => setState(() {}),
-                            child: MedicationWidget(),
+                            child: MedicationWidget(
+                              whereToScroll: () async {
+                                await _model.columnController?.animateTo(
+                                  _model.columnController!.position
+                                      .maxScrollExtent,
+                                  duration: Duration(milliseconds: 100),
+                                  curve: Curves.ease,
+                                );
+                              },
+                            ),
                           ),
                         ),
                         InkWell(

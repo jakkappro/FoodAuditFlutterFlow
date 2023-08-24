@@ -9,7 +9,12 @@ import 'medication_model.dart';
 export 'medication_model.dart';
 
 class MedicationWidget extends StatefulWidget {
-  const MedicationWidget({Key? key}) : super(key: key);
+  const MedicationWidget({
+    Key? key,
+    required this.whereToScroll,
+  }) : super(key: key);
+
+  final Future<dynamic> Function()? whereToScroll;
 
   @override
   _MedicationWidgetState createState() => _MedicationWidgetState();
@@ -126,76 +131,6 @@ class _MedicationWidgetState extends State<MedicationWidget> {
             },
           ),
         ),
-        if (_model.shouldShowSearch)
-          Builder(
-            builder: (context) {
-              if (_model.algoliaSearchResults == null) {
-                return Center(
-                  child: SizedBox(
-                    width: 50.0,
-                    height: 50.0,
-                    child: CircularProgressIndicator(
-                      valueColor: AlwaysStoppedAnimation<Color>(
-                        FlutterFlowTheme.of(context).primary,
-                      ),
-                    ),
-                  ),
-                );
-              }
-              final medicament = (_model.algoliaSearchResults?.toList() ?? [])
-                  .take(3)
-                  .toList();
-              return SingleChildScrollView(
-                scrollDirection: Axis.horizontal,
-                child: Row(
-                  mainAxisSize: MainAxisSize.min,
-                  children: List.generate(medicament.length, (medicamentIndex) {
-                    final medicamentItem = medicament[medicamentIndex];
-                    return InkWell(
-                      splashColor: Colors.transparent,
-                      focusColor: Colors.transparent,
-                      hoverColor: Colors.transparent,
-                      highlightColor: Colors.transparent,
-                      onTap: () async {
-                        if (!FFAppState()
-                            .Medication
-                            .contains(medicamentItem.name)) {
-                          setState(() {
-                            FFAppState().addToMedication(medicamentItem.name);
-                          });
-                        }
-                      },
-                      child: Container(
-                        decoration: BoxDecoration(
-                          color: Colors.transparent,
-                          borderRadius: BorderRadius.circular(6.0),
-                          border: Border.all(
-                            color: Color(0xFFAFACC7),
-                            width: 1.3,
-                          ),
-                        ),
-                        child: Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              12.0, 10.0, 12.0, 10.0),
-                          child: Text(
-                            medicamentItem.name,
-                            style: FlutterFlowTheme.of(context)
-                                .bodyMedium
-                                .override(
-                                  fontFamily: 'Roboto',
-                                  color: Color(0xFFAFACC7),
-                                  letterSpacing: 0.15,
-                                  fontWeight: FontWeight.w800,
-                                ),
-                          ),
-                        ),
-                      ),
-                    );
-                  }).divide(SizedBox(width: 8.0)),
-                ),
-              );
-            },
-          ),
         Container(
           width: double.infinity,
           child: TextFormField(
@@ -271,6 +206,76 @@ class _MedicationWidgetState extends State<MedicationWidget> {
             validator: _model.textControllerValidator.asValidator(context),
           ),
         ),
+        if (_model.shouldShowSearch)
+          Builder(
+            builder: (context) {
+              if (_model.algoliaSearchResults == null) {
+                return Center(
+                  child: SizedBox(
+                    width: 50.0,
+                    height: 50.0,
+                    child: CircularProgressIndicator(
+                      valueColor: AlwaysStoppedAnimation<Color>(
+                        FlutterFlowTheme.of(context).primary,
+                      ),
+                    ),
+                  ),
+                );
+              }
+              final medicament = (_model.algoliaSearchResults?.toList() ?? [])
+                  .take(3)
+                  .toList();
+              return SingleChildScrollView(
+                scrollDirection: Axis.horizontal,
+                child: Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: List.generate(medicament.length, (medicamentIndex) {
+                    final medicamentItem = medicament[medicamentIndex];
+                    return InkWell(
+                      splashColor: Colors.transparent,
+                      focusColor: Colors.transparent,
+                      hoverColor: Colors.transparent,
+                      highlightColor: Colors.transparent,
+                      onTap: () async {
+                        if (!FFAppState()
+                            .Medication
+                            .contains(medicamentItem.name)) {
+                          setState(() {
+                            FFAppState().addToMedication(medicamentItem.name);
+                          });
+                        }
+                      },
+                      child: Container(
+                        decoration: BoxDecoration(
+                          color: Colors.transparent,
+                          borderRadius: BorderRadius.circular(6.0),
+                          border: Border.all(
+                            color: Color(0xFFAFACC7),
+                            width: 1.3,
+                          ),
+                        ),
+                        child: Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              12.0, 10.0, 12.0, 10.0),
+                          child: Text(
+                            medicamentItem.name,
+                            style: FlutterFlowTheme.of(context)
+                                .bodyMedium
+                                .override(
+                                  fontFamily: 'Roboto',
+                                  color: Color(0xFFAFACC7),
+                                  letterSpacing: 0.15,
+                                  fontWeight: FontWeight.w800,
+                                ),
+                          ),
+                        ),
+                      ),
+                    );
+                  }).divide(SizedBox(width: 8.0)),
+                ),
+              );
+            },
+          ),
       ].divide(SizedBox(height: 15.0)).addToStart(SizedBox(height: 15.0)),
     );
   }
