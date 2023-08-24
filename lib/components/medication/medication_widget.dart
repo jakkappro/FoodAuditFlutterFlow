@@ -143,6 +143,7 @@ class _MedicationWidgetState extends State<MedicationWidget> {
                   setState(() {
                     _model.shouldShowSearch = true;
                   });
+                  await widget.whereToScroll?.call();
                   setState(() => _model.algoliaSearchResults = null);
                   await MedicationRecord.search(
                     term: _model.textController.text,
@@ -151,8 +152,6 @@ class _MedicationWidgetState extends State<MedicationWidget> {
                       .then((r) => _model.algoliaSearchResults = r)
                       .onError((_, __) => _model.algoliaSearchResults = [])
                       .whenComplete(() => setState(() {}));
-
-                  await widget.whereToScroll?.call();
                 } else {
                   setState(() {
                     _model.shouldShowSearch = false;

@@ -56,7 +56,6 @@ dependencies:
       path: facebook_auth
   flutter_keyboard_visibility: 5.2.0
   flutter_secure_storage: 8.0.0
-  flutter_statusbarcolor_ns:
   flutter_svg: 2.0.4
   font_awesome_flutter: 10.1.0
   from_css_color: 2.0.0

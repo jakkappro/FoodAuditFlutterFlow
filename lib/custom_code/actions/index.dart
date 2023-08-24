@@ -4,4 +4,3 @@ export 'is_food_safe.dart' show isFoodSafe;
 export 'is_user_new.dart' show isUserNew;
 export 'is_drug_complient.dart' show isDrugComplient;
 export 'get_medication_struct.dart' show getMedicationStruct;
-export 'set_status_bar_color_to_black.dart' show setStatusBarColorToBlack;
