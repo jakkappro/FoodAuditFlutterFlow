@@ -140,7 +140,7 @@ class _IntoleranciesWidgetState extends State<IntoleranciesWidget> {
                 iconColor: Color(0x00000000),
                 iconSize: 0.0,
                 labelPadding:
-                    EdgeInsetsDirectional.fromSTEB(6.0, 2.0, 6.0, 2.0),
+                    EdgeInsetsDirectional.fromSTEB(6.0, 0.0, 6.0, 0.0),
                 elevation: 0.0,
                 borderColor: Color(0xFF382F73),
                 borderWidth: 1.3,
@@ -158,7 +158,7 @@ class _IntoleranciesWidgetState extends State<IntoleranciesWidget> {
                 iconColor: Color(0x00000000),
                 iconSize: 0.0,
                 labelPadding:
-                    EdgeInsetsDirectional.fromSTEB(6.0, 2.0, 6.0, 2.0),
+                    EdgeInsetsDirectional.fromSTEB(6.0, 0.0, 6.0, 0.0),
                 elevation: 0.0,
                 borderColor: Color(0xFFAFACC7),
                 borderWidth: 1.3,

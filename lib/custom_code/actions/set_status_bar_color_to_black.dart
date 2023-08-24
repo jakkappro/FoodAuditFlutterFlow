@@ -12,5 +12,5 @@ import 'package:flutter/material.dart';
 import 'package:flutter_statusbarcolor_ns/flutter_statusbarcolor_ns.dart';
 
 Future setStatusBarColorToBlack() async {
-  FlutterStatusbarcolor.setStatusBarWhiteForeground(false);
+  FlutterStatusbarcolor.setStatusBarWhiteForeground(true);
 }

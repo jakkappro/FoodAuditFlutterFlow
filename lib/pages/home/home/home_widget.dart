@@ -32,10 +32,6 @@ class _HomeWidgetState extends State<HomeWidget> {
     super.initState();
     _model = createModel(context, () => HomeModel());
 
-    FFAppState().addListener(() {
-      setState(() {});
-    });
-
     logFirebaseEvent('screen_view', parameters: {'screen_name': 'Home'});
     if (!isWeb) {
       _keyboardVisibilitySubscription =

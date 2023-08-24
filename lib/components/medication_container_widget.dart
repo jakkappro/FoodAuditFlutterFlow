@@ -55,7 +55,7 @@ class _MedicationContainerWidgetState extends State<MedicationContainerWidget> {
         borderRadius: BorderRadius.circular(6.0),
       ),
       child: Padding(
-        padding: EdgeInsetsDirectional.fromSTEB(12.0, 10.0, 12.0, 10.0),
+        padding: EdgeInsetsDirectional.fromSTEB(8.0, 5.0, 8.0, 5.0),
         child: Text(
           widget.name!,
           style: FlutterFlowTheme.of(context).bodyMedium.override(

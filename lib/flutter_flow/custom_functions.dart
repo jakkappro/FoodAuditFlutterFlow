@@ -45,14 +45,13 @@ List<String> getEveryOtherFromList(
 
 List<String> getListOfAvatars(String? photo) {
   List<String> result = [];
+  for (int i = 111; i <= 122; i++) {
+    result.add("avatar_" + i.toString() + ".png");
+  }
 
   if (photo != null) {
     // Add user's profile picture to list
     result.add(photo);
-  }
-
-  for (int i = 111; i <= 122; i++) {
-    result.add("avatar_" + i.toString() + ".png");
   }
 
   return result;
