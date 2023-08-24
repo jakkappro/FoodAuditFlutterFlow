@@ -6,7 +6,9 @@ import '/components/medication/medication_widget.dart';
 import '/components/personal_info_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import 'dart:async';
 import 'package:flutter/material.dart';
+import 'package:flutter_keyboard_visibility/flutter_keyboard_visibility.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -24,6 +26,8 @@ class _SettingsWidgetState extends State<SettingsWidget> {
   late SettingsModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
+  late StreamSubscription<bool> _keyboardVisibilitySubscription;
+  bool _isKeyboardVisible = false;
 
   @override
   void initState() {
@@ -31,12 +35,23 @@ class _SettingsWidgetState extends State<SettingsWidget> {
     _model = createModel(context, () => SettingsModel());
 
     logFirebaseEvent('screen_view', parameters: {'screen_name': 'Settings'});
+    if (!isWeb) {
+      _keyboardVisibilitySubscription =
+          KeyboardVisibilityController().onChange.listen((bool visible) {
+        setState(() {
+          _isKeyboardVisible = visible;
+        });
+      });
+    }
   }
 
   @override
   void dispose() {
     _model.dispose();
 
+    if (!isWeb) {
+      _keyboardVisibilitySubscription.cancel();
+    }
     super.dispose();
   }
 
@@ -49,6 +64,17 @@ class _SettingsWidgetState extends State<SettingsWidget> {
       child: Scaffold(
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+        appBar: PreferredSize(
+          preferredSize: Size.fromHeight(0.0),
+          child: AppBar(
+            backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+            automaticallyImplyLeading: false,
+            actions: [],
+            centerTitle: false,
+            toolbarHeight: 0.0,
+            elevation: 0.0,
+          ),
+        ),
         body: SafeArea(
           top: true,
           child: Container(
@@ -60,6 +86,7 @@ class _SettingsWidgetState extends State<SettingsWidget> {
               child: Stack(
                 children: [
                   SingleChildScrollView(
+                    controller: _model.columnController,
                     child: Column(
                       mainAxisSize: MainAxisSize.min,
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -107,14 +134,22 @@ class _SettingsWidgetState extends State<SettingsWidget> {
                           child: IntoleranciesWidget(),
                         ),
                         Container(
-                          height: 300.0,
                           decoration: BoxDecoration(
                             color: Colors.transparent,
                           ),
                           child: wrapWithModel(
                             model: _model.medicationModel,
                             updateCallback: () => setState(() {}),
-                            child: MedicationWidget(),
+                            child: MedicationWidget(
+                              whereToScroll: () async {
+                                await _model.columnController?.animateTo(
+                                  _model.columnController!.position
+                                      .maxScrollExtent,
+                                  duration: Duration(milliseconds: 100),
+                                  curve: Curves.ease,
+                                );
+                              },
+                            ),
                           ),
                         ),
                         InkWell(
@@ -178,44 +213,47 @@ class _SettingsWidgetState extends State<SettingsWidget> {
                           .addToEnd(SizedBox(height: 70.0)),
                     ),
                   ),
-                  Align(
-                    alignment: AlignmentDirectional(0.0, 0.95),
-                    child: InkWell(
-                      splashColor: Colors.transparent,
-                      focusColor: Colors.transparent,
-                      hoverColor: Colors.transparent,
-                      highlightColor: Colors.transparent,
-                      onTap: () async {
-                        context.pushNamed('Home');
-                      },
-                      child: Container(
-                        width: double.infinity,
-                        decoration: BoxDecoration(
-                          color: FlutterFlowTheme.of(context).primary,
-                          borderRadius: BorderRadius.circular(6.0),
-                        ),
-                        child: Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              12.0, 10.0, 12.0, 10.0),
-                          child: Text(
-                            FFLocalizations.of(context).getText(
-                              'mg17prl1' /* Save settings */,
+                  if (!(isWeb
+                      ? MediaQuery.viewInsetsOf(context).bottom > 0
+                      : _isKeyboardVisible))
+                    Align(
+                      alignment: AlignmentDirectional(0.0, 0.95),
+                      child: InkWell(
+                        splashColor: Colors.transparent,
+                        focusColor: Colors.transparent,
+                        hoverColor: Colors.transparent,
+                        highlightColor: Colors.transparent,
+                        onTap: () async {
+                          context.pushNamed('Home');
+                        },
+                        child: Container(
+                          width: double.infinity,
+                          decoration: BoxDecoration(
+                            color: FlutterFlowTheme.of(context).primary,
+                            borderRadius: BorderRadius.circular(6.0),
+                          ),
+                          child: Padding(
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                12.0, 10.0, 12.0, 10.0),
+                            child: Text(
+                              FFLocalizations.of(context).getText(
+                                'mg17prl1' /* Save settings */,
+                              ),
+                              textAlign: TextAlign.center,
+                              style: FlutterFlowTheme.of(context)
+                                  .bodyMedium
+                                  .override(
+                                    fontFamily: 'Roboto',
+                                    color: Color(0xFFB7C1FA),
+                                    letterSpacing: 0.15,
+                                    fontWeight: FontWeight.w800,
+                                    lineHeight: 1.5,
+                                  ),
                             ),
-                            textAlign: TextAlign.center,
-                            style: FlutterFlowTheme.of(context)
-                                .bodyMedium
-                                .override(
-                                  fontFamily: 'Roboto',
-                                  color: Color(0xFFB7C1FA),
-                                  letterSpacing: 0.15,
-                                  fontWeight: FontWeight.w800,
-                                  lineHeight: 1.5,
-                                ),
                           ),
                         ),
                       ),
                     ),
-                  ),
                   Align(
                     alignment: AlignmentDirectional(1.0, -1.0),
                     child: InkWell(

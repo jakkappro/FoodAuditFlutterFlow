@@ -4,7 +4,9 @@ import '/components/medication/medication_widget.dart';
 import '/components/personal_info_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import 'dart:async';
 import 'package:flutter/material.dart';
+import 'package:flutter_keyboard_visibility/flutter_keyboard_visibility.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -22,6 +24,8 @@ class _SetUpWizardWidgetState extends State<SetUpWizardWidget> {
   late SetUpWizardModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
+  late StreamSubscription<bool> _keyboardVisibilitySubscription;
+  bool _isKeyboardVisible = false;
 
   @override
   void initState() {
@@ -29,12 +33,23 @@ class _SetUpWizardWidgetState extends State<SetUpWizardWidget> {
     _model = createModel(context, () => SetUpWizardModel());
 
     logFirebaseEvent('screen_view', parameters: {'screen_name': 'SetUpWizard'});
+    if (!isWeb) {
+      _keyboardVisibilitySubscription =
+          KeyboardVisibilityController().onChange.listen((bool visible) {
+        setState(() {
+          _isKeyboardVisible = visible;
+        });
+      });
+    }
   }
 
   @override
   void dispose() {
     _model.dispose();
 
+    if (!isWeb) {
+      _keyboardVisibilitySubscription.cancel();
+    }
     super.dispose();
   }
 
@@ -47,6 +62,17 @@ class _SetUpWizardWidgetState extends State<SetUpWizardWidget> {
       child: Scaffold(
         key: scaffoldKey,
         backgroundColor: Colors.transparent,
+        appBar: PreferredSize(
+          preferredSize: Size.fromHeight(0.0),
+          child: AppBar(
+            backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+            automaticallyImplyLeading: false,
+            actions: [],
+            centerTitle: false,
+            toolbarHeight: 0.0,
+            elevation: 0.0,
+          ),
+        ),
         body: SafeArea(
           top: true,
           child: Container(
@@ -68,6 +94,7 @@ class _SetUpWizardWidgetState extends State<SetUpWizardWidget> {
                         padding: EdgeInsetsDirectional.fromSTEB(
                             24.0, 0.0, 24.0, 0.0),
                         child: SingleChildScrollView(
+                          controller: _model.columnController1,
                           child: Column(
                             mainAxisSize: MainAxisSize.max,
                             crossAxisAlignment: CrossAxisAlignment.start,
@@ -144,117 +171,123 @@ class _SetUpWizardWidgetState extends State<SetUpWizardWidget> {
                           ),
                         ),
                       ),
-                      Align(
-                        alignment: AlignmentDirectional(0.0, 0.95),
-                        child: Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              24.0, 0.0, 24.0, 0.0),
-                          child: Container(
-                            width: double.infinity,
-                            decoration: BoxDecoration(
-                              color: Colors.transparent,
-                            ),
-                            child: Column(
-                              mainAxisSize: MainAxisSize.min,
-                              children: [
-                                InkWell(
-                                  splashColor: Colors.transparent,
-                                  focusColor: Colors.transparent,
-                                  hoverColor: Colors.transparent,
-                                  highlightColor: Colors.transparent,
-                                  onTap: () async {
-                                    await _model.pageViewController?.nextPage(
-                                      duration: Duration(milliseconds: 300),
-                                      curve: Curves.ease,
-                                    );
-                                  },
-                                  child: Container(
-                                    width: double.infinity,
-                                    decoration: BoxDecoration(
-                                      color: Color(0xFF382F73),
-                                      borderRadius: BorderRadius.circular(6.0),
-                                    ),
-                                    child: Row(
-                                      mainAxisSize: MainAxisSize.max,
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.center,
-                                      children: [
-                                        Padding(
-                                          padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  12.0, 10.0, 12.0, 10.0),
-                                          child: Text(
-                                            FFLocalizations.of(context).getText(
-                                              'ju5x2gug' /* Continue to next step */,
+                      if (!(isWeb
+                          ? MediaQuery.viewInsetsOf(context).bottom > 0
+                          : _isKeyboardVisible))
+                        Align(
+                          alignment: AlignmentDirectional(0.0, 0.95),
+                          child: Padding(
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                24.0, 0.0, 24.0, 0.0),
+                            child: Container(
+                              width: double.infinity,
+                              decoration: BoxDecoration(
+                                color: Colors.transparent,
+                              ),
+                              child: Column(
+                                mainAxisSize: MainAxisSize.min,
+                                children: [
+                                  InkWell(
+                                    splashColor: Colors.transparent,
+                                    focusColor: Colors.transparent,
+                                    hoverColor: Colors.transparent,
+                                    highlightColor: Colors.transparent,
+                                    onTap: () async {
+                                      await _model.pageViewController?.nextPage(
+                                        duration: Duration(milliseconds: 300),
+                                        curve: Curves.ease,
+                                      );
+                                    },
+                                    child: Container(
+                                      width: double.infinity,
+                                      decoration: BoxDecoration(
+                                        color: Color(0xFF382F73),
+                                        borderRadius:
+                                            BorderRadius.circular(6.0),
+                                      ),
+                                      child: Row(
+                                        mainAxisSize: MainAxisSize.max,
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.center,
+                                        children: [
+                                          Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    12.0, 10.0, 12.0, 10.0),
+                                            child: Text(
+                                              FFLocalizations.of(context)
+                                                  .getText(
+                                                'ju5x2gug' /* Continue to next step */,
+                                              ),
+                                              textAlign: TextAlign.center,
+                                              style: FlutterFlowTheme.of(
+                                                      context)
+                                                  .bodyMedium
+                                                  .override(
+                                                    fontFamily: 'Roboto',
+                                                    color: Color(0xFFB7C1FA),
+                                                    letterSpacing: 0.15,
+                                                    fontWeight: FontWeight.w800,
+                                                    lineHeight: 1.5,
+                                                  ),
                                             ),
-                                            textAlign: TextAlign.center,
-                                            style: FlutterFlowTheme.of(context)
-                                                .bodyMedium
-                                                .override(
-                                                  fontFamily: 'Roboto',
-                                                  color: Color(0xFFB7C1FA),
-                                                  letterSpacing: 0.15,
-                                                  fontWeight: FontWeight.w800,
-                                                  lineHeight: 1.5,
-                                                ),
                                           ),
-                                        ),
-                                        ClipRRect(
-                                          borderRadius:
-                                              BorderRadius.circular(8.0),
-                                          child: SvgPicture.asset(
-                                            'assets/images/arrow.svg',
-                                            width: 15.0,
-                                            height: 15.8,
-                                            fit: BoxFit.scaleDown,
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                  ),
-                                ),
-                                Container(
-                                  width: double.infinity,
-                                  decoration: BoxDecoration(
-                                    color: Colors.transparent,
-                                    borderRadius: BorderRadius.circular(6.0),
-                                  ),
-                                  child: Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        12.0, 10.0, 12.0, 10.0),
-                                    child: InkWell(
-                                      splashColor: Colors.transparent,
-                                      focusColor: Colors.transparent,
-                                      hoverColor: Colors.transparent,
-                                      highlightColor: Colors.transparent,
-                                      onTap: () async {
-                                        FFAppState().IsGuest = true;
-
-                                        context.goNamed('Home');
-                                      },
-                                      child: Text(
-                                        FFLocalizations.of(context).getText(
-                                          '5zwswdbw' /* Continue without registration */,
-                                        ),
-                                        textAlign: TextAlign.center,
-                                        style: FlutterFlowTheme.of(context)
-                                            .bodyMedium
-                                            .override(
-                                              fontFamily: 'Roboto',
-                                              color: Color(0xFF382F73),
-                                              letterSpacing: 0.15,
-                                              fontWeight: FontWeight.w800,
-                                              lineHeight: 1.5,
+                                          ClipRRect(
+                                            borderRadius:
+                                                BorderRadius.circular(8.0),
+                                            child: SvgPicture.asset(
+                                              'assets/images/arrow.svg',
+                                              width: 15.0,
+                                              height: 15.8,
+                                              fit: BoxFit.scaleDown,
                                             ),
+                                          ),
+                                        ],
                                       ),
                                     ),
                                   ),
-                                ),
-                              ].divide(SizedBox(height: 12.0)),
+                                  Container(
+                                    width: double.infinity,
+                                    decoration: BoxDecoration(
+                                      color: Colors.transparent,
+                                      borderRadius: BorderRadius.circular(6.0),
+                                    ),
+                                    child: Padding(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          12.0, 10.0, 12.0, 10.0),
+                                      child: InkWell(
+                                        splashColor: Colors.transparent,
+                                        focusColor: Colors.transparent,
+                                        hoverColor: Colors.transparent,
+                                        highlightColor: Colors.transparent,
+                                        onTap: () async {
+                                          FFAppState().IsGuest = true;
+
+                                          context.goNamed('Home');
+                                        },
+                                        child: Text(
+                                          FFLocalizations.of(context).getText(
+                                            '5zwswdbw' /* Continue without registration */,
+                                          ),
+                                          textAlign: TextAlign.center,
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodyMedium
+                                              .override(
+                                                fontFamily: 'Roboto',
+                                                color: Color(0xFF382F73),
+                                                letterSpacing: 0.15,
+                                                fontWeight: FontWeight.w800,
+                                                lineHeight: 1.5,
+                                              ),
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ].divide(SizedBox(height: 12.0)),
+                              ),
                             ),
                           ),
                         ),
-                      ),
                     ],
                   ),
                   Stack(
@@ -263,6 +296,7 @@ class _SetUpWizardWidgetState extends State<SetUpWizardWidget> {
                         padding: EdgeInsetsDirectional.fromSTEB(
                             24.0, 0.0, 24.0, 0.0),
                         child: SingleChildScrollView(
+                          controller: _model.columnController2,
                           child: Column(
                             mainAxisSize: MainAxisSize.min,
                             crossAxisAlignment: CrossAxisAlignment.start,
@@ -318,7 +352,16 @@ class _SetUpWizardWidgetState extends State<SetUpWizardWidget> {
                                 child: wrapWithModel(
                                   model: _model.medicationModel,
                                   updateCallback: () => setState(() {}),
-                                  child: MedicationWidget(),
+                                  child: MedicationWidget(
+                                    whereToScroll: () async {
+                                      await _model.columnController2?.animateTo(
+                                        _model.columnController2!.position
+                                            .maxScrollExtent,
+                                        duration: Duration(milliseconds: 100),
+                                        curve: Curves.ease,
+                                      );
+                                    },
+                                  ),
                                 ),
                               ),
                             ]

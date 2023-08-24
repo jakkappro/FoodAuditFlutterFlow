@@ -15,8 +15,7 @@ publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 # In iOS, build-name is used as CFBundleShortVersionString while build-number used as CFBundleVersion.
 # Read more about iOS versioning at
 # https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html
-version: 1.0.10+25
-
+version: 1.0.11+26
 
 environment:
   sdk: ">=3.0.0 <4.0.0"
@@ -50,10 +49,13 @@ dependencies:
   firebase_crashlytics_platform_interface: 3.6.2
   flutter_animate: 4.1.1+1
   flutter_cache_manager: 3.3.0
-  flutter_facebook_auth: 4.0.0
+  flutter_facebook_auth: 
+    git:
+      url: https://github.com/asmengistu/flutter-facebook-auth
+      ref: b65ffb049c9f1e2704adbeb1aa19c61693c946a5
+      path: facebook_auth
   flutter_keyboard_visibility: 5.2.0
   flutter_secure_storage: 8.0.0
-  flutter_statusbarcolor_ns:
   flutter_svg: 2.0.4
   font_awesome_flutter: 10.1.0
   from_css_color: 2.0.0
@@ -104,7 +106,7 @@ dependencies:
   cupertino_icons: ^1.0.0
 
 dev_dependencies:
-  flutter_launcher_icons: ^0.13.1
+  flutter_launcher_icons: 0.12.0
 
   flutter_test:
     sdk: flutter

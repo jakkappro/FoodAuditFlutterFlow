@@ -6,7 +6,9 @@ import '/components/medication/medication_widget.dart';
 import '/components/personal_info_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import 'dart:async';
 import 'package:flutter/material.dart';
+import 'package:flutter_keyboard_visibility/flutter_keyboard_visibility.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -15,6 +17,8 @@ class SettingsModel extends FlutterFlowModel {
   ///  State fields for stateful widgets in this page.
 
   final unfocusNode = FocusNode();
+  // State field(s) for Column widget.
+  ScrollController? columnController;
   // Model for AvatarMenu component.
   late AvatarMenuModel avatarMenuModel;
   // Model for PersonalInfo component.
@@ -27,6 +31,7 @@ class SettingsModel extends FlutterFlowModel {
   /// Initialization and disposal methods.
 
   void initState(BuildContext context) {
+    columnController = ScrollController();
     avatarMenuModel = createModel(context, () => AvatarMenuModel());
     personalInfoModel = createModel(context, () => PersonalInfoModel());
     intoleranciesModel = createModel(context, () => IntoleranciesModel());
@@ -35,6 +40,7 @@ class SettingsModel extends FlutterFlowModel {
 
   void dispose() {
     unfocusNode.dispose();
+    columnController?.dispose();
     avatarMenuModel.dispose();
     personalInfoModel.dispose();
     intoleranciesModel.dispose();

@@ -32,10 +32,6 @@ class _HomeWidgetState extends State<HomeWidget> {
     super.initState();
     _model = createModel(context, () => HomeModel());
 
-    FFAppState().addListener(() {
-      setState(() {});
-    });
-
     logFirebaseEvent('screen_view', parameters: {'screen_name': 'Home'});
     if (!isWeb) {
       _keyboardVisibilitySubscription =
@@ -66,6 +62,17 @@ class _HomeWidgetState extends State<HomeWidget> {
       child: Scaffold(
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).lNWhite,
+        appBar: PreferredSize(
+          preferredSize: Size.fromHeight(0.0),
+          child: AppBar(
+            backgroundColor: FlutterFlowTheme.of(context).lNWhite,
+            automaticallyImplyLeading: false,
+            actions: [],
+            centerTitle: false,
+            toolbarHeight: 0.0,
+            elevation: 0.0,
+          ),
+        ),
         body: SafeArea(
           top: true,
           child: Container(
@@ -79,6 +86,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                 Padding(
                   padding: EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
                   child: SingleChildScrollView(
+                    controller: _model.columnController,
                     child: Column(
                       mainAxisSize: MainAxisSize.min,
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -139,7 +147,16 @@ class _HomeWidgetState extends State<HomeWidget> {
                           child: wrapWithModel(
                             model: _model.medicationModel,
                             updateCallback: () => setState(() {}),
-                            child: MedicationWidget(),
+                            child: MedicationWidget(
+                              whereToScroll: () async {
+                                await _model.columnController?.animateTo(
+                                  _model.columnController!.position
+                                      .maxScrollExtent,
+                                  duration: Duration(milliseconds: 100),
+                                  curve: Curves.ease,
+                                );
+                              },
+                            ),
                           ),
                         ),
                       ]

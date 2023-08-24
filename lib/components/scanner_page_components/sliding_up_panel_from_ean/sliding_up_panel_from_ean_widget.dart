@@ -58,7 +58,7 @@ class _SlidingUpPanelFromEanWidgetState
 
     return Container(
       width: double.infinity,
-      height: MediaQuery.sizeOf(context).height * 0.8,
+      height: MediaQuery.sizeOf(context).height * 0.9,
       decoration: BoxDecoration(
         gradient: LinearGradient(
           colors: [
@@ -110,37 +110,17 @@ class _SlidingUpPanelFromEanWidgetState
                                     valueOrDefault<String>(
                                       widget.doc?.name,
                                       'No name',
-                                    ).maybeHandleOverflow(
-                                      maxChars: 15,
-                                      replacement: '…',
                                     ),
-                                    maxLines: 1,
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
                                         .override(
                                           fontFamily: 'Roboto',
                                           color: FlutterFlowTheme.of(context)
                                               .primary,
-                                          fontSize: 32.0,
+                                          fontSize: 24.0,
                                           letterSpacing: 0.25,
                                           fontWeight: FontWeight.w800,
                                           lineHeight: 1.4,
-                                        ),
-                                  ),
-                                  Text(
-                                    valueOrDefault<String>(
-                                      widget.doc?.addressLines?.first,
-                                      'No producer',
-                                    ),
-                                    style: FlutterFlowTheme.of(context)
-                                        .bodyMedium
-                                        .override(
-                                          fontFamily: 'Roboto',
-                                          color: Color(0xFFAFACC7),
-                                          fontSize: 18.0,
-                                          letterSpacing: 0.15,
-                                          fontWeight: FontWeight.bold,
-                                          lineHeight: 1.5,
                                         ),
                                   ),
                                   AutoSizeText(
@@ -163,6 +143,22 @@ class _SlidingUpPanelFromEanWidgetState
                                           letterSpacing: 0.15,
                                           fontWeight: FontWeight.bold,
                                           lineHeight: 1.55,
+                                        ),
+                                  ),
+                                  Text(
+                                    valueOrDefault<String>(
+                                      widget.doc?.addressLines?.first,
+                                      'No producer',
+                                    ),
+                                    style: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .override(
+                                          fontFamily: 'Roboto',
+                                          color: Color(0xFFAFACC7),
+                                          fontSize: 16.0,
+                                          letterSpacing: 0.15,
+                                          fontWeight: FontWeight.bold,
+                                          lineHeight: 1.5,
                                         ),
                                   ),
                                 ],
@@ -241,6 +237,8 @@ class _SlidingUpPanelFromEanWidgetState
                                   scrollDirection: Axis.horizontal,
                                   child: Row(
                                     mainAxisSize: MainAxisSize.min,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
                                     children: List.generate(allergen.length,
                                         (allergenIndex) {
                                       final allergenItem =
@@ -262,7 +260,7 @@ class _SlidingUpPanelFromEanWidgetState
                                         child: Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  12.0, 10.0, 12.0, 10.0),
+                                                  8.0, 5.0, 8.0, 5.0),
                                           child: Text(
                                             allergenItem,
                                             style: FlutterFlowTheme.of(context)

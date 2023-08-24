@@ -9,7 +9,12 @@ import 'medication_model.dart';
 export 'medication_model.dart';
 
 class MedicationWidget extends StatefulWidget {
-  const MedicationWidget({Key? key}) : super(key: key);
+  const MedicationWidget({
+    Key? key,
+    required this.whereToScroll,
+  }) : super(key: key);
+
+  final Future<dynamic> Function()? whereToScroll;
 
   @override
   _MedicationWidgetState createState() => _MedicationWidgetState();
@@ -126,6 +131,82 @@ class _MedicationWidgetState extends State<MedicationWidget> {
             },
           ),
         ),
+        Container(
+          width: double.infinity,
+          child: TextFormField(
+            controller: _model.textController,
+            onChanged: (_) => EasyDebounce.debounce(
+              '_model.textController',
+              Duration(milliseconds: 750),
+              () async {
+                if (_model.textController.text.length > 1) {
+                  setState(() {
+                    _model.shouldShowSearch = true;
+                  });
+                  await widget.whereToScroll?.call();
+                  setState(() => _model.algoliaSearchResults = null);
+                  await MedicationRecord.search(
+                    term: _model.textController.text,
+                    maxResults: 3,
+                  )
+                      .then((r) => _model.algoliaSearchResults = r)
+                      .onError((_, __) => _model.algoliaSearchResults = [])
+                      .whenComplete(() => setState(() {}));
+                } else {
+                  setState(() {
+                    _model.shouldShowSearch = false;
+                  });
+                }
+              },
+            ),
+            obscureText: false,
+            decoration: InputDecoration(
+              labelStyle: FlutterFlowTheme.of(context).labelMedium,
+              hintText: FFLocalizations.of(context).getText(
+                'jv8nw803' /* Start typing name of product..... */,
+              ),
+              hintStyle: FlutterFlowTheme.of(context).labelMedium.override(
+                    fontFamily: 'Roboto',
+                    color: Color(0xFF382F73),
+                    fontSize: 16.0,
+                    fontWeight: FontWeight.normal,
+                    lineHeight: 1.5,
+                  ),
+              enabledBorder: OutlineInputBorder(
+                borderSide: BorderSide(
+                  color: Color(0xFFAFACC7),
+                  width: 2.0,
+                ),
+                borderRadius: BorderRadius.circular(6.0),
+              ),
+              focusedBorder: OutlineInputBorder(
+                borderSide: BorderSide(
+                  color: FlutterFlowTheme.of(context).primary,
+                  width: 2.0,
+                ),
+                borderRadius: BorderRadius.circular(6.0),
+              ),
+              errorBorder: OutlineInputBorder(
+                borderSide: BorderSide(
+                  color: FlutterFlowTheme.of(context).error,
+                  width: 2.0,
+                ),
+                borderRadius: BorderRadius.circular(6.0),
+              ),
+              focusedErrorBorder: OutlineInputBorder(
+                borderSide: BorderSide(
+                  color: FlutterFlowTheme.of(context).error,
+                  width: 2.0,
+                ),
+                borderRadius: BorderRadius.circular(6.0),
+              ),
+              contentPadding:
+                  EdgeInsetsDirectional.fromSTEB(15.0, 10.0, 16.0, 10.0),
+            ),
+            style: FlutterFlowTheme.of(context).bodyMedium,
+            validator: _model.textControllerValidator.asValidator(context),
+          ),
+        ),
         if (_model.shouldShowSearch)
           Builder(
             builder: (context) {
@@ -196,81 +277,6 @@ class _MedicationWidgetState extends State<MedicationWidget> {
               );
             },
           ),
-        Container(
-          width: double.infinity,
-          child: TextFormField(
-            controller: _model.textController,
-            onChanged: (_) => EasyDebounce.debounce(
-              '_model.textController',
-              Duration(milliseconds: 1000),
-              () async {
-                if (_model.textController.text.length > 1) {
-                  setState(() {
-                    _model.shouldShowSearch = true;
-                  });
-                  setState(() => _model.algoliaSearchResults = null);
-                  await MedicationRecord.search(
-                    term: _model.textController.text,
-                    maxResults: 3,
-                  )
-                      .then((r) => _model.algoliaSearchResults = r)
-                      .onError((_, __) => _model.algoliaSearchResults = [])
-                      .whenComplete(() => setState(() {}));
-                } else {
-                  setState(() {
-                    _model.shouldShowSearch = false;
-                  });
-                }
-              },
-            ),
-            obscureText: false,
-            decoration: InputDecoration(
-              labelStyle: FlutterFlowTheme.of(context).labelMedium,
-              hintText: FFLocalizations.of(context).getText(
-                'jv8nw803' /* Start typing name of product..... */,
-              ),
-              hintStyle: FlutterFlowTheme.of(context).labelMedium.override(
-                    fontFamily: 'Roboto',
-                    color: Color(0xFF382F73),
-                    fontSize: 16.0,
-                    fontWeight: FontWeight.normal,
-                    lineHeight: 1.5,
-                  ),
-              enabledBorder: OutlineInputBorder(
-                borderSide: BorderSide(
-                  color: Color(0xFFAFACC7),
-                  width: 2.0,
-                ),
-                borderRadius: BorderRadius.circular(6.0),
-              ),
-              focusedBorder: OutlineInputBorder(
-                borderSide: BorderSide(
-                  color: FlutterFlowTheme.of(context).primary,
-                  width: 2.0,
-                ),
-                borderRadius: BorderRadius.circular(6.0),
-              ),
-              errorBorder: OutlineInputBorder(
-                borderSide: BorderSide(
-                  color: FlutterFlowTheme.of(context).error,
-                  width: 2.0,
-                ),
-                borderRadius: BorderRadius.circular(6.0),
-              ),
-              focusedErrorBorder: OutlineInputBorder(
-                borderSide: BorderSide(
-                  color: FlutterFlowTheme.of(context).error,
-                  width: 2.0,
-                ),
-                borderRadius: BorderRadius.circular(6.0),
-              ),
-              contentPadding:
-                  EdgeInsetsDirectional.fromSTEB(15.0, 10.0, 16.0, 10.0),
-            ),
-            style: FlutterFlowTheme.of(context).bodyMedium,
-            validator: _model.textControllerValidator.asValidator(context),
-          ),
-        ),
       ].divide(SizedBox(height: 15.0)).addToStart(SizedBox(height: 15.0)),
     );
   }

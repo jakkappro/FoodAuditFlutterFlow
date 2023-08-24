@@ -15,6 +15,8 @@ class HomeModel extends FlutterFlowModel {
   ///  State fields for stateful widgets in this page.
 
   final unfocusNode = FocusNode();
+  // State field(s) for Column widget.
+  ScrollController? columnController;
   // Model for Header component.
   late HeaderModel headerModel;
   // Model for ScannedItems component.
@@ -29,6 +31,7 @@ class HomeModel extends FlutterFlowModel {
   /// Initialization and disposal methods.
 
   void initState(BuildContext context) {
+    columnController = ScrollController();
     headerModel = createModel(context, () => HeaderModel());
     scannedItemsModel = createModel(context, () => ScannedItemsModel());
     intoleranciesModel = createModel(context, () => IntoleranciesModel());
@@ -39,6 +42,7 @@ class HomeModel extends FlutterFlowModel {
 
   void dispose() {
     unfocusNode.dispose();
+    columnController?.dispose();
     headerModel.dispose();
     scannedItemsModel.dispose();
     intoleranciesModel.dispose();

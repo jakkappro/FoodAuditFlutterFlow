@@ -1,5 +1,4 @@
 // Automatic FlutterFlow imports
-
 import '/backend/backend.dart';
 import '/backend/schema/structs/index.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
@@ -426,7 +425,7 @@ class _ScannerPageState extends State<_ScannerPage> {
             widget.onEanScanned(barcodes.first.displayValue!);
           }
           widget.onEanScanned(barcodes.first.displayValue!);
-        } else if (!foundEan && _timesDidntFoundEan > 40) {
+        } else if (!foundEan && _timesDidntFoundEan > 70) {
           widget.onEanScanned('');
           _timesFoundEan = 0;
         } else {
