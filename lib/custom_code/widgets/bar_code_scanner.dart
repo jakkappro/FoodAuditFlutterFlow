@@ -262,6 +262,7 @@ class _BarCodeScannerState extends State<BarCodeScanner>
       _backdropColor = _neutralColor;
       _ean = '';
       _foundSomethingUseful = false;
+      _shouldShowUnknowEanButton = false;
 
       if (_panelController.isAttached &&
           mounted &&
@@ -425,7 +426,7 @@ class _ScannerPageState extends State<_ScannerPage> {
             widget.onEanScanned(barcodes.first.displayValue!);
           }
           widget.onEanScanned(barcodes.first.displayValue!);
-        } else if (!foundEan && _timesDidntFoundEan > 40) {
+        } else if (!foundEan && _timesDidntFoundEan > 60) {
           widget.onEanScanned('');
           _timesFoundEan = 0;
         } else {
