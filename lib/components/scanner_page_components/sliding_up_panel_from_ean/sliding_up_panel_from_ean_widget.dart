@@ -96,84 +96,74 @@ class _SlidingUpPanelFromEanWidgetState
                         decoration: BoxDecoration(
                           color: Colors.transparent,
                         ),
-                        child: Row(
-                          mainAxisSize: MainAxisSize.max,
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            SingleChildScrollView(
-                              child: Column(
-                                mainAxisSize: MainAxisSize.max,
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  AutoSizeText(
-                                    valueOrDefault<String>(
-                                      widget.doc?.name,
-                                      'No name',
-                                    ),
-                                    style: FlutterFlowTheme.of(context)
-                                        .bodyMedium
-                                        .override(
-                                          fontFamily: 'Roboto',
-                                          color: FlutterFlowTheme.of(context)
-                                              .primary,
-                                          fontSize: 24.0,
-                                          letterSpacing: 0.25,
-                                          fontWeight: FontWeight.w800,
-                                          lineHeight: 1.4,
-                                        ),
+                        child: SingleChildScrollView(
+                          child: Column(
+                            mainAxisSize: MainAxisSize.min,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Container(
+                                width: double.infinity,
+                                decoration: BoxDecoration(
+                                  color: FlutterFlowTheme.of(context).lNWhite,
+                                ),
+                                child: Text(
+                                  valueOrDefault<String>(
+                                    widget.doc?.name,
+                                    'No name',
                                   ),
-                                  AutoSizeText(
-                                    valueOrDefault<String>(
-                                      (String var1) {
-                                        return var1.split("|").last;
-                                      }(widget.doc!.category),
-                                      'Milk',
-                                    ).maybeHandleOverflow(
-                                      maxChars: 25,
-                                      replacement: '…',
-                                    ),
-                                    maxLines: 2,
-                                    style: FlutterFlowTheme.of(context)
-                                        .bodyMedium
-                                        .override(
-                                          fontFamily: 'Roboto',
-                                          color: Color(0xFFAFACC7),
-                                          fontSize: 18.0,
-                                          letterSpacing: 0.15,
-                                          fontWeight: FontWeight.bold,
-                                          lineHeight: 1.55,
-                                        ),
-                                  ),
-                                  Text(
-                                    valueOrDefault<String>(
-                                      widget.doc?.addressLines?.first,
-                                      'No producer',
-                                    ),
-                                    style: FlutterFlowTheme.of(context)
-                                        .bodyMedium
-                                        .override(
-                                          fontFamily: 'Roboto',
-                                          color: Color(0xFFAFACC7),
-                                          fontSize: 16.0,
-                                          letterSpacing: 0.15,
-                                          fontWeight: FontWeight.bold,
-                                          lineHeight: 1.5,
-                                        ),
-                                  ),
-                                ],
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .override(
+                                        fontFamily: 'Roboto',
+                                        color: FlutterFlowTheme.of(context)
+                                            .primary,
+                                        fontSize: 24.0,
+                                        letterSpacing: 0.25,
+                                        fontWeight: FontWeight.w800,
+                                        lineHeight: 1.4,
+                                      ),
+                                ),
                               ),
-                            ),
-                            Container(
-                              width: 22.0,
-                              height: 22.0,
-                              child: custom_widgets.SafetyDotStatelessWrapper(
-                                width: 22.0,
-                                height: 22.0,
-                                allergens: widget.doc!.allergens,
+                              AutoSizeText(
+                                valueOrDefault<String>(
+                                  (String var1) {
+                                    return var1.split("|").last;
+                                  }(widget.doc!.category),
+                                  'Milk',
+                                ).maybeHandleOverflow(
+                                  maxChars: 25,
+                                  replacement: '…',
+                                ),
+                                maxLines: 2,
+                                style: FlutterFlowTheme.of(context)
+                                    .bodyMedium
+                                    .override(
+                                      fontFamily: 'Roboto',
+                                      color: Color(0xFFAFACC7),
+                                      fontSize: 18.0,
+                                      letterSpacing: 0.15,
+                                      fontWeight: FontWeight.bold,
+                                      lineHeight: 1.55,
+                                    ),
                               ),
-                            ),
-                          ],
+                              Text(
+                                valueOrDefault<String>(
+                                  widget.doc?.addressLines?.first,
+                                  'No producer',
+                                ),
+                                style: FlutterFlowTheme.of(context)
+                                    .bodyMedium
+                                    .override(
+                                      fontFamily: 'Roboto',
+                                      color: Color(0xFFAFACC7),
+                                      fontSize: 16.0,
+                                      letterSpacing: 0.15,
+                                      fontWeight: FontWeight.bold,
+                                      lineHeight: 1.5,
+                                    ),
+                              ),
+                            ],
+                          ),
                         ),
                       ),
                       Row(
