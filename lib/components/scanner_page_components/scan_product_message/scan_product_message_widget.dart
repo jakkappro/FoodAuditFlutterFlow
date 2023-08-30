@@ -1,5 +1,6 @@
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -53,10 +54,11 @@ class _ScanProductMessageWidgetState extends State<ScanProductMessageWidget> {
           mainAxisAlignment: MainAxisAlignment.end,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(
+            AutoSizeText(
               FFLocalizations.of(context).getText(
                 'cz2154o8' /* Scan your product */,
               ),
+              maxLines: 1,
               style: FlutterFlowTheme.of(context).bodyMedium.override(
                     fontFamily: 'Roboto',
                     color: Color(0xFFD7D5E3),

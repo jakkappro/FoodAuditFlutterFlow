@@ -51,8 +51,8 @@ List<String> getListOfAvatars(String? photo) {
     result.add(photo);
   }
 
-  for (int i = 111; i <= 122; i++) {
-    result.add("avatar_" + i.toString() + ".png");
+  for (int i = 111; i <= 119; i++) {
+    result.add("avatar_" + i.toString() + ".svg");
   }
 
   return result;

@@ -10,6 +10,8 @@ import 'package:flutter/material.dart';
 // Begin custom widget code
 // DO NOT REMOVE OR MODIFY THE CODE ABOVE!
 
+import 'package:flutter_svg/svg.dart';
+
 class ImageFromString extends StatefulWidget {
   const ImageFromString({
     Key? key,
@@ -30,7 +32,7 @@ class _ImageFromStringState extends State<ImageFromString> {
   @override
   Widget build(BuildContext context) {
     if (widget.name.startsWith("avatar_")) {
-      return Image.asset(
+      return SvgPicture.asset(
         'assets/images/' + widget.name,
         width: widget.width,
         height: widget.height,
