@@ -109,7 +109,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   {
     '01o89ltf': {
       'en': 'Last scanned items',
-      'sk': '',
+      'sk': 'Naposledy naskenované položky',
     },
     '7a876va4': {
       'en': 'Home',
@@ -156,7 +156,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en':
           'Discover every information about your food. Register for better personalization and information tailored for you',
       'sk':
-          'Zistite všetky informácie o svojom jedle. Zaregistrujte sa pre lepšiu personalizáciu a informácie prispôsobené pre Vás',
+          'Zistite všetky informácie o svojom jedle. Zaregistrujte sa pre lepšiu personalizáciu a informácie prispôsobené pre vás',
     },
     'jxo4sfdl': {
       'en': 'Register for free',
@@ -256,7 +256,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     },
     '1p2e8too': {
       'en': 'Tell us something about yourself',
-      'sk': 'Povedz nám niečo o sebe',
+      'sk': 'Povedzte nám niečo o sebe',
     },
     'lpyawdzf': {
       'en':
@@ -307,8 +307,8 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'sk': '100 g/100 ml',
     },
     '6n80je7x': {
-      'en': 'Potiahni pre viac informácií',
-      'sk': 'Potiahni pre viac informácií',
+      'en': 'Pull down for more information',
+      'sk': 'Potiahnite pre viac informácií',
     },
   },
   // Header
@@ -427,9 +427,9 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Sign in with Google',
       'sk': 'Prihláste sa pomocou Google',
     },
-    'nodogpy4': {
-      'en': 'Continue as guest',
-      'sk': 'Pokračujte ako hosť',
+    '5zwswdbw': {
+      'en': 'Continue without registration',
+      'sk': 'Pokračovať bez registrácie',
     },
   },
   // RecycleInfo

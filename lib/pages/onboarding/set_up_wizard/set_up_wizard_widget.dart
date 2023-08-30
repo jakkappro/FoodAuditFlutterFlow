@@ -6,6 +6,7 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'dart:async';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:flutter_keyboard_visibility/flutter_keyboard_visibility.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -33,6 +34,15 @@ class _SetUpWizardWidgetState extends State<SetUpWizardWidget> {
     _model = createModel(context, () => SetUpWizardModel());
 
     logFirebaseEvent('screen_view', parameters: {'screen_name': 'SetUpWizard'});
+    // On page load action.
+    SchedulerBinding.instance.addPostFrameCallback((_) async {
+      if (FFAppState().imageName == null || FFAppState().imageName == '') {
+        setState(() {
+          FFAppState().imageName = 'abc';
+        });
+      }
+    });
+
     if (!isWeb) {
       _keyboardVisibilitySubscription =
           KeyboardVisibilityController().onChange.listen((bool visible) {
@@ -371,73 +381,42 @@ class _SetUpWizardWidgetState extends State<SetUpWizardWidget> {
                           ),
                         ),
                       ),
-                      Align(
-                        alignment: AlignmentDirectional(0.0, 0.95),
-                        child: Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              24.0, 0.0, 24.0, 0.0),
-                          child: Container(
-                            width: double.infinity,
-                            decoration: BoxDecoration(
-                              color: Colors.transparent,
-                            ),
-                            child: Column(
-                              mainAxisSize: MainAxisSize.min,
-                              children: [
-                                Container(
-                                  width: double.infinity,
-                                  decoration: BoxDecoration(
-                                    color: Colors.transparent,
-                                  ),
-                                  child: Row(
-                                    mainAxisSize: MainAxisSize.max,
-                                    children: [
-                                      InkWell(
-                                        splashColor: Colors.transparent,
-                                        focusColor: Colors.transparent,
-                                        hoverColor: Colors.transparent,
-                                        highlightColor: Colors.transparent,
-                                        onTap: () async {
-                                          await _model.pageViewController
-                                              ?.previousPage(
-                                            duration:
-                                                Duration(milliseconds: 300),
-                                            curve: Curves.ease,
-                                          );
-                                        },
-                                        child: Container(
-                                          decoration: BoxDecoration(
-                                            color: Color(0xFF382F73),
-                                            borderRadius:
-                                                BorderRadius.circular(6.0),
-                                          ),
-                                          child: Padding(
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    12.0, 12.0, 12.0, 12.0),
-                                            child: ClipRRect(
-                                              borderRadius:
-                                                  BorderRadius.circular(0.0),
-                                              child: SvgPicture.asset(
-                                                'assets/images/arrow_back.svg',
-                                                width: 15.0,
-                                                height: 15.75,
-                                                fit: BoxFit.scaleDown,
-                                              ),
-                                            ),
-                                          ),
-                                        ),
-                                      ),
-                                      Expanded(
-                                        child: InkWell(
+                      if (!(isWeb
+                          ? MediaQuery.viewInsetsOf(context).bottom > 0
+                          : _isKeyboardVisible))
+                        Align(
+                          alignment: AlignmentDirectional(0.0, 0.95),
+                          child: Padding(
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                24.0, 0.0, 24.0, 0.0),
+                            child: Container(
+                              width: double.infinity,
+                              decoration: BoxDecoration(
+                                color: Colors.transparent,
+                              ),
+                              child: Column(
+                                mainAxisSize: MainAxisSize.min,
+                                children: [
+                                  Container(
+                                    width: double.infinity,
+                                    decoration: BoxDecoration(
+                                      color: Colors.transparent,
+                                    ),
+                                    child: Row(
+                                      mainAxisSize: MainAxisSize.max,
+                                      children: [
+                                        InkWell(
                                           splashColor: Colors.transparent,
                                           focusColor: Colors.transparent,
                                           hoverColor: Colors.transparent,
                                           highlightColor: Colors.transparent,
                                           onTap: () async {
-                                            FFAppState().IsGuest = false;
-
-                                            context.goNamed('Home');
+                                            await _model.pageViewController
+                                                ?.previousPage(
+                                              duration:
+                                                  Duration(milliseconds: 300),
+                                              curve: Curves.ease,
+                                            );
                                           },
                                           child: Container(
                                             decoration: BoxDecoration(
@@ -448,38 +427,72 @@ class _SetUpWizardWidgetState extends State<SetUpWizardWidget> {
                                             child: Padding(
                                               padding: EdgeInsetsDirectional
                                                   .fromSTEB(
-                                                      12.0, 10.0, 12.0, 10.0),
-                                              child: Text(
-                                                FFLocalizations.of(context)
-                                                    .getText(
-                                                  'iyvefphs' /* Finish registration */,
+                                                      12.0, 12.0, 12.0, 12.0),
+                                              child: ClipRRect(
+                                                borderRadius:
+                                                    BorderRadius.circular(0.0),
+                                                child: SvgPicture.asset(
+                                                  'assets/images/arrow_back.svg',
+                                                  width: 15.0,
+                                                  height: 15.75,
+                                                  fit: BoxFit.scaleDown,
                                                 ),
-                                                textAlign: TextAlign.center,
-                                                style:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyMedium
-                                                        .override(
-                                                          fontFamily: 'Roboto',
-                                                          color:
-                                                              Color(0xFFB7C1FA),
-                                                          letterSpacing: 0.15,
-                                                          fontWeight:
-                                                              FontWeight.w800,
-                                                          lineHeight: 1.5,
-                                                        ),
                                               ),
                                             ),
                                           ),
                                         ),
-                                      ),
-                                    ].divide(SizedBox(width: 12.0)),
+                                        Expanded(
+                                          child: InkWell(
+                                            splashColor: Colors.transparent,
+                                            focusColor: Colors.transparent,
+                                            hoverColor: Colors.transparent,
+                                            highlightColor: Colors.transparent,
+                                            onTap: () async {
+                                              FFAppState().IsGuest = false;
+
+                                              context.goNamed('Home');
+                                            },
+                                            child: Container(
+                                              decoration: BoxDecoration(
+                                                color: Color(0xFF382F73),
+                                                borderRadius:
+                                                    BorderRadius.circular(6.0),
+                                              ),
+                                              child: Padding(
+                                                padding: EdgeInsetsDirectional
+                                                    .fromSTEB(
+                                                        12.0, 10.0, 12.0, 10.0),
+                                                child: Text(
+                                                  FFLocalizations.of(context)
+                                                      .getText(
+                                                    'iyvefphs' /* Finish registration */,
+                                                  ),
+                                                  textAlign: TextAlign.center,
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily: 'Roboto',
+                                                        color:
+                                                            Color(0xFFB7C1FA),
+                                                        letterSpacing: 0.15,
+                                                        fontWeight:
+                                                            FontWeight.w800,
+                                                        lineHeight: 1.5,
+                                                      ),
+                                                ),
+                                              ),
+                                            ),
+                                          ),
+                                        ),
+                                      ].divide(SizedBox(width: 12.0)),
+                                    ),
                                   ),
-                                ),
-                              ].divide(SizedBox(height: 12.0)),
+                                ].divide(SizedBox(height: 12.0)),
+                              ),
                             ),
                           ),
                         ),
-                      ),
                     ],
                   ),
                 ],

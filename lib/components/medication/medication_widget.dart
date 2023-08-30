@@ -137,7 +137,7 @@ class _MedicationWidgetState extends State<MedicationWidget> {
             controller: _model.textController,
             onChanged: (_) => EasyDebounce.debounce(
               '_model.textController',
-              Duration(milliseconds: 750),
+              Duration(milliseconds: 2000),
               () async {
                 if (_model.textController.text.length > 1) {
                   setState(() {

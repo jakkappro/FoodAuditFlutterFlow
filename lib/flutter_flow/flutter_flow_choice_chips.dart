@@ -46,6 +46,7 @@ class FlutterFlowChoiceChips extends StatefulWidget {
     required this.multiselect,
     this.initialized = true,
     this.alignment = WrapAlignment.start,
+    this.disabledColor,
   });
 
   final List<ChipData> options;
@@ -58,6 +59,7 @@ class FlutterFlowChoiceChips extends StatefulWidget {
   final bool multiselect;
   final bool initialized;
   final WrapAlignment alignment;
+  final Color? disabledColor;
 
   @override
   State<FlutterFlowChoiceChips> createState() => _FlutterFlowChoiceChipsState();
@@ -143,6 +145,7 @@ class _FlutterFlowChoiceChipsState extends State<FlutterFlowChoiceChips> {
                       )
                     : null,
                 elevation: style.elevation,
+                disabledColor: widget.disabledColor,
                 selectedColor:
                     selected ? widget.selectedChipStyle.backgroundColor : null,
                 backgroundColor: selected

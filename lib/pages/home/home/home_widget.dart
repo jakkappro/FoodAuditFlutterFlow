@@ -96,26 +96,26 @@ class _HomeWidgetState extends State<HomeWidget> {
                           updateCallback: () => setState(() {}),
                           child: HeaderWidget(),
                         ),
-                        Column(
-                          mainAxisSize: MainAxisSize.min,
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              FFLocalizations.of(context).getText(
-                                '01o89ltf' /* Last scanned items */,
+                        if (FFAppState().ScannedItems.length != 0)
+                          Column(
+                            mainAxisSize: MainAxisSize.min,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                FFLocalizations.of(context).getText(
+                                  '01o89ltf' /* Last scanned items */,
+                                ),
+                                style: FlutterFlowTheme.of(context)
+                                    .bodyMedium
+                                    .override(
+                                      fontFamily: 'Roboto',
+                                      color: Color(0xFF382F73),
+                                      fontSize: 20.0,
+                                      letterSpacing: 0.15,
+                                      fontWeight: FontWeight.w800,
+                                      lineHeight: 1.4,
+                                    ),
                               ),
-                              style: FlutterFlowTheme.of(context)
-                                  .bodyMedium
-                                  .override(
-                                    fontFamily: 'Roboto',
-                                    color: Color(0xFF382F73),
-                                    fontSize: 20.0,
-                                    letterSpacing: 0.15,
-                                    fontWeight: FontWeight.w800,
-                                    lineHeight: 1.4,
-                                  ),
-                            ),
-                            if (FFAppState().ScannedItems.length > 0)
                               Container(
                                 width: double.infinity,
                                 height: 238.0,
@@ -129,8 +129,8 @@ class _HomeWidgetState extends State<HomeWidget> {
                                   child: ScannedItemsWidget(),
                                 ),
                               ),
-                          ].divide(SizedBox(height: 12.0)),
-                        ),
+                            ].divide(SizedBox(height: 12.0)),
+                          ),
                         Container(
                           decoration: BoxDecoration(
                             color: Colors.transparent,

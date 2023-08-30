@@ -145,24 +145,32 @@ class _ScannedItemWidgetState extends State<ScannedItemWidget> {
                         mainAxisSize: MainAxisSize.max,
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                0.0, 15.0, 0.0, 0.0),
-                            child: AutoSizeText(
-                              valueOrDefault<String>(
-                                _model.food?.name,
-                                'Couldn\'t find name',
+                          Container(
+                            width: double.infinity,
+                            height: 54.0,
+                            decoration: BoxDecoration(
+                              color: FlutterFlowTheme.of(context)
+                                  .primaryBackground,
+                            ),
+                            child: Padding(
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 15.0, 0.0, 0.0),
+                              child: AutoSizeText(
+                                valueOrDefault<String>(
+                                  _model.food?.name,
+                                  'Couldn\'t find name',
+                                ),
+                                maxLines: 2,
+                                style: FlutterFlowTheme.of(context)
+                                    .bodyMedium
+                                    .override(
+                                      fontFamily: 'Roboto',
+                                      color: Color(0xFF382F73),
+                                      fontSize: 18.0,
+                                      letterSpacing: 0.15,
+                                      fontWeight: FontWeight.w800,
+                                    ),
                               ),
-                              maxLines: 2,
-                              style: FlutterFlowTheme.of(context)
-                                  .bodyMedium
-                                  .override(
-                                    fontFamily: 'Roboto',
-                                    color: Color(0xFF382F73),
-                                    fontSize: 18.0,
-                                    letterSpacing: 0.15,
-                                    fontWeight: FontWeight.w800,
-                                  ),
                             ),
                           ),
                           Text(

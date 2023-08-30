@@ -262,6 +262,7 @@ class _BarCodeScannerState extends State<BarCodeScanner>
       _backdropColor = _neutralColor;
       _ean = '';
       _foundSomethingUseful = false;
+      _shouldShowUnknowEanButton = false;
 
       if (_panelController.isAttached &&
           mounted &&
@@ -299,7 +300,6 @@ class _BarCodeScannerState extends State<BarCodeScanner>
           : !isFineWithDrugs
               ? _mildFoodColor
               : _safeFoodColor;
-      _shouldShowUnknowEanButton = false;
       _sameUnknownEanScanned = 0;
       if (_panelController.isAttached &&
           _panelController.isPanelClosed &&
@@ -312,6 +312,7 @@ class _BarCodeScannerState extends State<BarCodeScanner>
       if (mounted) {
         setState(() {
           _scannedFood = scannedFood;
+          _shouldShowUnknowEanButton = false;
         });
       }
     } else {
@@ -425,7 +426,7 @@ class _ScannerPageState extends State<_ScannerPage> {
             widget.onEanScanned(barcodes.first.displayValue!);
           }
           widget.onEanScanned(barcodes.first.displayValue!);
-        } else if (!foundEan && _timesDidntFoundEan > 70) {
+        } else if (!foundEan && _timesDidntFoundEan > 60) {
           widget.onEanScanned('');
           _timesFoundEan = 0;
         } else {

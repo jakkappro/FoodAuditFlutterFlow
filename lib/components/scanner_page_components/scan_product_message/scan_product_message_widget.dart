@@ -1,5 +1,6 @@
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -40,33 +41,29 @@ class _ScanProductMessageWidgetState extends State<ScanProductMessageWidget> {
   Widget build(BuildContext context) {
     context.watch<FFAppState>();
 
-    return Container(
-      width: double.infinity,
-      height: double.infinity,
-      decoration: BoxDecoration(
-        color: Colors.transparent,
-      ),
+    return Align(
+      alignment: AlignmentDirectional(0.0, 0.9),
       child: Padding(
-        padding: EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 0.0, 20.0),
-        child: Column(
-          mainAxisSize: MainAxisSize.max,
-          mainAxisAlignment: MainAxisAlignment.end,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              FFLocalizations.of(context).getText(
-                'cz2154o8' /* Scan your product */,
-              ),
-              style: FlutterFlowTheme.of(context).bodyMedium.override(
-                    fontFamily: 'Roboto',
-                    color: Color(0xFFD7D5E3),
-                    fontSize: 32.0,
-                    letterSpacing: 0.25,
-                    fontWeight: FontWeight.w800,
-                    lineHeight: 1.3,
-                  ),
+        padding: EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
+        child: Container(
+          width: double.infinity,
+          decoration: BoxDecoration(
+            color: Colors.transparent,
+          ),
+          child: AutoSizeText(
+            FFLocalizations.of(context).getText(
+              'cz2154o8' /* Scan your product */,
             ),
-          ],
+            maxLines: 1,
+            style: FlutterFlowTheme.of(context).bodyMedium.override(
+                  fontFamily: 'Roboto',
+                  color: Color(0xFFD7D5E3),
+                  fontSize: 32.0,
+                  letterSpacing: 0.25,
+                  fontWeight: FontWeight.w800,
+                  lineHeight: 1.3,
+                ),
+          ),
         ),
       ),
     );

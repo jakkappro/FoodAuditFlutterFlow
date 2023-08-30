@@ -78,7 +78,7 @@ class _SlidingUpPanelFromEanWidgetState
         ),
       ),
       child: Padding(
-        padding: EdgeInsetsDirectional.fromSTEB(0.0, 65.0, 0.0, 0.0),
+        padding: EdgeInsetsDirectional.fromSTEB(24.0, 65.0, 24.0, 12.0),
         child: Stack(
           children: [
             if (widget.isOpened == true)
@@ -96,84 +96,74 @@ class _SlidingUpPanelFromEanWidgetState
                         decoration: BoxDecoration(
                           color: Colors.transparent,
                         ),
-                        child: Row(
-                          mainAxisSize: MainAxisSize.max,
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            SingleChildScrollView(
-                              child: Column(
-                                mainAxisSize: MainAxisSize.max,
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  AutoSizeText(
-                                    valueOrDefault<String>(
-                                      widget.doc?.name,
-                                      'No name',
-                                    ),
-                                    style: FlutterFlowTheme.of(context)
-                                        .bodyMedium
-                                        .override(
-                                          fontFamily: 'Roboto',
-                                          color: FlutterFlowTheme.of(context)
-                                              .primary,
-                                          fontSize: 24.0,
-                                          letterSpacing: 0.25,
-                                          fontWeight: FontWeight.w800,
-                                          lineHeight: 1.4,
-                                        ),
+                        child: SingleChildScrollView(
+                          child: Column(
+                            mainAxisSize: MainAxisSize.min,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Container(
+                                width: double.infinity,
+                                decoration: BoxDecoration(
+                                  color: FlutterFlowTheme.of(context).lNWhite,
+                                ),
+                                child: Text(
+                                  valueOrDefault<String>(
+                                    widget.doc?.name,
+                                    'No name',
                                   ),
-                                  AutoSizeText(
-                                    valueOrDefault<String>(
-                                      (String var1) {
-                                        return var1.split("|").last;
-                                      }(widget.doc!.category),
-                                      'Milk',
-                                    ).maybeHandleOverflow(
-                                      maxChars: 25,
-                                      replacement: '…',
-                                    ),
-                                    maxLines: 2,
-                                    style: FlutterFlowTheme.of(context)
-                                        .bodyMedium
-                                        .override(
-                                          fontFamily: 'Roboto',
-                                          color: Color(0xFFAFACC7),
-                                          fontSize: 18.0,
-                                          letterSpacing: 0.15,
-                                          fontWeight: FontWeight.bold,
-                                          lineHeight: 1.55,
-                                        ),
-                                  ),
-                                  Text(
-                                    valueOrDefault<String>(
-                                      widget.doc?.addressLines?.first,
-                                      'No producer',
-                                    ),
-                                    style: FlutterFlowTheme.of(context)
-                                        .bodyMedium
-                                        .override(
-                                          fontFamily: 'Roboto',
-                                          color: Color(0xFFAFACC7),
-                                          fontSize: 16.0,
-                                          letterSpacing: 0.15,
-                                          fontWeight: FontWeight.bold,
-                                          lineHeight: 1.5,
-                                        ),
-                                  ),
-                                ],
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .override(
+                                        fontFamily: 'Roboto',
+                                        color: FlutterFlowTheme.of(context)
+                                            .primary,
+                                        fontSize: 24.0,
+                                        letterSpacing: 0.25,
+                                        fontWeight: FontWeight.w800,
+                                        lineHeight: 1.4,
+                                      ),
+                                ),
                               ),
-                            ),
-                            Container(
-                              width: 22.0,
-                              height: 22.0,
-                              child: custom_widgets.SafetyDotStatelessWrapper(
-                                width: 22.0,
-                                height: 22.0,
-                                allergens: widget.doc!.allergens,
+                              AutoSizeText(
+                                valueOrDefault<String>(
+                                  (String var1) {
+                                    return var1.split("|").last;
+                                  }(widget.doc!.category),
+                                  'Milk',
+                                ).maybeHandleOverflow(
+                                  maxChars: 25,
+                                  replacement: '…',
+                                ),
+                                maxLines: 2,
+                                style: FlutterFlowTheme.of(context)
+                                    .bodyMedium
+                                    .override(
+                                      fontFamily: 'Roboto',
+                                      color: Color(0xFFAFACC7),
+                                      fontSize: 18.0,
+                                      letterSpacing: 0.15,
+                                      fontWeight: FontWeight.bold,
+                                      lineHeight: 1.55,
+                                    ),
                               ),
-                            ),
-                          ],
+                              Text(
+                                valueOrDefault<String>(
+                                  widget.doc?.addressLines?.first,
+                                  'No producer',
+                                ),
+                                style: FlutterFlowTheme.of(context)
+                                    .bodyMedium
+                                    .override(
+                                      fontFamily: 'Roboto',
+                                      color: Color(0xFFAFACC7),
+                                      fontSize: 16.0,
+                                      letterSpacing: 0.15,
+                                      fontWeight: FontWeight.bold,
+                                      lineHeight: 1.5,
+                                    ),
+                              ),
+                            ],
+                          ),
                         ),
                       ),
                       Row(
@@ -199,133 +189,138 @@ class _SlidingUpPanelFromEanWidgetState
                           ),
                         ],
                       ),
-                      Container(
-                        width: MediaQuery.sizeOf(context).width * 1.0,
-                        decoration: BoxDecoration(
-                          color: Colors.transparent,
-                        ),
-                        child: Column(
-                          mainAxisSize: MainAxisSize.min,
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              FFLocalizations.of(context).getText(
-                                'jk4xh0b8' /* Allergens */,
+                      if (widget.doc?.allergens?.length != 0)
+                        Container(
+                          width: MediaQuery.sizeOf(context).width * 1.0,
+                          decoration: BoxDecoration(
+                            color: Colors.transparent,
+                          ),
+                          child: Column(
+                            mainAxisSize: MainAxisSize.min,
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                FFLocalizations.of(context).getText(
+                                  'jk4xh0b8' /* Allergens */,
+                                ),
+                                style: FlutterFlowTheme.of(context)
+                                    .bodyMedium
+                                    .override(
+                                      fontFamily: 'Roboto',
+                                      color:
+                                          FlutterFlowTheme.of(context).primary,
+                                      fontSize: 20.0,
+                                      letterSpacing: 0.15,
+                                      fontWeight: FontWeight.w800,
+                                      lineHeight: 1.4,
+                                    ),
                               ),
-                              style: FlutterFlowTheme.of(context)
-                                  .bodyMedium
-                                  .override(
-                                    fontFamily: 'Roboto',
-                                    color: FlutterFlowTheme.of(context).primary,
-                                    fontSize: 20.0,
-                                    letterSpacing: 0.15,
-                                    fontWeight: FontWeight.w800,
-                                    lineHeight: 1.4,
-                                  ),
-                            ),
-                            Builder(
-                              builder: (context) {
-                                final allergen = functions
-                                    .getEveryOtherFromList(
-                                        widget.doc!.allergens.toList(),
-                                        FFLocalizations.of(context)
-                                                .languageCode ==
-                                            'en')
-                                    .toList();
-                                return SingleChildScrollView(
-                                  scrollDirection: Axis.horizontal,
-                                  child: Row(
-                                    mainAxisSize: MainAxisSize.min,
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: List.generate(allergen.length,
-                                        (allergenIndex) {
-                                      final allergenItem =
-                                          allergen[allergenIndex];
-                                      return Container(
-                                        decoration: BoxDecoration(
-                                          color: functions.listContainsItem(
-                                                  allergenItem,
-                                                  FFAppState()
-                                                      .Allergies
-                                                      .toList())
-                                              ? FlutterFlowTheme.of(context)
-                                                  .error
-                                              : FlutterFlowTheme.of(context)
-                                                  .success,
-                                          borderRadius:
-                                              BorderRadius.circular(6.0),
-                                        ),
-                                        child: Padding(
-                                          padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  8.0, 5.0, 8.0, 5.0),
-                                          child: Text(
-                                            allergenItem,
-                                            style: FlutterFlowTheme.of(context)
-                                                .bodyMedium
-                                                .override(
-                                                  fontFamily: 'Roboto',
-                                                  color: functions
-                                                          .listContainsItem(
-                                                              allergenItem,
-                                                              FFAppState()
-                                                                  .Allergies
-                                                                  .toList())
-                                                      ? FlutterFlowTheme.of(
-                                                              context)
-                                                          .lNWhite
-                                                      : FlutterFlowTheme.of(
-                                                              context)
-                                                          .primary,
-                                                  letterSpacing: 0.15,
-                                                  fontWeight: FontWeight.w800,
-                                                  lineHeight: 1.5,
-                                                ),
+                              Builder(
+                                builder: (context) {
+                                  final allergen = functions
+                                      .getEveryOtherFromList(
+                                          widget.doc!.allergens.toList(),
+                                          FFLocalizations.of(context)
+                                                  .languageCode ==
+                                              'en')
+                                      .toList();
+                                  return SingleChildScrollView(
+                                    scrollDirection: Axis.horizontal,
+                                    child: Row(
+                                      mainAxisSize: MainAxisSize.min,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: List.generate(allergen.length,
+                                          (allergenIndex) {
+                                        final allergenItem =
+                                            allergen[allergenIndex];
+                                        return Container(
+                                          decoration: BoxDecoration(
+                                            color: functions.listContainsItem(
+                                                    allergenItem,
+                                                    FFAppState()
+                                                        .Allergies
+                                                        .toList())
+                                                ? FlutterFlowTheme.of(context)
+                                                    .error
+                                                : FlutterFlowTheme.of(context)
+                                                    .success,
+                                            borderRadius:
+                                                BorderRadius.circular(6.0),
                                           ),
-                                        ),
-                                      );
-                                    }).divide(SizedBox(width: 8.0)),
-                                  ),
-                                );
-                              },
-                            ),
-                          ],
-                        ),
-                      ),
-                      Container(
-                        width: double.infinity,
-                        decoration: BoxDecoration(
-                          color: Colors.transparent,
-                        ),
-                        child: Column(
-                          mainAxisSize: MainAxisSize.min,
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              FFLocalizations.of(context).getText(
-                                'z861kbv3' /* Medication contraindications */,
+                                          child: Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    8.0, 5.0, 8.0, 5.0),
+                                            child: Text(
+                                              allergenItem,
+                                              style: FlutterFlowTheme.of(
+                                                      context)
+                                                  .bodyMedium
+                                                  .override(
+                                                    fontFamily: 'Roboto',
+                                                    color: functions
+                                                            .listContainsItem(
+                                                                allergenItem,
+                                                                FFAppState()
+                                                                    .Allergies
+                                                                    .toList())
+                                                        ? FlutterFlowTheme.of(
+                                                                context)
+                                                            .lNWhite
+                                                        : FlutterFlowTheme.of(
+                                                                context)
+                                                            .primary,
+                                                    letterSpacing: 0.15,
+                                                    fontWeight: FontWeight.w800,
+                                                    lineHeight: 1.5,
+                                                  ),
+                                            ),
+                                          ),
+                                        );
+                                      }).divide(SizedBox(width: 8.0)),
+                                    ),
+                                  );
+                                },
                               ),
-                              style: FlutterFlowTheme.of(context)
-                                  .bodyMedium
-                                  .override(
-                                    fontFamily: 'Roboto',
-                                    color: FlutterFlowTheme.of(context).primary,
-                                    fontSize: 20.0,
-                                    letterSpacing: 0.15,
-                                    fontWeight: FontWeight.w800,
-                                    lineHeight: 1.4,
-                                  ),
-                            ),
-                            custom_widgets.MedicationDisplay(
-                              width: double.infinity,
-                              height: 120.0,
-                              product: widget.doc,
-                            ),
-                          ].divide(SizedBox(height: 12.0)),
+                            ],
+                          ),
                         ),
-                      ),
+                      if (FFAppState().Medication.length != 0)
+                        Container(
+                          width: double.infinity,
+                          decoration: BoxDecoration(
+                            color: Colors.transparent,
+                          ),
+                          child: Column(
+                            mainAxisSize: MainAxisSize.min,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                FFLocalizations.of(context).getText(
+                                  'z861kbv3' /* Medication contraindications */,
+                                ),
+                                style: FlutterFlowTheme.of(context)
+                                    .bodyMedium
+                                    .override(
+                                      fontFamily: 'Roboto',
+                                      color:
+                                          FlutterFlowTheme.of(context).primary,
+                                      fontSize: 20.0,
+                                      letterSpacing: 0.15,
+                                      fontWeight: FontWeight.w800,
+                                      lineHeight: 1.4,
+                                    ),
+                              ),
+                              custom_widgets.MedicationDisplay(
+                                width: double.infinity,
+                                height: 120.0,
+                                product: widget.doc,
+                              ),
+                            ].divide(SizedBox(height: 12.0)),
+                          ),
+                        ),
                       Padding(
                         padding:
                             EdgeInsetsDirectional.fromSTEB(0.0, 15.0, 0.0, 0.0),
@@ -498,42 +493,38 @@ class _SlidingUpPanelFromEanWidgetState
                     topRight: Radius.circular(0.0),
                   ),
                 ),
-                child: Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 10.0),
-                  child: Column(
-                    mainAxisSize: MainAxisSize.max,
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    children: [
-                      if (widget.isOpened == false)
-                        Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              0.0, 0.0, 0.0, 8.0),
-                          child: Text(
-                            FFLocalizations.of(context).getText(
-                              '6n80je7x' /* Potiahni pre viac informácií */,
-                            ),
-                            style: FlutterFlowTheme.of(context)
-                                .bodyMedium
-                                .override(
-                                  fontFamily: 'Roboto',
-                                  color: Color(0xFF382F73),
-                                  fontSize: 12.64,
-                                  letterSpacing: 0.5,
-                                  fontWeight: FontWeight.w500,
-                                  lineHeight: 1.7,
-                                ),
+                child: Column(
+                  mainAxisSize: MainAxisSize.max,
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    if (widget.isOpened == false)
+                      Padding(
+                        padding:
+                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 8.0),
+                        child: Text(
+                          FFLocalizations.of(context).getText(
+                            '6n80je7x' /* Pull down for more information */,
                           ),
-                        ),
-                      Container(
-                        width: 60.0,
-                        height: 4.0,
-                        decoration: BoxDecoration(
-                          color: Color(0xFFAFACC7),
-                          borderRadius: BorderRadius.circular(20.0),
+                          style:
+                              FlutterFlowTheme.of(context).bodyMedium.override(
+                                    fontFamily: 'Roboto',
+                                    color: Color(0xFF382F73),
+                                    fontSize: 12.64,
+                                    letterSpacing: 0.5,
+                                    fontWeight: FontWeight.w500,
+                                    lineHeight: 1.7,
+                                  ),
                         ),
                       ),
-                    ],
-                  ),
+                    Container(
+                      width: 60.0,
+                      height: 4.0,
+                      decoration: BoxDecoration(
+                        color: Color(0xFFAFACC7),
+                        borderRadius: BorderRadius.circular(20.0),
+                      ),
+                    ),
+                  ],
                 ),
               ),
             ),
