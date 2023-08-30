@@ -427,9 +427,9 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Sign in with Google',
       'sk': 'Prihláste sa pomocou Google',
     },
-    'nodogpy4': {
-      'en': 'Continue as guest',
-      'sk': 'Pokračujte ako hosť',
+    '5zwswdbw': {
+      'en': 'Continue without registration',
+      'sk': 'Pokračovať bez registrácie',
     },
   },
   // RecycleInfo

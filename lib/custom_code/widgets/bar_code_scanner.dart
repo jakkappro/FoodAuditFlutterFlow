@@ -299,7 +299,6 @@ class _BarCodeScannerState extends State<BarCodeScanner>
           : !isFineWithDrugs
               ? _mildFoodColor
               : _safeFoodColor;
-      _shouldShowUnknowEanButton = false;
       _sameUnknownEanScanned = 0;
       if (_panelController.isAttached &&
           _panelController.isPanelClosed &&
@@ -312,6 +311,7 @@ class _BarCodeScannerState extends State<BarCodeScanner>
       if (mounted) {
         setState(() {
           _scannedFood = scannedFood;
+          _shouldShowUnknowEanButton = false;
         });
       }
     } else {
