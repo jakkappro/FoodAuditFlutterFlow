@@ -1,4 +1,5 @@
 import '/backend/backend.dart';
+import '/components/component_heading_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:easy_debounce/easy_debounce.dart';
@@ -52,83 +53,78 @@ class _MedicationWidgetState extends State<MedicationWidget> {
       mainAxisSize: MainAxisSize.min,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(
-          FFLocalizations.of(context).getText(
-            '8ebakrts' /* Medication */,
+        wrapWithModel(
+          model: _model.componentHeadingModel,
+          updateCallback: () => setState(() {}),
+          child: ComponentHeadingWidget(
+            title: FFLocalizations.of(context).getText(
+              'up263ymt' /* Medication */,
+            ),
+            description: FFLocalizations.of(context).getText(
+              'c9rll9cf' /* Which medication you do use? */,
+            ),
+            spacing: 4,
+            titleSize: 20,
+            descriptionSize: 16,
           ),
-          style: FlutterFlowTheme.of(context).bodyMedium.override(
-                fontFamily: 'Roboto',
-                color: FlutterFlowTheme.of(context).primary,
-                fontSize: 20.0,
-                letterSpacing: 0.15,
-                fontWeight: FontWeight.w800,
-                lineHeight: 1.4,
-              ),
-        ),
-        Text(
-          FFLocalizations.of(context).getText(
-            'x0l4523o' /* Which medication you use? */,
-          ),
-          style: FlutterFlowTheme.of(context).bodyMedium.override(
-                fontFamily: 'Roboto',
-                color: Color(0xFFAFACC7),
-                fontSize: 16.0,
-                lineHeight: 1.5,
-              ),
         ),
         Container(
           width: double.infinity,
           decoration: BoxDecoration(
             color: Colors.transparent,
           ),
-          child: Builder(
-            builder: (context) {
-              final medication = FFAppState().Medication.toList();
-              return Wrap(
-                spacing: 8.0,
-                runSpacing: 12.0,
-                alignment: WrapAlignment.start,
-                crossAxisAlignment: WrapCrossAlignment.start,
-                direction: Axis.horizontal,
-                runAlignment: WrapAlignment.start,
-                verticalDirection: VerticalDirection.down,
-                clipBehavior: Clip.none,
-                children: List.generate(medication.length, (medicationIndex) {
-                  final medicationItem = medication[medicationIndex];
-                  return InkWell(
-                    splashColor: Colors.transparent,
-                    focusColor: Colors.transparent,
-                    hoverColor: Colors.transparent,
-                    highlightColor: Colors.transparent,
-                    onTap: () async {
-                      setState(() {
-                        FFAppState().removeFromMedication(medicationItem);
-                      });
-                    },
-                    child: Container(
-                      decoration: BoxDecoration(
-                        color: FlutterFlowTheme.of(context).primary,
-                        borderRadius: BorderRadius.circular(6.0),
-                      ),
-                      child: Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(
-                            12.0, 10.0, 12.0, 10.0),
-                        child: Text(
-                          medicationItem,
-                          style:
-                              FlutterFlowTheme.of(context).bodyMedium.override(
-                                    fontFamily: 'Roboto',
-                                    color: Color(0xFFF7F7F7),
-                                    letterSpacing: 0.15,
-                                    fontWeight: FontWeight.w800,
-                                  ),
+          child: Visibility(
+            visible: FFAppState().Medication.length != 0,
+            child: Builder(
+              builder: (context) {
+                final medication = FFAppState().Medication.toList();
+                return Wrap(
+                  spacing: 8.0,
+                  runSpacing: 12.0,
+                  alignment: WrapAlignment.start,
+                  crossAxisAlignment: WrapCrossAlignment.start,
+                  direction: Axis.horizontal,
+                  runAlignment: WrapAlignment.start,
+                  verticalDirection: VerticalDirection.down,
+                  clipBehavior: Clip.none,
+                  children: List.generate(medication.length, (medicationIndex) {
+                    final medicationItem = medication[medicationIndex];
+                    return InkWell(
+                      splashColor: Colors.transparent,
+                      focusColor: Colors.transparent,
+                      hoverColor: Colors.transparent,
+                      highlightColor: Colors.transparent,
+                      onTap: () async {
+                        setState(() {
+                          FFAppState().removeFromMedication(medicationItem);
+                        });
+                      },
+                      child: Container(
+                        decoration: BoxDecoration(
+                          color: FlutterFlowTheme.of(context).primary,
+                          borderRadius: BorderRadius.circular(6.0),
+                        ),
+                        child: Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              12.0, 10.0, 12.0, 10.0),
+                          child: Text(
+                            medicationItem,
+                            style: FlutterFlowTheme.of(context)
+                                .bodyMedium
+                                .override(
+                                  fontFamily: 'Roboto',
+                                  color: Color(0xFFF7F7F7),
+                                  letterSpacing: 0.15,
+                                  fontWeight: FontWeight.w800,
+                                ),
+                          ),
                         ),
                       ),
-                    ),
-                  );
-                }),
-              );
-            },
+                    );
+                  }),
+                );
+              },
+            ),
           ),
         ),
         Container(

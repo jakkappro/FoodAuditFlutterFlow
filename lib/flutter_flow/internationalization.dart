@@ -148,15 +148,15 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // Onborading
   {
-    'mkv4663x': {
-      'en': 'Shop smarter, live helthier',
-      'sk': 'Nakupujte inteligentnejšie, žite zdravšie',
+    '80qblzhs': {
+      'en': 'Shop smarter, live healthier',
+      'sk': 'Nakupujte rozumnejšie, žite zdravšie',
     },
-    'f3olbm79': {
+    'xomazou2': {
       'en':
-          'Discover every information about your food. Register for better personalization and information tailored for you',
+          'Discover all information about your food. Register for better personalization and tailored information',
       'sk':
-          'Zistite všetky informácie o svojom jedle. Zaregistrujte sa pre lepšiu personalizáciu a informácie prispôsobené pre vás',
+          'Zistite všetky informácie o vašom jedle. Zaregistrujte sa pre lepšiu personalizáciu a prispôsobené informácie',
     },
     'jxo4sfdl': {
       'en': 'Register for free',
@@ -166,13 +166,13 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Continue without registration',
       'sk': 'Pokračovať bez registrácie',
     },
-    'oltqxqnb': {
+    'n1s12n0g': {
       'en': 'Registration',
       'sk': 'Registrácia',
     },
-    'nbgy9scs': {
-      'en': 'Registrate with following platforms',
-      'sk': 'Zaregistrujte sa na nasledujúcich platformách',
+    '5lau571u': {
+      'en': 'Registrate using following platforms',
+      'sk': 'Zaregistrujte sa pomocou nasledujúcich platforiem',
     },
     '25x4uzl2': {
       'en': 'Home',
@@ -232,15 +232,15 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // SetUpWizard
   {
-    'ifbezgj8': {
+    '3wtz1sbg': {
       'en': 'Create your profile',
       'sk': 'Vytvorte si profil',
     },
-    'r247e285': {
+    'hflbvdxk': {
       'en':
-          'Selected information will be used only for personalisation of results for you and won\'t be provided for third parties.',
+          'The completed data will only be used to personalize the results for you and will not be passed on to third parties.',
       'sk':
-          'Vybrané informácie budú použité iba na prispôsobenie výsledkov pre vás a nebudú poskytnuté tretím stranám.',
+          'Vyplnené údaje budú použité iba na prispôsobenie výsledkov pre vás a nebudú poskytnuté tretím stranám.',
     },
     'nhigx45s': {
       'en': 'Fill out your information',
@@ -254,15 +254,11 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Continue without registration',
       'sk': 'Pokračovať bez registrácie',
     },
-    '1p2e8too': {
-      'en': 'Tell us something about yourself',
-      'sk': 'Povedzte nám niečo o sebe',
-    },
-    'lpyawdzf': {
+    'u8l8bemr': {
       'en':
-          'Filled information will be used only for personalisation of results for you and won\'t be provided to third parties.',
+          'The completed data will only be used to personalize the results for you and will not be passed on to third parties.',
       'sk':
-          'Vyplnené informácie budú použité iba na personalizáciu výsledkov pre vás a nebudú poskytnuté tretím stranám.',
+          'Vyplnené údaje budú použité iba na prispôsobenie výsledkov pre vás a nebudú poskytnuté tretím stranám.',
     },
     'iyvefphs': {
       'en': 'Finish registration',
@@ -320,12 +316,12 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // Intolerancies
   {
-    'x8bene62': {
+    'xtv5yvz4': {
       'en': 'My preferences',
       'sk': 'Moje preferencie',
     },
-    '2h01pai8': {
-      'en': 'Intolerances',
+    '0wq8f3m4': {
+      'en': 'Intolerancies',
       'sk': 'Intolerancie',
     },
     'wk3wjgs4': {
@@ -409,8 +405,8 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   // ScanProductMessage
   {
     'cz2154o8': {
-      'en': 'Scan your product',
-      'sk': 'Naskenujte svoj produkt',
+      'en': 'Scan product',
+      'sk': 'Naskenujte produkt',
     },
   },
   // AuthComponent
@@ -432,21 +428,14 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'sk': 'Pokračovať bez registrácie',
     },
   },
-  // RecycleInfo
-  {
-    'ps7rr3mp': {
-      'en': 'Put this product into yellow bin',
-      'sk': 'Vložte tento produkt do žltého koša',
-    },
-  },
   // Medication
   {
-    '8ebakrts': {
+    'up263ymt': {
       'en': 'Medication',
       'sk': 'Lieky',
     },
-    'x0l4523o': {
-      'en': 'Which medication you use?',
+    'c9rll9cf': {
+      'en': 'Which medication you do use?',
       'sk': 'Aké lieky užívate?',
     },
     'pzvtqcye': {

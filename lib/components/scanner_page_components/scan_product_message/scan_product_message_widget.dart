@@ -41,29 +41,26 @@ class _ScanProductMessageWidgetState extends State<ScanProductMessageWidget> {
   Widget build(BuildContext context) {
     context.watch<FFAppState>();
 
-    return Align(
-      alignment: AlignmentDirectional(0.0, 0.9),
-      child: Padding(
-        padding: EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
-        child: Container(
-          width: double.infinity,
-          decoration: BoxDecoration(
-            color: Colors.transparent,
+    return Padding(
+      padding: EdgeInsetsDirectional.fromSTEB(24.0, 70.0, 24.0, 0.0),
+      child: Container(
+        width: double.infinity,
+        decoration: BoxDecoration(
+          color: Colors.transparent,
+        ),
+        child: AutoSizeText(
+          FFLocalizations.of(context).getText(
+            'cz2154o8' /* Scan product */,
           ),
-          child: AutoSizeText(
-            FFLocalizations.of(context).getText(
-              'cz2154o8' /* Scan your product */,
-            ),
-            maxLines: 1,
-            style: FlutterFlowTheme.of(context).bodyMedium.override(
-                  fontFamily: 'Roboto',
-                  color: Color(0xFFD7D5E3),
-                  fontSize: 32.0,
-                  letterSpacing: 0.25,
-                  fontWeight: FontWeight.w800,
-                  lineHeight: 1.3,
-                ),
-          ),
+          maxLines: 1,
+          style: FlutterFlowTheme.of(context).bodyMedium.override(
+                fontFamily: 'Roboto',
+                color: Color(0xFFD7D5E3),
+                fontSize: 32.0,
+                letterSpacing: 0.25,
+                fontWeight: FontWeight.w800,
+                lineHeight: 1.3,
+              ),
         ),
       ),
     );

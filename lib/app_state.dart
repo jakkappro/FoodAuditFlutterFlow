@@ -223,7 +223,7 @@ class FFAppState extends ChangeNotifier {
     secureStorage.setStringList('ff_Medication', _Medication);
   }
 
-  String _imageName = 'avatar_111.png';
+  String _imageName = 'avatar_111.svg';
   String get imageName => _imageName;
   set imageName(String _value) {
     _imageName = _value;
@@ -243,6 +243,12 @@ class FFAppState extends ChangeNotifier {
 
   void deleteDobSet() {
     secureStorage.delete(key: 'ff_dobSet');
+  }
+
+  bool _medicaments = true;
+  bool get medicaments => _medicaments;
+  set medicaments(bool _value) {
+    _medicaments = _value;
   }
 }
 

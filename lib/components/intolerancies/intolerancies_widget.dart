@@ -1,3 +1,4 @@
+import '/components/component_heading_widget.dart';
 import '/flutter_flow/flutter_flow_choice_chips.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -50,28 +51,19 @@ class _IntoleranciesWidgetState extends State<IntoleranciesWidget> {
         mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(
-            FFLocalizations.of(context).getText(
-              'x8bene62' /* My preferences */,
-            ),
-            style: FlutterFlowTheme.of(context).displayMedium.override(
-                  fontFamily: 'Roboto',
-                  color: Color(0xFF382F73),
-                  fontSize: 20.0,
-                  fontWeight: FontWeight.w800,
-                ),
-          ),
-          Padding(
-            padding: EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 8.0, 0.0),
-            child: Text(
-              FFLocalizations.of(context).getText(
-                '2h01pai8' /* Intolerances */,
+          wrapWithModel(
+            model: _model.componentHeadingModel,
+            updateCallback: () => setState(() {}),
+            child: ComponentHeadingWidget(
+              title: FFLocalizations.of(context).getText(
+                'xtv5yvz4' /* My preferences */,
               ),
-              style: FlutterFlowTheme.of(context).bodySmall.override(
-                    fontFamily: 'Roboto',
-                    color: Color(0xFFAFACC7),
-                    fontSize: 16.0,
-                  ),
+              description: FFLocalizations.of(context).getText(
+                '0wq8f3m4' /* Intolerancies */,
+              ),
+              spacing: 4,
+              titleSize: 20,
+              descriptionSize: 16,
             ),
           ),
           Padding(

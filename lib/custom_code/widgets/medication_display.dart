@@ -11,7 +11,7 @@ import 'package:flutter/material.dart';
 // DO NOT REMOVE OR MODIFY THE CODE ABOVE!
 
 // mine
-import '../../components/medication_container_widget.dart';
+import '../../components/medication_container/medication_container_widget.dart';
 
 class MedicationDisplay extends StatefulWidget {
   const MedicationDisplay({
