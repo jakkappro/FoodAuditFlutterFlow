@@ -294,7 +294,10 @@ class _BarCodeScannerState extends State<BarCodeScanner>
     if (scannedFood != null) {
       _foundSomethingUseful = true;
       var isSafe = await isFoodSafe(scannedFood!.allergens);
-      var isFineWithDrugs = await isDrugComplient(scannedFood!);
+      var isFineWithDrugs = true;
+      if (FFAppState().medicaments) {
+        isFineWithDrugs = await isDrugComplient(scannedFood!);
+      }
       _backdropColor = !isSafe
           ? _dangerounsFoodColor
           : !isFineWithDrugs

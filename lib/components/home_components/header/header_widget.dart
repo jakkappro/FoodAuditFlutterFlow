@@ -43,7 +43,7 @@ class _HeaderWidgetState extends State<HeaderWidget> {
     context.watch<FFAppState>();
 
     return Padding(
-      padding: EdgeInsetsDirectional.fromSTEB(0.0, 30.0, 0.0, 0.0),
+      padding: EdgeInsetsDirectional.fromSTEB(0.0, 70.0, 0.0, 0.0),
       child: Container(
         width: double.infinity,
         decoration: BoxDecoration(

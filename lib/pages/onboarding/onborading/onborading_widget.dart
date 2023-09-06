@@ -1,4 +1,5 @@
 import '/components/authentication/auth_component/auth_component_widget.dart';
+import '/components/component_heading_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
@@ -106,122 +107,111 @@ class _OnboradingWidgetState extends State<OnboradingWidget> {
                                   fit: BoxFit.scaleDown,
                                 ),
                               ),
-                              Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    0.0, 24.0, 0.0, 0.0),
-                                child: Text(
-                                  FFLocalizations.of(context).getText(
-                                    'mkv4663x' /* Shop smarter, live helthier */,
-                                  ),
-                                  style: FlutterFlowTheme.of(context)
-                                      .bodyMedium
-                                      .override(
-                                        fontFamily: 'Roboto',
-                                        color: Color(0xFF382F73),
-                                        fontSize: 24.0,
-                                        letterSpacing: 0.15,
-                                        fontWeight: FontWeight.w800,
-                                        lineHeight: 1.4,
-                                      ),
+                              Container(
+                                width: double.infinity,
+                                decoration: BoxDecoration(
+                                  color: Colors.transparent,
                                 ),
-                              ),
-                              Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    0.0, 12.0, 0.0, 24.0),
-                                child: Text(
-                                  FFLocalizations.of(context).getText(
-                                    'f3olbm79' /* Discover every information abo... */,
-                                  ),
-                                  style: FlutterFlowTheme.of(context)
-                                      .bodyMedium
-                                      .override(
-                                        fontFamily: 'Roboto',
-                                        color: Color(0xFFAFACC7),
-                                        fontSize: 16.0,
-                                        lineHeight: 1.5,
-                                      ),
-                                ),
-                              ),
-                              InkWell(
-                                splashColor: Colors.transparent,
-                                focusColor: Colors.transparent,
-                                hoverColor: Colors.transparent,
-                                highlightColor: Colors.transparent,
-                                onTap: () async {
-                                  await _model.pageViewController?.nextPage(
-                                    duration: Duration(milliseconds: 300),
-                                    curve: Curves.ease,
-                                  );
-                                },
-                                child: Container(
-                                  width: double.infinity,
-                                  decoration: BoxDecoration(
-                                    color: Color(0xFF382F73),
-                                    borderRadius: BorderRadius.circular(6.0),
-                                  ),
-                                  child: Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        12.0, 10.0, 12.0, 10.0),
-                                    child: Text(
-                                      FFLocalizations.of(context).getText(
-                                        'jxo4sfdl' /* Register for free */,
-                                      ),
-                                      textAlign: TextAlign.center,
-                                      style: FlutterFlowTheme.of(context)
-                                          .bodyMedium
-                                          .override(
-                                            fontFamily: 'Roboto',
-                                            color: Color(0xFFB7C1FA),
-                                            letterSpacing: 0.15,
-                                            fontWeight: FontWeight.w800,
-                                            lineHeight: 1.5,
-                                          ),
+                                child: wrapWithModel(
+                                  model: _model.componentHeadingModel1,
+                                  updateCallback: () => setState(() {}),
+                                  child: ComponentHeadingWidget(
+                                    title: FFLocalizations.of(context).getText(
+                                      'wed8wcov' /* Shop smarter, live healthier */,
                                     ),
-                                  ),
-                                ),
-                              ),
-                              Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    0.0, 12.0, 0.0, 0.0),
-                                child: InkWell(
-                                  splashColor: Colors.transparent,
-                                  focusColor: Colors.transparent,
-                                  hoverColor: Colors.transparent,
-                                  highlightColor: Colors.transparent,
-                                  onTap: () async {
-                                    FFAppState().IsGuest = true;
-
-                                    context.goNamed('Home');
-                                  },
-                                  child: Container(
-                                    width: double.infinity,
-                                    decoration: BoxDecoration(
-                                      color: Colors.transparent,
-                                      borderRadius: BorderRadius.circular(6.0),
-                                    ),
-                                    child: Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          12.0, 10.0, 12.0, 10.0),
-                                      child: Text(
+                                    description:
                                         FFLocalizations.of(context).getText(
-                                          'vrs43w0j' /* Continue without registration */,
-                                        ),
-                                        textAlign: TextAlign.center,
-                                        style: FlutterFlowTheme.of(context)
-                                            .bodyMedium
-                                            .override(
-                                              fontFamily: 'Roboto',
-                                              color: Color(0xFF382F73),
-                                              letterSpacing: 0.15,
-                                              fontWeight: FontWeight.w800,
-                                              lineHeight: 1.5,
-                                            ),
-                                      ),
+                                      'idkfgdfp' /* Discover all information about... */,
                                     ),
+                                    spacing: 12,
+                                    titleSize: 24,
+                                    descriptionSize: 16,
                                   ),
                                 ),
                               ),
-                            ],
+                              Column(
+                                mainAxisSize: MainAxisSize.max,
+                                children: [
+                                  InkWell(
+                                    splashColor: Colors.transparent,
+                                    focusColor: Colors.transparent,
+                                    hoverColor: Colors.transparent,
+                                    highlightColor: Colors.transparent,
+                                    onTap: () async {
+                                      await _model.pageViewController?.nextPage(
+                                        duration: Duration(milliseconds: 300),
+                                        curve: Curves.ease,
+                                      );
+                                    },
+                                    child: Container(
+                                      width: double.infinity,
+                                      decoration: BoxDecoration(
+                                        color: Color(0xFF382F73),
+                                        borderRadius:
+                                            BorderRadius.circular(6.0),
+                                      ),
+                                      child: Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            12.0, 10.0, 12.0, 10.0),
+                                        child: Text(
+                                          FFLocalizations.of(context).getText(
+                                            'jxo4sfdl' /* Register for free */,
+                                          ),
+                                          textAlign: TextAlign.center,
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodyMedium
+                                              .override(
+                                                fontFamily: 'Roboto',
+                                                color: Color(0xFFB7C1FA),
+                                                letterSpacing: 0.15,
+                                                fontWeight: FontWeight.w800,
+                                                lineHeight: 1.5,
+                                              ),
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                  InkWell(
+                                    splashColor: Colors.transparent,
+                                    focusColor: Colors.transparent,
+                                    hoverColor: Colors.transparent,
+                                    highlightColor: Colors.transparent,
+                                    onTap: () async {
+                                      FFAppState().IsGuest = true;
+
+                                      context.goNamed('Home');
+                                    },
+                                    child: Container(
+                                      width: double.infinity,
+                                      decoration: BoxDecoration(
+                                        color: Colors.transparent,
+                                        borderRadius:
+                                            BorderRadius.circular(6.0),
+                                      ),
+                                      child: Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            12.0, 10.0, 12.0, 10.0),
+                                        child: Text(
+                                          FFLocalizations.of(context).getText(
+                                            'vrs43w0j' /* Continue without registration */,
+                                          ),
+                                          textAlign: TextAlign.center,
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodyMedium
+                                              .override(
+                                                fontFamily: 'Roboto',
+                                                color: Color(0xFF382F73),
+                                                letterSpacing: 0.15,
+                                                fontWeight: FontWeight.w800,
+                                                lineHeight: 1.5,
+                                              ),
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ].divide(SizedBox(height: 12.0)),
+                              ),
+                            ].divide(SizedBox(height: 24.0)),
                           ),
                         ),
                       ),
@@ -268,40 +258,26 @@ class _OnboradingWidgetState extends State<OnboradingWidget> {
                                 fit: BoxFit.cover,
                               ),
                             ),
-                            Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 24.0, 0.0, 0.0),
-                              child: Text(
-                                FFLocalizations.of(context).getText(
-                                  'oltqxqnb' /* Registration */,
-                                ),
-                                style: FlutterFlowTheme.of(context)
-                                    .bodyMedium
-                                    .override(
-                                      fontFamily: 'Roboto',
-                                      color: Color(0xFF382F73),
-                                      fontSize: 24.0,
-                                      letterSpacing: 0.15,
-                                      fontWeight: FontWeight.w800,
-                                      lineHeight: 1.4,
-                                    ),
+                            Container(
+                              width: double.infinity,
+                              decoration: BoxDecoration(
+                                color: Colors.transparent,
                               ),
-                            ),
-                            Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 12.0, 0.0, 24.0),
-                              child: Text(
-                                FFLocalizations.of(context).getText(
-                                  'nbgy9scs' /* Registrate with following plat... */,
+                              child: wrapWithModel(
+                                model: _model.componentHeadingModel2,
+                                updateCallback: () => setState(() {}),
+                                child: ComponentHeadingWidget(
+                                  title: FFLocalizations.of(context).getText(
+                                    'wujqb172' /* Registration */,
+                                  ),
+                                  description:
+                                      FFLocalizations.of(context).getText(
+                                    'qhe0shfl' /* Registrate using following pla... */,
+                                  ),
+                                  spacing: 12,
+                                  titleSize: 24,
+                                  descriptionSize: 16,
                                 ),
-                                style: FlutterFlowTheme.of(context)
-                                    .bodyMedium
-                                    .override(
-                                      fontFamily: 'Roboto',
-                                      color: Color(0xFFAFACC7),
-                                      fontSize: 16.0,
-                                      lineHeight: 1.5,
-                                    ),
                               ),
                             ),
                             Container(
@@ -316,7 +292,7 @@ class _OnboradingWidgetState extends State<OnboradingWidget> {
                                 child: AuthComponentWidget(),
                               ),
                             ),
-                          ],
+                          ].divide(SizedBox(height: 24.0)),
                         ),
                       ),
                     ),

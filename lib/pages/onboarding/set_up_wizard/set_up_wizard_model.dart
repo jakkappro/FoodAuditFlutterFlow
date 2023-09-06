@@ -1,7 +1,8 @@
-import '/components/avatar_menu_widget.dart';
+import '/components/avatar_menu/avatar_menu_widget.dart';
+import '/components/component_heading_widget.dart';
 import '/components/intolerancies/intolerancies_widget.dart';
 import '/components/medication/medication_widget.dart';
-import '/components/personal_info_widget.dart';
+import '/components/personal_info/personal_info_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'dart:async';
@@ -26,12 +27,16 @@ class SetUpWizardModel extends FlutterFlowModel {
       : 0;
   // State field(s) for Column widget.
   ScrollController? columnController1;
+  // Model for ComponentHeading component.
+  late ComponentHeadingModel componentHeadingModel1;
   // Model for AvatarMenu component.
   late AvatarMenuModel avatarMenuModel;
   // Model for PersonalInfo component.
   late PersonalInfoModel personalInfoModel;
   // State field(s) for Column widget.
   ScrollController? columnController2;
+  // Model for ComponentHeading component.
+  late ComponentHeadingModel componentHeadingModel2;
   // Model for Intolerancies component.
   late IntoleranciesModel intoleranciesModel;
   // Model for Medication component.
@@ -41,9 +46,13 @@ class SetUpWizardModel extends FlutterFlowModel {
 
   void initState(BuildContext context) {
     columnController1 = ScrollController();
+    componentHeadingModel1 =
+        createModel(context, () => ComponentHeadingModel());
     avatarMenuModel = createModel(context, () => AvatarMenuModel());
     personalInfoModel = createModel(context, () => PersonalInfoModel());
     columnController2 = ScrollController();
+    componentHeadingModel2 =
+        createModel(context, () => ComponentHeadingModel());
     intoleranciesModel = createModel(context, () => IntoleranciesModel());
     medicationModel = createModel(context, () => MedicationModel());
   }
@@ -51,9 +60,11 @@ class SetUpWizardModel extends FlutterFlowModel {
   void dispose() {
     unfocusNode.dispose();
     columnController1?.dispose();
+    componentHeadingModel1.dispose();
     avatarMenuModel.dispose();
     personalInfoModel.dispose();
     columnController2?.dispose();
+    componentHeadingModel2.dispose();
     intoleranciesModel.dispose();
     medicationModel.dispose();
   }

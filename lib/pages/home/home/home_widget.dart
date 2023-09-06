@@ -142,23 +142,24 @@ class _HomeWidgetState extends State<HomeWidget> {
                             child: IntoleranciesWidget(),
                           ),
                         ),
-                        Container(
-                          decoration: BoxDecoration(),
-                          child: wrapWithModel(
-                            model: _model.medicationModel,
-                            updateCallback: () => setState(() {}),
-                            child: MedicationWidget(
-                              whereToScroll: () async {
-                                await _model.columnController?.animateTo(
-                                  _model.columnController!.position
-                                      .maxScrollExtent,
-                                  duration: Duration(milliseconds: 100),
-                                  curve: Curves.ease,
-                                );
-                              },
+                        if (FFAppState().medicaments)
+                          Container(
+                            decoration: BoxDecoration(),
+                            child: wrapWithModel(
+                              model: _model.medicationModel,
+                              updateCallback: () => setState(() {}),
+                              child: MedicationWidget(
+                                whereToScroll: () async {
+                                  await _model.columnController?.animateTo(
+                                    _model.columnController!.position
+                                        .maxScrollExtent,
+                                    duration: Duration(milliseconds: 100),
+                                    curve: Curves.ease,
+                                  );
+                                },
+                              ),
                             ),
                           ),
-                        ),
                       ]
                           .divide(SizedBox(height: 28.0))
                           .addToEnd(SizedBox(height: 90.0)),

@@ -45,7 +45,11 @@ class _ScannedItemSafetyTextState extends State<ScannedItemSafetyText> {
       return _Wrong.NONE;
     }
 
-    final meds = await isDrugComplient(food);
+    var meds = true;
+    if (FFAppState().medicaments) {
+      meds = await isDrugComplient(food);
+    }
+
     if (!meds) {
       return _Wrong.MEDS;
     }

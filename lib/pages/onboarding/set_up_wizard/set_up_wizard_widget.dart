@@ -1,7 +1,8 @@
-import '/components/avatar_menu_widget.dart';
+import '/components/avatar_menu/avatar_menu_widget.dart';
+import '/components/component_heading_widget.dart';
 import '/components/intolerancies/intolerancies_widget.dart';
 import '/components/medication/medication_widget.dart';
-import '/components/personal_info_widget.dart';
+import '/components/personal_info/personal_info_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'dart:async';
@@ -123,40 +124,21 @@ class _SetUpWizardWidgetState extends State<SetUpWizardWidget> {
                                 decoration: BoxDecoration(
                                   color: Colors.transparent,
                                 ),
-                                child: Column(
-                                  mainAxisSize: MainAxisSize.max,
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Text(
-                                      FFLocalizations.of(context).getText(
-                                        'ifbezgj8' /* Create your profile */,
-                                      ),
-                                      style: FlutterFlowTheme.of(context)
-                                          .bodyMedium
-                                          .override(
-                                            fontFamily: 'Roboto',
-                                            color: Color(0xFF382F73),
-                                            fontSize: 24.0,
-                                            letterSpacing: 0.15,
-                                            fontWeight: FontWeight.w800,
-                                            lineHeight: 1.4,
-                                          ),
+                                child: wrapWithModel(
+                                  model: _model.componentHeadingModel1,
+                                  updateCallback: () => setState(() {}),
+                                  child: ComponentHeadingWidget(
+                                    title: FFLocalizations.of(context).getText(
+                                      'mi8a4wnx' /* Create your profile */,
                                     ),
-                                    Text(
-                                      FFLocalizations.of(context).getText(
-                                        'r247e285' /* Selected information will be u... */,
-                                      ),
-                                      style: FlutterFlowTheme.of(context)
-                                          .bodyMedium
-                                          .override(
-                                            fontFamily: 'Roboto',
-                                            color: Color(0xFFAFACC7),
-                                            fontSize: 18.0,
-                                            letterSpacing: 0.15,
-                                            lineHeight: 1.5,
-                                          ),
+                                    description:
+                                        FFLocalizations.of(context).getText(
+                                      'h93u521f' /* The completed data will only b... */,
                                     ),
-                                  ].divide(SizedBox(height: 6.0)),
+                                    spacing: 6,
+                                    titleSize: 24,
+                                    descriptionSize: 18,
+                                  ),
                                 ),
                               ),
                               wrapWithModel(
@@ -320,60 +302,53 @@ class _SetUpWizardWidgetState extends State<SetUpWizardWidget> {
                                   fit: BoxFit.cover,
                                 ),
                               ),
-                              Text(
-                                FFLocalizations.of(context).getText(
-                                  '1p2e8too' /* Tell us something about yourse... */,
-                                ),
-                                style: FlutterFlowTheme.of(context)
-                                    .bodyMedium
-                                    .override(
-                                      fontFamily: 'Roboto',
-                                      color: Color(0xFF382F73),
-                                      fontSize: 24.0,
-                                      letterSpacing: 0.15,
-                                      fontWeight: FontWeight.w800,
-                                      lineHeight: 1.4,
-                                    ),
-                              ),
-                              Text(
-                                FFLocalizations.of(context).getText(
-                                  'lpyawdzf' /* Filled information will be use... */,
-                                ),
-                                style: FlutterFlowTheme.of(context)
-                                    .bodyMedium
-                                    .override(
-                                      fontFamily: 'Roboto',
-                                      color: Color(0xFFAFACC7),
-                                      fontSize: 18.0,
-                                      letterSpacing: 0.15,
-                                      lineHeight: 1.5,
-                                    ),
-                              ),
-                              wrapWithModel(
-                                model: _model.intoleranciesModel,
-                                updateCallback: () => setState(() {}),
-                                child: IntoleranciesWidget(),
-                              ),
                               Container(
                                 width: double.infinity,
                                 decoration: BoxDecoration(
                                   color: Colors.transparent,
                                 ),
                                 child: wrapWithModel(
-                                  model: _model.medicationModel,
+                                  model: _model.componentHeadingModel2,
                                   updateCallback: () => setState(() {}),
-                                  child: MedicationWidget(
-                                    whereToScroll: () async {
-                                      await _model.columnController2?.animateTo(
-                                        _model.columnController2!.position
-                                            .maxScrollExtent,
-                                        duration: Duration(milliseconds: 100),
-                                        curve: Curves.ease,
-                                      );
-                                    },
+                                  child: ComponentHeadingWidget(
+                                    title: 'Tell us something about you',
+                                    description:
+                                        FFLocalizations.of(context).getText(
+                                      'a8hc6v9o' /* The completed data will only b... */,
+                                    ),
+                                    spacing: 6,
+                                    titleSize: 24,
+                                    descriptionSize: 18,
                                   ),
                                 ),
                               ),
+                              wrapWithModel(
+                                model: _model.intoleranciesModel,
+                                updateCallback: () => setState(() {}),
+                                child: IntoleranciesWidget(),
+                              ),
+                              if (FFAppState().medicaments)
+                                Container(
+                                  width: double.infinity,
+                                  decoration: BoxDecoration(
+                                    color: Colors.transparent,
+                                  ),
+                                  child: wrapWithModel(
+                                    model: _model.medicationModel,
+                                    updateCallback: () => setState(() {}),
+                                    child: MedicationWidget(
+                                      whereToScroll: () async {
+                                        await _model.columnController2
+                                            ?.animateTo(
+                                          _model.columnController2!.position
+                                              .maxScrollExtent,
+                                          duration: Duration(milliseconds: 100),
+                                          curve: Curves.ease,
+                                        );
+                                      },
+                                    ),
+                                  ),
+                                ),
                             ]
                                 .divide(SizedBox(height: 24.0))
                                 .addToStart(SizedBox(height: 50.0))

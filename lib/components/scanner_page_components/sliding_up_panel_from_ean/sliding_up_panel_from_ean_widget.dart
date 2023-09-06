@@ -287,7 +287,8 @@ class _SlidingUpPanelFromEanWidgetState
                             ],
                           ),
                         ),
-                      if (FFAppState().Medication.length != 0)
+                      if (FFAppState().medicaments &&
+                          (FFAppState().Medication.length != 0))
                         Container(
                           width: double.infinity,
                           decoration: BoxDecoration(

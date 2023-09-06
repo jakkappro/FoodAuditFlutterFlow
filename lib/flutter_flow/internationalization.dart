@@ -148,15 +148,14 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // Onborading
   {
-    'mkv4663x': {
-      'en': 'Shop smarter, live helthier',
-      'sk': 'Nakupujte inteligentnejšie, žite zdravšie',
+    'wed8wcov': {
+      'en': 'Shop smarter, live healthier',
+      'sk': '',
     },
-    'f3olbm79': {
+    'idkfgdfp': {
       'en':
-          'Discover every information about your food. Register for better personalization and information tailored for you',
-      'sk':
-          'Zistite všetky informácie o svojom jedle. Zaregistrujte sa pre lepšiu personalizáciu a informácie prispôsobené pre vás',
+          'Discover all information about your food. Register for better personalization and tailored information',
+      'sk': '',
     },
     'jxo4sfdl': {
       'en': 'Register for free',
@@ -166,13 +165,13 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Continue without registration',
       'sk': 'Pokračovať bez registrácie',
     },
-    'oltqxqnb': {
+    'wujqb172': {
       'en': 'Registration',
-      'sk': 'Registrácia',
+      'sk': '',
     },
-    'nbgy9scs': {
-      'en': 'Registrate with following platforms',
-      'sk': 'Zaregistrujte sa na nasledujúcich platformách',
+    'qhe0shfl': {
+      'en': 'Registrate using following platforms',
+      'sk': '',
     },
     '25x4uzl2': {
       'en': 'Home',
@@ -232,15 +231,14 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // SetUpWizard
   {
-    'ifbezgj8': {
+    'mi8a4wnx': {
       'en': 'Create your profile',
-      'sk': 'Vytvorte si profil',
+      'sk': '',
     },
-    'r247e285': {
+    'h93u521f': {
       'en':
-          'Selected information will be used only for personalisation of results for you and won\'t be provided for third parties.',
-      'sk':
-          'Vybrané informácie budú použité iba na prispôsobenie výsledkov pre vás a nebudú poskytnuté tretím stranám.',
+          'The completed data will only be used to personalize the results for you and will not be passed on to third parties.',
+      'sk': '',
     },
     'nhigx45s': {
       'en': 'Fill out your information',
@@ -254,15 +252,10 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Continue without registration',
       'sk': 'Pokračovať bez registrácie',
     },
-    '1p2e8too': {
-      'en': 'Tell us something about yourself',
-      'sk': 'Povedzte nám niečo o sebe',
-    },
-    'lpyawdzf': {
+    'a8hc6v9o': {
       'en':
-          'Filled information will be used only for personalisation of results for you and won\'t be provided to third parties.',
-      'sk':
-          'Vyplnené informácie budú použité iba na personalizáciu výsledkov pre vás a nebudú poskytnuté tretím stranám.',
+          'The completed data will only be used to personalize the results for you and will not be passed on to third parties.',
+      'sk': '',
     },
     'iyvefphs': {
       'en': 'Finish registration',
@@ -320,13 +313,13 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // Intolerancies
   {
-    'x8bene62': {
+    'ibo1gacf': {
       'en': 'My preferences',
-      'sk': 'Moje preferencie',
+      'sk': '',
     },
-    '2h01pai8': {
-      'en': 'Intolerances',
-      'sk': 'Intolerancie',
+    '3w8r563v': {
+      'en': 'Intolerancies',
+      'sk': '',
     },
     'wk3wjgs4': {
       'en': 'Wheat',
@@ -409,8 +402,8 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   // ScanProductMessage
   {
     'cz2154o8': {
-      'en': 'Scan your product',
-      'sk': 'Naskenujte svoj produkt',
+      'en': 'Scan product',
+      'sk': 'Naskenujte produkt',
     },
   },
   // AuthComponent
@@ -432,22 +425,15 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'sk': 'Pokračovať bez registrácie',
     },
   },
-  // RecycleInfo
-  {
-    'ps7rr3mp': {
-      'en': 'Put this product into yellow bin',
-      'sk': 'Vložte tento produkt do žltého koša',
-    },
-  },
   // Medication
   {
-    '8ebakrts': {
+    '72j6xftt': {
       'en': 'Medication',
-      'sk': 'Lieky',
+      'sk': '',
     },
-    'x0l4523o': {
-      'en': 'Which medication you use?',
-      'sk': 'Aké lieky užívate?',
+    'x1o3q8v8': {
+      'en': 'Which medication you do use?',
+      'sk': '',
     },
     'pzvtqcye': {
       'en': '',

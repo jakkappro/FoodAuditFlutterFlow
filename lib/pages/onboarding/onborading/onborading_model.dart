@@ -1,4 +1,5 @@
 import '/components/authentication/auth_component/auth_component_widget.dart';
+import '/components/component_heading_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
@@ -18,17 +19,27 @@ class OnboradingModel extends FlutterFlowModel {
           pageViewController!.page != null
       ? pageViewController!.page!.round()
       : 0;
+  // Model for ComponentHeading component.
+  late ComponentHeadingModel componentHeadingModel1;
+  // Model for ComponentHeading component.
+  late ComponentHeadingModel componentHeadingModel2;
   // Model for AuthComponent component.
   late AuthComponentModel authComponentModel;
 
   /// Initialization and disposal methods.
 
   void initState(BuildContext context) {
+    componentHeadingModel1 =
+        createModel(context, () => ComponentHeadingModel());
+    componentHeadingModel2 =
+        createModel(context, () => ComponentHeadingModel());
     authComponentModel = createModel(context, () => AuthComponentModel());
   }
 
   void dispose() {
     unfocusNode.dispose();
+    componentHeadingModel1.dispose();
+    componentHeadingModel2.dispose();
     authComponentModel.dispose();
   }
 

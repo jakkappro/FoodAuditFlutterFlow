@@ -1,9 +1,9 @@
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/schema/structs/index.dart';
-import '/components/avatar_menu_widget.dart';
+import '/components/avatar_menu/avatar_menu_widget.dart';
 import '/components/intolerancies/intolerancies_widget.dart';
 import '/components/medication/medication_widget.dart';
-import '/components/personal_info_widget.dart';
+import '/components/personal_info/personal_info_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'dart:async';
@@ -82,7 +82,7 @@ class _SettingsWidgetState extends State<SettingsWidget> {
               color: FlutterFlowTheme.of(context).primaryBackground,
             ),
             child: Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(24.0, 50.0, 24.0, 0.0),
+              padding: EdgeInsetsDirectional.fromSTEB(24.0, 70.0, 24.0, 0.0),
               child: Stack(
                 children: [
                   SingleChildScrollView(
@@ -133,25 +133,26 @@ class _SettingsWidgetState extends State<SettingsWidget> {
                           updateCallback: () => setState(() {}),
                           child: IntoleranciesWidget(),
                         ),
-                        Container(
-                          decoration: BoxDecoration(
-                            color: Colors.transparent,
-                          ),
-                          child: wrapWithModel(
-                            model: _model.medicationModel,
-                            updateCallback: () => setState(() {}),
-                            child: MedicationWidget(
-                              whereToScroll: () async {
-                                await _model.columnController?.animateTo(
-                                  _model.columnController!.position
-                                      .maxScrollExtent,
-                                  duration: Duration(milliseconds: 100),
-                                  curve: Curves.ease,
-                                );
-                              },
+                        if (FFAppState().medicaments)
+                          Container(
+                            decoration: BoxDecoration(
+                              color: Colors.transparent,
+                            ),
+                            child: wrapWithModel(
+                              model: _model.medicationModel,
+                              updateCallback: () => setState(() {}),
+                              child: MedicationWidget(
+                                whereToScroll: () async {
+                                  await _model.columnController?.animateTo(
+                                    _model.columnController!.position
+                                        .maxScrollExtent,
+                                    duration: Duration(milliseconds: 100),
+                                    curve: Curves.ease,
+                                  );
+                                },
+                              ),
                             ),
                           ),
-                        ),
                         InkWell(
                           splashColor: Colors.transparent,
                           focusColor: Colors.transparent,
