@@ -129,11 +129,11 @@ class _SetUpWizardWidgetState extends State<SetUpWizardWidget> {
                                   updateCallback: () => setState(() {}),
                                   child: ComponentHeadingWidget(
                                     title: FFLocalizations.of(context).getText(
-                                      'mi8a4wnx' /* Create your profile */,
+                                      '3wtz1sbg' /* Create your profile */,
                                     ),
                                     description:
                                         FFLocalizations.of(context).getText(
-                                      'h93u521f' /* The completed data will only b... */,
+                                      'hflbvdxk' /* The completed data will only b... */,
                                     ),
                                     spacing: 6,
                                     titleSize: 24,
@@ -314,7 +314,7 @@ class _SetUpWizardWidgetState extends State<SetUpWizardWidget> {
                                     title: 'Tell us something about you',
                                     description:
                                         FFLocalizations.of(context).getText(
-                                      'a8hc6v9o' /* The completed data will only b... */,
+                                      'u8l8bemr' /* The completed data will only b... */,
                                     ),
                                     spacing: 6,
                                     titleSize: 24,

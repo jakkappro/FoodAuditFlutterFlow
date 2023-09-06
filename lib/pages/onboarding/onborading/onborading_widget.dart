@@ -117,11 +117,11 @@ class _OnboradingWidgetState extends State<OnboradingWidget> {
                                   updateCallback: () => setState(() {}),
                                   child: ComponentHeadingWidget(
                                     title: FFLocalizations.of(context).getText(
-                                      'wed8wcov' /* Shop smarter, live healthier */,
+                                      '80qblzhs' /* Shop smarter, live healthier */,
                                     ),
                                     description:
                                         FFLocalizations.of(context).getText(
-                                      'idkfgdfp' /* Discover all information about... */,
+                                      'xomazou2' /* Discover all information about... */,
                                     ),
                                     spacing: 12,
                                     titleSize: 24,
@@ -268,11 +268,11 @@ class _OnboradingWidgetState extends State<OnboradingWidget> {
                                 updateCallback: () => setState(() {}),
                                 child: ComponentHeadingWidget(
                                   title: FFLocalizations.of(context).getText(
-                                    'wujqb172' /* Registration */,
+                                    'n1s12n0g' /* Registration */,
                                   ),
                                   description:
                                       FFLocalizations.of(context).getText(
-                                    'qhe0shfl' /* Registrate using following pla... */,
+                                    '5lau571u' /* Registrate using following pla... */,
                                   ),
                                   spacing: 12,
                                   titleSize: 24,

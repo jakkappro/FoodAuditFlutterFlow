@@ -58,10 +58,10 @@ class _MedicationWidgetState extends State<MedicationWidget> {
           updateCallback: () => setState(() {}),
           child: ComponentHeadingWidget(
             title: FFLocalizations.of(context).getText(
-              '72j6xftt' /* Medication */,
+              'up263ymt' /* Medication */,
             ),
             description: FFLocalizations.of(context).getText(
-              'x1o3q8v8' /* Which medication you do use? */,
+              'c9rll9cf' /* Which medication you do use? */,
             ),
             spacing: 4,
             titleSize: 20,

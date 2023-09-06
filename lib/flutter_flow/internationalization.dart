@@ -148,14 +148,15 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // Onborading
   {
-    'wed8wcov': {
+    '80qblzhs': {
       'en': 'Shop smarter, live healthier',
-      'sk': '',
+      'sk': 'Nakupujte rozumnejšie, žite zdravšie',
     },
-    'idkfgdfp': {
+    'xomazou2': {
       'en':
           'Discover all information about your food. Register for better personalization and tailored information',
-      'sk': '',
+      'sk':
+          'Zistite všetky informácie o vašom jedle. Zaregistrujte sa pre lepšiu personalizáciu a prispôsobené informácie',
     },
     'jxo4sfdl': {
       'en': 'Register for free',
@@ -165,13 +166,13 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Continue without registration',
       'sk': 'Pokračovať bez registrácie',
     },
-    'wujqb172': {
+    'n1s12n0g': {
       'en': 'Registration',
-      'sk': '',
+      'sk': 'Registrácia',
     },
-    'qhe0shfl': {
+    '5lau571u': {
       'en': 'Registrate using following platforms',
-      'sk': '',
+      'sk': 'Zaregistrujte sa pomocou nasledujúcich platforiem',
     },
     '25x4uzl2': {
       'en': 'Home',
@@ -231,14 +232,15 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // SetUpWizard
   {
-    'mi8a4wnx': {
+    '3wtz1sbg': {
       'en': 'Create your profile',
-      'sk': '',
+      'sk': 'Vytvorte si profil',
     },
-    'h93u521f': {
+    'hflbvdxk': {
       'en':
           'The completed data will only be used to personalize the results for you and will not be passed on to third parties.',
-      'sk': '',
+      'sk':
+          'Vyplnené údaje budú použité iba na prispôsobenie výsledkov pre vás a nebudú poskytnuté tretím stranám.',
     },
     'nhigx45s': {
       'en': 'Fill out your information',
@@ -252,10 +254,11 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Continue without registration',
       'sk': 'Pokračovať bez registrácie',
     },
-    'a8hc6v9o': {
+    'u8l8bemr': {
       'en':
           'The completed data will only be used to personalize the results for you and will not be passed on to third parties.',
-      'sk': '',
+      'sk':
+          'Vyplnené údaje budú použité iba na prispôsobenie výsledkov pre vás a nebudú poskytnuté tretím stranám.',
     },
     'iyvefphs': {
       'en': 'Finish registration',
@@ -313,13 +316,13 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // Intolerancies
   {
-    'ibo1gacf': {
+    'xtv5yvz4': {
       'en': 'My preferences',
-      'sk': '',
+      'sk': 'Moje preferencie',
     },
-    '3w8r563v': {
+    '0wq8f3m4': {
       'en': 'Intolerancies',
-      'sk': '',
+      'sk': 'Intolerancie',
     },
     'wk3wjgs4': {
       'en': 'Wheat',
@@ -427,13 +430,13 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // Medication
   {
-    '72j6xftt': {
+    'up263ymt': {
       'en': 'Medication',
-      'sk': '',
+      'sk': 'Lieky',
     },
-    'x1o3q8v8': {
+    'c9rll9cf': {
       'en': 'Which medication you do use?',
-      'sk': '',
+      'sk': 'Aké lieky užívate?',
     },
     'pzvtqcye': {
       'en': '',

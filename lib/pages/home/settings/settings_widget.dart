@@ -177,7 +177,7 @@ class _SettingsWidgetState extends State<SettingsWidget> {
                             FFAppState().gender = '';
 
                             FFAppState().DoneWizzard = false;
-                            FFAppState().imageName = 'avatar_111.png';
+                            FFAppState().imageName = 'avatar_111.svg';
                             FFAppState().dobSet = false;
                             FFAppState().deleteMedication();
                             FFAppState().Medication = [];

@@ -56,10 +56,10 @@ class _IntoleranciesWidgetState extends State<IntoleranciesWidget> {
             updateCallback: () => setState(() {}),
             child: ComponentHeadingWidget(
               title: FFLocalizations.of(context).getText(
-                'ibo1gacf' /* My preferences */,
+                'xtv5yvz4' /* My preferences */,
               ),
               description: FFLocalizations.of(context).getText(
-                '3w8r563v' /* Intolerancies */,
+                '0wq8f3m4' /* Intolerancies */,
               ),
               spacing: 4,
               titleSize: 20,
