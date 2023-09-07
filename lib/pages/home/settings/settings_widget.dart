@@ -142,6 +142,7 @@ class _SettingsWidgetState extends State<SettingsWidget> {
                               model: _model.medicationModel,
                               updateCallback: () => setState(() {}),
                               child: MedicationWidget(
+                                shouldShowLink: true,
                                 whereToScroll: () async {
                                   await _model.columnController?.animateTo(
                                     _model.columnController!.position

@@ -252,7 +252,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     },
     '5zwswdbw': {
       'en': 'Continue without registration',
-      'sk': 'Pokračovať bez registrácie',
+      'sk': 'Nahláste to tu',
     },
     'u8l8bemr': {
       'en':
@@ -425,7 +425,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     },
     '5zwswdbw': {
       'en': 'Continue without registration',
-      'sk': 'Pokračovať bez registrácie',
+      'sk': 'Nahláste to tu',
     },
   },
   // Medication
@@ -445,6 +445,18 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     'jv8nw803': {
       'en': 'Start typing name of product...',
       'sk': 'Začnite písať názov produktu...',
+    },
+    'ugf1tiv5': {
+      'en': 'eSKadra form',
+      'sk': 'formulár eSKadra',
+    },
+    '9qhqrx6g': {
+      'en': 'Form for REPORTING A SUSPECTED ADVERSE DRUG REACTION)',
+      'sk': 'Formulár na HLÁSENIE PODOZRENIA NA NEŽIADUCE ÚČINKY)',
+    },
+    '5zwswdbw': {
+      'en': 'Report it here',
+      'sk': 'Nahláste to tu',
     },
   },
   // AvatarMenu
