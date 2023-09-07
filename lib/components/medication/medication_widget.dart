@@ -13,9 +13,11 @@ class MedicationWidget extends StatefulWidget {
   const MedicationWidget({
     Key? key,
     required this.whereToScroll,
+    required this.shouldShowLink,
   }) : super(key: key);
 
   final Future<dynamic> Function()? whereToScroll;
+  final bool? shouldShowLink;
 
   @override
   _MedicationWidgetState createState() => _MedicationWidgetState();
@@ -54,7 +56,7 @@ class _MedicationWidgetState extends State<MedicationWidget> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         wrapWithModel(
-          model: _model.componentHeadingModel,
+          model: _model.componentHeadingModel1,
           updateCallback: () => setState(() {}),
           child: ComponentHeadingWidget(
             title: FFLocalizations.of(context).getText(
@@ -272,6 +274,72 @@ class _MedicationWidgetState extends State<MedicationWidget> {
                 ),
               );
             },
+          ),
+        if (widget.shouldShowLink ?? true)
+          Container(
+            width: double.infinity,
+            decoration: BoxDecoration(
+              color: Colors.transparent,
+            ),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                wrapWithModel(
+                  model: _model.componentHeadingModel2,
+                  updateCallback: () => setState(() {}),
+                  child: ComponentHeadingWidget(
+                    title: FFLocalizations.of(context).getText(
+                      'ugf1tiv5' /* eSKadra form */,
+                    ),
+                    description: FFLocalizations.of(context).getText(
+                      '9qhqrx6g' /* Form for REPORTING A SUSPECTED... */,
+                    ),
+                    spacing: 4,
+                    titleSize: 20,
+                    descriptionSize: 16,
+                  ),
+                ),
+                Align(
+                  alignment: AlignmentDirectional(0.0, 0.0),
+                  child: InkWell(
+                    splashColor: Colors.transparent,
+                    focusColor: Colors.transparent,
+                    hoverColor: Colors.transparent,
+                    highlightColor: Colors.transparent,
+                    onTap: () async {
+                      await launchURL('https://portal.sukl.sk/eskadra/');
+                    },
+                    child: Container(
+                      width: double.infinity,
+                      height: 50.0,
+                      decoration: BoxDecoration(
+                        color: Colors.transparent,
+                        borderRadius: BorderRadius.circular(6.0),
+                      ),
+                      child: Padding(
+                        padding: EdgeInsetsDirectional.fromSTEB(
+                            12.0, 10.0, 12.0, 10.0),
+                        child: Text(
+                          FFLocalizations.of(context).getText(
+                            '5zwswdbw' /* Report it here */,
+                          ),
+                          textAlign: TextAlign.center,
+                          style:
+                              FlutterFlowTheme.of(context).bodyMedium.override(
+                                    fontFamily: 'Roboto',
+                                    color: Color(0xFF382F73),
+                                    letterSpacing: 0.15,
+                                    fontWeight: FontWeight.w800,
+                                    lineHeight: 1.5,
+                                  ),
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+              ].divide(SizedBox(height: 15.0)),
+            ),
           ),
       ].divide(SizedBox(height: 15.0)).addToStart(SizedBox(height: 15.0)),
     );

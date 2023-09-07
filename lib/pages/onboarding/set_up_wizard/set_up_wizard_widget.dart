@@ -337,6 +337,7 @@ class _SetUpWizardWidgetState extends State<SetUpWizardWidget> {
                                     model: _model.medicationModel,
                                     updateCallback: () => setState(() {}),
                                     child: MedicationWidget(
+                                      shouldShowLink: false,
                                       whereToScroll: () async {
                                         await _model.columnController2
                                             ?.animateTo(

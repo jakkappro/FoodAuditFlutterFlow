@@ -15,22 +15,28 @@ class MedicationModel extends FlutterFlowModel {
   ///  State fields for stateful widgets in this component.
 
   // Model for ComponentHeading component.
-  late ComponentHeadingModel componentHeadingModel;
+  late ComponentHeadingModel componentHeadingModel1;
   // State field(s) for TextField widget.
   TextEditingController? textController;
   String? Function(BuildContext, String?)? textControllerValidator;
   // Algolia Search Results from action on TextField
   List<MedicationRecord>? algoliaSearchResults = [];
+  // Model for ComponentHeading component.
+  late ComponentHeadingModel componentHeadingModel2;
 
   /// Initialization and disposal methods.
 
   void initState(BuildContext context) {
-    componentHeadingModel = createModel(context, () => ComponentHeadingModel());
+    componentHeadingModel1 =
+        createModel(context, () => ComponentHeadingModel());
+    componentHeadingModel2 =
+        createModel(context, () => ComponentHeadingModel());
   }
 
   void dispose() {
-    componentHeadingModel.dispose();
+    componentHeadingModel1.dispose();
     textController?.dispose();
+    componentHeadingModel2.dispose();
   }
 
   /// Action blocks are added here.
