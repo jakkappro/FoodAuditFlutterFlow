@@ -271,7 +271,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // testPage
   {
-    'ypfepele': {
+    'whucjf8f': {
       'en': 'Home',
       'sk': '',
     },

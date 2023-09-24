@@ -271,17 +271,17 @@ class FFAppState extends ChangeNotifier {
     _medicaments = _value;
   }
 
-  List<String> _listOfSynonyms = [];
-  List<String> get listOfSynonyms => _listOfSynonyms;
-  set listOfSynonyms(List<String> _value) {
+  List<SynonymStruct> _listOfSynonyms = [];
+  List<SynonymStruct> get listOfSynonyms => _listOfSynonyms;
+  set listOfSynonyms(List<SynonymStruct> _value) {
     _listOfSynonyms = _value;
   }
 
-  void addToListOfSynonyms(String _value) {
+  void addToListOfSynonyms(SynonymStruct _value) {
     _listOfSynonyms.add(_value);
   }
 
-  void removeFromListOfSynonyms(String _value) {
+  void removeFromListOfSynonyms(SynonymStruct _value) {
     _listOfSynonyms.remove(_value);
   }
 
@@ -291,12 +291,12 @@ class FFAppState extends ChangeNotifier {
 
   void updateListOfSynonymsAtIndex(
     int _index,
-    String Function(String) updateFn,
+    SynonymStruct Function(SynonymStruct) updateFn,
   ) {
     _listOfSynonyms[_index] = updateFn(_listOfSynonyms[_index]);
   }
 
-  void insertAtIndexInListOfSynonyms(int _index, String _value) {
+  void insertAtIndexInListOfSynonyms(int _index, SynonymStruct _value) {
     _listOfSynonyms.insert(_index, _value);
   }
 }

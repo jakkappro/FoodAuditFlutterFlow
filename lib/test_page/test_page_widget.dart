@@ -3,7 +3,6 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'test_page_model.dart';
@@ -27,13 +26,6 @@ class _TestPageWidgetState extends State<TestPageWidget> {
     _model = createModel(context, () => TestPageModel());
 
     logFirebaseEvent('screen_view', parameters: {'screen_name': 'testPage'});
-    // On page load action.
-    SchedulerBinding.instance.addPostFrameCallback((_) async {
-      setState(() {
-        FFAppState().listOfSynonyms =
-            FFAppState().Allergies.toList().cast<String>();
-      });
-    });
   }
 
   @override

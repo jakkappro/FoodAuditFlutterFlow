@@ -12,14 +12,9 @@ import 'package:flutter/material.dart';
 Future fillListOfSynonyms() async {
   // Add your function code here!
   var synonyms = await querySynonymsRecordOnce();
-  var modifiedSynonyms = synonyms
-      .map((e) {
-        return e.synonyms;
-      })
-      .toList()
-      .reduce(
-        (value, element) => value + element,
-      );
+  var modifiedSynonyms = synonyms.map((e) {
+    return SynonymStruct(name: e.reference.id, synonyms: e.synonyms);
+  }).toList();
 
   FFAppState().listOfSynonyms = modifiedSynonyms;
 }
