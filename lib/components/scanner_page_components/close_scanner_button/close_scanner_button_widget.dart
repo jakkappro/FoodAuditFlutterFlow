@@ -57,7 +57,7 @@ class _CloseScannerButtonWidgetState extends State<CloseScannerButtonWidget> {
           shape: BoxShape.circle,
         ),
         child: Align(
-          alignment: AlignmentDirectional(0.0, 0.0),
+          alignment: AlignmentDirectional(0.00, 0.00),
           child: ClipRRect(
             borderRadius: BorderRadius.circular(8.0),
             child: SvgPicture.asset(

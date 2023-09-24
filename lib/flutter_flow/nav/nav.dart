@@ -79,13 +79,13 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
       debugLogDiagnostics: true,
       refreshListenable: appStateNotifier,
       errorBuilder: (context, state) =>
-          appStateNotifier.loggedIn ? HomeWidget() : OnboradingWidget(),
+          appStateNotifier.loggedIn ? HomeWidget() : WelcomeWidget(),
       routes: [
         FFRoute(
           name: '_initialize',
           path: '/',
           builder: (context, _) =>
-              appStateNotifier.loggedIn ? HomeWidget() : OnboradingWidget(),
+              appStateNotifier.loggedIn ? HomeWidget() : WelcomeWidget(),
         ),
         FFRoute(
           name: 'Home',
@@ -103,9 +103,9 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           builder: (context, params) => CameraWidget(),
         ),
         FFRoute(
-          name: 'Onborading',
-          path: '/onborading',
-          builder: (context, params) => OnboradingWidget(),
+          name: 'Welcome',
+          path: '/welcome',
+          builder: (context, params) => WelcomeWidget(),
         ),
         FFRoute(
           name: 'SubSettings',
@@ -113,9 +113,14 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           builder: (context, params) => SubSettingsWidget(),
         ),
         FFRoute(
-          name: 'SetUpWizard',
-          path: '/setUpWizard',
-          builder: (context, params) => SetUpWizardWidget(),
+          name: 'Wizard',
+          path: '/wizard',
+          builder: (context, params) => WizardWidget(),
+        ),
+        FFRoute(
+          name: 'testPage',
+          path: '/testPage',
+          builder: (context, params) => TestPageWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );
@@ -282,7 +287,7 @@ class FFRoute {
 
           if (requireAuth && !appStateNotifier.loggedIn) {
             appStateNotifier.setRedirectLocationIfUnset(state.location);
-            return '/onborading';
+            return '/welcome';
           }
           return null;
         },

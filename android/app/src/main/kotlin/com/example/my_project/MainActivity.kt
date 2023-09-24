@@ -1,4 +1,4 @@
-package sk.customdev.nu3food
+package eu.eurospotrebitelia.nu3food
 
 import io.flutter.embedding.android.FlutterActivity
 

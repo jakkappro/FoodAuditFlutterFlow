@@ -5,6 +5,7 @@ import '/components/medication/medication_widget.dart';
 import '/components/personal_info/personal_info_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/flutter_flow_widgets.dart';
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
@@ -12,18 +13,18 @@ import 'package:flutter_keyboard_visibility/flutter_keyboard_visibility.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
-import 'set_up_wizard_model.dart';
-export 'set_up_wizard_model.dart';
+import 'wizard_model.dart';
+export 'wizard_model.dart';
 
-class SetUpWizardWidget extends StatefulWidget {
-  const SetUpWizardWidget({Key? key}) : super(key: key);
+class WizardWidget extends StatefulWidget {
+  const WizardWidget({Key? key}) : super(key: key);
 
   @override
-  _SetUpWizardWidgetState createState() => _SetUpWizardWidgetState();
+  _WizardWidgetState createState() => _WizardWidgetState();
 }
 
-class _SetUpWizardWidgetState extends State<SetUpWizardWidget> {
-  late SetUpWizardModel _model;
+class _WizardWidgetState extends State<WizardWidget> {
+  late WizardModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
   late StreamSubscription<bool> _keyboardVisibilitySubscription;
@@ -32,9 +33,9 @@ class _SetUpWizardWidgetState extends State<SetUpWizardWidget> {
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => SetUpWizardModel());
+    _model = createModel(context, () => WizardModel());
 
-    logFirebaseEvent('screen_view', parameters: {'screen_name': 'SetUpWizard'});
+    logFirebaseEvent('screen_view', parameters: {'screen_name': 'Wizard'});
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
       if (FFAppState().imageName == null || FFAppState().imageName == '') {
@@ -167,7 +168,7 @@ class _SetUpWizardWidgetState extends State<SetUpWizardWidget> {
                           ? MediaQuery.viewInsetsOf(context).bottom > 0
                           : _isKeyboardVisible))
                         Align(
-                          alignment: AlignmentDirectional(0.0, 0.95),
+                          alignment: AlignmentDirectional(0.00, 0.95),
                           child: Padding(
                             padding: EdgeInsetsDirectional.fromSTEB(
                                 24.0, 0.0, 24.0, 0.0),
@@ -361,7 +362,7 @@ class _SetUpWizardWidgetState extends State<SetUpWizardWidget> {
                           ? MediaQuery.viewInsetsOf(context).bottom > 0
                           : _isKeyboardVisible))
                         Align(
-                          alignment: AlignmentDirectional(0.0, 0.95),
+                          alignment: AlignmentDirectional(0.00, 0.95),
                           child: Padding(
                             padding: EdgeInsetsDirectional.fromSTEB(
                                 24.0, 0.0, 24.0, 0.0),

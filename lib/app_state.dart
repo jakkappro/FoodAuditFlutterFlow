@@ -7,13 +7,17 @@ import 'package:synchronized/synchronized.dart';
 import 'flutter_flow/flutter_flow_util.dart';
 
 class FFAppState extends ChangeNotifier {
-  static final FFAppState _instance = FFAppState._internal();
+  static FFAppState _instance = FFAppState._internal();
 
   factory FFAppState() {
     return _instance;
   }
 
   FFAppState._internal();
+
+  static void reset() {
+    _instance = FFAppState._internal();
+  }
 
   Future initializePersistedState() async {
     secureStorage = FlutterSecureStorage();
@@ -109,6 +113,12 @@ class FFAppState extends ChangeNotifier {
         'ff_ScannedItems', _ScannedItems.map((x) => x.serialize()).toList());
   }
 
+  void insertAtIndexInScannedItems(int _index, ScannedItemStruct _value) {
+    _ScannedItems.insert(_index, _value);
+    secureStorage.setStringList(
+        'ff_ScannedItems', _ScannedItems.map((x) => x.serialize()).toList());
+  }
+
   bool _IsGuest = true;
   bool get IsGuest => _IsGuest;
   set IsGuest(bool _value) {
@@ -151,6 +161,11 @@ class FFAppState extends ChangeNotifier {
     String Function(String) updateFn,
   ) {
     _Allergies[_index] = updateFn(_Allergies[_index]);
+    secureStorage.setStringList('ff_Allergies', _Allergies);
+  }
+
+  void insertAtIndexInAllergies(int _index, String _value) {
+    _Allergies.insert(_index, _value);
     secureStorage.setStringList('ff_Allergies', _Allergies);
   }
 
@@ -223,6 +238,11 @@ class FFAppState extends ChangeNotifier {
     secureStorage.setStringList('ff_Medication', _Medication);
   }
 
+  void insertAtIndexInMedication(int _index, String _value) {
+    _Medication.insert(_index, _value);
+    secureStorage.setStringList('ff_Medication', _Medication);
+  }
+
   String _imageName = 'avatar_111.svg';
   String get imageName => _imageName;
   set imageName(String _value) {
@@ -249,6 +269,35 @@ class FFAppState extends ChangeNotifier {
   bool get medicaments => _medicaments;
   set medicaments(bool _value) {
     _medicaments = _value;
+  }
+
+  List<String> _listOfSynonyms = [];
+  List<String> get listOfSynonyms => _listOfSynonyms;
+  set listOfSynonyms(List<String> _value) {
+    _listOfSynonyms = _value;
+  }
+
+  void addToListOfSynonyms(String _value) {
+    _listOfSynonyms.add(_value);
+  }
+
+  void removeFromListOfSynonyms(String _value) {
+    _listOfSynonyms.remove(_value);
+  }
+
+  void removeAtIndexFromListOfSynonyms(int _index) {
+    _listOfSynonyms.removeAt(_index);
+  }
+
+  void updateListOfSynonymsAtIndex(
+    int _index,
+    String Function(String) updateFn,
+  ) {
+    _listOfSynonyms[_index] = updateFn(_listOfSynonyms[_index]);
+  }
+
+  void insertAtIndexInListOfSynonyms(int _index, String _value) {
+    _listOfSynonyms.insert(_index, _value);
   }
 }
 

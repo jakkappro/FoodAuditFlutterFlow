@@ -110,7 +110,7 @@ class _AvatarMenuWidgetState extends State<AvatarMenuWidget> {
                           ),
                           if (imageItem == FFAppState().imageName)
                             Align(
-                              alignment: AlignmentDirectional(1.0, -1.0),
+                              alignment: AlignmentDirectional(1.00, -1.00),
                               child: Container(
                                 width: 18.7,
                                 height: 18.7,
@@ -119,7 +119,7 @@ class _AvatarMenuWidgetState extends State<AvatarMenuWidget> {
                                   shape: BoxShape.circle,
                                 ),
                                 child: Align(
-                                  alignment: AlignmentDirectional(0.0, 0.0),
+                                  alignment: AlignmentDirectional(0.00, 0.00),
                                   child: ClipRRect(
                                     borderRadius: BorderRadius.circular(8.0),
                                     child: SvgPicture.asset(

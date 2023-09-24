@@ -6,6 +6,7 @@ import '/components/medication/medication_widget.dart';
 import '/components/personal_info/personal_info_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/flutter_flow_widgets.dart';
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_keyboard_visibility/flutter_keyboard_visibility.dart';
@@ -183,7 +184,7 @@ class _SettingsWidgetState extends State<SettingsWidget> {
                             FFAppState().deleteMedication();
                             FFAppState().Medication = [];
 
-                            context.goNamedAuth('Onborading', context.mounted);
+                            context.goNamedAuth('Welcome', context.mounted);
                           },
                           child: Container(
                             width: double.infinity,
@@ -219,7 +220,7 @@ class _SettingsWidgetState extends State<SettingsWidget> {
                       ? MediaQuery.viewInsetsOf(context).bottom > 0
                       : _isKeyboardVisible))
                     Align(
-                      alignment: AlignmentDirectional(0.0, 0.95),
+                      alignment: AlignmentDirectional(0.00, 0.95),
                       child: InkWell(
                         splashColor: Colors.transparent,
                         focusColor: Colors.transparent,
@@ -257,7 +258,7 @@ class _SettingsWidgetState extends State<SettingsWidget> {
                       ),
                     ),
                   Align(
-                    alignment: AlignmentDirectional(1.0, -1.0),
+                    alignment: AlignmentDirectional(1.00, -1.00),
                     child: InkWell(
                       splashColor: Colors.transparent,
                       focusColor: Colors.transparent,
@@ -274,7 +275,7 @@ class _SettingsWidgetState extends State<SettingsWidget> {
                           shape: BoxShape.circle,
                         ),
                         child: Align(
-                          alignment: AlignmentDirectional(0.0, 0.0),
+                          alignment: AlignmentDirectional(0.00, 0.00),
                           child: ClipRRect(
                             borderRadius: BorderRadius.circular(8.0),
                             child: SvgPicture.asset(

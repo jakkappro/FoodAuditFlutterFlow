@@ -9,6 +9,7 @@ import 'schema/products_record.dart';
 import 'schema/users_record.dart';
 import 'schema/medication_record.dart';
 import 'schema/requested_eans_record.dart';
+import 'schema/synonyms_record.dart';
 
 export 'dart:async' show StreamSubscription;
 export 'package:cloud_firestore/cloud_firestore.dart';
@@ -20,6 +21,7 @@ export 'schema/products_record.dart';
 export 'schema/users_record.dart';
 export 'schema/medication_record.dart';
 export 'schema/requested_eans_record.dart';
+export 'schema/synonyms_record.dart';
 
 /// Functions to query ProductsRecords (as a Stream and as a Future).
 Future<int> queryProductsRecordCount({
@@ -169,6 +171,43 @@ Future<List<RequestedEansRecord>> queryRequestedEansRecordOnce({
       singleRecord: singleRecord,
     );
 
+/// Functions to query SynonymsRecords (as a Stream and as a Future).
+Future<int> querySynonymsRecordCount({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+}) =>
+    queryCollectionCount(
+      SynonymsRecord.collection,
+      queryBuilder: queryBuilder,
+      limit: limit,
+    );
+
+Stream<List<SynonymsRecord>> querySynonymsRecord({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollection(
+      SynonymsRecord.collection,
+      SynonymsRecord.fromSnapshot,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+Future<List<SynonymsRecord>> querySynonymsRecordOnce({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollectionOnce(
+      SynonymsRecord.collection,
+      SynonymsRecord.fromSnapshot,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
 Future<int> queryCollectionCount(
   Query collection, {
   Query Function(Query)? queryBuilder,
@@ -306,7 +345,8 @@ Future maybeCreateUser(User user) async {
 
   final userData = createUsersRecordData(
     email: user.email,
-    displayName: user.displayName,
+    displayName:
+        user.displayName ?? FirebaseAuth.instance.currentUser?.displayName,
     photoUrl: user.photoURL,
     uid: user.uid,
     phoneNumber: user.phoneNumber,

@@ -119,7 +119,7 @@ class _HeaderWidgetState extends State<HeaderWidget> {
               highlightColor: Colors.transparent,
               onTap: () async {
                 if (FFAppState().IsGuest) {
-                  context.pushNamed('Onborading');
+                  context.pushNamed('Welcome');
                 } else {
                   context.pushNamed('Settings');
                 }

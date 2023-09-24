@@ -481,7 +481,7 @@ class _SlidingUpPanelFromEanWidgetState
                 ].addToEnd(SizedBox(height: 70.0)),
               ),
             Align(
-              alignment: AlignmentDirectional(0.0, 1.0),
+              alignment: AlignmentDirectional(0.00, 1.00),
               child: Container(
                 width: double.infinity,
                 height: 55.0,

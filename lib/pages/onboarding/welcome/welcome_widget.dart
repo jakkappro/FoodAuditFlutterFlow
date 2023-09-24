@@ -2,31 +2,32 @@ import '/components/authentication/auth_component/auth_component_widget.dart';
 import '/components/component_heading_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
-import 'onborading_model.dart';
-export 'onborading_model.dart';
+import 'welcome_model.dart';
+export 'welcome_model.dart';
 
-class OnboradingWidget extends StatefulWidget {
-  const OnboradingWidget({Key? key}) : super(key: key);
+class WelcomeWidget extends StatefulWidget {
+  const WelcomeWidget({Key? key}) : super(key: key);
 
   @override
-  _OnboradingWidgetState createState() => _OnboradingWidgetState();
+  _WelcomeWidgetState createState() => _WelcomeWidgetState();
 }
 
-class _OnboradingWidgetState extends State<OnboradingWidget> {
-  late OnboradingModel _model;
+class _WelcomeWidgetState extends State<WelcomeWidget> {
+  late WelcomeModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => OnboradingModel());
+    _model = createModel(context, () => WelcomeModel());
 
-    logFirebaseEvent('screen_view', parameters: {'screen_name': 'Onborading'});
+    logFirebaseEvent('screen_view', parameters: {'screen_name': 'Welcome'});
   }
 
   @override
@@ -71,7 +72,7 @@ class _OnboradingWidgetState extends State<OnboradingWidget> {
                 scrollDirection: Axis.horizontal,
                 children: [
                   Align(
-                    alignment: AlignmentDirectional(0.0, 0.0),
+                    alignment: AlignmentDirectional(0.00, 0.00),
                     child: Container(
                       width: double.infinity,
                       height: double.infinity,
@@ -237,7 +238,7 @@ class _OnboradingWidgetState extends State<OnboradingWidget> {
                                 color: Colors.transparent,
                               ),
                               child: Align(
-                                alignment: AlignmentDirectional(0.0, 0.0),
+                                alignment: AlignmentDirectional(0.00, 0.00),
                                 child: ClipRRect(
                                   borderRadius: BorderRadius.circular(0.0),
                                   child: SvgPicture.asset(

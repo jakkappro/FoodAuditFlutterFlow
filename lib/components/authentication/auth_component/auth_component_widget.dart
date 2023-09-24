@@ -115,7 +115,7 @@ class _AuthComponentWidgetState extends State<AuthComponentWidget> {
                   }
                   FFAppState().IsGuest = false;
                   if (FFAppState().DoneWizzard == false) {
-                    context.goNamedAuth('SetUpWizard', context.mounted);
+                    context.goNamedAuth('Wizard', context.mounted);
                   } else {
                     context.goNamedAuth('Home', context.mounted);
                   }
@@ -173,7 +173,7 @@ class _AuthComponentWidgetState extends State<AuthComponentWidget> {
                   }
                   FFAppState().IsGuest = false;
                   if (FFAppState().DoneWizzard == false) {
-                    context.goNamedAuth('SetUpWizard', context.mounted);
+                    context.goNamedAuth('Wizard', context.mounted);
                   } else {
                     context.goNamedAuth('Home', context.mounted);
                   }
@@ -299,7 +299,7 @@ class _AuthComponentWidgetState extends State<AuthComponentWidget> {
                   sigmaY: 2.0,
                 ),
                 child: Align(
-                  alignment: AlignmentDirectional(0.0, 0.0),
+                  alignment: AlignmentDirectional(0.00, 0.00),
                   child: Container(
                     width: 150.0,
                     height: 150.0,

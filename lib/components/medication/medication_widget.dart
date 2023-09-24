@@ -142,7 +142,7 @@ class _MedicationWidgetState extends State<MedicationWidget> {
                     _model.shouldShowSearch = true;
                   });
                   await widget.whereToScroll?.call();
-                  setState(() => _model.algoliaSearchResults = null);
+                  safeSetState(() => _model.algoliaSearchResults = null);
                   await MedicationRecord.search(
                     term: _model.textController.text,
                     maxResults: 3,
@@ -301,7 +301,7 @@ class _MedicationWidgetState extends State<MedicationWidget> {
                   ),
                 ),
                 Align(
-                  alignment: AlignmentDirectional(0.0, 0.0),
+                  alignment: AlignmentDirectional(0.00, 0.00),
                   child: InkWell(
                     splashColor: Colors.transparent,
                     focusColor: Colors.transparent,

@@ -222,7 +222,7 @@ class _SubSettingsWidgetState extends State<SubSettingsWidget> {
                               ),
                               Expanded(
                                 child: Align(
-                                  alignment: AlignmentDirectional(1.0, 0.0),
+                                  alignment: AlignmentDirectional(1.00, 0.00),
                                   child: Icon(
                                     Icons.arrow_forward_ios,
                                     color: FlutterFlowTheme.of(context)
@@ -279,7 +279,7 @@ class _SubSettingsWidgetState extends State<SubSettingsWidget> {
                           ),
                           Expanded(
                             child: Align(
-                              alignment: AlignmentDirectional(1.0, 0.0),
+                              alignment: AlignmentDirectional(1.00, 0.00),
                               child: Icon(
                                 Icons.arrow_forward_ios,
                                 color:
@@ -328,7 +328,7 @@ class _SubSettingsWidgetState extends State<SubSettingsWidget> {
                           ),
                           Expanded(
                             child: Align(
-                              alignment: AlignmentDirectional(1.0, 0.0),
+                              alignment: AlignmentDirectional(1.00, 0.00),
                               child: Icon(
                                 Icons.arrow_forward_ios,
                                 color:

@@ -165,6 +165,7 @@ class _IntoleranciesWidgetState extends State<IntoleranciesWidget> {
                   FormFieldController<List<String>>(
                 FFAppState().Allergies,
               ),
+              wrapped: true,
             ),
           ),
         ],

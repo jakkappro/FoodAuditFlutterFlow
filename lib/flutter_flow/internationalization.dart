@@ -146,7 +146,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'sk': 'fotoaparát',
     },
   },
-  // Onborading
+  // Welcome
   {
     '80qblzhs': {
       'en': 'Shop smarter, live healthier',
@@ -230,7 +230,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'sk': '__',
     },
   },
-  // SetUpWizard
+  // Wizard
   {
     '3wtz1sbg': {
       'en': 'Create your profile',
@@ -267,6 +267,13 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     'gwn7oggo': {
       'en': 'Home',
       'sk': 'Domov',
+    },
+  },
+  // testPage
+  {
+    'ypfepele': {
+      'en': 'Home',
+      'sk': '',
     },
   },
   // Notifications
