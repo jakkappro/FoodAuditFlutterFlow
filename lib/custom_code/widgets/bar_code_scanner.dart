@@ -15,6 +15,7 @@ import 'package:camera/camera.dart';
 import 'package:sliding_up_panel/sliding_up_panel.dart';
 import 'dart:async';
 
+import 'package:google_mlkit_text_recognition/google_mlkit_text_recognition.dart';
 import '../../components/scanner_page_components/sliding_up_panel_from_ean/sliding_up_panel_from_ean_widget.dart';
 import '../../components/scanner_page_components/close_scanner_button/close_scanner_button_widget.dart';
 import '../../components/scanner_page_components/scan_product_message/scan_product_message_widget.dart';
@@ -376,6 +377,9 @@ class _ScannerPage extends StatefulWidget {
 }
 
 class _ScannerPageState extends State<_ScannerPage> {
+
+  final TextRecognizer _textRecognizer =
+      TextRecognizer(script: TextRecognitionScript.latin);
   CustomPaint? _customPaint;
   var _cameraLensDirection = CameraLensDirection.back;
   final BarcodeScanner _barcodeScanner = BarcodeScanner();
@@ -412,6 +416,8 @@ class _ScannerPageState extends State<_ScannerPage> {
     _isBusy = true;
     // use this later for displaying a message to aim camera to barcode
     setState(() {});
+    //final recognizedText = await _textRecognizer.processImage(inputImage); --> this is for recognizing text
+
     final barcodes = await _barcodeScanner.processImage(inputImage);
     bool foundEan = barcodes.where((b) => b.displayValue != null).isNotEmpty;
 

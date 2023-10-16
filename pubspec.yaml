@@ -3,7 +3,7 @@ description: A new Flutter project.
 
 # The following line prevents the package from being accidentally published to
 # pub.dev using `pub publish`. This is preferred for private packages.
-publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+publish_to: "none" # Remove this line if you wish to publish to pub.dev
 
 # The following defines the version and build number for your application.
 # A version number is three numbers separated by dots, like 1.2.43
@@ -25,6 +25,7 @@ dependencies:
     sdk: flutter
   flutter_localizations:
     sdk: flutter
+  google_mlkit_text_recognition: ^0.9.0
   algolia: 1.1.1
   auto_size_text: 3.0.0
   cached_network_image: 3.2.1
@@ -49,7 +50,7 @@ dependencies:
   firebase_crashlytics_platform_interface: 3.6.2
   flutter_animate: 4.1.1+1
   flutter_cache_manager: 3.3.0
-  flutter_facebook_auth: 
+  flutter_facebook_auth:
     git:
       url: https://github.com/asmengistu/flutter-facebook-auth
       ref: b65ffb049c9f1e2704adbeb1aa19c61693c946a5
@@ -100,7 +101,6 @@ dependencies:
   url_launcher_platform_interface: 2.1.2
   xml: ^6.3.0
 
-
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.0
@@ -111,20 +111,17 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
 
-
 flutter_icons:
   android: true
   ios: true
   remove_alpha_ios: true
-  image_path: 'assets/images/app_launcher_icon.png'
-
+  image_path: "assets/images/app_launcher_icon.png"
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
 
 # The following section is specific to Flutter.
 flutter:
-
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
   # the material Icons class.
@@ -139,8 +136,6 @@ flutter:
     - assets/lottie_animations/
     - assets/rive_animations/
     - assets/pdfs/
-
-
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
