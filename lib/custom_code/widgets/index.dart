@@ -8,3 +8,4 @@ export 'safety_dot_stateless_wrapper.dart' show SafetyDotStatelessWrapper;
 export 'scanned_item_safety_text.dart' show ScannedItemSafetyText;
 export 'image_from_string.dart' show ImageFromString;
 export 'medication_display.dart' show MedicationDisplay;
+export 'o_c_r_scanning.dart' show OCRScanning;
