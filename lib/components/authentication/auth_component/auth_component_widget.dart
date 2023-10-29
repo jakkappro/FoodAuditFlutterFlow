@@ -4,6 +4,7 @@ import '/flutter_flow/flutter_flow_util.dart';
 import 'dart:ui';
 import '/custom_code/widgets/index.dart' as custom_widgets;
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'auth_component_model.dart';
@@ -264,7 +265,7 @@ class _AuthComponentWidgetState extends State<AuthComponentWidget> {
                       children: [
                         Text(
                           FFLocalizations.of(context).getText(
-                            '5zwswdbw' /* Continue without registration */,
+                            'elbpjfvc' /* Continue without registration */,
                           ),
                           textAlign: TextAlign.center,
                           style:

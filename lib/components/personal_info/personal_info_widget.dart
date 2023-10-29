@@ -8,6 +8,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -43,6 +44,7 @@ class _PersonalInfoWidgetState extends State<PersonalInfoWidget> {
 
     _model.textController ??=
         TextEditingController(text: currentUserDisplayName);
+    _model.textFieldFocusNode ??= FocusNode();
   }
 
   @override
@@ -91,6 +93,7 @@ class _PersonalInfoWidgetState extends State<PersonalInfoWidget> {
                   width: double.infinity,
                   child: TextFormField(
                     controller: _model.textController,
+                    focusNode: _model.textFieldFocusNode,
                     onChanged: (_) => EasyDebounce.debounce(
                       '_model.textController',
                       Duration(milliseconds: 2000),

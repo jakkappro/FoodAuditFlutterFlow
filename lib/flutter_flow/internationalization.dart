@@ -250,9 +250,9 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Continue to next step',
       'sk': 'Pokračujte ďalším krokom',
     },
-    '5zwswdbw': {
+    'b7er5pp3': {
       'en': 'Continue without registration',
-      'sk': 'Nahláste to tu',
+      'sk': '',
     },
     'u8l8bemr': {
       'en':
@@ -271,7 +271,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // testPage
   {
-    'whucjf8f': {
+    'blxb5l3u': {
       'en': 'Home',
       'sk': '',
     },
@@ -430,9 +430,9 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Sign in with Google',
       'sk': 'Prihláste sa pomocou Google',
     },
-    '5zwswdbw': {
+    'elbpjfvc': {
       'en': 'Continue without registration',
-      'sk': 'Nahláste to tu',
+      'sk': '',
     },
   },
   // Medication
@@ -461,9 +461,9 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Form for REPORTING A SUSPECTED ADVERSE DRUG REACTION)',
       'sk': 'Formulár na HLÁSENIE PODOZRENIA NA NEŽIADUCE ÚČINKY)',
     },
-    '5zwswdbw': {
+    'v93oi4a3': {
       'en': 'Report it here',
-      'sk': 'Nahláste to tu',
+      'sk': '',
     },
   },
   // AvatarMenu
@@ -502,6 +502,10 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // Miscellaneous
   {
+    '5zwswdbw': {
+      'en': 'Continue without registration',
+      'sk': 'Nahláste to tu',
+    },
     '0pmcra0v': {
       'en': 'Camera please',
       'sk': 'Fotoaparát prosím',

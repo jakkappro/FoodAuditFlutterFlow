@@ -1,4 +1,5 @@
 // ignore_for_file: unnecessary_getters_setters
+import '/backend/algolia/serialization_util.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 import '/backend/schema/util/firestore_util.dart';
@@ -105,6 +106,34 @@ class ScannedItemStruct extends FFFirebaseStruct {
           data['NumberOfScans'],
           ParamType.int,
           false,
+        ),
+      );
+
+  static ScannedItemStruct fromAlgoliaData(Map<String, dynamic> data) =>
+      ScannedItemStruct(
+        ean: convertAlgoliaParam(
+          data['EAN'],
+          ParamType.String,
+          false,
+        ),
+        lastScanned: convertAlgoliaParam(
+          data['LastScanned'],
+          ParamType.DateTime,
+          false,
+        ),
+        isFavourite: convertAlgoliaParam(
+          data['IsFavourite'],
+          ParamType.bool,
+          false,
+        ),
+        numberOfScans: convertAlgoliaParam(
+          data['NumberOfScans'],
+          ParamType.int,
+          false,
+        ),
+        firestoreUtilData: FirestoreUtilData(
+          clearUnsetFields: false,
+          create: true,
         ),
       );
 

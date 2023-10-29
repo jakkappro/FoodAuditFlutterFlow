@@ -7,6 +7,7 @@ import '/custom_code/widgets/index.dart' as custom_widgets;
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:percent_indicator/percent_indicator.dart';
@@ -226,6 +227,7 @@ class _ScannedItemWidgetState extends State<ScannedItemWidget> {
               radius: 60.0,
               lineWidth: 12.0,
               animation: true,
+              animateFromLastPercent: true,
               progressColor: FlutterFlowTheme.of(context).primary,
               backgroundColor: FlutterFlowTheme.of(context).accent4,
               center: Text(

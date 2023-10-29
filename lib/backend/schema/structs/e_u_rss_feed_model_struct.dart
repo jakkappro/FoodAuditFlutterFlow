@@ -1,4 +1,5 @@
 // ignore_for_file: unnecessary_getters_setters
+import '/backend/algolia/serialization_util.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 import '/backend/schema/util/firestore_util.dart';
@@ -65,6 +66,24 @@ class EURssFeedModelStruct extends FFFirebaseStruct {
           data['Link'],
           ParamType.String,
           false,
+        ),
+      );
+
+  static EURssFeedModelStruct fromAlgoliaData(Map<String, dynamic> data) =>
+      EURssFeedModelStruct(
+        title: convertAlgoliaParam(
+          data['Title'],
+          ParamType.String,
+          false,
+        ),
+        link: convertAlgoliaParam(
+          data['Link'],
+          ParamType.String,
+          false,
+        ),
+        firestoreUtilData: FirestoreUtilData(
+          clearUnsetFields: false,
+          create: true,
         ),
       );
 

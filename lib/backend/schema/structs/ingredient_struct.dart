@@ -1,4 +1,5 @@
 // ignore_for_file: unnecessary_getters_setters
+import '/backend/algolia/serialization_util.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 import '/backend/schema/util/firestore_util.dart';
@@ -65,6 +66,24 @@ class IngredientStruct extends FFFirebaseStruct {
           data['IsAllergen'],
           ParamType.bool,
           false,
+        ),
+      );
+
+  static IngredientStruct fromAlgoliaData(Map<String, dynamic> data) =>
+      IngredientStruct(
+        name: convertAlgoliaParam(
+          data['Name'],
+          ParamType.String,
+          false,
+        ),
+        isAllergen: convertAlgoliaParam(
+          data['IsAllergen'],
+          ParamType.bool,
+          false,
+        ),
+        firestoreUtilData: FirestoreUtilData(
+          clearUnsetFields: false,
+          create: true,
         ),
       );
 

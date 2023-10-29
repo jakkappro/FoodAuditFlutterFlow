@@ -1,4 +1,5 @@
 // ignore_for_file: unnecessary_getters_setters
+import '/backend/algolia/serialization_util.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 import '/backend/schema/util/firestore_util.dart';
@@ -106,6 +107,35 @@ class NutritionStruct extends FFFirebaseStruct {
           ParamType.DataStruct,
           false,
           structBuilder: SubNutritionStruct.fromSerializableMap,
+        ),
+      );
+
+  static NutritionStruct fromAlgoliaData(Map<String, dynamic> data) =>
+      NutritionStruct(
+        name: convertAlgoliaParam(
+          data['Name'],
+          ParamType.String,
+          false,
+        ),
+        units: convertAlgoliaParam(
+          data['Units'],
+          ParamType.String,
+          false,
+        ),
+        value: convertAlgoliaParam(
+          data['Value'],
+          ParamType.double,
+          false,
+        ),
+        subNutrition: convertAlgoliaParam(
+          data['SubNutrition'],
+          ParamType.DataStruct,
+          false,
+          structBuilder: SubNutritionStruct.fromAlgoliaData,
+        ),
+        firestoreUtilData: FirestoreUtilData(
+          clearUnsetFields: false,
+          create: true,
         ),
       );
 

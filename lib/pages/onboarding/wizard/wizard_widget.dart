@@ -9,6 +9,7 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_keyboard_visibility/flutter_keyboard_visibility.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -67,10 +68,21 @@ class _WizardWidgetState extends State<WizardWidget> {
 
   @override
   Widget build(BuildContext context) {
+    if (isiOS) {
+      SystemChrome.setSystemUIOverlayStyle(
+        SystemUiOverlayStyle(
+          statusBarBrightness: Theme.of(context).brightness,
+          systemStatusBarContrastEnforced: true,
+        ),
+      );
+    }
+
     context.watch<FFAppState>();
 
     return GestureDetector(
-      onTap: () => FocusScope.of(context).requestFocus(_model.unfocusNode),
+      onTap: () => _model.unfocusNode.canRequestFocus
+          ? FocusScope.of(context).requestFocus(_model.unfocusNode)
+          : FocusScope.of(context).unfocus(),
       child: Scaffold(
         key: scaffoldKey,
         backgroundColor: Colors.transparent,
@@ -260,7 +272,7 @@ class _WizardWidgetState extends State<WizardWidget> {
                                         },
                                         child: Text(
                                           FFLocalizations.of(context).getText(
-                                            '5zwswdbw' /* Continue without registration */,
+                                            'b7er5pp3' /* Continue without registration */,
                                           ),
                                           textAlign: TextAlign.center,
                                           style: FlutterFlowTheme.of(context)

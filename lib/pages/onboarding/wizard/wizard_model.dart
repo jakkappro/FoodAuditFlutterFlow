@@ -7,14 +7,16 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'dart:async';
+import 'wizard_widget.dart' show WizardWidget;
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_keyboard_visibility/flutter_keyboard_visibility.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
-class WizardModel extends FlutterFlowModel {
+class WizardModel extends FlutterFlowModel<WizardWidget> {
   ///  State fields for stateful widgets in this page.
 
   final unfocusNode = FocusNode();

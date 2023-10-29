@@ -58,6 +58,9 @@ Future<MedicationStructStruct> getMedicationStruct(
 
   final nutritions = product.nutrients;
 
+  final synonyms = Map.fromIterable(FFAppState().listOfSynonyms,
+      key: (e) => e.name, value: (e) => e.synonyms);
+
   for (var businessRule in businessRules.docs) {
     final booleanValues = businessRule.get("boolean_values");
 
@@ -66,6 +69,14 @@ Future<MedicationStructStruct> getMedicationStruct(
           booleanValues[allergen] == true) {
         return MedicationStructStruct(isSafe: false, name: name);
       }
+
+      for (var s in synonyms.entries) {
+        if (s.value.contains(allergen.toLowerCase()) &&
+            booleanValues.containsKey(s.key.toLowerCase()) &&
+            booleanValues[s.key.toLowerCase()] == true) {
+          return MedicationStructStruct(isSafe: false, name: name);
+        }
+      }
     }
 
     for (var ingredient in ingredients) {
@@ -73,6 +84,14 @@ Future<MedicationStructStruct> getMedicationStruct(
       if (booleanValues.containsKey(ingredientName) &&
           booleanValues[ingredientName] == true) {
         return MedicationStructStruct(isSafe: false, name: name);
+      }
+
+      for (var s in synonyms.entries) {
+        if (s.value.contains(ingredientName.toLowerCase()) &&
+            booleanValues.containsKey(s.key.toLowerCase()) &&
+            booleanValues[s.key.toLowerCase()] == true) {
+          return MedicationStructStruct(isSafe: false, name: name);
+        }
       }
     }
 

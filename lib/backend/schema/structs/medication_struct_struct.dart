@@ -1,4 +1,5 @@
 // ignore_for_file: unnecessary_getters_setters
+import '/backend/algolia/serialization_util.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 import '/backend/schema/util/firestore_util.dart';
@@ -68,6 +69,24 @@ class MedicationStructStruct extends FFFirebaseStruct {
           data['isSafe'],
           ParamType.bool,
           false,
+        ),
+      );
+
+  static MedicationStructStruct fromAlgoliaData(Map<String, dynamic> data) =>
+      MedicationStructStruct(
+        name: convertAlgoliaParam(
+          data['name'],
+          ParamType.String,
+          false,
+        ),
+        isSafe: convertAlgoliaParam(
+          data['isSafe'],
+          ParamType.bool,
+          false,
+        ),
+        firestoreUtilData: FirestoreUtilData(
+          clearUnsetFields: false,
+          create: true,
         ),
       );
 

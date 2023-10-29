@@ -2,12 +2,14 @@ import '/backend/backend.dart';
 import '/components/component_heading_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import 'medication_widget.dart' show MedicationWidget;
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
-class MedicationModel extends FlutterFlowModel {
+class MedicationModel extends FlutterFlowModel<MedicationWidget> {
   ///  Local state fields for this component.
 
   bool shouldShowSearch = false;
@@ -17,6 +19,7 @@ class MedicationModel extends FlutterFlowModel {
   // Model for ComponentHeading component.
   late ComponentHeadingModel componentHeadingModel1;
   // State field(s) for TextField widget.
+  FocusNode? textFieldFocusNode;
   TextEditingController? textController;
   String? Function(BuildContext, String?)? textControllerValidator;
   // Algolia Search Results from action on TextField
@@ -35,7 +38,9 @@ class MedicationModel extends FlutterFlowModel {
 
   void dispose() {
     componentHeadingModel1.dispose();
+    textFieldFocusNode?.dispose();
     textController?.dispose();
+
     componentHeadingModel2.dispose();
   }
 

@@ -1,4 +1,5 @@
 // ignore_for_file: unnecessary_getters_setters
+import '/backend/algolia/serialization_util.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 import '/backend/schema/util/firestore_util.dart';
@@ -233,6 +234,66 @@ class ProductsStruct extends FFFirebaseStruct {
           ParamType.DataStruct,
           true,
           structBuilder: NutrientStruct.fromSerializableMap,
+        ),
+      );
+
+  static ProductsStruct fromAlgoliaData(Map<String, dynamic> data) =>
+      ProductsStruct(
+        addressLines: convertAlgoliaParam<String>(
+          data['AddressLines'],
+          ParamType.String,
+          true,
+        ),
+        category: convertAlgoliaParam(
+          data['Category'],
+          ParamType.String,
+          false,
+        ),
+        foodType: convertAlgoliaParam(
+          data['FoodType'],
+          ParamType.String,
+          false,
+        ),
+        isCompleted: convertAlgoliaParam(
+          data['IsCompleted'],
+          ParamType.bool,
+          false,
+        ),
+        name: convertAlgoliaParam(
+          data['Name'],
+          ParamType.String,
+          false,
+        ),
+        ingredients: convertAlgoliaParam<IngredientStruct>(
+          data['Ingredients'],
+          ParamType.DataStruct,
+          true,
+          structBuilder: IngredientStruct.fromAlgoliaData,
+        ),
+        origin: convertAlgoliaParam(
+          data['Origin'],
+          ParamType.String,
+          false,
+        ),
+        size: convertAlgoliaParam(
+          data['Size'],
+          ParamType.String,
+          false,
+        ),
+        sizeUnit: convertAlgoliaParam(
+          data['SizeUnit'],
+          ParamType.String,
+          false,
+        ),
+        nutrients: convertAlgoliaParam<NutrientStruct>(
+          data['Nutrients'],
+          ParamType.DataStruct,
+          true,
+          structBuilder: NutrientStruct.fromAlgoliaData,
+        ),
+        firestoreUtilData: FirestoreUtilData(
+          clearUnsetFields: false,
+          create: true,
         ),
       );
 
