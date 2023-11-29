@@ -7,3 +7,5 @@ export '/pages/settings/sub_settings/sub_settings_widget.dart'
     show SubSettingsWidget;
 export '/pages/onboarding/wizard/wizard_widget.dart' show WizardWidget;
 export '/test_page/test_page_widget.dart' show TestPageWidget;
+export '/ocr_scanner_page/ocr_scanner_page_widget.dart'
+    show OcrScannerPageWidget;

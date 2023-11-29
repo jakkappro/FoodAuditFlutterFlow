@@ -122,6 +122,11 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'testPage',
           path: '/testPage',
           builder: (context, params) => TestPageWidget(),
+        ),
+        FFRoute(
+          name: 'OcrScannerPage',
+          path: '/ocrScannerPage',
+          builder: (context, params) => OcrScannerPageWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );

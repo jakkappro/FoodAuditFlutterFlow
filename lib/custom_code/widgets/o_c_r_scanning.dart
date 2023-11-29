@@ -43,7 +43,7 @@ class OCRScanning extends StatefulWidget {
 
 class _OCRScanningState extends State<OCRScanning> {
   // colors
-  final Color _neutralColor = Color(0x1C0D26).withOpacity(0.5);
+  final Color _neutralColor = const Color(0x1C0D26).withOpacity(0.5);
   late Color _backdropColor; //initial color
   final ProductsStruct _food = ProductsStruct();
 
@@ -58,11 +58,11 @@ class _OCRScanningState extends State<OCRScanning> {
   };
 
   Map<states, Size> sizes = {
-    states.SCANNING_NAME: Size(0.5, 0.1),
-    states.SCANNING_EAN: Size(0.5, 0.1),
-    states.SCANNING_NUTRITION: Size(0.5, 0.1),
-    states.SCANNING_INGREDIENTS: Size(0.5, 0.1),
-    states.SCANNING_ALLERGENS: Size(0.5, 0.1),
+    states.SCANNING_NAME: const Size(0.5, 0.1),
+    states.SCANNING_EAN: const Size(1, 1),
+    states.SCANNING_NUTRITION: const Size(0.5, 0.5),
+    states.SCANNING_INGREDIENTS: const Size(0.5, 0.5),
+    states.SCANNING_ALLERGENS: const Size(0.5, 0.5),
   };
 
   late Size currentSize;
@@ -170,7 +170,7 @@ class _OCRScanningState extends State<OCRScanning> {
 
   Future<void> _scanEan(String data) async {
     if (data.isNotEmpty) {
-      _food.EAN = data;
+      _food.ean = data;
       setState(() {
         currentMessage = messages[states.SCANNING_NUTRITION]!;
         currentSize = sizes[states.SCANNING_NUTRITION]!;

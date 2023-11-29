@@ -141,6 +141,10 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // Camera
   {
+    'muyj39z0': {
+      'en': 'OCR',
+      'sk': '',
+    },
     'd649aowc': {
       'en': 'Camera',
       'sk': 'fotoaparát',
@@ -272,6 +276,13 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   // testPage
   {
     'blxb5l3u': {
+      'en': 'Home',
+      'sk': '',
+    },
+  },
+  // OcrScannerPage
+  {
+    '1fbm8nch': {
       'en': 'Home',
       'sk': '',
     },

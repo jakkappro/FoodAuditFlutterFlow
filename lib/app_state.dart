@@ -299,6 +299,12 @@ class FFAppState extends ChangeNotifier {
   void insertAtIndexInListOfSynonyms(int _index, SynonymStruct _value) {
     _listOfSynonyms.insert(_index, _value);
   }
+
+  bool _isOcrEnabled = true;
+  bool get isOcrEnabled => _isOcrEnabled;
+  set isOcrEnabled(bool _value) {
+    _isOcrEnabled = _value;
+  }
 }
 
 LatLng? _latLngFromString(String? val) {
