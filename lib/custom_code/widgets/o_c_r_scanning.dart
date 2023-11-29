@@ -45,6 +45,7 @@ class _OCRScanningState extends State<OCRScanning> {
   // colors
   final Color _neutralColor = Color(0x1C0D26).withOpacity(0.5);
   late Color _backdropColor; //initial color
+  final ProductsStruct _food = ProductsStruct();
 
   late states currentState;
 
@@ -55,6 +56,7 @@ class _OCRScanningState extends State<OCRScanning> {
     states.SCANNING_INGREDIENTS: "Scanning ingredients...",
     states.SCANNING_ALLERGENS: "Scanning allergens...",
   };
+
   Map<states, Size> sizes = {
     states.SCANNING_NAME: Size(0.5, 0.1),
     states.SCANNING_EAN: Size(0.5, 0.1),
@@ -92,20 +94,20 @@ class _OCRScanningState extends State<OCRScanning> {
             color: _backdropColor,
           ),
         ),
-        Align(
-          child: CloseScannerButtonWidget(),
+        const Align(
           alignment: Alignment(0.9, 0.9),
+          child: CloseScannerButtonWidget(),
         ),
         SizedBox(
+          width: double.infinity,
+          height: 204,
           child: OCRHeaderWidget(
             currentName: currentMessage,
           ),
-          width: double.infinity,
-          height: 204,
         ),
         Align(
+          alignment: const Alignment(-0.9, 0.9),
           child: _switchTorchToggle(),
-          alignment: Alignment(-0.9, 0.9),
         ),
       ],
     );
@@ -121,8 +123,8 @@ class _OCRScanningState extends State<OCRScanning> {
               isTorchOn = !isTorchOn;
             });
           },
-          backgroundColor: Color.fromRGBO(183, 193, 250, 1),
-          foregroundColor: Color.fromRGBO(56, 47, 115, 1),
+          backgroundColor: const Color.fromRGBO(183, 193, 250, 1),
+          foregroundColor: const Color.fromRGBO(56, 47, 115, 1),
           child: SvgPicture.asset(
             "assets/images/Light.svg",
             width: 34,
@@ -133,7 +135,6 @@ class _OCRScanningState extends State<OCRScanning> {
       );
 
   Future<void> _onDataScanned(String data) async {
-    // logic here :(
     switch (currentState) {
       case states.SCANNING_NAME:
         _scanName(data);
@@ -156,12 +157,31 @@ class _OCRScanningState extends State<OCRScanning> {
     return;
   }
 
-  Future<void> _scanName(String data) async {}
+  Future<void> _scanName(String data) async {
+    if (data.isNotEmpty) {
+      _food.name = data;
+      setState(() {
+        currentMessage = messages[states.SCANNING_EAN]!;
+        currentSize = sizes[states.SCANNING_EAN]!;
+        currentState = states.SCANNING_EAN;
+      });
+    }
+  }
 
-  Future<void> _scanEan(String data) async {}
+  Future<void> _scanEan(String data) async {
+    if (data.isNotEmpty) {
+      _food.EAN = data;
+      setState(() {
+        currentMessage = messages[states.SCANNING_NUTRITION]!;
+        currentSize = sizes[states.SCANNING_NUTRITION]!;
+        currentState = states.SCANNING_NUTRITION;
+      });
+    }
+  }
+
+  // TODO: implement scanning nutrition
   Future<void> _scanNutrition(String data) async {}
   Future<void> _scanIngredient(String data) async {}
-
   Future<void> _scanAllergens(String data) async {}
 }
 
@@ -192,11 +212,10 @@ class HoleClipper extends CustomClipper<Path> {
 
 class _ScannerPage extends StatefulWidget {
   const _ScannerPage({
-    Key? key,
     required this.onEanScanned,
     required this.scanningType,
     this.isTorchOn = false,
-  }) : super(key: key);
+  });
 
   final Function(String) onEanScanned;
   final bool isTorchOn;
@@ -287,7 +306,8 @@ class _ScannerPageState extends State<_ScannerPage> {
     );
 
     final recognizedText = await _textRecognizer.processImage(inputImage);
-    print(recognizedText.text);
+
+    print("${recognizedText.text}\n\n\n");
 
     _isBusy = false;
 
@@ -297,14 +317,12 @@ class _ScannerPageState extends State<_ScannerPage> {
     }
   }
 
-  // scan ean from bar_code_scanner later
   Future<void> _getEanFromImage(InputImage inputImage) async {
     if (!_canProcess) {
       return;
     }
     if (_isBusy) return;
     _isBusy = true;
-    // use this later for displaying a message to aim camera to barcode
     setState(() {});
     final barcodes = await _barcodeScanner.processImage(inputImage);
     bool foundEan = barcodes.where((b) => b.displayValue != null).isNotEmpty;
@@ -312,7 +330,6 @@ class _ScannerPageState extends State<_ScannerPage> {
     _isBusy = false;
 
     if (mounted) {
-      // display message after some unsucessfull scans to aim camera to barcode
       setState(() {
         if (foundEan) {
           _timesDidntFoundEan = 0;

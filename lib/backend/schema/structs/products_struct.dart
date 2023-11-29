@@ -20,6 +20,7 @@ class ProductsStruct extends FFFirebaseStruct {
     String? size,
     String? sizeUnit,
     List<NutrientStruct>? nutrients,
+    String? ean,
     FirestoreUtilData firestoreUtilData = const FirestoreUtilData(),
   })  : _addressLines = addressLines,
         _category = category,
@@ -31,6 +32,7 @@ class ProductsStruct extends FFFirebaseStruct {
         _size = size,
         _sizeUnit = sizeUnit,
         _nutrients = nutrients,
+        _ean = ean,
         super(firestoreUtilData);
 
   // "AddressLines" field.
@@ -99,6 +101,12 @@ class ProductsStruct extends FFFirebaseStruct {
       updateFn(_nutrients ??= []);
   bool hasNutrients() => _nutrients != null;
 
+  // "EAN" field.
+  String? _ean;
+  String get ean => _ean ?? '';
+  set ean(String? val) => _ean = val;
+  bool hasEan() => _ean != null;
+
   static ProductsStruct fromMap(Map<String, dynamic> data) => ProductsStruct(
         addressLines: getDataList(data['AddressLines']),
         category: data['Category'] as String?,
@@ -116,6 +124,7 @@ class ProductsStruct extends FFFirebaseStruct {
           data['Nutrients'],
           NutrientStruct.fromMap,
         ),
+        ean: data['EAN'] as String?,
       );
 
   static ProductsStruct? maybeFromMap(dynamic data) =>
@@ -132,6 +141,7 @@ class ProductsStruct extends FFFirebaseStruct {
         'Size': _size,
         'SizeUnit': _sizeUnit,
         'Nutrients': _nutrients?.map((e) => e.toMap()).toList(),
+        'EAN': _ean,
       }.withoutNulls;
 
   @override
@@ -178,6 +188,10 @@ class ProductsStruct extends FFFirebaseStruct {
           _nutrients,
           ParamType.DataStruct,
           true,
+        ),
+        'EAN': serializeParam(
+          _ean,
+          ParamType.String,
         ),
       }.withoutNulls;
 
@@ -235,6 +249,11 @@ class ProductsStruct extends FFFirebaseStruct {
           true,
           structBuilder: NutrientStruct.fromSerializableMap,
         ),
+        ean: deserializeParam(
+          data['EAN'],
+          ParamType.String,
+          false,
+        ),
       );
 
   static ProductsStruct fromAlgoliaData(Map<String, dynamic> data) =>
@@ -291,6 +310,11 @@ class ProductsStruct extends FFFirebaseStruct {
           true,
           structBuilder: NutrientStruct.fromAlgoliaData,
         ),
+        ean: convertAlgoliaParam(
+          data['EAN'],
+          ParamType.String,
+          false,
+        ),
         firestoreUtilData: FirestoreUtilData(
           clearUnsetFields: false,
           create: true,
@@ -313,7 +337,8 @@ class ProductsStruct extends FFFirebaseStruct {
         origin == other.origin &&
         size == other.size &&
         sizeUnit == other.sizeUnit &&
-        listEquality.equals(nutrients, other.nutrients);
+        listEquality.equals(nutrients, other.nutrients) &&
+        ean == other.ean;
   }
 
   @override
@@ -327,7 +352,8 @@ class ProductsStruct extends FFFirebaseStruct {
         origin,
         size,
         sizeUnit,
-        nutrients
+        nutrients,
+        ean
       ]);
 }
 
@@ -339,6 +365,7 @@ ProductsStruct createProductsStruct({
   String? origin,
   String? size,
   String? sizeUnit,
+  String? ean,
   Map<String, dynamic> fieldValues = const {},
   bool clearUnsetFields = true,
   bool create = false,
@@ -352,6 +379,7 @@ ProductsStruct createProductsStruct({
       origin: origin,
       size: size,
       sizeUnit: sizeUnit,
+      ean: ean,
       firestoreUtilData: FirestoreUtilData(
         clearUnsetFields: clearUnsetFields,
         create: create,

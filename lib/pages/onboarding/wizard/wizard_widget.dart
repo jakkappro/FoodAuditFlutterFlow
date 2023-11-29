@@ -411,7 +411,7 @@ class _WizardWidgetState extends State<WizardWidget> {
                                             decoration: BoxDecoration(
                                               color: Color(0xFF382F73),
                                               borderRadius:
-                                                  BorderRadius.circular(6.0),
+                                                  BorderRadius.circular(12.0),
                                             ),
                                             child: Padding(
                                               padding: EdgeInsetsDirectional
