@@ -70,7 +70,7 @@ class _CameraWidgetState extends State<CameraWidget> {
                     context.goNamed('OcrScannerPage');
                   },
                   text: FFLocalizations.of(context).getText(
-                    'muyj39z0' /* OCR */,
+                    '2la6immm' /* OCR */,
                   ),
                   options: FFButtonOptions(
                     height: 40.0,
