@@ -141,10 +141,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // Camera
   {
-    '2la6immm': {
-      'en': 'OCR',
-      'sk': '',
-    },
     'd649aowc': {
       'en': 'Camera',
       'sk': 'fotoaparát',

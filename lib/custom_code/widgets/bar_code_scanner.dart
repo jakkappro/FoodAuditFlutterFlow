@@ -10,6 +10,7 @@ import 'package:flutter/material.dart';
 // Begin custom widget code
 // DO NOT REMOVE OR MODIFY THE CODE ABOVE!
 
+// my imports
 import 'package:google_mlkit_barcode_scanning/google_mlkit_barcode_scanning.dart';
 import 'package:camera/camera.dart';
 import 'package:sliding_up_panel/sliding_up_panel.dart';
@@ -179,6 +180,23 @@ class _BarCodeScannerState extends State<BarCodeScanner>
             Align(
               child: CloseScannerButtonWidget(),
               alignment: Alignment(0.9, 0.9),
+            ),
+            Align(
+              child: FloatingActionButton(
+                heroTag: Object(),
+                onPressed: () {
+                  context.goNamed('OcrScannerPage');
+                },
+                backgroundColor: Color.fromRGBO(183, 193, 250, 1),
+                foregroundColor: Color.fromRGBO(56, 47, 115, 1),
+                child: SvgPicture.asset(
+                  "assets/images/Back.svg",
+                  width: 34,
+                  height: 34,
+                  fit: BoxFit.contain,
+                ),
+              ),
+              alignment: Alignment(0, -0.9),
             ),
             SizedBox(
               child: ScanProductMessageWidget(),

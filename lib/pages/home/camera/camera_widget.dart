@@ -56,43 +56,9 @@ class _CameraWidgetState extends State<CameraWidget> {
       child: Scaffold(
         key: scaffoldKey,
         backgroundColor: Colors.transparent,
-        body: Stack(
-          children: [
-            custom_widgets.BarCodeScanner(
-              width: double.infinity,
-              height: double.infinity,
-            ),
-            if (FFAppState().isOcrEnabled)
-              Align(
-                alignment: AlignmentDirectional(0.00, 0.90),
-                child: FFButtonWidget(
-                  onPressed: () async {
-                    context.goNamed('OcrScannerPage');
-                  },
-                  text: FFLocalizations.of(context).getText(
-                    '2la6immm' /* OCR */,
-                  ),
-                  options: FFButtonOptions(
-                    height: 40.0,
-                    padding:
-                        EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
-                    iconPadding:
-                        EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                    color: FlutterFlowTheme.of(context).primary,
-                    textStyle: FlutterFlowTheme.of(context).titleSmall.override(
-                          fontFamily: 'Roboto',
-                          color: Colors.white,
-                        ),
-                    elevation: 3.0,
-                    borderSide: BorderSide(
-                      color: Colors.transparent,
-                      width: 1.0,
-                    ),
-                    borderRadius: BorderRadius.circular(8.0),
-                  ),
-                ),
-              ),
-          ],
+        body: custom_widgets.BarCodeScanner(
+          width: double.infinity,
+          height: double.infinity,
         ),
       ),
     );
