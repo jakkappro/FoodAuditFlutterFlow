@@ -11,16 +11,26 @@ import 'package:flutter/material.dart';
 // DO NOT REMOVE OR MODIFY THE CODE ABOVE!
 
 // my imports
+import 'package:image/image.dart' as img;
 import 'package:google_mlkit_barcode_scanning/google_mlkit_barcode_scanning.dart';
 import 'package:camera/camera.dart';
 import 'package:sliding_up_panel/sliding_up_panel.dart';
 import 'dart:async';
+import '../../ocr_components/o_c_r_header/o_c_r_header_widget.dart';
 
 import '../../components/scanner_page_components/sliding_up_panel_from_ean/sliding_up_panel_from_ean_widget.dart';
 import '../../components/scanner_page_components/close_scanner_button/close_scanner_button_widget.dart';
 import '../../components/scanner_page_components/scan_product_message/scan_product_message_widget.dart';
 import 'package:nu3_food/components/scanner_page_components/add_manually_button/add_manually_button_widget.dart';
 import 'package:flutter_svg/svg.dart';
+
+enum states {
+  SCANNING_NAME,
+  SCANNING_EAN,
+  SCANNING_NUTRITION,
+  SCANNING_INGREDIENTS,
+  SCANNING_ALLERGENS,
+}
 
 class BarCodeScanner extends StatefulWidget {
   const BarCodeScanner({
@@ -40,7 +50,7 @@ class _BarCodeScannerState extends State<BarCodeScanner>
     with TickerProviderStateMixin {
   final Color _safeFoodColor = Colors.green.withOpacity(0.5);
   final Color _dangerounsFoodColor = Colors.red.withOpacity(0.5);
-  final Color _neutralColor = Color(0x1C0D26).withOpacity(0.5);
+  final Color _neutralColor = const Color(0x1C0D26).withOpacity(0.5);
   final Color _mildFoodColor = Colors.yellow.withOpacity(0.5);
   List<String> _requestedEans = [];
   String _currentDisplayedEan = '';
@@ -54,16 +64,132 @@ class _BarCodeScannerState extends State<BarCodeScanner>
   bool _shouldShowUnknowEanButton = false;
   bool _foundSomethingUseful = false;
   bool _canShowAddManuallyButton = true;
+  bool _ocr = true;
+
+  // ocr vars
+  // colors
+  final ProductsStruct _food = ProductsStruct();
+
+  late states currentState;
+
+  Map<states, String> messages = {
+    states.SCANNING_NAME: "Scanning name...",
+    states.SCANNING_EAN: "Scanning EAN...",
+    states.SCANNING_NUTRITION: "Scanning nutrition...",
+    states.SCANNING_INGREDIENTS: "Scanning ingredients...",
+    states.SCANNING_ALLERGENS: "Scanning allergens...",
+  };
+
+  Map<states, Size> sizes = {
+    states.SCANNING_NAME: const Size(0.5, 0.5),
+    states.SCANNING_EAN: const Size(1, 1),
+    states.SCANNING_NUTRITION: const Size(0.7, 0.8),
+    states.SCANNING_INGREDIENTS: const Size(0.7, 0.8),
+    states.SCANNING_ALLERGENS: const Size(0.7, 0.8),
+  };
+
+  late Size currentSize;
+  late String currentMessage;
+
+  // ocr methods
+  Future<void> _onDataScanned(String data) async {
+    switch (currentState) {
+      case states.SCANNING_NAME:
+        _scanName(data);
+        break;
+      case states.SCANNING_EAN:
+        _scanEan(data);
+        break;
+      case states.SCANNING_NUTRITION:
+        _scanNutrition(data);
+        break;
+      case states.SCANNING_INGREDIENTS:
+        _scanIngredient(data);
+        break;
+      case states.SCANNING_ALLERGENS:
+        _scanAllergens(data);
+        break;
+      default:
+        break;
+    }
+    return;
+  }
+
+  // TODO: implement scanning nutrition
+  Future<void> _scanNutrition(String data) async {}
+  Future<void> _scanIngredient(String data) async {}
+  Future<void> _scanAllergens(String data) async {}
+  Stack ocrBs() {
+    return Stack(
+      children: <Widget>[
+        ScannerPage(
+          onEanScanned: _onDataScanned,
+          isTorchOn: isTorchOn,
+          scanningType: currentState == states.SCANNING_EAN ? 1 : 0,
+        ),
+        ClipPath(
+          clipper: HoleClipper(currentSize.width, currentSize.height),
+          child: Container(
+            color: _backdropColor,
+          ),
+        ),
+        const Align(
+          alignment: Alignment(0.9, 0.9),
+          child: CloseScannerButtonWidget(),
+        ),
+        SizedBox(
+          width: double.infinity,
+          height: 204,
+          child: OCRHeaderWidget(
+            currentName: currentMessage,
+          ),
+        ),
+        Align(
+          alignment: const Alignment(-0.9, 0.9),
+          child: _switchTorchToggle(),
+        ),
+      ],
+    );
+  }
+
+  Future<void> _scanName(String data) async {
+    if (data.isNotEmpty) {
+      _food.name = data;
+      setState(() {
+        currentMessage = messages[states.SCANNING_EAN]!;
+        currentSize = sizes[states.SCANNING_EAN]!;
+        currentState = states.SCANNING_EAN;
+      });
+    }
+  }
+
+  Future<void> _scanEan(String data) async {
+    if (data.isNotEmpty) {
+      _food.ean = data;
+      setState(() {
+        currentMessage = messages[states.SCANNING_NUTRITION]!;
+        currentSize = sizes[states.SCANNING_NUTRITION]!;
+        currentState = states.SCANNING_NUTRITION;
+      });
+    }
+  }
 
   @override
   void initState() {
     super.initState();
     _backdropColor = _neutralColor;
     _getRequestedEans();
+    _backdropColor = _neutralColor;
+    currentState = states.SCANNING_NAME;
+    currentMessage = messages[currentState]!;
+    currentMessage = messages[currentState]!;
+    currentSize = sizes[currentState]!;
   }
 
   @override
   void dispose() {
+    _panelController.close();
+
     super.dispose();
   }
 
@@ -77,6 +203,10 @@ class _BarCodeScannerState extends State<BarCodeScanner>
 
   @override
   Widget build(BuildContext context) {
+    return _ocr ? ocrBs() : BarCodeBs(context);
+  }
+
+  GestureDetector BarCodeBs(BuildContext context) {
     return GestureDetector(
       onVerticalDragEnd: (details) async {
         // if (details.primaryVelocity! > 0 &&
@@ -108,7 +238,7 @@ class _BarCodeScannerState extends State<BarCodeScanner>
             !_panelController.isPanelAnimating) {
           await _panelController.animatePanelToPosition(
             1,
-            duration: Duration(milliseconds: 300),
+            duration: const Duration(milliseconds: 300),
           );
 
           _panelOpened = true;
@@ -167,47 +297,45 @@ class _BarCodeScannerState extends State<BarCodeScanner>
         },
         body: Stack(
           children: <Widget>[
-            _ScannerPage(
+            ScannerPage(
               onEanScanned: _onEanScanned,
               isTorchOn: isTorchOn,
             ),
             ClipPath(
-              clipper: HoleClipper(),
+              clipper: HoleClipper(0.5, 0.5),
               child: Container(
                 color: _backdropColor,
               ),
             ),
-            Align(
-              child: CloseScannerButtonWidget(),
+            const Align(
               alignment: Alignment(0.9, 0.9),
+              child: CloseScannerButtonWidget(),
             ),
-            Align(
-              child: FloatingActionButton(
-                heroTag: Object(),
-                onPressed: () {
-                  context.goNamed('OcrScannerPage');
-                },
-                backgroundColor: Color.fromRGBO(183, 193, 250, 1),
-                foregroundColor: Color.fromRGBO(56, 47, 115, 1),
-                child: SvgPicture.asset(
-                  "assets/images/Back.svg",
-                  width: 34,
-                  height: 34,
-                  fit: BoxFit.contain,
+            if (FFAppState().isOcrEnabled)
+              Align(
+                alignment: const Alignment(0, 0.9),
+                child: FloatingActionButton(
+                  heroTag: Object(),
+                  onPressed: () async {
+                    setState(() {
+                      _ocr = true;
+                    });
+                  },
+                  backgroundColor: const Color.fromRGBO(183, 193, 250, 1),
+                  foregroundColor: const Color.fromRGBO(56, 47, 115, 1),
                 ),
               ),
-              alignment: Alignment(0, -0.9),
-            ),
-            SizedBox(
-              child: ScanProductMessageWidget(),
+            const SizedBox(
               width: double.infinity,
               height: 204,
+              child: ScanProductMessageWidget(),
             ),
             Align(
+              alignment: const Alignment(-0.9, 0.9),
               child: _switchTorchToggle(),
-              alignment: Alignment(-0.9, 0.9),
             ),
             Align(
+              alignment: const Alignment(0, 0.9),
               child: _shouldShowUnknowEanButton && _canShowAddManuallyButton
                   ? AddManuallyButtonWidget(
                       ean: _ean,
@@ -218,14 +346,13 @@ class _BarCodeScannerState extends State<BarCodeScanner>
                           _shouldShowUnknowEanButton = false;
                           _canShowAddManuallyButton = false;
                         });
-                        Timer(Duration(seconds: 2), () {
+                        Timer(const Duration(seconds: 2), () {
                           setState(() {
                             _canShowAddManuallyButton = true;
                           });
                         });
                       })
                   : Container(),
-              alignment: Alignment(0, 0.9),
             )
           ],
         ),
@@ -243,8 +370,8 @@ class _BarCodeScannerState extends State<BarCodeScanner>
               isTorchOn = !isTorchOn;
             });
           },
-          backgroundColor: Color.fromRGBO(183, 193, 250, 1),
-          foregroundColor: Color.fromRGBO(56, 47, 115, 1),
+          backgroundColor: const Color.fromRGBO(183, 193, 250, 1),
+          foregroundColor: const Color.fromRGBO(56, 47, 115, 1),
           child: SvgPicture.asset(
             "assets/images/Light.svg",
             width: 34,
@@ -265,7 +392,7 @@ class _BarCodeScannerState extends State<BarCodeScanner>
       // here tell user that this ean was requested already using snackbar that disappiers after some time
       // will translate later to slovak
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
+        const SnackBar(
           content: Text('This product was requested already'),
           duration: Duration(seconds: 2),
         ),
@@ -295,7 +422,7 @@ class _BarCodeScannerState extends State<BarCodeScanner>
 
         await _panelController.animatePanelToPosition(
           0,
-          duration: Duration(milliseconds: 200),
+          duration: const Duration(milliseconds: 200),
         );
         _panelOpened = false;
 
@@ -327,7 +454,7 @@ class _BarCodeScannerState extends State<BarCodeScanner>
           mounted &&
           !_panelController.isPanelAnimating) {
         await _panelController.animatePanelToSnapPoint(
-            duration: Duration(milliseconds: 300));
+            duration: const Duration(milliseconds: 300));
         _panelOpened = false;
       }
       if (mounted) {
@@ -360,6 +487,10 @@ class _BarCodeScannerState extends State<BarCodeScanner>
 
 // clipping the center of camera view out
 class HoleClipper extends CustomClipper<Path> {
+  HoleClipper(this.width, this.height);
+  final double width;
+  final double height;
+
   @override
   Path getClip(Size size) {
     var outerPath = Path()
@@ -368,8 +499,8 @@ class HoleClipper extends CustomClipper<Path> {
     var innerPath = Path()
       ..addRect(Rect.fromCenter(
         center: Offset(size.width / 2, size.height / 2),
-        width: size.width * 0.75,
-        height: size.width * 0.75,
+        width: size.width * width,
+        height: size.width * height,
       ));
 
     return Path.combine(PathOperation.difference, outerPath, innerPath);
@@ -379,24 +510,27 @@ class HoleClipper extends CustomClipper<Path> {
   bool shouldReclip(CustomClipper<Path> oldClipper) => false;
 }
 
-class _ScannerPage extends StatefulWidget {
-  const _ScannerPage({
-    Key? key,
-    required this.onEanScanned,
-    this.isTorchOn = false,
-  }) : super(key: key);
+class ScannerPage extends StatefulWidget {
+  const ScannerPage(
+      {Key? key,
+      required this.onEanScanned,
+      this.isTorchOn = false,
+      this.scanningType = 1})
+      : super(key: key);
 
   final Function(String) onEanScanned;
   final bool isTorchOn;
+  final int scanningType;
 
   @override
   _ScannerPageState createState() => _ScannerPageState();
 }
 
-class _ScannerPageState extends State<_ScannerPage> {
+class _ScannerPageState extends State<ScannerPage> {
   CustomPaint? _customPaint;
   var _cameraLensDirection = CameraLensDirection.back;
   final BarcodeScanner _barcodeScanner = BarcodeScanner();
+  final TextRecognizer _textRecognizer = TextRecognizer();
 
   int _timesDidntFoundEan = 0;
   int _timesFoundEan = 0;
@@ -419,10 +553,26 @@ class _ScannerPageState extends State<_ScannerPage> {
   void dispose() {
     _barcodeScanner.close();
     _canProcess = false;
+    _textRecognizer.close();
     super.dispose();
   }
 
   Future<void> _processImage(InputImage inputImage) async {
+    // EAN is 1
+    switch (widget.scanningType) {
+      case 0:
+        _getTextFromImage(inputImage);
+        break;
+      case 1:
+        _getBarCode(inputImage);
+        break;
+      default:
+        print("Error vole");
+        return;
+    }
+  }
+
+  Future<void> _getBarCode(InputImage inputImage) async {
     if (!_canProcess) {
       return;
     }
@@ -454,6 +604,27 @@ class _ScannerPageState extends State<_ScannerPage> {
           _timesDidntFoundEan++;
         }
       });
+    }
+  }
+
+  Future<void> _getTextFromImage(InputImage inputImage) async {
+    if (!_canProcess) {
+      return;
+    }
+    if (_isBusy) return;
+    _isBusy = true;
+    // use this later for displaying a message to aim camera to barcode
+    setState(() {});
+
+    final recognizedText = await _textRecognizer.processImage(inputImage);
+
+    print("${recognizedText.text}\n\n\n");
+
+    _isBusy = false;
+
+    if (mounted) {
+      // display message after some unsucessfull scans to aim camera to barcode
+      setState(() {});
     }
   }
 }
