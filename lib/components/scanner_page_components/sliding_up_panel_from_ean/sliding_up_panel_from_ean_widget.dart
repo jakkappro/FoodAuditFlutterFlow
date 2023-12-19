@@ -511,7 +511,7 @@ class _SlidingUpPanelFromEanWidgetState
                           style:
                               FlutterFlowTheme.of(context).bodyMedium.override(
                                     fontFamily: 'Roboto',
-                                    color: Color(0xFF382F73),
+                                    color: FlutterFlowTheme.of(context).primary,
                                     fontSize: 12.64,
                                     letterSpacing: 0.5,
                                     fontWeight: FontWeight.w500,

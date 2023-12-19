@@ -267,7 +267,7 @@ class _AuthComponentWidgetState extends State<AuthComponentWidget> {
                           style:
                               FlutterFlowTheme.of(context).bodyMedium.override(
                                     fontFamily: 'Roboto',
-                                    color: Color(0xFF382F73),
+                                    color: FlutterFlowTheme.of(context).primary,
                                     letterSpacing: 0.15,
                                     fontWeight: FontWeight.w800,
                                     lineHeight: 1.5,

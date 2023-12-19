@@ -56,7 +56,7 @@ class _OpenScannerButtonWidgetState extends State<OpenScannerButtonWidget> {
           width: 200.0,
           height: 60.0,
           decoration: BoxDecoration(
-            color: Color(0xFF382F73),
+            color: FlutterFlowTheme.of(context).primary,
             borderRadius: BorderRadius.circular(76.0),
           ),
           child: Padding(

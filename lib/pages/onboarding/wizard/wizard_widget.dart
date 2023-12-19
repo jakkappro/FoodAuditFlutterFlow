@@ -279,7 +279,9 @@ class _WizardWidgetState extends State<WizardWidget> {
                                               .bodyMedium
                                               .override(
                                                 fontFamily: 'Roboto',
-                                                color: Color(0xFF382F73),
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .primary,
                                                 letterSpacing: 0.15,
                                                 fontWeight: FontWeight.w800,
                                                 lineHeight: 1.5,
@@ -409,7 +411,9 @@ class _WizardWidgetState extends State<WizardWidget> {
                                           },
                                           child: Container(
                                             decoration: BoxDecoration(
-                                              color: Color(0xFF382F73),
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .primary,
                                               borderRadius:
                                                   BorderRadius.circular(12.0),
                                             ),
@@ -441,7 +445,9 @@ class _WizardWidgetState extends State<WizardWidget> {
                                             },
                                             child: Container(
                                               decoration: BoxDecoration(
-                                                color: Color(0xFF382F73),
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .primary,
                                                 borderRadius:
                                                     BorderRadius.circular(6.0),
                                               ),

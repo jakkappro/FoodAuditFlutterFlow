@@ -71,7 +71,7 @@ class _PersonalInfoWidgetState extends State<PersonalInfoWidget> {
               widget.greetingText,
               style: FlutterFlowTheme.of(context).bodyMedium.override(
                     fontFamily: 'Roboto',
-                    color: Color(0xFF382F73),
+                    color: FlutterFlowTheme.of(context).primary,
                     fontSize: 20.0,
                     letterSpacing: 0.15,
                     fontWeight: FontWeight.w800,
@@ -190,7 +190,7 @@ class _PersonalInfoWidgetState extends State<PersonalInfoWidget> {
                         textAlign: TextAlign.start,
                         style: FlutterFlowTheme.of(context).bodyMedium.override(
                               fontFamily: 'Roboto',
-                              color: Color(0xFF382F73),
+                              color: FlutterFlowTheme.of(context).primary,
                               fontSize: 16.0,
                               letterSpacing: 0.15,
                               fontWeight: FontWeight.w600,
@@ -242,7 +242,7 @@ class _PersonalInfoWidgetState extends State<PersonalInfoWidget> {
                 height: 45.0,
                 textStyle: FlutterFlowTheme.of(context).bodyMedium.override(
                       fontFamily: 'Roboto',
-                      color: Color(0xFF382F73),
+                      color: FlutterFlowTheme.of(context).primary,
                       fontSize: 16.0,
                       letterSpacing: 0.15,
                       fontWeight: FontWeight.w600,
@@ -253,7 +253,7 @@ class _PersonalInfoWidgetState extends State<PersonalInfoWidget> {
                 ),
                 icon: Icon(
                   Icons.fingerprint,
-                  color: Color(0xFF382F73),
+                  color: FlutterFlowTheme.of(context).primary,
                   size: 24.0,
                 ),
                 fillColor: FlutterFlowTheme.of(context).primaryBackground,

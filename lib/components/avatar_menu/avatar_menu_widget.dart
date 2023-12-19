@@ -59,7 +59,7 @@ class _AvatarMenuWidgetState extends State<AvatarMenuWidget> {
             ),
             style: FlutterFlowTheme.of(context).bodyMedium.override(
                   fontFamily: 'Roboto',
-                  color: Color(0xFF382F73),
+                  color: FlutterFlowTheme.of(context).primary,
                   fontSize: 20.0,
                   letterSpacing: 0.15,
                   fontWeight: FontWeight.w800,

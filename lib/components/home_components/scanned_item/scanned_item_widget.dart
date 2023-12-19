@@ -97,7 +97,7 @@ class _ScannedItemWidgetState extends State<ScannedItemWidget> {
                               width: 28.0,
                               height: 28.0,
                               decoration: BoxDecoration(
-                                color: Color(0xFF382F73),
+                                color: FlutterFlowTheme.of(context).primary,
                                 shape: BoxShape.circle,
                               ),
                               child: Align(
@@ -166,7 +166,8 @@ class _ScannedItemWidgetState extends State<ScannedItemWidget> {
                                     .bodyMedium
                                     .override(
                                       fontFamily: 'Roboto',
-                                      color: Color(0xFF382F73),
+                                      color:
+                                          FlutterFlowTheme.of(context).primary,
                                       fontSize: 18.0,
                                       letterSpacing: 0.15,
                                       fontWeight: FontWeight.w800,
@@ -186,7 +187,7 @@ class _ScannedItemWidgetState extends State<ScannedItemWidget> {
                                 .bodyMedium
                                 .override(
                                   fontFamily: 'Roboto',
-                                  color: Color(0xFF382F73),
+                                  color: FlutterFlowTheme.of(context).primary,
                                   fontWeight: FontWeight.w800,
                                 ),
                           ),

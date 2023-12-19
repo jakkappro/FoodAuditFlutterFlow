@@ -159,7 +159,8 @@ class _WelcomeWidgetState extends State<WelcomeWidget> {
                                     child: Container(
                                       width: double.infinity,
                                       decoration: BoxDecoration(
-                                        color: Color(0xFF382F73),
+                                        color: FlutterFlowTheme.of(context)
+                                            .primary,
                                         borderRadius:
                                             BorderRadius.circular(6.0),
                                       ),
@@ -213,7 +214,9 @@ class _WelcomeWidgetState extends State<WelcomeWidget> {
                                               .bodyMedium
                                               .override(
                                                 fontFamily: 'Roboto',
-                                                color: Color(0xFF382F73),
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .primary,
                                                 letterSpacing: 0.15,
                                                 fontWeight: FontWeight.w800,
                                                 lineHeight: 1.5,
