@@ -252,7 +252,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     },
     'b7er5pp3': {
       'en': 'Continue without registration',
-      'sk': '',
+      'sk': 'Pokračovať bez registrácie',
     },
     'u8l8bemr': {
       'en':
@@ -273,14 +273,14 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   {
     'blxb5l3u': {
       'en': 'Home',
-      'sk': '',
+      'sk': 'Domov',
     },
   },
   // OcrScannerPage
   {
     'd1h0oezq': {
       'en': 'Home',
-      'sk': '',
+      'sk': 'Domov',
     },
   },
   // Notifications
@@ -413,7 +413,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   {
     '7dl2baci': {
       'en': 'Add manually',
-      'sk': 'Pridajte manuálne',
+      'sk': 'Pridať ručne',
     },
   },
   // ScanProductMessage
@@ -439,7 +439,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     },
     'elbpjfvc': {
       'en': 'Continue without registration',
-      'sk': '',
+      'sk': 'Pokračovať bez registrácie',
     },
   },
   // Medication
@@ -470,7 +470,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     },
     'v93oi4a3': {
       'en': 'Report it here',
-      'sk': '',
+      'sk': 'Nahláste to tu',
     },
   },
   // AvatarMenu
@@ -511,7 +511,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   {
     '5zwswdbw': {
       'en': 'Continue without registration',
-      'sk': 'Nahláste to tu',
+      'sk': 'Pokračovať bez registrácie',
     },
     '0pmcra0v': {
       'en': 'Camera please',
@@ -566,6 +566,10 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'sk': '',
     },
     'ies6tw6a': {
+      'en': '',
+      'sk': '',
+    },
+    'bn0scing': {
       'en': '',
       'sk': '',
     },
