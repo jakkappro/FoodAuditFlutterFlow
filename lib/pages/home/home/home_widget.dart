@@ -184,7 +184,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                     ? MediaQuery.viewInsetsOf(context).bottom > 0
                     : _isKeyboardVisible))
                   Align(
-                    alignment: AlignmentDirectional(0.00, 0.00),
+                    alignment: AlignmentDirectional(0.0, 0.0),
                     child: wrapWithModel(
                       model: _model.openScannerButtonModel,
                       updateCallback: () => setState(() {}),

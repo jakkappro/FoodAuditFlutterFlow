@@ -232,7 +232,7 @@ class _SettingsWidgetState extends State<SettingsWidget> {
                       ? MediaQuery.viewInsetsOf(context).bottom > 0
                       : _isKeyboardVisible))
                     Align(
-                      alignment: AlignmentDirectional(0.00, 0.95),
+                      alignment: AlignmentDirectional(0.0, 0.95),
                       child: InkWell(
                         splashColor: Colors.transparent,
                         focusColor: Colors.transparent,
@@ -270,7 +270,7 @@ class _SettingsWidgetState extends State<SettingsWidget> {
                       ),
                     ),
                   Align(
-                    alignment: AlignmentDirectional(1.00, -1.00),
+                    alignment: AlignmentDirectional(1.0, -1.0),
                     child: InkWell(
                       splashColor: Colors.transparent,
                       focusColor: Colors.transparent,
@@ -287,7 +287,7 @@ class _SettingsWidgetState extends State<SettingsWidget> {
                           shape: BoxShape.circle,
                         ),
                         child: Align(
-                          alignment: AlignmentDirectional(0.00, 0.00),
+                          alignment: AlignmentDirectional(0.0, 0.0),
                           child: ClipRRect(
                             borderRadius: BorderRadius.circular(8.0),
                             child: SvgPicture.asset(

@@ -74,8 +74,7 @@ class _AuthComponentWidgetState extends State<AuthComponentWidget> {
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       Padding(
-                        padding:
-                            EdgeInsetsDirectional.fromSTEB(8.0, 8.0, 8.0, 8.0),
+                        padding: EdgeInsets.all(8.0),
                         child: Icon(
                           Icons.apple_outlined,
                           color: Colors.white,
@@ -132,8 +131,7 @@ class _AuthComponentWidgetState extends State<AuthComponentWidget> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Padding(
-                        padding:
-                            EdgeInsetsDirectional.fromSTEB(8.0, 8.0, 8.0, 8.0),
+                        padding: EdgeInsets.all(8.0),
                         child: Icon(
                           Icons.facebook_sharp,
                           color: Color(0xFFFFFFFE),
@@ -200,8 +198,7 @@ class _AuthComponentWidgetState extends State<AuthComponentWidget> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              7.6, 7.6, 7.6, 7.6),
+                          padding: EdgeInsets.all(7.6),
                           child: ClipRRect(
                             borderRadius: BorderRadius.circular(0.0),
                             child: Image.asset(
@@ -257,8 +254,7 @@ class _AuthComponentWidgetState extends State<AuthComponentWidget> {
                     borderRadius: BorderRadius.circular(4.0),
                   ),
                   child: Padding(
-                    padding:
-                        EdgeInsetsDirectional.fromSTEB(12.0, 12.0, 12.0, 12.0),
+                    padding: EdgeInsets.all(12.0),
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
                       mainAxisAlignment: MainAxisAlignment.center,
@@ -300,7 +296,7 @@ class _AuthComponentWidgetState extends State<AuthComponentWidget> {
                   sigmaY: 2.0,
                 ),
                 child: Align(
-                  alignment: AlignmentDirectional(0.00, 0.00),
+                  alignment: AlignmentDirectional(0.0, 0.0),
                   child: Container(
                     width: 150.0,
                     height: 150.0,

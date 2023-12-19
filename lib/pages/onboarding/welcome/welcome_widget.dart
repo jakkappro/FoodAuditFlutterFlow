@@ -84,7 +84,7 @@ class _WelcomeWidgetState extends State<WelcomeWidget> {
                 scrollDirection: Axis.horizontal,
                 children: [
                   Align(
-                    alignment: AlignmentDirectional(0.00, 0.00),
+                    alignment: AlignmentDirectional(0.0, 0.0),
                     child: Container(
                       width: double.infinity,
                       height: double.infinity,
@@ -250,7 +250,7 @@ class _WelcomeWidgetState extends State<WelcomeWidget> {
                                 color: Colors.transparent,
                               ),
                               child: Align(
-                                alignment: AlignmentDirectional(0.00, 0.00),
+                                alignment: AlignmentDirectional(0.0, 0.0),
                                 child: ClipRRect(
                                   borderRadius: BorderRadius.circular(0.0),
                                   child: SvgPicture.asset(

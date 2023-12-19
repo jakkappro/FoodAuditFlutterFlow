@@ -412,7 +412,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   // AddManuallyButton
   {
     '7dl2baci': {
-      'en': 'Add manualy',
+      'en': 'Add manually',
       'sk': 'Pridajte manuálne',
     },
   },

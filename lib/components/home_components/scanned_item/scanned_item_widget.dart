@@ -78,7 +78,7 @@ class _ScannedItemWidgetState extends State<ScannedItemWidget> {
         builder: (context) {
           if (_model.loadedEan) {
             return Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(20.0, 20.0, 20.0, 20.0),
+              padding: EdgeInsets.all(20.0),
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -92,7 +92,7 @@ class _ScannedItemWidgetState extends State<ScannedItemWidget> {
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
                           Align(
-                            alignment: AlignmentDirectional(-1.00, -1.00),
+                            alignment: AlignmentDirectional(-1.0, -1.0),
                             child: Container(
                               width: 28.0,
                               height: 28.0,
@@ -101,7 +101,7 @@ class _ScannedItemWidgetState extends State<ScannedItemWidget> {
                                 shape: BoxShape.circle,
                               ),
                               child: Align(
-                                alignment: AlignmentDirectional(0.00, 0.00),
+                                alignment: AlignmentDirectional(0.0, 0.0),
                                 child: ClipRRect(
                                   borderRadius: BorderRadius.circular(0.0),
                                   child: SvgPicture.asset(

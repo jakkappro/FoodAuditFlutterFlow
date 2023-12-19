@@ -145,8 +145,7 @@ class _NotificationsWidgetState extends State<NotificationsWidget> {
                                   options: FFButtonOptions(
                                     width: 113.0,
                                     height: 29.0,
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        0.0, 0.0, 0.0, 0.0),
+                                    padding: EdgeInsets.all(0.0),
                                     iconPadding: EdgeInsetsDirectional.fromSTEB(
                                         0.0, 0.0, 0.0, 0.0),
                                     color: Color(0xFFB580D6),

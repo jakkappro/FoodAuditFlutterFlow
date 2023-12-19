@@ -63,7 +63,7 @@ class _ScannedItemsWidgetState extends State<ScannedItemsWidget> {
               width: 231.0,
               decoration: BoxDecoration(),
               child: Align(
-                alignment: AlignmentDirectional(0.00, 0.00),
+                alignment: AlignmentDirectional(0.0, 0.0),
                 child: ScannedItemWidget(
                   key: Key(
                       'Key5c6_${scannedItemIndex}_of_${scannedItem.length}'),

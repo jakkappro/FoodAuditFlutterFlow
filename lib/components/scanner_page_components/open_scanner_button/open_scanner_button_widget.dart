@@ -43,7 +43,7 @@ class _OpenScannerButtonWidgetState extends State<OpenScannerButtonWidget> {
     context.watch<FFAppState>();
 
     return Align(
-      alignment: AlignmentDirectional(0.00, 0.90),
+      alignment: AlignmentDirectional(0.0, 0.9),
       child: InkWell(
         splashColor: Colors.transparent,
         focusColor: Colors.transparent,

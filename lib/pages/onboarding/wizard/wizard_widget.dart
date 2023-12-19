@@ -180,7 +180,7 @@ class _WizardWidgetState extends State<WizardWidget> {
                           ? MediaQuery.viewInsetsOf(context).bottom > 0
                           : _isKeyboardVisible))
                         Align(
-                          alignment: AlignmentDirectional(0.00, 0.95),
+                          alignment: AlignmentDirectional(0.0, 0.95),
                           child: Padding(
                             padding: EdgeInsetsDirectional.fromSTEB(
                                 24.0, 0.0, 24.0, 0.0),
@@ -374,7 +374,7 @@ class _WizardWidgetState extends State<WizardWidget> {
                           ? MediaQuery.viewInsetsOf(context).bottom > 0
                           : _isKeyboardVisible))
                         Align(
-                          alignment: AlignmentDirectional(0.00, 0.95),
+                          alignment: AlignmentDirectional(0.0, 0.95),
                           child: Padding(
                             padding: EdgeInsetsDirectional.fromSTEB(
                                 24.0, 0.0, 24.0, 0.0),
@@ -414,9 +414,7 @@ class _WizardWidgetState extends State<WizardWidget> {
                                                   BorderRadius.circular(12.0),
                                             ),
                                             child: Padding(
-                                              padding: EdgeInsetsDirectional
-                                                  .fromSTEB(
-                                                      12.0, 12.0, 12.0, 12.0),
+                                              padding: EdgeInsets.all(12.0),
                                               child: ClipRRect(
                                                 borderRadius:
                                                     BorderRadius.circular(0.0),

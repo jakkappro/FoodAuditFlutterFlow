@@ -79,7 +79,7 @@ class _SubSettingsWidgetState extends State<SubSettingsWidget> {
                 ),
               ),
               child: Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(2.0, 2.0, 2.0, 2.0),
+                padding: EdgeInsets.all(2.0),
                 child: Container(
                   width: 50.0,
                   height: 50.0,
@@ -232,7 +232,7 @@ class _SubSettingsWidgetState extends State<SubSettingsWidget> {
                               ),
                               Expanded(
                                 child: Align(
-                                  alignment: AlignmentDirectional(1.00, 0.00),
+                                  alignment: AlignmentDirectional(1.0, 0.0),
                                   child: Icon(
                                     Icons.arrow_forward_ios,
                                     color: FlutterFlowTheme.of(context)
@@ -289,7 +289,7 @@ class _SubSettingsWidgetState extends State<SubSettingsWidget> {
                           ),
                           Expanded(
                             child: Align(
-                              alignment: AlignmentDirectional(1.00, 0.00),
+                              alignment: AlignmentDirectional(1.0, 0.0),
                               child: Icon(
                                 Icons.arrow_forward_ios,
                                 color:
@@ -338,7 +338,7 @@ class _SubSettingsWidgetState extends State<SubSettingsWidget> {
                           ),
                           Expanded(
                             child: Align(
-                              alignment: AlignmentDirectional(1.00, 0.00),
+                              alignment: AlignmentDirectional(1.0, 0.0),
                               child: Icon(
                                 Icons.arrow_forward_ios,
                                 color:
@@ -355,7 +355,7 @@ class _SubSettingsWidgetState extends State<SubSettingsWidget> {
               ),
             ),
             Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(16.0, 16.0, 16.0, 16.0),
+              padding: EdgeInsets.all(16.0),
               child: Container(
                 width: double.infinity,
                 height: 50.0,
@@ -368,7 +368,7 @@ class _SubSettingsWidgetState extends State<SubSettingsWidget> {
                   ),
                 ),
                 child: Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(4.0, 4.0, 4.0, 4.0),
+                  padding: EdgeInsets.all(4.0),
                   child: Row(
                     mainAxisSize: MainAxisSize.max,
                     mainAxisAlignment: MainAxisAlignment.start,
