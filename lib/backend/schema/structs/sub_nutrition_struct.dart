@@ -45,8 +45,9 @@ class SubNutritionStruct extends FFFirebaseStruct {
         unit: data['Unit'] as String?,
       );
 
-  static SubNutritionStruct? maybeFromMap(dynamic data) =>
-      data is Map<String, dynamic> ? SubNutritionStruct.fromMap(data) : null;
+  static SubNutritionStruct? maybeFromMap(dynamic data) => data is Map
+      ? SubNutritionStruct.fromMap(data.cast<String, dynamic>())
+      : null;
 
   Map<String, dynamic> toMap() => {
         'Name': _name,

@@ -37,7 +37,7 @@ class SynonymStruct extends FFFirebaseStruct {
       );
 
   static SynonymStruct? maybeFromMap(dynamic data) =>
-      data is Map<String, dynamic> ? SynonymStruct.fromMap(data) : null;
+      data is Map ? SynonymStruct.fromMap(data.cast<String, dynamic>()) : null;
 
   Map<String, dynamic> toMap() => {
         'name': _name,

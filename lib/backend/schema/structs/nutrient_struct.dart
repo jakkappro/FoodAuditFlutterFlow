@@ -44,7 +44,7 @@ class NutrientStruct extends FFFirebaseStruct {
       );
 
   static NutrientStruct? maybeFromMap(dynamic data) =>
-      data is Map<String, dynamic> ? NutrientStruct.fromMap(data) : null;
+      data is Map ? NutrientStruct.fromMap(data.cast<String, dynamic>()) : null;
 
   Map<String, dynamic> toMap() => {
         'NutrientType': _nutrientType,

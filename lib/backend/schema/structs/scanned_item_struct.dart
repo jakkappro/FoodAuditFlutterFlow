@@ -55,8 +55,9 @@ class ScannedItemStruct extends FFFirebaseStruct {
         numberOfScans: castToType<int>(data['NumberOfScans']),
       );
 
-  static ScannedItemStruct? maybeFromMap(dynamic data) =>
-      data is Map<String, dynamic> ? ScannedItemStruct.fromMap(data) : null;
+  static ScannedItemStruct? maybeFromMap(dynamic data) => data is Map
+      ? ScannedItemStruct.fromMap(data.cast<String, dynamic>())
+      : null;
 
   Map<String, dynamic> toMap() => {
         'EAN': _ean,

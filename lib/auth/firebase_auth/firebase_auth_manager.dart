@@ -47,13 +47,13 @@ class FirebasePhoneAuthManager extends ChangeNotifier {
 class FirebaseAuthManager extends AuthManager
     with
         EmailSignInManager,
-        AnonymousSignInManager,
-        AppleSignInManager,
         GoogleSignInManager,
-        GithubSignInManager,
+        AppleSignInManager,
+        FacebookSignInManager,
+        AnonymousSignInManager,
         JwtSignInManager,
-        PhoneSignInManager,
-        FacebookSignInManager {
+        GithubSignInManager,
+        PhoneSignInManager {
   // Set when using phone verification (after phone number is provided).
   String? _phoneAuthVerificationCode;
   // Set when using phone sign in in web mode (ignored otherwise).

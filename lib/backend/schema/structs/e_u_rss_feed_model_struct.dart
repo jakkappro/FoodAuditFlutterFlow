@@ -35,8 +35,9 @@ class EURssFeedModelStruct extends FFFirebaseStruct {
         link: data['Link'] as String?,
       );
 
-  static EURssFeedModelStruct? maybeFromMap(dynamic data) =>
-      data is Map<String, dynamic> ? EURssFeedModelStruct.fromMap(data) : null;
+  static EURssFeedModelStruct? maybeFromMap(dynamic data) => data is Map
+      ? EURssFeedModelStruct.fromMap(data.cast<String, dynamic>())
+      : null;
 
   Map<String, dynamic> toMap() => {
         'Title': _title,

@@ -35,10 +35,9 @@ class MedicationStructStruct extends FFFirebaseStruct {
         isSafe: data['isSafe'] as bool?,
       );
 
-  static MedicationStructStruct? maybeFromMap(dynamic data) =>
-      data is Map<String, dynamic>
-          ? MedicationStructStruct.fromMap(data)
-          : null;
+  static MedicationStructStruct? maybeFromMap(dynamic data) => data is Map
+      ? MedicationStructStruct.fromMap(data.cast<String, dynamic>())
+      : null;
 
   Map<String, dynamic> toMap() => {
         'name': _name,

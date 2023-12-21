@@ -35,8 +35,9 @@ class IngredientStruct extends FFFirebaseStruct {
         isAllergen: data['IsAllergen'] as bool?,
       );
 
-  static IngredientStruct? maybeFromMap(dynamic data) =>
-      data is Map<String, dynamic> ? IngredientStruct.fromMap(data) : null;
+  static IngredientStruct? maybeFromMap(dynamic data) => data is Map
+      ? IngredientStruct.fromMap(data.cast<String, dynamic>())
+      : null;
 
   Map<String, dynamic> toMap() => {
         'Name': _name,

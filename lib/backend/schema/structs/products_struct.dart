@@ -128,7 +128,7 @@ class ProductsStruct extends FFFirebaseStruct {
       );
 
   static ProductsStruct? maybeFromMap(dynamic data) =>
-      data is Map<String, dynamic> ? ProductsStruct.fromMap(data) : null;
+      data is Map ? ProductsStruct.fromMap(data.cast<String, dynamic>()) : null;
 
   Map<String, dynamic> toMap() => {
         'AddressLines': _addressLines,
