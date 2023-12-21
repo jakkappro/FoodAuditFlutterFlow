@@ -265,7 +265,7 @@ class FFAppState extends ChangeNotifier {
     secureStorage.delete(key: 'ff_dobSet');
   }
 
-  bool _medicaments = true;
+  bool _medicaments = false;
   bool get medicaments => _medicaments;
   set medicaments(bool _value) {
     _medicaments = _value;
@@ -300,7 +300,7 @@ class FFAppState extends ChangeNotifier {
     _listOfSynonyms.insert(_index, _value);
   }
 
-  bool _isOcrEnabled = true;
+  bool _isOcrEnabled = false;
   bool get isOcrEnabled => _isOcrEnabled;
   set isOcrEnabled(bool _value) {
     _isOcrEnabled = _value;

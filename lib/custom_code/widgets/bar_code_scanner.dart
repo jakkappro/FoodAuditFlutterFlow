@@ -65,7 +65,7 @@ class _BarCodeScannerState extends State<BarCodeScanner>
   bool _shouldShowUnknowEanButton = false;
   bool _foundSomethingUseful = false;
   bool _canShowAddManuallyButton = true;
-  bool _ocr = true;
+  bool _ocr = false;
 
   // ocr vars
   // colors
