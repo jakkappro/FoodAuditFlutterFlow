@@ -50,6 +50,8 @@ class _OpenScannerButtonWidgetState extends State<OpenScannerButtonWidget> {
         hoverColor: Colors.transparent,
         highlightColor: Colors.transparent,
         onTap: () async {
+          logFirebaseEvent('OPEN_SCANNER_BUTTON_Container_7qpmb3mc_O');
+
           context.pushNamed('Camera');
         },
         child: Container(

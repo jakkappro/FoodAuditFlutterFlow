@@ -99,6 +99,8 @@ class _MedicationWidgetState extends State<MedicationWidget> {
                       hoverColor: Colors.transparent,
                       highlightColor: Colors.transparent,
                       onTap: () async {
+                        logFirebaseEvent(
+                            'MEDICATION_Container_84djvphf_ON_TAP');
                         setState(() {
                           FFAppState().removeFromMedication(medicationItem);
                         });
@@ -140,6 +142,7 @@ class _MedicationWidgetState extends State<MedicationWidget> {
               '_model.textController',
               Duration(milliseconds: 2000),
               () async {
+                logFirebaseEvent('MEDICATION_TextField_e4jugqa0_ON_TEXTFIE');
                 if (_model.textController.text.length > 1) {
                   setState(() {
                     _model.shouldShowSearch = true;
@@ -239,6 +242,8 @@ class _MedicationWidgetState extends State<MedicationWidget> {
                       hoverColor: Colors.transparent,
                       highlightColor: Colors.transparent,
                       onTap: () async {
+                        logFirebaseEvent(
+                            'MEDICATION_Container_eb4434ty_ON_TAP');
                         if (!FFAppState()
                             .Medication
                             .contains(medicamentItem.name)) {
@@ -311,6 +316,7 @@ class _MedicationWidgetState extends State<MedicationWidget> {
                     hoverColor: Colors.transparent,
                     highlightColor: Colors.transparent,
                     onTap: () async {
+                      logFirebaseEvent('MEDICATION_Container_7nds39em_ON_TAP');
                       await launchURL('https://portal.sukl.sk/eskadra/');
                     },
                     child: Container(

@@ -1,9 +1,9 @@
-import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'test_page_model.dart';
@@ -58,35 +58,93 @@ class _TestPageWidgetState extends State<TestPageWidget> {
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
         body: SafeArea(
           top: true,
-          child: FutureBuilder<List<SynonymsRecord>>(
-            future: querySynonymsRecordOnce(),
-            builder: (context, snapshot) {
-              // Customize what your widget looks like when it's loading.
-              if (!snapshot.hasData) {
-                return Center(
-                  child: SizedBox(
-                    width: 50.0,
-                    height: 50.0,
-                    child: CircularProgressIndicator(
-                      valueColor: AlwaysStoppedAnimation<Color>(
-                        FlutterFlowTheme.of(context).primary,
-                      ),
-                    ),
+          child: SingleChildScrollView(
+            child: Column(
+              mainAxisSize: MainAxisSize.max,
+              children: [
+                ClipRRect(
+                  borderRadius: BorderRadius.circular(8.0),
+                  child: SvgPicture.asset(
+                    'assets/images/avatar_119.svg',
+                    width: 300.0,
+                    height: 200.0,
+                    fit: BoxFit.cover,
                   ),
-                );
-              }
-              List<SynonymsRecord> columnSynonymsRecordList = snapshot.data!;
-              return Column(
-                mainAxisSize: MainAxisSize.max,
-                children: List.generate(columnSynonymsRecordList.length,
-                    (columnIndex) {
-                  final columnSynonymsRecord =
-                      columnSynonymsRecordList[columnIndex];
-                  return Container(
-                      width: 100, height: 100, color: Colors.green);
-                }),
-              );
-            },
+                ),
+                ClipRRect(
+                  borderRadius: BorderRadius.circular(8.0),
+                  child: SvgPicture.asset(
+                    'assets/images/avatar_118.svg',
+                    width: 300.0,
+                    height: 200.0,
+                    fit: BoxFit.cover,
+                  ),
+                ),
+                ClipRRect(
+                  borderRadius: BorderRadius.circular(8.0),
+                  child: SvgPicture.asset(
+                    'assets/images/avatar_116.svg',
+                    width: 300.0,
+                    height: 200.0,
+                    fit: BoxFit.cover,
+                  ),
+                ),
+                ClipRRect(
+                  borderRadius: BorderRadius.circular(8.0),
+                  child: SvgPicture.asset(
+                    'assets/images/avatar_117.svg',
+                    width: 300.0,
+                    height: 200.0,
+                    fit: BoxFit.cover,
+                  ),
+                ),
+                ClipRRect(
+                  borderRadius: BorderRadius.circular(8.0),
+                  child: SvgPicture.asset(
+                    'assets/images/avatar_115.svg',
+                    width: 300.0,
+                    height: 200.0,
+                    fit: BoxFit.cover,
+                  ),
+                ),
+                ClipRRect(
+                  borderRadius: BorderRadius.circular(8.0),
+                  child: SvgPicture.asset(
+                    'assets/images/avatar_114.svg',
+                    width: 300.0,
+                    height: 200.0,
+                    fit: BoxFit.cover,
+                  ),
+                ),
+                ClipRRect(
+                  borderRadius: BorderRadius.circular(8.0),
+                  child: SvgPicture.asset(
+                    'assets/images/avatar_113.svg',
+                    width: 300.0,
+                    height: 200.0,
+                    fit: BoxFit.cover,
+                  ),
+                ),
+                ClipRRect(
+                  borderRadius: BorderRadius.circular(8.0),
+                  child: SvgPicture.asset(
+                    'assets/images/avatar_112.svg',
+                    width: 300.0,
+                    height: 200.0,
+                    fit: BoxFit.cover,
+                  ),
+                ),
+                ClipRRect(
+                  borderRadius: BorderRadius.circular(8.0),
+                  child: SvgPicture.asset(
+                    'assets/images/avatar_111.svg',
+                    width: 300.0,
+                    height: 200.0,
+                    fit: BoxFit.cover,
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
       ),

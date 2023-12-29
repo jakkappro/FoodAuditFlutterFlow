@@ -57,6 +57,8 @@ class _AddManuallyButtonWidgetState extends State<AddManuallyButtonWidget> {
       hoverColor: Colors.transparent,
       highlightColor: Colors.transparent,
       onTap: () async {
+        logFirebaseEvent('ADD_MANUALLY_BUTTON_Container_1zy5gdz1_O');
+
         await RequestedEansRecord.collection
             .doc()
             .set(createRequestedEansRecordData(

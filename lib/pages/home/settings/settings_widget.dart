@@ -157,6 +157,8 @@ class _SettingsWidgetState extends State<SettingsWidget> {
                               child: MedicationWidget(
                                 shouldShowLink: true,
                                 whereToScroll: () async {
+                                  logFirebaseEvent(
+                                      'SETTINGS_Container_9yhbhudv_CALLBACK');
                                   await _model.columnController?.animateTo(
                                     _model.columnController!.position
                                         .maxScrollExtent,
@@ -173,6 +175,8 @@ class _SettingsWidgetState extends State<SettingsWidget> {
                           hoverColor: Colors.transparent,
                           highlightColor: Colors.transparent,
                           onTap: () async {
+                            logFirebaseEvent(
+                                'SETTINGS_PAGE_Container_188ex8ud_ON_TAP');
                             GoRouter.of(context).prepareAuthEvent();
                             await authManager.signOut();
                             GoRouter.of(context).clearRedirectLocation();
@@ -239,6 +243,9 @@ class _SettingsWidgetState extends State<SettingsWidget> {
                         hoverColor: Colors.transparent,
                         highlightColor: Colors.transparent,
                         onTap: () async {
+                          logFirebaseEvent(
+                              'SETTINGS_PAGE_Container_mb56g0qh_ON_TAP');
+
                           context.pushNamed('Home');
                         },
                         child: Container(
@@ -277,6 +284,9 @@ class _SettingsWidgetState extends State<SettingsWidget> {
                       hoverColor: Colors.transparent,
                       highlightColor: Colors.transparent,
                       onTap: () async {
+                        logFirebaseEvent(
+                            'SETTINGS_PAGE_Container_yhb4usge_ON_TAP');
+
                         context.pushNamed('Home');
                       },
                       child: Container(

@@ -165,6 +165,8 @@ class _HomeWidgetState extends State<HomeWidget> {
                               child: MedicationWidget(
                                 shouldShowLink: true,
                                 whereToScroll: () async {
+                                  logFirebaseEvent(
+                                      'HOME_PAGE_Container_tcysu8hj_CALLBACK');
                                   await _model.columnController?.animateTo(
                                     _model.columnController!.position
                                         .maxScrollExtent,

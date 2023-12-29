@@ -119,6 +119,7 @@ class _HeaderWidgetState extends State<HeaderWidget> {
               hoverColor: Colors.transparent,
               highlightColor: Colors.transparent,
               onTap: () async {
+                logFirebaseEvent('HEADER_COMP_Container_t8cvylwh_ON_TAP');
                 if (FFAppState().IsGuest) {
                   context.pushNamed('Welcome');
                 } else {

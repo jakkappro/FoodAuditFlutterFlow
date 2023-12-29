@@ -151,6 +151,8 @@ class _WelcomeWidgetState extends State<WelcomeWidget> {
                                     hoverColor: Colors.transparent,
                                     highlightColor: Colors.transparent,
                                     onTap: () async {
+                                      logFirebaseEvent(
+                                          'WELCOME_PAGE_Container_va9hw5vd_ON_TAP');
                                       await _model.pageViewController?.nextPage(
                                         duration: Duration(milliseconds: 300),
                                         curve: Curves.ease,
@@ -191,6 +193,8 @@ class _WelcomeWidgetState extends State<WelcomeWidget> {
                                     hoverColor: Colors.transparent,
                                     highlightColor: Colors.transparent,
                                     onTap: () async {
+                                      logFirebaseEvent(
+                                          'WELCOME_PAGE_Container_lmlvumir_ON_TAP');
                                       FFAppState().IsGuest = true;
 
                                       context.goNamed('Home');

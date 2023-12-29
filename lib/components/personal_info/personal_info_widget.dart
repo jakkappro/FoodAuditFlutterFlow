@@ -98,6 +98,9 @@ class _PersonalInfoWidgetState extends State<PersonalInfoWidget> {
                       '_model.textController',
                       Duration(milliseconds: 2000),
                       () async {
+                        logFirebaseEvent(
+                            'PERSONAL_INFO_TextField_uu9h7wdu_ON_TEXT');
+
                         await currentUserReference!
                             .update(createUsersRecordData(
                           displayName: _model.textController.text,
@@ -134,6 +137,7 @@ class _PersonalInfoWidgetState extends State<PersonalInfoWidget> {
               hoverColor: Colors.transparent,
               highlightColor: Colors.transparent,
               onTap: () async {
+                logFirebaseEvent('PERSONAL_INFO_Container_1pwfp388_ON_TAP');
                 final _datePickedDate = await showDatePicker(
                   context: context,
                   initialDate: getCurrentTimestamp,
@@ -234,6 +238,7 @@ class _PersonalInfoWidgetState extends State<PersonalInfoWidget> {
                 ],
                 onChanged: (val) async {
                   setState(() => _model.dropDownValue = val);
+                  logFirebaseEvent('PERSONAL_INFO_DropDown_sh64k2mm_ON_FORM_');
                   setState(() {
                     FFAppState().gender = _model.dropDownValue!;
                   });

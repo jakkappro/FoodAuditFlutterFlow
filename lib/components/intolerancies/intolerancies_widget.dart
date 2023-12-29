@@ -116,6 +116,7 @@ class _IntoleranciesWidgetState extends State<IntoleranciesWidget> {
               ],
               onChanged: (val) async {
                 setState(() => _model.choiceChipsValues = val);
+                logFirebaseEvent('INTOLERANCIES_ChoiceChips_y5nymz6a_ON_FO');
                 _model.updatePage(() {
                   FFAppState().Allergies =
                       _model.choiceChipsValues!.toList().cast<String>();

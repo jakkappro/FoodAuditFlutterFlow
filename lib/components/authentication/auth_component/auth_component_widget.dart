@@ -61,7 +61,9 @@ class _AuthComponentWidgetState extends State<AuthComponentWidget> {
                 focusColor: Colors.transparent,
                 hoverColor: Colors.transparent,
                 highlightColor: Colors.transparent,
-                onTap: () async {},
+                onTap: () async {
+                  logFirebaseEvent('AUTH_COMPONENT_Container_v7lawx9j_ON_TAP');
+                },
                 child: Container(
                   width: double.infinity,
                   decoration: BoxDecoration(
@@ -108,6 +110,7 @@ class _AuthComponentWidgetState extends State<AuthComponentWidget> {
                 hoverColor: Colors.transparent,
                 highlightColor: Colors.transparent,
                 onTap: () async {
+                  logFirebaseEvent('AUTH_COMPONENT_Container_zqj4xrj4_ON_TAP');
                   GoRouter.of(context).prepareAuthEvent();
                   final user = await authManager.signInWithFacebook(context);
                   if (user == null) {
@@ -165,6 +168,7 @@ class _AuthComponentWidgetState extends State<AuthComponentWidget> {
                 hoverColor: Colors.transparent,
                 highlightColor: Colors.transparent,
                 onTap: () async {
+                  logFirebaseEvent('AUTH_COMPONENT_Container_guy6opqj_ON_TAP');
                   GoRouter.of(context).prepareAuthEvent();
                   final user = await authManager.signInWithGoogle(context);
                   if (user == null) {
@@ -238,6 +242,7 @@ class _AuthComponentWidgetState extends State<AuthComponentWidget> {
                 hoverColor: Colors.transparent,
                 highlightColor: Colors.transparent,
                 onTap: () async {
+                  logFirebaseEvent('AUTH_COMPONENT_Container_spmxjtm1_ON_TAP');
                   FFAppState().IsGuest = true;
                   GoRouter.of(context).prepareAuthEvent();
                   final user = await authManager.signInAnonymously(context);

@@ -43,6 +43,7 @@ class _ScannedItemWidgetState extends State<ScannedItemWidget> {
 
     // On component load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
+      logFirebaseEvent('SCANNED_ITEM_ScannedItem_ON_INIT_STATE');
       _model.newFood = await actions.getFoodFromEAN(
         widget.scannedItem!.ean,
         false,

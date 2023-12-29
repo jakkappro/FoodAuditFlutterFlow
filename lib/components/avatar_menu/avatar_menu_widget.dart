@@ -95,6 +95,8 @@ class _AvatarMenuWidgetState extends State<AvatarMenuWidget> {
                             hoverColor: Colors.transparent,
                             highlightColor: Colors.transparent,
                             onTap: () async {
+                              logFirebaseEvent(
+                                  'AVATAR_MENU_Container_edsbrnvw_ON_TAP');
                               setState(() {
                                 FFAppState().imageName = imageItem;
                               });

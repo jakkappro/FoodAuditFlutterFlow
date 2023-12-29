@@ -39,6 +39,7 @@ class _WizardWidgetState extends State<WizardWidget> {
     logFirebaseEvent('screen_view', parameters: {'screen_name': 'Wizard'});
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
+      logFirebaseEvent('WIZARD_PAGE_Wizard_ON_INIT_STATE');
       if (FFAppState().imageName == null || FFAppState().imageName == '') {
         setState(() {
           FFAppState().imageName = 'abc';
@@ -198,6 +199,8 @@ class _WizardWidgetState extends State<WizardWidget> {
                                     hoverColor: Colors.transparent,
                                     highlightColor: Colors.transparent,
                                     onTap: () async {
+                                      logFirebaseEvent(
+                                          'WIZARD_PAGE_Container_ei0o3pv2_ON_TAP');
                                       await _model.pageViewController?.nextPage(
                                         duration: Duration(milliseconds: 300),
                                         curve: Curves.ease,
@@ -266,6 +269,8 @@ class _WizardWidgetState extends State<WizardWidget> {
                                         hoverColor: Colors.transparent,
                                         highlightColor: Colors.transparent,
                                         onTap: () async {
+                                          logFirebaseEvent(
+                                              'WIZARD_PAGE_Text_bwe2kd7j_ON_TAP');
                                           FFAppState().IsGuest = true;
 
                                           context.goNamed('Home');
@@ -354,6 +359,8 @@ class _WizardWidgetState extends State<WizardWidget> {
                                     child: MedicationWidget(
                                       shouldShowLink: false,
                                       whereToScroll: () async {
+                                        logFirebaseEvent(
+                                            'WIZARD_PAGE_Container_th7355dr_CALLBACK');
                                         await _model.columnController2
                                             ?.animateTo(
                                           _model.columnController2!.position
@@ -402,6 +409,8 @@ class _WizardWidgetState extends State<WizardWidget> {
                                           hoverColor: Colors.transparent,
                                           highlightColor: Colors.transparent,
                                           onTap: () async {
+                                            logFirebaseEvent(
+                                                'WIZARD_PAGE_Container_xua8a79u_ON_TAP');
                                             await _model.pageViewController
                                                 ?.previousPage(
                                               duration:
@@ -439,6 +448,8 @@ class _WizardWidgetState extends State<WizardWidget> {
                                             hoverColor: Colors.transparent,
                                             highlightColor: Colors.transparent,
                                             onTap: () async {
+                                              logFirebaseEvent(
+                                                  'WIZARD_PAGE_Container_nq3olyhu_ON_TAP');
                                               FFAppState().IsGuest = false;
 
                                               context.goNamed('Home');

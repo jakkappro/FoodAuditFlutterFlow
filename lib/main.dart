@@ -34,6 +34,7 @@ void main() async {
 
   // Start final custom actions code
   await actions.fillListOfSynonyms();
+  await actions.checkConnection();
   // End final custom actions code
 
   runApp(ChangeNotifierProvider(

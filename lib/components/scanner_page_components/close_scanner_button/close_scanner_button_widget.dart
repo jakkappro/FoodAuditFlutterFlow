@@ -48,6 +48,7 @@ class _CloseScannerButtonWidgetState extends State<CloseScannerButtonWidget> {
       hoverColor: Colors.transparent,
       highlightColor: Colors.transparent,
       onTap: () async {
+        logFirebaseEvent('CLOSE_SCANNER_BUTTON_Container_t9ch52nb_');
         context.safePop();
       },
       child: Container(

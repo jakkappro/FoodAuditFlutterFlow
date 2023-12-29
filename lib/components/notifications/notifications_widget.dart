@@ -36,6 +36,7 @@ class _NotificationsWidgetState extends State<NotificationsWidget> {
 
     // On component load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
+      logFirebaseEvent('NOTIFICATIONS_Notifications_ON_INIT_STAT');
       _model.alertList = await actions.parseXml();
       setState(() {
         _model.feedLoaded = true;
