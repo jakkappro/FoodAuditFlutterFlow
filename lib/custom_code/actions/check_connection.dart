@@ -40,7 +40,7 @@ class DatabaseManager {
   DatabaseManager._internal() {
     // Initialize your database connection here
     db = Db(
-        'mongodb://[machineAdmin:Heslo123456789!.,#@]4.234.153.147:2004/off');
+        'mongodb://machineAdmin:Heslo12345678912.,@4.234.153.147:2004/off?authSource=admin');
   }
 
   Future<void> openConnection() async {
@@ -59,7 +59,13 @@ class DatabaseManager {
     await openConnection();
     var collection = db.collection('products');
 
-    var product = await collection.findOne(where.eq('_id', productId));
+    var product = await collection.findOne(where.eq('_id', productId).fields([
+      'ecoscore_data',
+      'nutriscore_data',
+      'nova_groups_markers',
+      'nova_group',
+      'nutrient_levels'
+    ]));
     //await closeConnection();  // Not sure here for now i keep it but it might be good idea to keep it open
 
     return product;
