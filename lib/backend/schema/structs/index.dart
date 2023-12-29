@@ -5,6 +5,7 @@ export 'ingredient_struct.dart';
 export 'medication_struct_struct.dart';
 export 'nutrient_struct.dart';
 export 'nutrition_struct.dart';
+export 'product_from_o_f_f_struct.dart';
 export 'scanned_item_struct.dart';
 export 'sub_nutrition_struct.dart';
 export 'synonym_struct.dart';
