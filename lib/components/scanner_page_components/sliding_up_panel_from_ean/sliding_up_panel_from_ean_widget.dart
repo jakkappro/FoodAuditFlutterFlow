@@ -351,23 +351,6 @@ class _SlidingUpPanelFromEanWidgetState
                                                 color: Color(0x8A000000),
                                               ),
                                         ),
-                                        Padding(
-                                          padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  0.0, 4.0, 0.0, 0.0),
-                                          child: ClipRRect(
-                                            borderRadius:
-                                                BorderRadius.circular(8.0),
-                                            child: Image.network(
-                                              'https://picsum.photos/seed/573/600',
-                                              width: MediaQuery.sizeOf(context)
-                                                      .width *
-                                                  1.0,
-                                              height: 200.0,
-                                              fit: BoxFit.cover,
-                                            ),
-                                          ),
-                                        ),
                                       ],
                                     ),
                                     theme: ExpandableThemeData(
@@ -416,8 +399,10 @@ class _SlidingUpPanelFromEanWidgetState
                                         padding: EdgeInsetsDirectional.fromSTEB(
                                             0.0, 8.0, 0.0, 0.0),
                                         child: Text(
-                                          FFLocalizations.of(context).getText(
-                                            'evmypfpi' /* Lorem ipsum dolor sit amet, co... */,
+                                          valueOrDefault<String>(
+                                            _model.product?.novaGrade
+                                                ?.toString(),
+                                            'NONE',
                                           ),
                                           style: FlutterFlowTheme.of(context)
                                               .bodyMedium
@@ -441,23 +426,6 @@ class _SlidingUpPanelFromEanWidgetState
                                                 fontFamily: 'Roboto',
                                                 color: Color(0x8A000000),
                                               ),
-                                        ),
-                                        Padding(
-                                          padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  0.0, 4.0, 0.0, 0.0),
-                                          child: ClipRRect(
-                                            borderRadius:
-                                                BorderRadius.circular(8.0),
-                                            child: Image.network(
-                                              'https://picsum.photos/seed/240/600',
-                                              width: MediaQuery.sizeOf(context)
-                                                      .width *
-                                                  1.0,
-                                              height: 200.0,
-                                              fit: BoxFit.cover,
-                                            ),
-                                          ),
                                         ),
                                       ],
                                     ),
@@ -486,7 +454,7 @@ class _SlidingUpPanelFromEanWidgetState
                                   child: ExpandablePanel(
                                     header: Text(
                                       FFLocalizations.of(context).getText(
-                                        'z7y1g6gh' /* Edit Your Title Here */,
+                                        'wx6stky2' /* Ecoscore */,
                                       ),
                                       style: FlutterFlowTheme.of(context)
                                           .displaySmall
@@ -507,8 +475,9 @@ class _SlidingUpPanelFromEanWidgetState
                                         padding: EdgeInsetsDirectional.fromSTEB(
                                             0.0, 8.0, 0.0, 0.0),
                                         child: Text(
-                                          FFLocalizations.of(context).getText(
-                                            '6xkf0iap' /* Lorem ipsum dolor sit amet, co... */,
+                                          valueOrDefault<String>(
+                                            _model.product?.ecoScoreGrade?.name,
+                                            'NONE',
                                           ),
                                           style: FlutterFlowTheme.of(context)
                                               .bodyMedium
@@ -532,23 +501,6 @@ class _SlidingUpPanelFromEanWidgetState
                                                 fontFamily: 'Roboto',
                                                 color: Color(0x8A000000),
                                               ),
-                                        ),
-                                        Padding(
-                                          padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  0.0, 4.0, 0.0, 0.0),
-                                          child: ClipRRect(
-                                            borderRadius:
-                                                BorderRadius.circular(8.0),
-                                            child: Image.network(
-                                              'https://picsum.photos/seed/324/600',
-                                              width: MediaQuery.sizeOf(context)
-                                                      .width *
-                                                  1.0,
-                                              height: 200.0,
-                                              fit: BoxFit.cover,
-                                            ),
-                                          ),
                                         ),
                                       ],
                                     ),
