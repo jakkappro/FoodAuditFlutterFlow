@@ -110,13 +110,13 @@ class ProductFromOFFStruct extends FFFirebaseStruct {
   Map<String, dynamic> toMap() => {
         'NovaGrade': _novaGrade,
         'EcoScore': _ecoScore,
-        'EcoScoreGrade': _ecoScoreGrade?.toString(),
-        'Nutriscore_FatLevel': _nutriscoreFatLevel?.toString(),
-        'Nutriscore_SugarLevel': _nutriscoreSugarLevel?.toString(),
+        'EcoScoreGrade': _ecoScoreGrade?.serialize(),
+        'Nutriscore_FatLevel': _nutriscoreFatLevel?.serialize(),
+        'Nutriscore_SugarLevel': _nutriscoreSugarLevel?.serialize(),
         'Nutriscore_SaturatedFatLevel':
-            _nutriscoreSaturatedFatLevel?.toString(),
-        'Nutriscore_SaltLevel': _nutriscoreSaltLevel?.toString(),
-        'NutriscoreGrade': _nutriscoreGrade?.toString(),
+            _nutriscoreSaturatedFatLevel?.serialize(),
+        'Nutriscore_SaltLevel': _nutriscoreSaltLevel?.serialize(),
+        'NutriscoreGrade': _nutriscoreGrade?.serialize(),
       }.withoutNulls;
 
   @override

@@ -10,11 +10,16 @@ import 'package:flutter/material.dart';
 // Begin custom action code
 // DO NOT REMOVE OR MODIFY THE CODE ABOVE!
 
-Future<ProductFromOFFStruct> getProductById(String ean) async {
-  await openConnection();
-  var collection = db.collection('products');
+// my imports
+import 'package:mongo_dart/mongo_dart.dart';
+import 'package:nu3_food/custom_code/actions/check_connection.dart';
 
-  var product = await collection.findOne(where.eq('_id', productId).fields([
+Future<ProductFromOFFStruct> getProductById(ProductsRecord ean) async {
+  await DatabaseManager().openConnection();
+  var collection = DatabaseManager().db.collection('products');
+
+  var product =
+      await collection.findOne(where.eq('_id', ean.reference.id).fields([
     'ecoscore_data',
     'nutriscore_data',
     'nova_groups_markers',

@@ -37,6 +37,7 @@ dependencies:
   dropdown_button2: 2.3.9
   easy_debounce: 2.0.1
   equatable: 2.0.5
+  expandable: 5.0.1
   firebase_analytics: 10.7.4
   firebase_analytics_platform_interface: 3.8.4
   firebase_analytics_web: 0.5.5+11

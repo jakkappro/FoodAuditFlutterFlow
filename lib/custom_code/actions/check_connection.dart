@@ -21,9 +21,7 @@ Future<bool> checkConnection() async {
     case ConnectivityResult.wifi:
     case ConnectivityResult.vpn:
       // case ConnectivityResult.other for ios when on vpn but it could cause trouble because this state is ambigous
-      // wifi up, try to connect to db
-      // not sure if check errors here
-      await DatabaseManager().openConnection();
+      // do something with this in main or something maybe set FFAppState()
       return true;
     default:
       return false;
@@ -54,21 +52,5 @@ class DatabaseManager {
     if (db.isConnected) {
       await db.close();
     }
-  }
-
-  Future<Map<String, dynamic>?> getProductById(String productId) async {
-    await openConnection();
-    var collection = db.collection('products');
-
-    var product = await collection.findOne(where.eq('_id', productId).fields([
-      'ecoscore_data',
-      'nutriscore_data',
-      'nova_groups_markers',
-      'nova_group',
-      'nutrient_levels'
-    ]));
-    //await closeConnection();  // Not sure here for now i keep it but it might be good idea to keep it open
-
-    return product;
   }
 }
