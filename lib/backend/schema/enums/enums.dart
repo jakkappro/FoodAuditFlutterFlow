@@ -12,7 +12,7 @@ enum EcoScoreGrades {
 
 enum NutriscoreLevels {
   low,
-  medium,
+  moderate,
   high,
   none,
 }

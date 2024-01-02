@@ -55,6 +55,7 @@ class _SlidingUpPanelFromEanWidgetState
       _model.product = await actions.getProductById(
         widget.doc!,
       );
+      setState(() {});
     });
 
     _model.expandableController1 = ExpandableController(initialExpanded: false);
