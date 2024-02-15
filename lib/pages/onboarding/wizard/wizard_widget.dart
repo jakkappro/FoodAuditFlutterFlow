@@ -18,10 +18,10 @@ import 'wizard_model.dart';
 export 'wizard_model.dart';
 
 class WizardWidget extends StatefulWidget {
-  const WizardWidget({Key? key}) : super(key: key);
+  const WizardWidget({super.key});
 
   @override
-  _WizardWidgetState createState() => _WizardWidgetState();
+  State<WizardWidget> createState() => _WizardWidgetState();
 }
 
 class _WizardWidgetState extends State<WizardWidget> {

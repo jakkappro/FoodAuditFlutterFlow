@@ -9,10 +9,10 @@ import 'open_scanner_button_model.dart';
 export 'open_scanner_button_model.dart';
 
 class OpenScannerButtonWidget extends StatefulWidget {
-  const OpenScannerButtonWidget({Key? key}) : super(key: key);
+  const OpenScannerButtonWidget({super.key});
 
   @override
-  _OpenScannerButtonWidgetState createState() =>
+  State<OpenScannerButtonWidget> createState() =>
       _OpenScannerButtonWidgetState();
 }
 

@@ -12,10 +12,10 @@ import 'avatar_menu_model.dart';
 export 'avatar_menu_model.dart';
 
 class AvatarMenuWidget extends StatefulWidget {
-  const AvatarMenuWidget({Key? key}) : super(key: key);
+  const AvatarMenuWidget({super.key});
 
   @override
-  _AvatarMenuWidgetState createState() => _AvatarMenuWidgetState();
+  State<AvatarMenuWidget> createState() => _AvatarMenuWidgetState();
 }
 
 class _AvatarMenuWidgetState extends State<AvatarMenuWidget> {

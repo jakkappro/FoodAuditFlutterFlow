@@ -10,10 +10,10 @@ import 'sub_settings_model.dart';
 export 'sub_settings_model.dart';
 
 class SubSettingsWidget extends StatefulWidget {
-  const SubSettingsWidget({Key? key}) : super(key: key);
+  const SubSettingsWidget({super.key});
 
   @override
-  _SubSettingsWidgetState createState() => _SubSettingsWidgetState();
+  State<SubSettingsWidget> createState() => _SubSettingsWidgetState();
 }
 
 class _SubSettingsWidgetState extends State<SubSettingsWidget> {

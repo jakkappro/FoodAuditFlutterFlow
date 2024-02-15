@@ -17,15 +17,14 @@ export 'personal_info_model.dart';
 
 class PersonalInfoWidget extends StatefulWidget {
   const PersonalInfoWidget({
-    Key? key,
+    super.key,
     String? greetingText,
-  })  : this.greetingText = greetingText ?? 'Fill out your information',
-        super(key: key);
+  }) : this.greetingText = greetingText ?? 'Fill out your information';
 
   final String greetingText;
 
   @override
-  _PersonalInfoWidgetState createState() => _PersonalInfoWidgetState();
+  State<PersonalInfoWidget> createState() => _PersonalInfoWidgetState();
 }
 
 class _PersonalInfoWidgetState extends State<PersonalInfoWidget> {

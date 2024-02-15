@@ -11,10 +11,10 @@ import 'auth_component_model.dart';
 export 'auth_component_model.dart';
 
 class AuthComponentWidget extends StatefulWidget {
-  const AuthComponentWidget({Key? key}) : super(key: key);
+  const AuthComponentWidget({super.key});
 
   @override
-  _AuthComponentWidgetState createState() => _AuthComponentWidgetState();
+  State<AuthComponentWidget> createState() => _AuthComponentWidgetState();
 }
 
 class _AuthComponentWidgetState extends State<AuthComponentWidget> {

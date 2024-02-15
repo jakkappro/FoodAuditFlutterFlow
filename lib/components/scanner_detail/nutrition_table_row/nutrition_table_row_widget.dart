@@ -10,14 +10,14 @@ export 'nutrition_table_row_model.dart';
 
 class NutritionTableRowWidget extends StatefulWidget {
   const NutritionTableRowWidget({
-    Key? key,
+    super.key,
     required this.nutrient,
-  }) : super(key: key);
+  });
 
   final NutrientStruct? nutrient;
 
   @override
-  _NutritionTableRowWidgetState createState() =>
+  State<NutritionTableRowWidget> createState() =>
       _NutritionTableRowWidgetState();
 }
 

@@ -17,14 +17,14 @@ export 'scanned_item_model.dart';
 
 class ScannedItemWidget extends StatefulWidget {
   const ScannedItemWidget({
-    Key? key,
+    super.key,
     required this.scannedItem,
-  }) : super(key: key);
+  });
 
   final ScannedItemStruct? scannedItem;
 
   @override
-  _ScannedItemWidgetState createState() => _ScannedItemWidgetState();
+  State<ScannedItemWidget> createState() => _ScannedItemWidgetState();
 }
 
 class _ScannedItemWidgetState extends State<ScannedItemWidget> {

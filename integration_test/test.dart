@@ -2,11 +2,16 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:integration_test/integration_test.dart';
+import 'package:nu3_food/flutter_flow/flutter_flow_drop_down.dart';
+
+import 'package:nu3_food/flutter_flow/flutter_flow_widgets.dart';
+import 'package:nu3_food/index.dart';
 import 'package:nu3_food/main.dart';
 import 'package:nu3_food/flutter_flow/flutter_flow_util.dart';
 
 import 'package:provider/provider.dart';
 import 'package:nu3_food/backend/firebase/firebase_config.dart';
+import 'package:nu3_food/auth/firebase_auth/auth_util.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
 void main() async {
@@ -15,7 +20,9 @@ void main() async {
   testWidgets('Test test', (WidgetTester tester) async {
     _overrideOnError();
     await initFirebase();
-    await FirebaseAuth.instance.signOut();
+
+    await authManager.signOut();
+    await FFLocalizations.initialize();
     FFAppState.reset();
     final appState = FFAppState();
     await appState.initializePersistedState();
@@ -37,7 +44,9 @@ void main() async {
   testWidgets('Test of auth', (WidgetTester tester) async {
     _overrideOnError();
     await initFirebase();
-    await FirebaseAuth.instance.signOut();
+
+    await authManager.signOut();
+    await FFLocalizations.initialize();
     FFAppState.reset();
     final appState = FFAppState();
     await appState.initializePersistedState();
@@ -57,7 +66,9 @@ void main() async {
   testWidgets('LoggedOutSettingsTest', (WidgetTester tester) async {
     _overrideOnError();
     await initFirebase();
-    await FirebaseAuth.instance.signOut();
+
+    await authManager.signOut();
+    await FFLocalizations.initialize();
     FFAppState.reset();
     final appState = FFAppState();
     await appState.initializePersistedState();

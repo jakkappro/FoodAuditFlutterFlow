@@ -9,10 +9,10 @@ import 'close_scanner_button_model.dart';
 export 'close_scanner_button_model.dart';
 
 class CloseScannerButtonWidget extends StatefulWidget {
-  const CloseScannerButtonWidget({Key? key}) : super(key: key);
+  const CloseScannerButtonWidget({super.key});
 
   @override
-  _CloseScannerButtonWidgetState createState() =>
+  State<CloseScannerButtonWidget> createState() =>
       _CloseScannerButtonWidgetState();
 }
 

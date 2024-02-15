@@ -11,10 +11,10 @@ import 'intolerancies_model.dart';
 export 'intolerancies_model.dart';
 
 class IntoleranciesWidget extends StatefulWidget {
-  const IntoleranciesWidget({Key? key}) : super(key: key);
+  const IntoleranciesWidget({super.key});
 
   @override
-  _IntoleranciesWidgetState createState() => _IntoleranciesWidgetState();
+  State<IntoleranciesWidget> createState() => _IntoleranciesWidgetState();
 }
 
 class _IntoleranciesWidgetState extends State<IntoleranciesWidget> {

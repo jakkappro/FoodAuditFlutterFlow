@@ -9,10 +9,10 @@ import 'add_new_ean_request_model.dart';
 export 'add_new_ean_request_model.dart';
 
 class AddNewEanRequestWidget extends StatefulWidget {
-  const AddNewEanRequestWidget({Key? key}) : super(key: key);
+  const AddNewEanRequestWidget({super.key});
 
   @override
-  _AddNewEanRequestWidgetState createState() => _AddNewEanRequestWidgetState();
+  State<AddNewEanRequestWidget> createState() => _AddNewEanRequestWidgetState();
 }
 
 class _AddNewEanRequestWidgetState extends State<AddNewEanRequestWidget> {

@@ -11,10 +11,10 @@ import 'header_model.dart';
 export 'header_model.dart';
 
 class HeaderWidget extends StatefulWidget {
-  const HeaderWidget({Key? key}) : super(key: key);
+  const HeaderWidget({super.key});
 
   @override
-  _HeaderWidgetState createState() => _HeaderWidgetState();
+  State<HeaderWidget> createState() => _HeaderWidgetState();
 }
 
 class _HeaderWidgetState extends State<HeaderWidget> {

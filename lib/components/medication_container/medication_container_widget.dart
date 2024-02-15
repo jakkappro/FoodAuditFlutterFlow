@@ -9,16 +9,16 @@ export 'medication_container_model.dart';
 
 class MedicationContainerWidget extends StatefulWidget {
   const MedicationContainerWidget({
-    Key? key,
+    super.key,
     required this.name,
     required this.safe,
-  }) : super(key: key);
+  });
 
   final String? name;
   final bool? safe;
 
   @override
-  _MedicationContainerWidgetState createState() =>
+  State<MedicationContainerWidget> createState() =>
       _MedicationContainerWidgetState();
 }
 

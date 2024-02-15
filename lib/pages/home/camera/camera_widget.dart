@@ -10,10 +10,10 @@ import 'camera_model.dart';
 export 'camera_model.dart';
 
 class CameraWidget extends StatefulWidget {
-  const CameraWidget({Key? key}) : super(key: key);
+  const CameraWidget({super.key});
 
   @override
-  _CameraWidgetState createState() => _CameraWidgetState();
+  State<CameraWidget> createState() => _CameraWidgetState();
 }
 
 class _CameraWidgetState extends State<CameraWidget> {

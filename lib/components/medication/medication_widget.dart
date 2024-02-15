@@ -12,16 +12,16 @@ export 'medication_model.dart';
 
 class MedicationWidget extends StatefulWidget {
   const MedicationWidget({
-    Key? key,
+    super.key,
     required this.whereToScroll,
     required this.shouldShowLink,
-  }) : super(key: key);
+  });
 
-  final Future<dynamic> Function()? whereToScroll;
+  final Future Function()? whereToScroll;
   final bool? shouldShowLink;
 
   @override
-  _MedicationWidgetState createState() => _MedicationWidgetState();
+  State<MedicationWidget> createState() => _MedicationWidgetState();
 }
 
 class _MedicationWidgetState extends State<MedicationWidget> {

@@ -8,10 +8,10 @@ import 'recycle_info_model.dart';
 export 'recycle_info_model.dart';
 
 class RecycleInfoWidget extends StatefulWidget {
-  const RecycleInfoWidget({Key? key}) : super(key: key);
+  const RecycleInfoWidget({super.key});
 
   @override
-  _RecycleInfoWidgetState createState() => _RecycleInfoWidgetState();
+  State<RecycleInfoWidget> createState() => _RecycleInfoWidgetState();
 }
 
 class _RecycleInfoWidgetState extends State<RecycleInfoWidget> {

@@ -9,10 +9,10 @@ import 'scan_product_message_model.dart';
 export 'scan_product_message_model.dart';
 
 class ScanProductMessageWidget extends StatefulWidget {
-  const ScanProductMessageWidget({Key? key}) : super(key: key);
+  const ScanProductMessageWidget({super.key});
 
   @override
-  _ScanProductMessageWidgetState createState() =>
+  State<ScanProductMessageWidget> createState() =>
       _ScanProductMessageWidgetState();
 }
 

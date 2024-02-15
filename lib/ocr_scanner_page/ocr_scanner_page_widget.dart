@@ -10,10 +10,10 @@ import 'ocr_scanner_page_model.dart';
 export 'ocr_scanner_page_model.dart';
 
 class OcrScannerPageWidget extends StatefulWidget {
-  const OcrScannerPageWidget({Key? key}) : super(key: key);
+  const OcrScannerPageWidget({super.key});
 
   @override
-  _OcrScannerPageWidgetState createState() => _OcrScannerPageWidgetState();
+  State<OcrScannerPageWidget> createState() => _OcrScannerPageWidgetState();
 }
 
 class _OcrScannerPageWidgetState extends State<OcrScannerPageWidget> {

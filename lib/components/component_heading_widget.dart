@@ -9,13 +9,13 @@ export 'component_heading_model.dart';
 
 class ComponentHeadingWidget extends StatefulWidget {
   const ComponentHeadingWidget({
-    Key? key,
+    super.key,
     required this.title,
     required this.description,
     required this.spacing,
     required this.titleSize,
     required this.descriptionSize,
-  }) : super(key: key);
+  });
 
   final String? title;
   final String? description;
@@ -24,7 +24,7 @@ class ComponentHeadingWidget extends StatefulWidget {
   final int? descriptionSize;
 
   @override
-  _ComponentHeadingWidgetState createState() => _ComponentHeadingWidgetState();
+  State<ComponentHeadingWidget> createState() => _ComponentHeadingWidgetState();
 }
 
 class _ComponentHeadingWidgetState extends State<ComponentHeadingWidget> {

@@ -10,10 +10,10 @@ import 'scanned_items_model.dart';
 export 'scanned_items_model.dart';
 
 class ScannedItemsWidget extends StatefulWidget {
-  const ScannedItemsWidget({Key? key}) : super(key: key);
+  const ScannedItemsWidget({super.key});
 
   @override
-  _ScannedItemsWidgetState createState() => _ScannedItemsWidgetState();
+  State<ScannedItemsWidget> createState() => _ScannedItemsWidgetState();
 }
 
 class _ScannedItemsWidgetState extends State<ScannedItemsWidget> {

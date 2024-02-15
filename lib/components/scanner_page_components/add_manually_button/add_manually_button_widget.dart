@@ -12,16 +12,16 @@ export 'add_manually_button_model.dart';
 
 class AddManuallyButtonWidget extends StatefulWidget {
   const AddManuallyButtonWidget({
-    Key? key,
+    super.key,
     required this.ean,
     required this.onPressed,
-  }) : super(key: key);
+  });
 
   final String? ean;
-  final Future<dynamic> Function()? onPressed;
+  final Future Function()? onPressed;
 
   @override
-  _AddManuallyButtonWidgetState createState() =>
+  State<AddManuallyButtonWidget> createState() =>
       _AddManuallyButtonWidgetState();
 }
 

@@ -9,14 +9,14 @@ export 'o_c_r_header_model.dart';
 
 class OCRHeaderWidget extends StatefulWidget {
   const OCRHeaderWidget({
-    Key? key,
+    super.key,
     required this.currentName,
-  }) : super(key: key);
+  });
 
   final String? currentName;
 
   @override
-  _OCRHeaderWidgetState createState() => _OCRHeaderWidgetState();
+  State<OCRHeaderWidget> createState() => _OCRHeaderWidgetState();
 }
 
 class _OCRHeaderWidgetState extends State<OCRHeaderWidget> {
