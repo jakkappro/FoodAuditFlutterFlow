@@ -108,6 +108,9 @@ class _AvatarMenuWidgetState extends State<AvatarMenuWidget> {
                                 width: 47.5,
                                 height: 47.5,
                                 name: imageItem,
+                                isInternet: !((String name) {
+                                  return name.startsWith("avatar_");
+                                }(imageItem)),
                               ),
                             ),
                           ),

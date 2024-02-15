@@ -1,7 +1,6 @@
 import '/backend/backend.dart';
 import '/backend/schema/structs/index.dart';
 import '/components/scanner_detail/nutrition_table_row/nutrition_table_row_widget.dart';
-import '/flutter_flow/flutter_flow_expanded_image_view.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/custom_code/actions/index.dart' as actions;
@@ -13,7 +12,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:page_transition/page_transition.dart';
 import 'package:provider/provider.dart';
 import 'sliding_up_panel_from_ean_model.dart';
 export 'sliding_up_panel_from_ean_model.dart';
@@ -55,15 +53,6 @@ class _SlidingUpPanelFromEanWidgetState
       logFirebaseEvent('SLIDING_UP_PANEL_FROM_EAN_SlidingUpPanel');
       _model.product = await actions.getProductById(
         widget.doc!,
-      );
-      _model.nutriScoreImage = await actions.nutriscoreGradeConverter(
-        _model.product?.nutriscoreGrade?.name,
-      );
-      _model.ecoScoreImage = await actions.ecoScoreGradeConverter(
-        _model.product?.ecoScoreGrade?.name,
-      );
-      _model.novaImage = await actions.novagroupImageConverter(
-        _model.product?.novaGrade?.toString(),
       );
       setState(() {});
     });
@@ -331,67 +320,15 @@ class _SlidingUpPanelFromEanWidgetState
                                         color: FlutterFlowTheme.of(context)
                                             .primaryBackground,
                                       ),
-                                      child: InkWell(
-                                        splashColor: Colors.transparent,
-                                        focusColor: Colors.transparent,
-                                        hoverColor: Colors.transparent,
-                                        highlightColor: Colors.transparent,
-                                        onTap: () async {
-                                          logFirebaseEvent(
-                                              'SLIDING_UP_PANEL_FROM_EAN_Image_bxm6gqc0');
-                                          await Navigator.push(
-                                            context,
-                                            PageTransition(
-                                              type: PageTransitionType.fade,
-                                              child:
-                                                  FlutterFlowExpandedImageView(
-                                                image: Image.memory(
-                                                  _model.nutriScoreImage
-                                                          ?.bytes ??
-                                                      Uint8List.fromList([]),
-                                                  fit: BoxFit.contain,
-                                                  alignment:
-                                                      Alignment(0.0, 0.0),
-                                                  errorBuilder: (context, error,
-                                                          stackTrace) =>
-                                                      Image.asset(
-                                                    'assets/images/error_image.png',
-                                                    fit: BoxFit.contain,
-                                                    alignment:
-                                                        Alignment(0.0, 0.0),
-                                                  ),
-                                                ),
-                                                allowRotation: false,
-                                                tag: 'imageTag1',
-                                                useHeroAnimation: true,
-                                              ),
-                                            ),
-                                          );
-                                        },
-                                        child: Hero(
-                                          tag: 'imageTag1',
-                                          transitionOnUserGestures: true,
-                                          child: ClipRRect(
-                                            borderRadius:
-                                                BorderRadius.circular(8.0),
-                                            child: Image.memory(
-                                              _model.nutriScoreImage?.bytes ??
-                                                  Uint8List.fromList([]),
-                                              width: double.infinity,
-                                              height: double.infinity,
-                                              fit: BoxFit.scaleDown,
-                                              alignment: Alignment(0.0, 0.0),
-                                              errorBuilder: (context, error,
-                                                      stackTrace) =>
-                                                  Image.asset(
-                                                'assets/images/error_image.png',
-                                                width: double.infinity,
-                                                height: double.infinity,
-                                                fit: BoxFit.scaleDown,
-                                                alignment: Alignment(0.0, 0.0),
-                                              ),
-                                            ),
-                                          ),
+                                      child: Container(
+                                        width: double.infinity,
+                                        height: double.infinity,
+                                        child: custom_widgets.ImageFromString(
+                                          width: double.infinity,
+                                          height: double.infinity,
+                                          name:
+                                              'nutriscore-${_model.product?.nutriscoreGrade?.name}.png',
+                                          isInternet: false,
                                         ),
                                       ),
                                     ),
@@ -452,62 +389,15 @@ class _SlidingUpPanelFromEanWidgetState
                                         color: FlutterFlowTheme.of(context)
                                             .primaryBackground,
                                       ),
-                                      child: InkWell(
-                                        splashColor: Colors.transparent,
-                                        focusColor: Colors.transparent,
-                                        hoverColor: Colors.transparent,
-                                        highlightColor: Colors.transparent,
-                                        onTap: () async {
-                                          logFirebaseEvent(
-                                              'SLIDING_UP_PANEL_FROM_EAN_Image_juxvc3en');
-                                          await Navigator.push(
-                                            context,
-                                            PageTransition(
-                                              type: PageTransitionType.fade,
-                                              child:
-                                                  FlutterFlowExpandedImageView(
-                                                image: Image.memory(
-                                                  _model.novaImage?.bytes ??
-                                                      Uint8List.fromList([]),
-                                                  fit: BoxFit.contain,
-                                                  alignment:
-                                                      Alignment(0.0, 0.0),
-                                                  errorBuilder: (context, error,
-                                                          stackTrace) =>
-                                                      Image.asset(
-                                                    'assets/images/error_image.png',
-                                                    fit: BoxFit.contain,
-                                                    alignment:
-                                                        Alignment(0.0, 0.0),
-                                                  ),
-                                                ),
-                                                allowRotation: false,
-                                                tag: 'imageTag2',
-                                                useHeroAnimation: true,
-                                              ),
-                                            ),
-                                          );
-                                        },
-                                        child: Hero(
-                                          tag: 'imageTag2',
-                                          transitionOnUserGestures: true,
-                                          child: ClipRRect(
-                                            borderRadius:
-                                                BorderRadius.circular(8.0),
-                                            child: Image.memory(
-                                              _model.novaImage?.bytes ??
-                                                  Uint8List.fromList([]),
-                                              fit: BoxFit.scaleDown,
-                                              alignment: Alignment(0.0, 0.0),
-                                              errorBuilder: (context, error,
-                                                      stackTrace) =>
-                                                  Image.asset(
-                                                'assets/images/error_image.png',
-                                                fit: BoxFit.scaleDown,
-                                                alignment: Alignment(0.0, 0.0),
-                                              ),
-                                            ),
-                                          ),
+                                      child: Container(
+                                        width: double.infinity,
+                                        height: double.infinity,
+                                        child: custom_widgets.ImageFromString(
+                                          width: double.infinity,
+                                          height: double.infinity,
+                                          name:
+                                              'nova-group-${_model.product?.novaGrade?.toString()}.png',
+                                          isInternet: false,
                                         ),
                                       ),
                                     ),
@@ -566,68 +456,17 @@ class _SlidingUpPanelFromEanWidgetState
                                       height: 100.0,
                                       decoration: BoxDecoration(
                                         color: FlutterFlowTheme.of(context)
-                                            .secondaryBackground,
+                                            .primaryBackground,
                                       ),
-                                      child: InkWell(
-                                        splashColor: Colors.transparent,
-                                        focusColor: Colors.transparent,
-                                        hoverColor: Colors.transparent,
-                                        highlightColor: Colors.transparent,
-                                        onTap: () async {
-                                          logFirebaseEvent(
-                                              'SLIDING_UP_PANEL_FROM_EAN_Image_57yjjd5u');
-                                          await Navigator.push(
-                                            context,
-                                            PageTransition(
-                                              type: PageTransitionType.fade,
-                                              child:
-                                                  FlutterFlowExpandedImageView(
-                                                image: Image.memory(
-                                                  _model.ecoScoreImage?.bytes ??
-                                                      Uint8List.fromList([]),
-                                                  fit: BoxFit.contain,
-                                                  alignment:
-                                                      Alignment(0.0, 0.0),
-                                                  errorBuilder: (context, error,
-                                                          stackTrace) =>
-                                                      Image.asset(
-                                                    'assets/images/error_image.png',
-                                                    fit: BoxFit.contain,
-                                                    alignment:
-                                                        Alignment(0.0, 0.0),
-                                                  ),
-                                                ),
-                                                allowRotation: false,
-                                                tag: 'imageTag3',
-                                                useHeroAnimation: true,
-                                              ),
-                                            ),
-                                          );
-                                        },
-                                        child: Hero(
-                                          tag: 'imageTag3',
-                                          transitionOnUserGestures: true,
-                                          child: ClipRRect(
-                                            borderRadius:
-                                                BorderRadius.circular(8.0),
-                                            child: Image.memory(
-                                              _model.ecoScoreImage?.bytes ??
-                                                  Uint8List.fromList([]),
-                                              width: 300.0,
-                                              height: 200.0,
-                                              fit: BoxFit.scaleDown,
-                                              alignment: Alignment(0.0, 0.0),
-                                              errorBuilder: (context, error,
-                                                      stackTrace) =>
-                                                  Image.asset(
-                                                'assets/images/error_image.png',
-                                                width: 300.0,
-                                                height: 200.0,
-                                                fit: BoxFit.scaleDown,
-                                                alignment: Alignment(0.0, 0.0),
-                                              ),
-                                            ),
-                                          ),
+                                      child: Container(
+                                        width: double.infinity,
+                                        height: double.infinity,
+                                        child: custom_widgets.ImageFromString(
+                                          width: double.infinity,
+                                          height: double.infinity,
+                                          name:
+                                              'Eco-score_${_model.product?.ecoScoreGrade?.name}.png',
+                                          isInternet: false,
                                         ),
                                       ),
                                     ),

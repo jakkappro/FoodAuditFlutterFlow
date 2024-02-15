@@ -133,6 +133,9 @@ class _HeaderWidgetState extends State<HeaderWidget> {
                   width: 73.0,
                   height: 73.0,
                   name: FFAppState().imageName,
+                  isInternet: !((String name) {
+                    return name.startsWith("avatar_");
+                  }(FFAppState().imageName)),
                 ),
               ),
             ),

@@ -14,16 +14,18 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
 class ImageFromString extends StatefulWidget {
-  const ImageFromString({
-    Key? key,
-    this.width,
-    this.height,
-    required this.name,
-  }) : super(key: key);
+  const ImageFromString(
+      {Key? key,
+      this.width,
+      this.height,
+      required this.name,
+      required this.isInternet})
+      : super(key: key);
 
   final double? width;
   final double? height;
   final String name;
+  final bool isInternet;
 
   @override
   _ImageFromStringState createState() => _ImageFromStringState();
@@ -32,7 +34,7 @@ class ImageFromString extends StatefulWidget {
 class _ImageFromStringState extends State<ImageFromString> {
   @override
   Widget build(BuildContext context) {
-    if (widget.name.startsWith("avatar_")) {
+    if (!widget.isInternet) {
       return SvgPicture.asset(
         'assets/images/' + widget.name,
         width: widget.width,
