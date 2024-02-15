@@ -14,13 +14,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
 class ImageFromString extends StatefulWidget {
-  const ImageFromString(
-      {Key? key,
-      this.width,
-      this.height,
-      required this.name,
-      required this.isInternet})
-      : super(key: key);
+  const ImageFromString({
+    Key? key,
+    this.width,
+    this.height,
+    required this.name,
+    required this.isInternet,
+  }) : super(key: key);
 
   final double? width;
   final double? height;
