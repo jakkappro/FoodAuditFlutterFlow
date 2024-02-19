@@ -11,8 +11,10 @@ class ScanProductMessageModel
     extends FlutterFlowModel<ScanProductMessageWidget> {
   /// Initialization and disposal methods.
 
+  @override
   void initState(BuildContext context) {}
 
+  @override
   void dispose() {}
 
   /// Action blocks are added here.

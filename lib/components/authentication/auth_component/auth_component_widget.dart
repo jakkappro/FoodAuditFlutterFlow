@@ -63,6 +63,24 @@ class _AuthComponentWidgetState extends State<AuthComponentWidget> {
                 highlightColor: Colors.transparent,
                 onTap: () async {
                   logFirebaseEvent('AUTH_COMPONENT_Container_v7lawx9j_ON_TAP');
+                  setState(() {
+                    _model.loading = true;
+                  });
+                  GoRouter.of(context).prepareAuthEvent();
+                  final user = await authManager.signInWithApple(context);
+                  if (user == null) {
+                    return;
+                  }
+                  FFAppState().IsGuest = false;
+                  if (FFAppState().DoneWizzard == false) {
+                    context.goNamedAuth('Wizard', context.mounted);
+                  } else {
+                    context.goNamedAuth('Home', context.mounted);
+                  }
+
+                  setState(() {
+                    _model.loading = false;
+                  });
                 },
                 child: Container(
                   width: double.infinity,

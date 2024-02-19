@@ -32,8 +32,10 @@ class SlidingUpPanelFromEanModel
 
   /// Initialization and disposal methods.
 
+  @override
   void initState(BuildContext context) {}
 
+  @override
   void dispose() {
     expandableController1.dispose();
     expandableController2.dispose();

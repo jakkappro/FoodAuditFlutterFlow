@@ -33,6 +33,7 @@ class HomeModel extends FlutterFlowModel<HomeWidget> {
 
   /// Initialization and disposal methods.
 
+  @override
   void initState(BuildContext context) {
     columnController = ScrollController();
     headerModel = createModel(context, () => HeaderModel());
@@ -43,6 +44,7 @@ class HomeModel extends FlutterFlowModel<HomeWidget> {
         createModel(context, () => OpenScannerButtonModel());
   }
 
+  @override
   void dispose() {
     unfocusNode.dispose();
     columnController?.dispose();

@@ -15,15 +15,19 @@ class IntoleranciesModel extends FlutterFlowModel<IntoleranciesWidget> {
   // Model for ComponentHeading component.
   late ComponentHeadingModel componentHeadingModel;
   // State field(s) for ChoiceChips widget.
-  List<String>? choiceChipsValues;
   FormFieldController<List<String>>? choiceChipsValueController;
+  List<String>? get choiceChipsValues => choiceChipsValueController?.value;
+  set choiceChipsValues(List<String>? val) =>
+      choiceChipsValueController?.value = val;
 
   /// Initialization and disposal methods.
 
+  @override
   void initState(BuildContext context) {
     componentHeadingModel = createModel(context, () => ComponentHeadingModel());
   }
 
+  @override
   void dispose() {
     componentHeadingModel.dispose();
   }

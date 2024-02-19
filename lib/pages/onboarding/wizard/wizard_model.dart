@@ -47,6 +47,7 @@ class WizardModel extends FlutterFlowModel<WizardWidget> {
 
   /// Initialization and disposal methods.
 
+  @override
   void initState(BuildContext context) {
     columnController1 = ScrollController();
     componentHeadingModel1 =
@@ -60,6 +61,7 @@ class WizardModel extends FlutterFlowModel<WizardWidget> {
     medicationModel = createModel(context, () => MedicationModel());
   }
 
+  @override
   void dispose() {
     unfocusNode.dispose();
     columnController1?.dispose();

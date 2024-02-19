@@ -29,6 +29,7 @@ class MedicationModel extends FlutterFlowModel<MedicationWidget> {
 
   /// Initialization and disposal methods.
 
+  @override
   void initState(BuildContext context) {
     componentHeadingModel1 =
         createModel(context, () => ComponentHeadingModel());
@@ -36,6 +37,7 @@ class MedicationModel extends FlutterFlowModel<MedicationWidget> {
         createModel(context, () => ComponentHeadingModel());
   }
 
+  @override
   void dispose() {
     componentHeadingModel1.dispose();
     textFieldFocusNode?.dispose();

@@ -31,6 +31,7 @@ class WelcomeModel extends FlutterFlowModel<WelcomeWidget> {
 
   /// Initialization and disposal methods.
 
+  @override
   void initState(BuildContext context) {
     componentHeadingModel1 =
         createModel(context, () => ComponentHeadingModel());
@@ -39,6 +40,7 @@ class WelcomeModel extends FlutterFlowModel<WelcomeWidget> {
     authComponentModel = createModel(context, () => AuthComponentModel());
   }
 
+  @override
   void dispose() {
     unfocusNode.dispose();
     componentHeadingModel1.dispose();

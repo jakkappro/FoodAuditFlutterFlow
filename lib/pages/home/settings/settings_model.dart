@@ -33,6 +33,7 @@ class SettingsModel extends FlutterFlowModel<SettingsWidget> {
 
   /// Initialization and disposal methods.
 
+  @override
   void initState(BuildContext context) {
     columnController = ScrollController();
     avatarMenuModel = createModel(context, () => AvatarMenuModel());
@@ -41,6 +42,7 @@ class SettingsModel extends FlutterFlowModel<SettingsWidget> {
     medicationModel = createModel(context, () => MedicationModel());
   }
 
+  @override
   void dispose() {
     unfocusNode.dispose();
     columnController?.dispose();
