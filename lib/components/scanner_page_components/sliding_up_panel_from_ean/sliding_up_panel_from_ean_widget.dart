@@ -435,7 +435,7 @@ class _SlidingUpPanelFromEanWidgetState
                                   ),
                                 ),
                               ),
-                            if (_model.product?.ecoScoreGrade ==
+                            if (_model.product?.ecoScoreGrade !=
                                 EcoScoreGrades.none)
                               Container(
                                 decoration: BoxDecoration(
