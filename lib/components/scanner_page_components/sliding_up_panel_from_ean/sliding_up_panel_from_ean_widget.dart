@@ -353,8 +353,8 @@ class _SlidingUpPanelFromEanWidgetState
                                       ),
                                       theme: ExpandableThemeData(
                                         tapHeaderToExpand: true,
-                                        tapBodyToExpand: false,
-                                        tapBodyToCollapse: false,
+                                        tapBodyToExpand: true,
+                                        tapBodyToCollapse: true,
                                         headerAlignment:
                                             ExpandablePanelHeaderAlignment
                                                 .center,
@@ -424,8 +424,8 @@ class _SlidingUpPanelFromEanWidgetState
                                       ),
                                       theme: ExpandableThemeData(
                                         tapHeaderToExpand: true,
-                                        tapBodyToExpand: false,
-                                        tapBodyToCollapse: false,
+                                        tapBodyToExpand: true,
+                                        tapBodyToCollapse: true,
                                         headerAlignment:
                                             ExpandablePanelHeaderAlignment
                                                 .center,
@@ -496,8 +496,8 @@ class _SlidingUpPanelFromEanWidgetState
                                       ),
                                       theme: ExpandableThemeData(
                                         tapHeaderToExpand: true,
-                                        tapBodyToExpand: false,
-                                        tapBodyToCollapse: false,
+                                        tapBodyToExpand: true,
+                                        tapBodyToCollapse: true,
                                         headerAlignment:
                                             ExpandablePanelHeaderAlignment
                                                 .center,
