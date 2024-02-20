@@ -1,4 +1,5 @@
 import '/backend/backend.dart';
+import '/backend/schema/enums/enums.dart';
 import '/backend/schema/structs/index.dart';
 import '/components/scanner_detail/nutrition_table_row/nutrition_table_row_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
@@ -291,213 +292,221 @@ class _SlidingUpPanelFromEanWidgetState
                         child: Column(
                           mainAxisSize: MainAxisSize.max,
                           children: [
-                            Container(
-                              decoration: BoxDecoration(
-                                color: FlutterFlowTheme.of(context)
-                                    .secondaryBackground,
-                              ),
-                              child: Container(
-                                width: double.infinity,
-                                color: Colors.white,
-                                child: ExpandableNotifier(
-                                  controller: _model.expandableController1,
-                                  child: ExpandablePanel(
-                                    header: Text(
-                                      FFLocalizations.of(context).getText(
-                                        'zixc1z12' /* Nutriscore */,
+                            if (_model.product?.nutriscoreGrade !=
+                                EcoScoreGrades.none)
+                              Container(
+                                decoration: BoxDecoration(
+                                  color: FlutterFlowTheme.of(context)
+                                      .secondaryBackground,
+                                ),
+                                child: Container(
+                                  width: double.infinity,
+                                  color: Colors.white,
+                                  child: ExpandableNotifier(
+                                    controller: _model.expandableController1,
+                                    child: ExpandablePanel(
+                                      header: Text(
+                                        FFLocalizations.of(context).getText(
+                                          'zixc1z12' /* Nutriscore */,
+                                        ),
+                                        style: FlutterFlowTheme.of(context)
+                                            .displaySmall
+                                            .override(
+                                              fontFamily: 'Roboto',
+                                              color: Colors.black,
+                                            ),
                                       ),
-                                      style: FlutterFlowTheme.of(context)
-                                          .displaySmall
-                                          .override(
-                                            fontFamily: 'Roboto',
-                                            color: Colors.black,
-                                          ),
-                                    ),
-                                    collapsed: Container(
-                                      width: double.infinity,
-                                      height: 100.0,
-                                      decoration: BoxDecoration(
-                                        color: FlutterFlowTheme.of(context)
-                                            .primaryBackground,
-                                      ),
-                                      child: Container(
+                                      collapsed: Container(
                                         width: double.infinity,
-                                        height: double.infinity,
-                                        child: custom_widgets.ImageFromString(
+                                        height: 100.0,
+                                        decoration: BoxDecoration(
+                                          color: FlutterFlowTheme.of(context)
+                                              .primaryBackground,
+                                        ),
+                                        child: Container(
                                           width: double.infinity,
                                           height: double.infinity,
-                                          name:
-                                              'nutriscore-${_model.product?.nutriscoreGrade?.name}.png',
-                                          isInternet: false,
+                                          child: custom_widgets.ImageFromString(
+                                            width: double.infinity,
+                                            height: double.infinity,
+                                            name:
+                                                'nutriscore-${_model.product?.nutriscoreGrade?.name}.png',
+                                            isInternet: false,
+                                          ),
                                         ),
                                       ),
-                                    ),
-                                    expanded: Column(
-                                      mainAxisSize: MainAxisSize.max,
-                                      children: [
-                                        Text(
-                                          FFLocalizations.of(context).getText(
-                                            '0k6of2qr' /* Lorem ipsum dolor sit amet, co... */,
+                                      expanded: Column(
+                                        mainAxisSize: MainAxisSize.max,
+                                        children: [
+                                          Text(
+                                            FFLocalizations.of(context).getText(
+                                              '0k6of2qr' /* Lorem ipsum dolor sit amet, co... */,
+                                            ),
+                                            style: FlutterFlowTheme.of(context)
+                                                .bodyMedium
+                                                .override(
+                                                  fontFamily: 'Roboto',
+                                                  color: Color(0x8A000000),
+                                                ),
                                           ),
-                                          style: FlutterFlowTheme.of(context)
-                                              .bodyMedium
-                                              .override(
-                                                fontFamily: 'Roboto',
-                                                color: Color(0x8A000000),
-                                              ),
-                                        ),
-                                      ],
-                                    ),
-                                    theme: ExpandableThemeData(
-                                      tapHeaderToExpand: true,
-                                      tapBodyToExpand: false,
-                                      tapBodyToCollapse: false,
-                                      headerAlignment:
-                                          ExpandablePanelHeaderAlignment.center,
-                                      hasIcon: true,
+                                        ],
+                                      ),
+                                      theme: ExpandableThemeData(
+                                        tapHeaderToExpand: true,
+                                        tapBodyToExpand: false,
+                                        tapBodyToCollapse: false,
+                                        headerAlignment:
+                                            ExpandablePanelHeaderAlignment
+                                                .center,
+                                        hasIcon: true,
+                                      ),
                                     ),
                                   ),
                                 ),
                               ),
-                            ),
-                            Container(
-                              decoration: BoxDecoration(
-                                color: Colors.transparent,
-                              ),
-                              child: Container(
-                                width: double.infinity,
-                                color: FlutterFlowTheme.of(context)
-                                    .primaryBackground,
-                                child: ExpandableNotifier(
-                                  controller: _model.expandableController2,
-                                  child: ExpandablePanel(
-                                    header: Text(
-                                      FFLocalizations.of(context).getText(
-                                        'ohe5s68c' /* Novascore */,
+                            if (_model.product?.novaGrade != -1)
+                              Container(
+                                decoration: BoxDecoration(
+                                  color: Colors.transparent,
+                                ),
+                                child: Container(
+                                  width: double.infinity,
+                                  color: FlutterFlowTheme.of(context)
+                                      .primaryBackground,
+                                  child: ExpandableNotifier(
+                                    controller: _model.expandableController2,
+                                    child: ExpandablePanel(
+                                      header: Text(
+                                        FFLocalizations.of(context).getText(
+                                          'ohe5s68c' /* Novascore */,
+                                        ),
+                                        style: FlutterFlowTheme.of(context)
+                                            .displaySmall
+                                            .override(
+                                              fontFamily: 'Roboto',
+                                              color: Colors.black,
+                                            ),
                                       ),
-                                      style: FlutterFlowTheme.of(context)
-                                          .displaySmall
-                                          .override(
-                                            fontFamily: 'Roboto',
-                                            color: Colors.black,
-                                          ),
-                                    ),
-                                    collapsed: Container(
-                                      width: double.infinity,
-                                      height: 100.0,
-                                      decoration: BoxDecoration(
-                                        color: FlutterFlowTheme.of(context)
-                                            .primaryBackground,
-                                      ),
-                                      child: Container(
+                                      collapsed: Container(
                                         width: double.infinity,
-                                        height: double.infinity,
-                                        child: custom_widgets.ImageFromString(
+                                        height: 100.0,
+                                        decoration: BoxDecoration(
+                                          color: FlutterFlowTheme.of(context)
+                                              .primaryBackground,
+                                        ),
+                                        child: Container(
                                           width: double.infinity,
                                           height: double.infinity,
-                                          name:
-                                              'nova-group-${_model.product?.novaGrade?.toString()}.png',
-                                          isInternet: false,
+                                          child: custom_widgets.ImageFromString(
+                                            width: double.infinity,
+                                            height: double.infinity,
+                                            name:
+                                                'nova-group-${_model.product?.novaGrade?.toString()}.png',
+                                            isInternet: false,
+                                          ),
                                         ),
                                       ),
-                                    ),
-                                    expanded: Column(
-                                      mainAxisSize: MainAxisSize.max,
-                                      children: [
-                                        Text(
-                                          FFLocalizations.of(context).getText(
-                                            '5bgjmytf' /* Lorem ipsum dolor sit amet, co... */,
+                                      expanded: Column(
+                                        mainAxisSize: MainAxisSize.max,
+                                        children: [
+                                          Text(
+                                            FFLocalizations.of(context).getText(
+                                              '5bgjmytf' /* Lorem ipsum dolor sit amet, co... */,
+                                            ),
+                                            style: FlutterFlowTheme.of(context)
+                                                .bodyMedium
+                                                .override(
+                                                  fontFamily: 'Roboto',
+                                                  color: Color(0x8A000000),
+                                                ),
                                           ),
-                                          style: FlutterFlowTheme.of(context)
-                                              .bodyMedium
-                                              .override(
-                                                fontFamily: 'Roboto',
-                                                color: Color(0x8A000000),
-                                              ),
-                                        ),
-                                      ],
-                                    ),
-                                    theme: ExpandableThemeData(
-                                      tapHeaderToExpand: true,
-                                      tapBodyToExpand: false,
-                                      tapBodyToCollapse: false,
-                                      headerAlignment:
-                                          ExpandablePanelHeaderAlignment.center,
-                                      hasIcon: true,
+                                        ],
+                                      ),
+                                      theme: ExpandableThemeData(
+                                        tapHeaderToExpand: true,
+                                        tapBodyToExpand: false,
+                                        tapBodyToCollapse: false,
+                                        headerAlignment:
+                                            ExpandablePanelHeaderAlignment
+                                                .center,
+                                        hasIcon: true,
+                                      ),
                                     ),
                                   ),
                                 ),
                               ),
-                            ),
-                            Container(
-                              decoration: BoxDecoration(
-                                color: Colors.transparent,
-                              ),
-                              child: Container(
-                                width: double.infinity,
-                                color: FlutterFlowTheme.of(context)
-                                    .primaryBackground,
-                                child: ExpandableNotifier(
-                                  controller: _model.expandableController3,
-                                  child: ExpandablePanel(
-                                    header: Text(
-                                      FFLocalizations.of(context).getText(
-                                        'wx6stky2' /* Ecoscore */,
+                            if (_model.product?.ecoScoreGrade ==
+                                EcoScoreGrades.none)
+                              Container(
+                                decoration: BoxDecoration(
+                                  color: Colors.transparent,
+                                ),
+                                child: Container(
+                                  width: double.infinity,
+                                  color: FlutterFlowTheme.of(context)
+                                      .primaryBackground,
+                                  child: ExpandableNotifier(
+                                    controller: _model.expandableController3,
+                                    child: ExpandablePanel(
+                                      header: Text(
+                                        FFLocalizations.of(context).getText(
+                                          'wx6stky2' /* Ecoscore */,
+                                        ),
+                                        style: FlutterFlowTheme.of(context)
+                                            .displaySmall
+                                            .override(
+                                              fontFamily: 'Roboto',
+                                              color: Colors.black,
+                                            ),
                                       ),
-                                      style: FlutterFlowTheme.of(context)
-                                          .displaySmall
-                                          .override(
-                                            fontFamily: 'Roboto',
-                                            color: Colors.black,
-                                          ),
-                                    ),
-                                    collapsed: Container(
-                                      width: double.infinity,
-                                      height: 100.0,
-                                      decoration: BoxDecoration(
-                                        color: FlutterFlowTheme.of(context)
-                                            .primaryBackground,
-                                      ),
-                                      child: Container(
+                                      collapsed: Container(
                                         width: double.infinity,
-                                        height: double.infinity,
-                                        child: custom_widgets.ImageFromString(
+                                        height: 100.0,
+                                        decoration: BoxDecoration(
+                                          color: FlutterFlowTheme.of(context)
+                                              .primaryBackground,
+                                        ),
+                                        child: Container(
                                           width: double.infinity,
                                           height: double.infinity,
-                                          name:
-                                              'Eco-score_${_model.product?.ecoScoreGrade?.name}.png',
-                                          isInternet: false,
+                                          child: custom_widgets.ImageFromString(
+                                            width: double.infinity,
+                                            height: double.infinity,
+                                            name:
+                                                'Eco-score_${_model.product?.ecoScoreGrade?.name}.png',
+                                            isInternet: false,
+                                          ),
                                         ),
                                       ),
-                                    ),
-                                    expanded: Column(
-                                      mainAxisSize: MainAxisSize.max,
-                                      children: [
-                                        Text(
-                                          FFLocalizations.of(context).getText(
-                                            't4wyn9zh' /* Lorem ipsum dolor sit amet, co... */,
+                                      expanded: Column(
+                                        mainAxisSize: MainAxisSize.max,
+                                        children: [
+                                          Text(
+                                            FFLocalizations.of(context).getText(
+                                              't4wyn9zh' /* Lorem ipsum dolor sit amet, co... */,
+                                            ),
+                                            style: FlutterFlowTheme.of(context)
+                                                .bodyMedium
+                                                .override(
+                                                  fontFamily: 'Roboto',
+                                                  color: Color(0x8A000000),
+                                                ),
                                           ),
-                                          style: FlutterFlowTheme.of(context)
-                                              .bodyMedium
-                                              .override(
-                                                fontFamily: 'Roboto',
-                                                color: Color(0x8A000000),
-                                              ),
-                                        ),
-                                      ],
-                                    ),
-                                    theme: ExpandableThemeData(
-                                      tapHeaderToExpand: true,
-                                      tapBodyToExpand: false,
-                                      tapBodyToCollapse: false,
-                                      headerAlignment:
-                                          ExpandablePanelHeaderAlignment.center,
-                                      hasIcon: true,
+                                        ],
+                                      ),
+                                      theme: ExpandableThemeData(
+                                        tapHeaderToExpand: true,
+                                        tapBodyToExpand: false,
+                                        tapBodyToCollapse: false,
+                                        headerAlignment:
+                                            ExpandablePanelHeaderAlignment
+                                                .center,
+                                        hasIcon: true,
+                                      ),
                                     ),
                                   ),
                                 ),
                               ),
-                            ),
                           ],
                         ),
                       ),
