@@ -19,6 +19,7 @@ class ProductFromOFFStruct extends FFFirebaseStruct {
     NutriscoreLevels? nutriscoreSaturatedFatLevel,
     NutriscoreLevels? nutriscoreSaltLevel,
     EcoScoreGrades? nutriscoreGrade,
+    List<NovaGroupMarkerStruct>? novaGroupMarkers,
     FirestoreUtilData firestoreUtilData = const FirestoreUtilData(),
   })  : _novaGrade = novaGrade,
         _ecoScore = ecoScore,
@@ -28,6 +29,7 @@ class ProductFromOFFStruct extends FFFirebaseStruct {
         _nutriscoreSaturatedFatLevel = nutriscoreSaturatedFatLevel,
         _nutriscoreSaltLevel = nutriscoreSaltLevel,
         _nutriscoreGrade = nutriscoreGrade,
+        _novaGroupMarkers = novaGroupMarkers,
         super(firestoreUtilData);
 
   // "NovaGrade" field.
@@ -86,6 +88,16 @@ class ProductFromOFFStruct extends FFFirebaseStruct {
   set nutriscoreGrade(EcoScoreGrades? val) => _nutriscoreGrade = val;
   bool hasNutriscoreGrade() => _nutriscoreGrade != null;
 
+  // "Nova_group_markers" field.
+  List<NovaGroupMarkerStruct>? _novaGroupMarkers;
+  List<NovaGroupMarkerStruct> get novaGroupMarkers =>
+      _novaGroupMarkers ?? const [];
+  set novaGroupMarkers(List<NovaGroupMarkerStruct>? val) =>
+      _novaGroupMarkers = val;
+  void updateNovaGroupMarkers(Function(List<NovaGroupMarkerStruct>) updateFn) =>
+      updateFn(_novaGroupMarkers ??= []);
+  bool hasNovaGroupMarkers() => _novaGroupMarkers != null;
+
   static ProductFromOFFStruct fromMap(Map<String, dynamic> data) =>
       ProductFromOFFStruct(
         novaGrade: castToType<int>(data['NovaGrade']),
@@ -101,6 +113,10 @@ class ProductFromOFFStruct extends FFFirebaseStruct {
             deserializeEnum<NutriscoreLevels>(data['Nutriscore_SaltLevel']),
         nutriscoreGrade:
             deserializeEnum<EcoScoreGrades>(data['NutriscoreGrade']),
+        novaGroupMarkers: getStructList(
+          data['Nova_group_markers'],
+          NovaGroupMarkerStruct.fromMap,
+        ),
       );
 
   static ProductFromOFFStruct? maybeFromMap(dynamic data) => data is Map
@@ -117,6 +133,7 @@ class ProductFromOFFStruct extends FFFirebaseStruct {
             _nutriscoreSaturatedFatLevel?.serialize(),
         'Nutriscore_SaltLevel': _nutriscoreSaltLevel?.serialize(),
         'NutriscoreGrade': _nutriscoreGrade?.serialize(),
+        'Nova_group_markers': _novaGroupMarkers?.map((e) => e.toMap()).toList(),
       }.withoutNulls;
 
   @override
@@ -152,6 +169,11 @@ class ProductFromOFFStruct extends FFFirebaseStruct {
         'NutriscoreGrade': serializeParam(
           _nutriscoreGrade,
           ParamType.Enum,
+        ),
+        'Nova_group_markers': serializeParam(
+          _novaGroupMarkers,
+          ParamType.DataStruct,
+          true,
         ),
       }.withoutNulls;
 
@@ -197,6 +219,12 @@ class ProductFromOFFStruct extends FFFirebaseStruct {
           ParamType.Enum,
           false,
         ),
+        novaGroupMarkers: deserializeStructParam<NovaGroupMarkerStruct>(
+          data['Nova_group_markers'],
+          ParamType.DataStruct,
+          true,
+          structBuilder: NovaGroupMarkerStruct.fromSerializableMap,
+        ),
       );
 
   static ProductFromOFFStruct fromAlgoliaData(Map<String, dynamic> data) =>
@@ -241,6 +269,12 @@ class ProductFromOFFStruct extends FFFirebaseStruct {
           ParamType.Enum,
           false,
         ),
+        novaGroupMarkers: convertAlgoliaParam<NovaGroupMarkerStruct>(
+          data['Nova_group_markers'],
+          ParamType.DataStruct,
+          true,
+          structBuilder: NovaGroupMarkerStruct.fromAlgoliaData,
+        ),
         firestoreUtilData: FirestoreUtilData(
           clearUnsetFields: false,
           create: true,
@@ -252,6 +286,7 @@ class ProductFromOFFStruct extends FFFirebaseStruct {
 
   @override
   bool operator ==(Object other) {
+    const listEquality = ListEquality();
     return other is ProductFromOFFStruct &&
         novaGrade == other.novaGrade &&
         ecoScore == other.ecoScore &&
@@ -260,7 +295,8 @@ class ProductFromOFFStruct extends FFFirebaseStruct {
         nutriscoreSugarLevel == other.nutriscoreSugarLevel &&
         nutriscoreSaturatedFatLevel == other.nutriscoreSaturatedFatLevel &&
         nutriscoreSaltLevel == other.nutriscoreSaltLevel &&
-        nutriscoreGrade == other.nutriscoreGrade;
+        nutriscoreGrade == other.nutriscoreGrade &&
+        listEquality.equals(novaGroupMarkers, other.novaGroupMarkers);
   }
 
   @override
@@ -272,7 +308,8 @@ class ProductFromOFFStruct extends FFFirebaseStruct {
         nutriscoreSugarLevel,
         nutriscoreSaturatedFatLevel,
         nutriscoreSaltLevel,
-        nutriscoreGrade
+        nutriscoreGrade,
+        novaGroupMarkers
       ]);
 }
 

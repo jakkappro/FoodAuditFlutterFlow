@@ -108,7 +108,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   // Home
   {
     '01o89ltf': {
-      'en': 'Last scanned items',
+      'en': 'Last scanned items test',
       'sk': 'Naposledy naskenované položky',
     },
     '7a876va4': {

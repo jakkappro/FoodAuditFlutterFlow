@@ -116,7 +116,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                             children: [
                               Text(
                                 FFLocalizations.of(context).getText(
-                                  '01o89ltf' /* Last scanned items */,
+                                  '01o89ltf' /* Last scanned items test */,
                                 ),
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium

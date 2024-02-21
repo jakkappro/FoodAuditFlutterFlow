@@ -12,8 +12,10 @@ import '/flutter_flow/flutter_flow_util.dart';
 class NovaGroupMarkerStruct extends FFFirebaseStruct {
   NovaGroupMarkerStruct({
     int? id,
+    List<NovaGroupMarkerValuesStruct>? values,
     FirestoreUtilData firestoreUtilData = const FirestoreUtilData(),
   })  : _id = id,
+        _values = values,
         super(firestoreUtilData);
 
   // "Id" field.
@@ -23,9 +25,21 @@ class NovaGroupMarkerStruct extends FFFirebaseStruct {
   void incrementId(int amount) => _id = id + amount;
   bool hasId() => _id != null;
 
+  // "Values" field.
+  List<NovaGroupMarkerValuesStruct>? _values;
+  List<NovaGroupMarkerValuesStruct> get values => _values ?? const [];
+  set values(List<NovaGroupMarkerValuesStruct>? val) => _values = val;
+  void updateValues(Function(List<NovaGroupMarkerValuesStruct>) updateFn) =>
+      updateFn(_values ??= []);
+  bool hasValues() => _values != null;
+
   static NovaGroupMarkerStruct fromMap(Map<String, dynamic> data) =>
       NovaGroupMarkerStruct(
         id: castToType<int>(data['Id']),
+        values: getStructList(
+          data['Values'],
+          NovaGroupMarkerValuesStruct.fromMap,
+        ),
       );
 
   static NovaGroupMarkerStruct? maybeFromMap(dynamic data) => data is Map
@@ -34,6 +48,7 @@ class NovaGroupMarkerStruct extends FFFirebaseStruct {
 
   Map<String, dynamic> toMap() => {
         'Id': _id,
+        'Values': _values?.map((e) => e.toMap()).toList(),
       }.withoutNulls;
 
   @override
@@ -41,6 +56,11 @@ class NovaGroupMarkerStruct extends FFFirebaseStruct {
         'Id': serializeParam(
           _id,
           ParamType.int,
+        ),
+        'Values': serializeParam(
+          _values,
+          ParamType.DataStruct,
+          true,
         ),
       }.withoutNulls;
 
@@ -51,6 +71,12 @@ class NovaGroupMarkerStruct extends FFFirebaseStruct {
           ParamType.int,
           false,
         ),
+        values: deserializeStructParam<NovaGroupMarkerValuesStruct>(
+          data['Values'],
+          ParamType.DataStruct,
+          true,
+          structBuilder: NovaGroupMarkerValuesStruct.fromSerializableMap,
+        ),
       );
 
   static NovaGroupMarkerStruct fromAlgoliaData(Map<String, dynamic> data) =>
@@ -59,6 +85,12 @@ class NovaGroupMarkerStruct extends FFFirebaseStruct {
           data['Id'],
           ParamType.int,
           false,
+        ),
+        values: convertAlgoliaParam<NovaGroupMarkerValuesStruct>(
+          data['Values'],
+          ParamType.DataStruct,
+          true,
+          structBuilder: NovaGroupMarkerValuesStruct.fromAlgoliaData,
         ),
         firestoreUtilData: FirestoreUtilData(
           clearUnsetFields: false,
@@ -71,11 +103,14 @@ class NovaGroupMarkerStruct extends FFFirebaseStruct {
 
   @override
   bool operator ==(Object other) {
-    return other is NovaGroupMarkerStruct && id == other.id;
+    const listEquality = ListEquality();
+    return other is NovaGroupMarkerStruct &&
+        id == other.id &&
+        listEquality.equals(values, other.values);
   }
 
   @override
-  int get hashCode => const ListEquality().hash([id]);
+  int get hashCode => const ListEquality().hash([id, values]);
 }
 
 NovaGroupMarkerStruct createNovaGroupMarkerStruct({
