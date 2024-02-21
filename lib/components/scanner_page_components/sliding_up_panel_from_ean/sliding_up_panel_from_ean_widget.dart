@@ -434,7 +434,35 @@ class _SlidingUpPanelFromEanWidgetState
                                               'qs5r83dc' /* Salt */,
                                             ),
                                             style: FlutterFlowTheme.of(context)
-                                                .bodyMedium,
+                                                .bodyMedium
+                                                .override(
+                                                  fontFamily: 'Roboto',
+                                                  color: valueOrDefault<Color>(
+                                                    () {
+                                                      if (_model.product
+                                                              ?.nutriscoreSaltLevel ==
+                                                          NutriscoreLevels
+                                                              .low) {
+                                                        return FlutterFlowTheme
+                                                                .of(context)
+                                                            .success;
+                                                      } else if (_model.product
+                                                              ?.nutriscoreSaltLevel ==
+                                                          NutriscoreLevels
+                                                              .moderate) {
+                                                        return FlutterFlowTheme
+                                                                .of(context)
+                                                            .warning;
+                                                      } else {
+                                                        return FlutterFlowTheme
+                                                                .of(context)
+                                                            .error;
+                                                      }
+                                                    }(),
+                                                    FlutterFlowTheme.of(context)
+                                                        .primaryText,
+                                                  ),
+                                                ),
                                           ),
                                         ],
                                       ),
