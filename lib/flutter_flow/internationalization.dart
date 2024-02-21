@@ -312,12 +312,12 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Sugar',
       'sk': '',
     },
-    '0pkbv9xk': {
-      'en': 'Hello World',
+    '65cuwcsd': {
+      'en': 'Saturated fats',
       'sk': '',
     },
-    't7iv77ag': {
-      'en': 'Hello World',
+    'qs5r83dc': {
+      'en': 'Salt',
       'sk': '',
     },
     'ohe5s68c': {

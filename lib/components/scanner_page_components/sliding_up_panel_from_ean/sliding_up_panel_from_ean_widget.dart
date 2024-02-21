@@ -401,14 +401,37 @@ class _SlidingUpPanelFromEanWidgetState
                                           ),
                                           Text(
                                             FFLocalizations.of(context).getText(
-                                              '0pkbv9xk' /* Hello World */,
+                                              '65cuwcsd' /* Saturated fats */,
                                             ),
                                             style: FlutterFlowTheme.of(context)
-                                                .bodyMedium,
+                                                .bodyMedium
+                                                .override(
+                                                  fontFamily: 'Roboto',
+                                                  color: () {
+                                                    if (_model.product
+                                                            ?.nutriscoreSaturatedFatLevel ==
+                                                        NutriscoreLevels.low) {
+                                                      return FlutterFlowTheme
+                                                              .of(context)
+                                                          .success;
+                                                    } else if (_model.product
+                                                            ?.nutriscoreSaturatedFatLevel ==
+                                                        NutriscoreLevels
+                                                            .moderate) {
+                                                      return FlutterFlowTheme
+                                                              .of(context)
+                                                          .warning;
+                                                    } else {
+                                                      return FlutterFlowTheme
+                                                              .of(context)
+                                                          .error;
+                                                    }
+                                                  }(),
+                                                ),
                                           ),
                                           Text(
                                             FFLocalizations.of(context).getText(
-                                              't7iv77ag' /* Hello World */,
+                                              'qs5r83dc' /* Salt */,
                                             ),
                                             style: FlutterFlowTheme.of(context)
                                                 .bodyMedium,
