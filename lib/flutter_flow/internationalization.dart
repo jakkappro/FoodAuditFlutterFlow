@@ -304,13 +304,20 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Allergens',
       'sk': 'Alergény',
     },
-    'zixc1z12': {
-      'en': 'Nutriscore',
+    '5221zncg': {
+      'en': 'Fat',
       'sk': '',
     },
-    '0k6of2qr': {
-      'en':
-          'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+    'xe760vzf': {
+      'en': 'Sugar',
+      'sk': '',
+    },
+    '0pkbv9xk': {
+      'en': 'Hello World',
+      'sk': '',
+    },
+    't7iv77ag': {
+      'en': 'Hello World',
       'sk': '',
     },
     'ohe5s68c': {

@@ -305,16 +305,12 @@ class _SlidingUpPanelFromEanWidgetState
                                   child: ExpandableNotifier(
                                     controller: _model.expandableController1,
                                     child: ExpandablePanel(
-                                      header: Text(
-                                        FFLocalizations.of(context).getText(
-                                          'zixc1z12' /* Nutriscore */,
+                                      header: Container(
+                                        height: 0.0,
+                                        decoration: BoxDecoration(
+                                          color: FlutterFlowTheme.of(context)
+                                              .secondaryBackground,
                                         ),
-                                        style: FlutterFlowTheme.of(context)
-                                            .displaySmall
-                                            .override(
-                                              fontFamily: 'Roboto',
-                                              color: Colors.black,
-                                            ),
                                       ),
                                       collapsed: Container(
                                         width: double.infinity,
@@ -340,14 +336,82 @@ class _SlidingUpPanelFromEanWidgetState
                                         children: [
                                           Text(
                                             FFLocalizations.of(context).getText(
-                                              '0k6of2qr' /* Lorem ipsum dolor sit amet, co... */,
+                                              '5221zncg' /* Fat */,
                                             ),
                                             style: FlutterFlowTheme.of(context)
                                                 .bodyMedium
                                                 .override(
                                                   fontFamily: 'Roboto',
-                                                  color: Color(0x8A000000),
+                                                  color: valueOrDefault<Color>(
+                                                    () {
+                                                      if (_model.product
+                                                              ?.nutriscoreFatLevel ==
+                                                          NutriscoreLevels
+                                                              .low) {
+                                                        return FlutterFlowTheme
+                                                                .of(context)
+                                                            .success;
+                                                      } else if (_model.product
+                                                              ?.nutriscoreFatLevel ==
+                                                          NutriscoreLevels
+                                                              .moderate) {
+                                                        return FlutterFlowTheme
+                                                                .of(context)
+                                                            .warning;
+                                                      } else {
+                                                        return FlutterFlowTheme
+                                                                .of(context)
+                                                            .error;
+                                                      }
+                                                    }(),
+                                                    FlutterFlowTheme.of(context)
+                                                        .primaryText,
+                                                  ),
                                                 ),
+                                          ),
+                                          Text(
+                                            FFLocalizations.of(context).getText(
+                                              'xe760vzf' /* Sugar */,
+                                            ),
+                                            style: FlutterFlowTheme.of(context)
+                                                .bodyMedium
+                                                .override(
+                                                  fontFamily: 'Roboto',
+                                                  color: () {
+                                                    if (_model.product
+                                                            ?.nutriscoreSugarLevel ==
+                                                        NutriscoreLevels.low) {
+                                                      return FlutterFlowTheme
+                                                              .of(context)
+                                                          .success;
+                                                    } else if (_model.product
+                                                            ?.nutriscoreSaturatedFatLevel ==
+                                                        NutriscoreLevels
+                                                            .moderate) {
+                                                      return FlutterFlowTheme
+                                                              .of(context)
+                                                          .warning;
+                                                    } else {
+                                                      return FlutterFlowTheme
+                                                              .of(context)
+                                                          .error;
+                                                    }
+                                                  }(),
+                                                ),
+                                          ),
+                                          Text(
+                                            FFLocalizations.of(context).getText(
+                                              '0pkbv9xk' /* Hello World */,
+                                            ),
+                                            style: FlutterFlowTheme.of(context)
+                                                .bodyMedium,
+                                          ),
+                                          Text(
+                                            FFLocalizations.of(context).getText(
+                                              't7iv77ag' /* Hello World */,
+                                            ),
+                                            style: FlutterFlowTheme.of(context)
+                                                .bodyMedium,
                                           ),
                                         ],
                                       ),
@@ -358,7 +422,7 @@ class _SlidingUpPanelFromEanWidgetState
                                         headerAlignment:
                                             ExpandablePanelHeaderAlignment
                                                 .center,
-                                        hasIcon: true,
+                                        hasIcon: false,
                                       ),
                                     ),
                                   ),

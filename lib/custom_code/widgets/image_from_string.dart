@@ -35,12 +35,21 @@ class _ImageFromStringState extends State<ImageFromString> {
   @override
   Widget build(BuildContext context) {
     if (!widget.isInternet) {
-      return SvgPicture.asset(
-        'assets/images/' + widget.name,
-        width: widget.width,
-        height: widget.height,
-        fit: BoxFit.scaleDown,
-      );
+      if (widget.name.endsWith("svg")) {
+        return SvgPicture.asset(
+          'assets/images/' + widget.name,
+          width: widget.width,
+          height: widget.height,
+          fit: BoxFit.scaleDown,
+        );
+      } else {
+        return Image.asset(
+          'assets/images/' + widget.name,
+          width: widget.width,
+          height: widget.height,
+          fit: BoxFit.scaleDown,
+        );
+      }
     } else {
       return Container(
         width: widget.width,
