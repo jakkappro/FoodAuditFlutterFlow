@@ -74,5 +74,9 @@ String getNovaGroupMarkersString(List<NovaGroupMarkerStruct> markers) {
       res += "\n";
     }
   }
+
+  if (res.isEmpty) {
+    res = "No data";
+  }
   return res;
 }

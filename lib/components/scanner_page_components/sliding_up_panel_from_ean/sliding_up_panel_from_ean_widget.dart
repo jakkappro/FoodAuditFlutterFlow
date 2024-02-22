@@ -539,7 +539,7 @@ class _SlidingUpPanelFromEanWidgetState
                                         headerAlignment:
                                             ExpandablePanelHeaderAlignment
                                                 .center,
-                                        hasIcon: true,
+                                        hasIcon: false,
                                       ),
                                     ),
                                   ),
