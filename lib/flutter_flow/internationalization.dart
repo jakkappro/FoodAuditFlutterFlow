@@ -321,7 +321,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'sk': '',
     },
     'ohe5s68c': {
-      'en': 'Novascore',
+      'en': 'Novascore test flutteflow neuklada ',
       'sk': '',
     },
     'wx6stky2': {

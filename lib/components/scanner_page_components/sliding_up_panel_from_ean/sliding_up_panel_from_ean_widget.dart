@@ -493,7 +493,7 @@ class _SlidingUpPanelFromEanWidgetState
                                     child: ExpandablePanel(
                                       header: Text(
                                         FFLocalizations.of(context).getText(
-                                          'ohe5s68c' /* Novascore */,
+                                          'ohe5s68c' /* Novascore test flutteflow neuk... */,
                                         ),
                                         style: FlutterFlowTheme.of(context)
                                             .displaySmall
