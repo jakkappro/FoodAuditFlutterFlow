@@ -150,7 +150,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   {
     '80qblzhs': {
       'en': 'Shop smarter, live healthier',
-      'sk': 'Nakupujte rozumnejšie, žite zdravšie',
+      'sk': 'Nakupujte inteligentnejšie, žite zdravšie',
     },
     'xomazou2': {
       'en':
@@ -306,28 +306,29 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     },
     '5221zncg': {
       'en': 'Fat',
-      'sk': '',
+      'sk': 'Tuk',
     },
     'xe760vzf': {
       'en': 'Sugar',
-      'sk': '',
+      'sk': 'Cukor',
     },
     '65cuwcsd': {
       'en': 'Saturated fats',
-      'sk': '',
+      'sk': 'Nasýtené tuky',
     },
     'qs5r83dc': {
       'en': 'Salt',
-      'sk': '',
+      'sk': 'Soľ',
     },
     'wx6stky2': {
       'en': 'Ecoscore',
-      'sk': '',
+      'sk': 'Ekoskóre',
     },
     't4wyn9zh': {
       'en':
           'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
-      'sk': '',
+      'sk':
+          'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud cvičenie ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Okrem sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
     },
     'z861kbv3': {
       'en': 'Medication contraindications',

@@ -67,23 +67,17 @@ class _SettingsWidgetState extends State<SettingsWidget> {
       child: Scaffold(
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
-        appBar: responsiveVisibility(
-          context: context,
-          tabletLandscape: false,
-        )
-            ? PreferredSize(
-                preferredSize: Size.fromHeight(0.0),
-                child: AppBar(
-                  backgroundColor:
-                      FlutterFlowTheme.of(context).primaryBackground,
-                  automaticallyImplyLeading: false,
-                  actions: [],
-                  centerTitle: false,
-                  toolbarHeight: 0.0,
-                  elevation: 0.0,
-                ),
-              )
-            : null,
+        appBar: PreferredSize(
+          preferredSize: Size.fromHeight(0.0),
+          child: AppBar(
+            backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+            automaticallyImplyLeading: false,
+            actions: [],
+            centerTitle: false,
+            toolbarHeight: 0.0,
+            elevation: 0.0,
+          ),
+        ),
         body: SafeArea(
           top: true,
           child: Container(
