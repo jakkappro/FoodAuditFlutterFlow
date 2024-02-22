@@ -64,7 +64,7 @@ String getNovaGroupMarkersString(List<NovaGroupMarkerStruct> markers) {
   for (var marker in markers) {
     res += "Category $marker -> \n";
     for (var value in marker.values) {
-      res += "${value.name}: ";
+      res += "\t${value.name}: ";
       res += value.values
           .map((e) {
             return "$e, ";
