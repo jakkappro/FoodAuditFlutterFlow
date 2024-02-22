@@ -11,7 +11,6 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:expandable/expandable.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
-import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'sliding_up_panel_from_ean_model.dart';
@@ -491,16 +490,12 @@ class _SlidingUpPanelFromEanWidgetState
                                   child: ExpandableNotifier(
                                     controller: _model.expandableController2,
                                     child: ExpandablePanel(
-                                      header: Text(
-                                        FFLocalizations.of(context).getText(
-                                          'ohe5s68c' /* Novascore test flutteflow neuk... */,
+                                      header: Container(
+                                        height: 0.0,
+                                        decoration: BoxDecoration(
+                                          color: FlutterFlowTheme.of(context)
+                                              .secondaryBackground,
                                         ),
-                                        style: FlutterFlowTheme.of(context)
-                                            .displaySmall
-                                            .override(
-                                              fontFamily: 'Roboto',
-                                              color: Colors.black,
-                                            ),
                                       ),
                                       collapsed: Container(
                                         width: double.infinity,
