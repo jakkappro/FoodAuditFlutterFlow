@@ -40,24 +40,26 @@ Future<ProductFromOFFStruct> getProductById(ProductsRecord ean) async {
   mappedProduct.novaGrade = (product?['nova_group'] ?? -1) as int;
   var markers = <NovaGroupMarkerStruct>[];
 
-  (product?['nova_groups_markers']).forEach((key, value) {
-    var marker = NovaGroupMarkerStruct();
-    marker.id = int.tryParse(key);
-    var data = <String, NovaGroupMarkerValuesStruct>{};
-    for (var name in value) {
-      if (data.containsKey(name[0])) {
-        data[name[0]]?.values.add(name[1]);
-      } else {
-        var novaStruct = NovaGroupMarkerValuesStruct();
-        novaStruct.name = name[0];
-        novaStruct.values = <String>[name[1]];
-        data.addAll({name[0]: novaStruct});
+  if (product?['nova_groups_markers'] != null) {
+    (product?['nova_groups_markers']).forEach((key, value) {
+      var marker = NovaGroupMarkerStruct();
+      marker.id = int.tryParse(key);
+      var data = <String, NovaGroupMarkerValuesStruct>{};
+      for (var name in value) {
+        if (data.containsKey(name[0])) {
+          data[name[0]]?.values.add(name[1]);
+        } else {
+          var novaStruct = NovaGroupMarkerValuesStruct();
+          novaStruct.name = name[0];
+          novaStruct.values = <String>[name[1]];
+          data.addAll({name[0]: novaStruct});
+        }
       }
-    }
-    marker.values = data.values.toList();
-    markers.add(marker);
-  });
-  mappedProduct.novaGroupMarkers = markers;
+      marker.values = data.values.toList();
+      markers.add(marker);
+    });
+    mappedProduct.novaGroupMarkers = markers;
+  }
   mappedProduct.nutriscoreGrade = EcoScoreGrades.values.byName(
       (product?['nutriscore_data'] ?? <String, dynamic>{})['grade'] ?? "none");
   mappedProduct.nutriscoreFatLevel = NutriscoreLevels.values.byName(
