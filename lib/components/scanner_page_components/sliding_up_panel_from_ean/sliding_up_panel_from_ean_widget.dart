@@ -305,14 +305,6 @@ class _SlidingUpPanelFromEanWidgetState
                                     controller: _model.expandableController1,
                                     child: ExpandablePanel(
                                       header: Container(
-                                        height: 0.0,
-                                        decoration: BoxDecoration(
-                                          color: FlutterFlowTheme.of(context)
-                                              .secondaryBackground,
-                                        ),
-                                      ),
-                                      collapsed: Container(
-                                        width: double.infinity,
                                         height: 100.0,
                                         decoration: BoxDecoration(
                                           color: FlutterFlowTheme.of(context)
@@ -330,140 +322,186 @@ class _SlidingUpPanelFromEanWidgetState
                                           ),
                                         ),
                                       ),
-                                      expanded: Column(
-                                        mainAxisSize: MainAxisSize.max,
-                                        children: [
-                                          Text(
-                                            FFLocalizations.of(context).getText(
-                                              '5221zncg' /* Fat */,
-                                            ),
-                                            style: FlutterFlowTheme.of(context)
-                                                .bodyMedium
-                                                .override(
-                                                  fontFamily: 'Roboto',
-                                                  color: valueOrDefault<Color>(
-                                                    () {
-                                                      if (_model.product
-                                                              ?.nutriscoreFatLevel ==
-                                                          NutriscoreLevels
-                                                              .low) {
-                                                        return FlutterFlowTheme
-                                                                .of(context)
-                                                            .success;
-                                                      } else if (_model.product
-                                                              ?.nutriscoreFatLevel ==
-                                                          NutriscoreLevels
-                                                              .moderate) {
-                                                        return FlutterFlowTheme
-                                                                .of(context)
-                                                            .warning;
-                                                      } else {
-                                                        return FlutterFlowTheme
-                                                                .of(context)
-                                                            .error;
-                                                      }
-                                                    }(),
-                                                    FlutterFlowTheme.of(context)
-                                                        .primaryText,
+                                      collapsed: Container(
+                                        width: double.infinity,
+                                        height: 0.0,
+                                        decoration: BoxDecoration(
+                                          color: FlutterFlowTheme.of(context)
+                                              .primaryBackground,
+                                        ),
+                                      ),
+                                      expanded: Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            10.0, 0.0, 0.0, 0.0),
+                                        child: Column(
+                                          mainAxisSize: MainAxisSize.max,
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          children: [
+                                            Text(
+                                              FFLocalizations.of(context)
+                                                  .getText(
+                                                '5221zncg' /* Fat */,
+                                              ),
+                                              style: FlutterFlowTheme.of(
+                                                      context)
+                                                  .labelMedium
+                                                  .override(
+                                                    fontFamily: 'Roboto',
+                                                    color:
+                                                        valueOrDefault<Color>(
+                                                      () {
+                                                        if (_model.product
+                                                                ?.nutriscoreFatLevel ==
+                                                            NutriscoreLevels
+                                                                .low) {
+                                                          return FlutterFlowTheme
+                                                                  .of(context)
+                                                              .success;
+                                                        } else if (_model
+                                                                .product
+                                                                ?.nutriscoreFatLevel ==
+                                                            NutriscoreLevels
+                                                                .moderate) {
+                                                          return FlutterFlowTheme
+                                                                  .of(context)
+                                                              .warning;
+                                                        } else {
+                                                          return FlutterFlowTheme
+                                                                  .of(context)
+                                                              .error;
+                                                        }
+                                                      }(),
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .primaryText,
+                                                    ),
                                                   ),
-                                                ),
-                                          ),
-                                          Text(
-                                            FFLocalizations.of(context).getText(
-                                              'xe760vzf' /* Sugar */,
                                             ),
-                                            style: FlutterFlowTheme.of(context)
-                                                .bodyMedium
-                                                .override(
-                                                  fontFamily: 'Roboto',
-                                                  color: () {
-                                                    if (_model.product
-                                                            ?.nutriscoreSugarLevel ==
-                                                        NutriscoreLevels.low) {
-                                                      return FlutterFlowTheme
-                                                              .of(context)
-                                                          .success;
-                                                    } else if (_model.product
-                                                            ?.nutriscoreSaturatedFatLevel ==
-                                                        NutriscoreLevels
-                                                            .moderate) {
-                                                      return FlutterFlowTheme
-                                                              .of(context)
-                                                          .warning;
-                                                    } else {
-                                                      return FlutterFlowTheme
-                                                              .of(context)
-                                                          .error;
-                                                    }
-                                                  }(),
-                                                ),
-                                          ),
-                                          Text(
-                                            FFLocalizations.of(context).getText(
-                                              '65cuwcsd' /* Saturated fats */,
-                                            ),
-                                            style: FlutterFlowTheme.of(context)
-                                                .bodyMedium
-                                                .override(
-                                                  fontFamily: 'Roboto',
-                                                  color: () {
-                                                    if (_model.product
-                                                            ?.nutriscoreSaturatedFatLevel ==
-                                                        NutriscoreLevels.low) {
-                                                      return FlutterFlowTheme
-                                                              .of(context)
-                                                          .success;
-                                                    } else if (_model.product
-                                                            ?.nutriscoreSaturatedFatLevel ==
-                                                        NutriscoreLevels
-                                                            .moderate) {
-                                                      return FlutterFlowTheme
-                                                              .of(context)
-                                                          .warning;
-                                                    } else {
-                                                      return FlutterFlowTheme
-                                                              .of(context)
-                                                          .error;
-                                                    }
-                                                  }(),
-                                                ),
-                                          ),
-                                          Text(
-                                            FFLocalizations.of(context).getText(
-                                              'qs5r83dc' /* Salt */,
-                                            ),
-                                            style: FlutterFlowTheme.of(context)
-                                                .bodyMedium
-                                                .override(
-                                                  fontFamily: 'Roboto',
-                                                  color: valueOrDefault<Color>(
-                                                    () {
-                                                      if (_model.product
-                                                              ?.nutriscoreSaltLevel ==
-                                                          NutriscoreLevels
-                                                              .low) {
-                                                        return FlutterFlowTheme
-                                                                .of(context)
-                                                            .success;
-                                                      } else if (_model.product
-                                                              ?.nutriscoreSaltLevel ==
-                                                          NutriscoreLevels
-                                                              .moderate) {
-                                                        return FlutterFlowTheme
-                                                                .of(context)
-                                                            .warning;
-                                                      } else {
-                                                        return FlutterFlowTheme
-                                                                .of(context)
-                                                            .error;
-                                                      }
-                                                    }(),
-                                                    FlutterFlowTheme.of(context)
-                                                        .primaryText,
+                                            Text(
+                                              FFLocalizations.of(context)
+                                                  .getText(
+                                                'xe760vzf' /* Sugar */,
+                                              ),
+                                              style: FlutterFlowTheme.of(
+                                                      context)
+                                                  .labelMedium
+                                                  .override(
+                                                    fontFamily: 'Roboto',
+                                                    color:
+                                                        valueOrDefault<Color>(
+                                                      () {
+                                                        if (_model.product
+                                                                ?.nutriscoreSugarLevel ==
+                                                            NutriscoreLevels
+                                                                .low) {
+                                                          return FlutterFlowTheme
+                                                                  .of(context)
+                                                              .success;
+                                                        } else if (_model
+                                                                .product
+                                                                ?.nutriscoreSaturatedFatLevel ==
+                                                            NutriscoreLevels
+                                                                .moderate) {
+                                                          return FlutterFlowTheme
+                                                                  .of(context)
+                                                              .warning;
+                                                        } else {
+                                                          return FlutterFlowTheme
+                                                                  .of(context)
+                                                              .error;
+                                                        }
+                                                      }(),
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .primaryText,
+                                                    ),
                                                   ),
-                                                ),
-                                          ),
-                                        ],
+                                            ),
+                                            Text(
+                                              FFLocalizations.of(context)
+                                                  .getText(
+                                                '65cuwcsd' /* Saturated fats */,
+                                              ),
+                                              style: FlutterFlowTheme.of(
+                                                      context)
+                                                  .labelMedium
+                                                  .override(
+                                                    fontFamily: 'Roboto',
+                                                    color:
+                                                        valueOrDefault<Color>(
+                                                      () {
+                                                        if (_model.product
+                                                                ?.nutriscoreSaturatedFatLevel ==
+                                                            NutriscoreLevels
+                                                                .low) {
+                                                          return FlutterFlowTheme
+                                                                  .of(context)
+                                                              .success;
+                                                        } else if (_model
+                                                                .product
+                                                                ?.nutriscoreSaturatedFatLevel ==
+                                                            NutriscoreLevels
+                                                                .moderate) {
+                                                          return FlutterFlowTheme
+                                                                  .of(context)
+                                                              .warning;
+                                                        } else {
+                                                          return FlutterFlowTheme
+                                                                  .of(context)
+                                                              .error;
+                                                        }
+                                                      }(),
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .primaryText,
+                                                    ),
+                                                  ),
+                                            ),
+                                            Text(
+                                              FFLocalizations.of(context)
+                                                  .getText(
+                                                'qs5r83dc' /* Salt */,
+                                              ),
+                                              style: FlutterFlowTheme.of(
+                                                      context)
+                                                  .labelMedium
+                                                  .override(
+                                                    fontFamily: 'Roboto',
+                                                    color:
+                                                        valueOrDefault<Color>(
+                                                      () {
+                                                        if (_model.product
+                                                                ?.nutriscoreSaltLevel ==
+                                                            NutriscoreLevels
+                                                                .low) {
+                                                          return FlutterFlowTheme
+                                                                  .of(context)
+                                                              .success;
+                                                        } else if (_model
+                                                                .product
+                                                                ?.nutriscoreSaltLevel ==
+                                                            NutriscoreLevels
+                                                                .moderate) {
+                                                          return FlutterFlowTheme
+                                                                  .of(context)
+                                                              .warning;
+                                                        } else {
+                                                          return FlutterFlowTheme
+                                                                  .of(context)
+                                                              .error;
+                                                        }
+                                                      }(),
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .primaryText,
+                                                    ),
+                                                  ),
+                                            ),
+                                          ]
+                                              .divide(SizedBox(height: 15.0))
+                                              .around(SizedBox(height: 15.0)),
+                                        ),
                                       ),
                                       theme: ExpandableThemeData(
                                         tapHeaderToExpand: true,
@@ -491,14 +529,6 @@ class _SlidingUpPanelFromEanWidgetState
                                     controller: _model.expandableController2,
                                     child: ExpandablePanel(
                                       header: Container(
-                                        height: 0.0,
-                                        decoration: BoxDecoration(
-                                          color: FlutterFlowTheme.of(context)
-                                              .secondaryBackground,
-                                        ),
-                                      ),
-                                      collapsed: Container(
-                                        width: double.infinity,
                                         height: 100.0,
                                         decoration: BoxDecoration(
                                           color: FlutterFlowTheme.of(context)
@@ -516,19 +546,38 @@ class _SlidingUpPanelFromEanWidgetState
                                           ),
                                         ),
                                       ),
+                                      collapsed: Container(
+                                        width: double.infinity,
+                                        height: 0.0,
+                                        decoration: BoxDecoration(
+                                          color: FlutterFlowTheme.of(context)
+                                              .primaryBackground,
+                                        ),
+                                      ),
                                       expanded: Column(
                                         mainAxisSize: MainAxisSize.max,
                                         children: [
-                                          Text(
-                                            functions.getNovaGroupMarkersString(
-                                                _model.product!.novaGroupMarkers
-                                                    .toList()),
-                                            style: FlutterFlowTheme.of(context)
-                                                .bodyMedium
-                                                .override(
-                                                  fontFamily: 'Roboto',
-                                                  color: Color(0x8A000000),
-                                                ),
+                                          Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    10.0, 20.0, 0.0, 20.0),
+                                            child: Text(
+                                              functions
+                                                  .getNovaGroupMarkersString(
+                                                      _model.product!
+                                                          .novaGroupMarkers
+                                                          .toList()),
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .labelMedium
+                                                      .override(
+                                                        fontFamily: 'Roboto',
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .primaryText,
+                                                      ),
+                                            ),
                                           ),
                                         ],
                                       ),
