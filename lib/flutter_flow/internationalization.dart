@@ -108,7 +108,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   // Home
   {
     '01o89ltf': {
-      'en': 'Last scanned items test',
+      'en': 'Last scanned items',
       'sk': 'Naposledy naskenované položky',
     },
     '7a876va4': {
@@ -322,11 +322,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     },
     'ohe5s68c': {
       'en': 'Novascore',
-      'sk': '',
-    },
-    '5bgjmytf': {
-      'en':
-          'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
       'sk': '',
     },
     'wx6stky2': {
@@ -604,6 +599,10 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'sk': '',
     },
     'bn0scing': {
+      'en': '',
+      'sk': '',
+    },
+    'b2jq4u4n': {
       'en': '',
       'sk': '',
     },

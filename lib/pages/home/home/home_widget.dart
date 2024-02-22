@@ -75,17 +75,22 @@ class _HomeWidgetState extends State<HomeWidget> {
       child: Scaffold(
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).lNWhite,
-        appBar: PreferredSize(
-          preferredSize: Size.fromHeight(0.0),
-          child: AppBar(
-            backgroundColor: FlutterFlowTheme.of(context).lNWhite,
-            automaticallyImplyLeading: false,
-            actions: [],
-            centerTitle: false,
-            toolbarHeight: 0.0,
-            elevation: 0.0,
-          ),
-        ),
+        appBar: responsiveVisibility(
+          context: context,
+          tabletLandscape: false,
+        )
+            ? PreferredSize(
+                preferredSize: Size.fromHeight(0.0),
+                child: AppBar(
+                  backgroundColor: FlutterFlowTheme.of(context).lNWhite,
+                  automaticallyImplyLeading: false,
+                  actions: [],
+                  centerTitle: false,
+                  toolbarHeight: 0.0,
+                  elevation: 0.0,
+                ),
+              )
+            : null,
         body: SafeArea(
           top: true,
           child: Container(
@@ -116,7 +121,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                             children: [
                               Text(
                                 FFLocalizations.of(context).getText(
-                                  '01o89ltf' /* Last scanned items test */,
+                                  '01o89ltf' /* Last scanned items */,
                                 ),
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium

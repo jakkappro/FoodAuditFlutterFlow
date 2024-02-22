@@ -58,17 +58,23 @@ class _WelcomeWidgetState extends State<WelcomeWidget> {
       child: Scaffold(
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
-        appBar: PreferredSize(
-          preferredSize: Size.fromHeight(0.0),
-          child: AppBar(
-            backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
-            automaticallyImplyLeading: false,
-            actions: [],
-            centerTitle: false,
-            toolbarHeight: 0.0,
-            elevation: 0.0,
-          ),
-        ),
+        appBar: responsiveVisibility(
+          context: context,
+          tabletLandscape: false,
+        )
+            ? PreferredSize(
+                preferredSize: Size.fromHeight(0.0),
+                child: AppBar(
+                  backgroundColor:
+                      FlutterFlowTheme.of(context).primaryBackground,
+                  automaticallyImplyLeading: false,
+                  actions: [],
+                  centerTitle: false,
+                  toolbarHeight: 0.0,
+                  elevation: 0.0,
+                ),
+              )
+            : null,
         body: SafeArea(
           top: true,
           child: Container(

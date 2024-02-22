@@ -525,9 +525,9 @@ class _SlidingUpPanelFromEanWidgetState
                                         mainAxisSize: MainAxisSize.max,
                                         children: [
                                           Text(
-                                            FFLocalizations.of(context).getText(
-                                              '5bgjmytf' /* Lorem ipsum dolor sit amet, co... */,
-                                            ),
+                                            functions.getNovaGroupMarkersString(
+                                                _model.product!.novaGroupMarkers
+                                                    .toList()),
                                             style: FlutterFlowTheme.of(context)
                                                 .bodyMedium
                                                 .override(

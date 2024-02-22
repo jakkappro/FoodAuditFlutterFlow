@@ -8,3 +8,4 @@ export 'fill_list_of_synonyms.dart' show fillListOfSynonyms;
 export 'check_connection.dart' show checkConnection;
 export 'get_product_by_id.dart' show getProductById;
 export 'setup_application.dart' show setupApplication;
+export 'get_nova_group_marker_string.dart' show getNovaGroupMarkerString;

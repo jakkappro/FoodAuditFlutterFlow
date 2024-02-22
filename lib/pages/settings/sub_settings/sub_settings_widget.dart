@@ -52,55 +52,60 @@ class _SubSettingsWidgetState extends State<SubSettingsWidget> {
     return Scaffold(
       key: scaffoldKey,
       backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
-      appBar: AppBar(
-        backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
-        automaticallyImplyLeading: false,
-        title: Text(
-          FFLocalizations.of(context).getText(
-            'hc06njtk' /* My Profile */,
-          ),
-          style: FlutterFlowTheme.of(context).displaySmall.override(
-                fontFamily: 'Roboto',
-                color: FlutterFlowTheme.of(context).primaryText,
-              ),
-        ),
-        actions: [
-          Padding(
-            padding: EdgeInsetsDirectional.fromSTEB(0.0, 4.0, 16.0, 0.0),
-            child: Container(
-              width: 44.0,
-              height: 44.0,
-              decoration: BoxDecoration(
-                color: FlutterFlowTheme.of(context).accent1,
-                shape: BoxShape.circle,
-                border: Border.all(
-                  color: FlutterFlowTheme.of(context).primary,
-                  width: 2.0,
+      appBar: responsiveVisibility(
+        context: context,
+        tabletLandscape: false,
+      )
+          ? AppBar(
+              backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
+              automaticallyImplyLeading: false,
+              title: Text(
+                FFLocalizations.of(context).getText(
+                  'hc06njtk' /* My Profile */,
                 ),
+                style: FlutterFlowTheme.of(context).displaySmall.override(
+                      fontFamily: 'Roboto',
+                      color: FlutterFlowTheme.of(context).primaryText,
+                    ),
               ),
-              child: Padding(
-                padding: EdgeInsets.all(2.0),
-                child: Container(
-                  width: 50.0,
-                  height: 50.0,
-                  clipBehavior: Clip.antiAlias,
-                  decoration: BoxDecoration(
-                    shape: BoxShape.circle,
-                  ),
-                  child: CachedNetworkImage(
-                    fadeInDuration: Duration(milliseconds: 500),
-                    fadeOutDuration: Duration(milliseconds: 500),
-                    imageUrl: 'https://picsum.photos/seed/934/600',
-                    fit: BoxFit.fitWidth,
+              actions: [
+                Padding(
+                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 4.0, 16.0, 0.0),
+                  child: Container(
+                    width: 44.0,
+                    height: 44.0,
+                    decoration: BoxDecoration(
+                      color: FlutterFlowTheme.of(context).accent1,
+                      shape: BoxShape.circle,
+                      border: Border.all(
+                        color: FlutterFlowTheme.of(context).primary,
+                        width: 2.0,
+                      ),
+                    ),
+                    child: Padding(
+                      padding: EdgeInsets.all(2.0),
+                      child: Container(
+                        width: 50.0,
+                        height: 50.0,
+                        clipBehavior: Clip.antiAlias,
+                        decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                        ),
+                        child: CachedNetworkImage(
+                          fadeInDuration: Duration(milliseconds: 500),
+                          fadeOutDuration: Duration(milliseconds: 500),
+                          imageUrl: 'https://picsum.photos/seed/934/600',
+                          fit: BoxFit.fitWidth,
+                        ),
+                      ),
+                    ),
                   ),
                 ),
-              ),
-            ),
-          ),
-        ],
-        centerTitle: false,
-        elevation: 0.0,
-      ),
+              ],
+              centerTitle: false,
+              elevation: 0.0,
+            )
+          : null,
       body: SafeArea(
         top: true,
         child: Column(

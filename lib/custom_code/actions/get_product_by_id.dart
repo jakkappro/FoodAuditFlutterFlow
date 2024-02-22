@@ -24,7 +24,8 @@ Future<ProductFromOFFStruct> getProductById(ProductsRecord ean) async {
     'nutriscore_data',
     'nova_groups_markers',
     'nova_group',
-    'nutrient_levels'
+    'nutrient_levels',
+    'nova_groups_markers',
   ]));
   //await closeConnection();  // Not sure here for now i keep it but it might be good idea to keep it open
 
@@ -37,7 +38,26 @@ Future<ProductFromOFFStruct> getProductById(ProductsRecord ean) async {
       (product?['ecoscore_data'] ?? <String, dynamic>{})['grade'] ?? "none");
 
   mappedProduct.novaGrade = (product?['nova_group'] ?? -1) as int;
+  var markers = <NovaGroupMarkerStruct>[];
 
+  (product?['nova_groups_markers']).forEach((key, value) {
+    var marker = NovaGroupMarkerStruct();
+    marker.id = int.tryParse(key);
+    var data = <String, NovaGroupMarkerValuesStruct>{};
+    for (var name in value) {
+      if (data.containsKey(name[0])) {
+        data[name[0]]?.values.add(name[1]);
+      } else {
+        var novaStruct = NovaGroupMarkerValuesStruct();
+        novaStruct.name = name[0];
+        novaStruct.values = <String>[name[1]];
+        data.addAll({name[0]: novaStruct});
+      }
+    }
+    marker.values = data.values.toList();
+    markers.add(marker);
+  });
+  mappedProduct.novaGroupMarkers = markers;
   mappedProduct.nutriscoreGrade = EcoScoreGrades.values.byName(
       (product?['nutriscore_data'] ?? <String, dynamic>{})['grade'] ?? "none");
   mappedProduct.nutriscoreFatLevel = NutriscoreLevels.values.byName(
