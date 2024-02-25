@@ -74,7 +74,7 @@ class _ScannedItemsWidgetState extends State<ScannedItemsWidget> {
                     false,
                   );
                   await showDialog(
-                    barrierColor: FlutterFlowTheme.of(context).primary,
+                    barrierColor: Colors.transparent,
                     context: context,
                     builder: (dialogContext) {
                       return Dialog(
@@ -84,11 +84,11 @@ class _ScannedItemsWidgetState extends State<ScannedItemsWidget> {
                         alignment: AlignmentDirectional(0.0, 0.0)
                             .resolve(Directionality.of(context)),
                         child: Container(
-                          height: MediaQuery.sizeOf(context).height * 0.7,
-                          width: MediaQuery.sizeOf(context).width * 0.8,
+                          height: MediaQuery.sizeOf(context).height * 0.8,
+                          width: MediaQuery.sizeOf(context).width * 0.7,
                           child: SlidingUpPanelFromEanWidget(
                             isOpened: true,
-                            isSafe: true,
+                            isSafe: false,
                             doc: _model.product!,
                           ),
                         ),
