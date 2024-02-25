@@ -1,7 +1,10 @@
+import '/backend/backend.dart';
 import '/backend/schema/structs/index.dart';
 import '/components/home_components/scanned_item/scanned_item_widget.dart';
+import '/components/scanner_page_components/sliding_up_panel_from_ean/sliding_up_panel_from_ean_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/custom_code/actions/index.dart' as actions;
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -58,15 +61,54 @@ class _ScannedItemsWidgetState extends State<ScannedItemsWidget> {
           separatorBuilder: (_, __) => SizedBox(width: 12.0),
           itemBuilder: (context, scannedItemIndex) {
             final scannedItemItem = scannedItem[scannedItemIndex];
-            return Container(
-              width: 231.0,
-              decoration: BoxDecoration(),
-              child: Align(
-                alignment: AlignmentDirectional(0.0, 0.0),
-                child: ScannedItemWidget(
-                  key: Key(
-                      'Key5c6_${scannedItemIndex}_of_${scannedItem.length}'),
-                  scannedItem: scannedItemItem,
+            return Builder(
+              builder: (context) => InkWell(
+                splashColor: Colors.transparent,
+                focusColor: Colors.transparent,
+                hoverColor: Colors.transparent,
+                highlightColor: Colors.transparent,
+                onTap: () async {
+                  logFirebaseEvent('SCANNED_ITEMS_Container_wxybkfib_ON_TAP');
+                  _model.product = await actions.getFoodFromEAN(
+                    scannedItemItem.ean,
+                    false,
+                  );
+                  await showDialog(
+                    barrierColor: FlutterFlowTheme.of(context).primary,
+                    context: context,
+                    builder: (dialogContext) {
+                      return Dialog(
+                        elevation: 0,
+                        insetPadding: EdgeInsets.zero,
+                        backgroundColor: Colors.transparent,
+                        alignment: AlignmentDirectional(0.0, 0.0)
+                            .resolve(Directionality.of(context)),
+                        child: Container(
+                          height: MediaQuery.sizeOf(context).height * 0.7,
+                          width: MediaQuery.sizeOf(context).width * 0.8,
+                          child: SlidingUpPanelFromEanWidget(
+                            isOpened: true,
+                            isSafe: true,
+                            doc: _model.product!,
+                          ),
+                        ),
+                      );
+                    },
+                  ).then((value) => setState(() {}));
+
+                  setState(() {});
+                },
+                child: Container(
+                  width: 231.0,
+                  decoration: BoxDecoration(),
+                  child: Align(
+                    alignment: AlignmentDirectional(0.0, 0.0),
+                    child: ScannedItemWidget(
+                      key: Key(
+                          'Key5c6_${scannedItemIndex}_of_${scannedItem.length}'),
+                      scannedItem: scannedItemItem,
+                    ),
+                  ),
                 ),
               ),
             );

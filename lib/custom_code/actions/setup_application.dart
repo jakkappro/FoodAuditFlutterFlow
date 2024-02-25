@@ -15,7 +15,7 @@ import 'package:flutter/foundation.dart' show kDebugMode;
 
 Future setupApplication() async {
   if (kDebugMode) {
-    await FirebaseCrashlytics.instance.setCrashlyticsCollectionEnabled(false);
+    //await FirebaseCrashlytics.instance.setCrashlyticsCollectionEnabled(false);
   } else {}
-  FlutterError.onError = FirebaseCrashlytics.instance.recordFlutterError;
+  //FlutterError.onError = FirebaseCrashlytics.instance.recordFlutterError;
 }
