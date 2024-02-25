@@ -84,8 +84,8 @@ class _ScannedItemsWidgetState extends State<ScannedItemsWidget> {
                         alignment: AlignmentDirectional(0.0, 0.0)
                             .resolve(Directionality.of(context)),
                         child: Container(
-                          height: MediaQuery.sizeOf(context).height * 0.8,
-                          width: MediaQuery.sizeOf(context).width * 0.92,
+                          height: MediaQuery.sizeOf(context).height * 0.07,
+                          width: MediaQuery.sizeOf(context).width * 0.85,
                           child: SlidingUpPanelFromEanWidget(
                             isOpened: true,
                             isSafe: false,
