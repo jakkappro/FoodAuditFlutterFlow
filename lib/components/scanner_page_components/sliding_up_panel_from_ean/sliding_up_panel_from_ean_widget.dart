@@ -22,11 +22,14 @@ class SlidingUpPanelFromEanWidget extends StatefulWidget {
     required this.isOpened,
     bool? isSafe,
     required this.doc,
-  }) : this.isSafe = isSafe ?? false;
+    bool? isLive,
+  })  : this.isSafe = isSafe ?? false,
+        this.isLive = isLive ?? true;
 
   final bool? isOpened;
   final bool isSafe;
   final ProductsRecord? doc;
+  final bool isLive;
 
   @override
   State<SlidingUpPanelFromEanWidget> createState() =>
@@ -92,8 +95,14 @@ class _SlidingUpPanelFromEanWidgetState
         borderRadius: BorderRadius.only(
           bottomLeft: Radius.circular(20.0),
           bottomRight: Radius.circular(20.0),
-          topLeft: Radius.circular(0.0),
-          topRight: Radius.circular(0.0),
+          topLeft: Radius.circular(valueOrDefault<double>(
+            widget.isLive ? 0.0 : 20.0,
+            0.0,
+          )),
+          topRight: Radius.circular(valueOrDefault<double>(
+            widget.isLive ? 0.0 : 20.0,
+            0.0,
+          )),
         ),
       ),
       child: Padding(

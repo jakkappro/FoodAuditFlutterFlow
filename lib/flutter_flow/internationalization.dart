@@ -119,7 +119,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   // Settings
   {
     's8m3njvu': {
-      'en': 'Profile settings',
+      'en': 'Profile settin',
       'sk': 'Nastavenia profilu',
     },
     'z4exo5ew': {

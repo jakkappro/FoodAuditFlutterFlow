@@ -105,7 +105,7 @@ class _SettingsWidgetState extends State<SettingsWidget> {
                         ),
                         Text(
                           FFLocalizations.of(context).getText(
-                            's8m3njvu' /* Profile settings */,
+                            's8m3njvu' /* Profile settin */,
                           ),
                           style:
                               FlutterFlowTheme.of(context).bodyMedium.override(

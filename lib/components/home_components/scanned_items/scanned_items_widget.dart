@@ -90,6 +90,7 @@ class _ScannedItemsWidgetState extends State<ScannedItemsWidget> {
                             isOpened: true,
                             isSafe: false,
                             doc: _model.product!,
+                            isLive: false,
                           ),
                         ),
                       );
