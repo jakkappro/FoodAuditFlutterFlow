@@ -560,7 +560,7 @@ class _SlidingUpPanelFromEanWidgetState
                                           Padding(
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
-                                                    10.0, 20.0, 0.0, 20.0),
+                                                    10.0, 20.0, 10.0, 20.0),
                                             child: Text(
                                               functions
                                                   .getNovaGroupMarkersString(
