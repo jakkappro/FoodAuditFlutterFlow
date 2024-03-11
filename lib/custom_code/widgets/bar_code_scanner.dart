@@ -337,6 +337,10 @@ class _BarCodeScannerState extends State<BarCodeScanner>
               child: _switchTorchToggle(),
             ),
             Align(
+              alignment: const Alignment(0.9, 0.9),
+              child: _switchToDateWizzard(),
+            ),
+            Align(
               alignment: const Alignment(0, 0.9),
               child: _shouldShowUnknowEanButton && _canShowAddManuallyButton
                   ? AddManuallyButtonWidget(
@@ -368,9 +372,26 @@ class _BarCodeScannerState extends State<BarCodeScanner>
         child: FloatingActionButton(
           heroTag: Object(),
           onPressed: () {
-            setState(() {
-              isTorchOn = !isTorchOn;
-            });
+            context.goNamed("");
+          },
+          backgroundColor: const Color.fromRGBO(183, 193, 120, 1),
+          foregroundColor: const Color.fromRGBO(56, 47, 115, 1),
+          child: SvgPicture.asset(
+            "assets/images/Light.svg",
+            width: 34,
+            height: 34,
+            fit: BoxFit.contain,
+          ),
+        ),
+      );
+
+  Widget _switchToDateWizzard() => SizedBox(
+        height: 50.0,
+        width: 50.0,
+        child: FloatingActionButton(
+          heroTag: Object(),
+          onPressed: () {
+            context.goNamed('OcrDateWizzard');
           },
           backgroundColor: const Color.fromRGBO(183, 193, 250, 1),
           foregroundColor: const Color.fromRGBO(56, 47, 115, 1),

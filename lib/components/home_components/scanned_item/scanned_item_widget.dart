@@ -67,8 +67,6 @@ class _ScannedItemWidgetState extends State<ScannedItemWidget> {
 
   @override
   Widget build(BuildContext context) {
-    context.watch<FFAppState>();
-
     return Container(
       decoration: BoxDecoration(
         color: Colors.white,

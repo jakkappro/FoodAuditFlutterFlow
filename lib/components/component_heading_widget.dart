@@ -50,8 +50,6 @@ class _ComponentHeadingWidgetState extends State<ComponentHeadingWidget> {
 
   @override
   Widget build(BuildContext context) {
-    context.watch<FFAppState>();
-
     return Column(
       mainAxisSize: MainAxisSize.min,
       crossAxisAlignment: CrossAxisAlignment.stretch,

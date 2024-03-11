@@ -39,8 +39,6 @@ class _OpenScannerButtonWidgetState extends State<OpenScannerButtonWidget> {
 
   @override
   Widget build(BuildContext context) {
-    context.watch<FFAppState>();
-
     return Align(
       alignment: AlignmentDirectional(0.0, 0.9),
       child: InkWell(

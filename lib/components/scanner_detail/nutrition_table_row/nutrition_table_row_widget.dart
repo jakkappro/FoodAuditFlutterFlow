@@ -44,8 +44,6 @@ class _NutritionTableRowWidgetState extends State<NutritionTableRowWidget> {
 
   @override
   Widget build(BuildContext context) {
-    context.watch<FFAppState>();
-
     return Container(
       decoration: BoxDecoration(
         color: Colors.transparent,

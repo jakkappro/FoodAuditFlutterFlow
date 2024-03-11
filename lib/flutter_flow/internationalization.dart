@@ -111,6 +111,10 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Last scanned items',
       'sk': 'Naposledy naskenované položky',
     },
+    '7v177thx': {
+      'en': 'Open wizzard Debug',
+      'sk': 'Otvorte skener',
+    },
     '7a876va4': {
       'en': 'Home',
       'sk': 'Domov',
@@ -281,6 +285,13 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     'd1h0oezq': {
       'en': 'Home',
       'sk': 'Domov',
+    },
+  },
+  // OcrDateWizzard
+  {
+    '63463gqz': {
+      'en': 'Home',
+      'sk': '',
     },
   },
   // Notifications

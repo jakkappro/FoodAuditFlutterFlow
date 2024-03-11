@@ -1,32 +1,36 @@
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
-import '/custom_code/widgets/index.dart' as custom_widgets;
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
-import 'ocr_scanner_page_model.dart';
-export 'ocr_scanner_page_model.dart';
+import 'ocr_date_wizzard_model.dart';
+export 'ocr_date_wizzard_model.dart';
 
-class OcrScannerPageWidget extends StatefulWidget {
-  const OcrScannerPageWidget({super.key});
+class OcrDateWizzardWidget extends StatefulWidget {
+  const OcrDateWizzardWidget({
+    super.key,
+    this.ean,
+  });
+
+  final String? ean;
 
   @override
-  State<OcrScannerPageWidget> createState() => _OcrScannerPageWidgetState();
+  State<OcrDateWizzardWidget> createState() => _OcrDateWizzardWidgetState();
 }
 
-class _OcrScannerPageWidgetState extends State<OcrScannerPageWidget> {
-  late OcrScannerPageModel _model;
+class _OcrDateWizzardWidgetState extends State<OcrDateWizzardWidget> {
+  late OcrDateWizzardModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => OcrScannerPageModel());
+    _model = createModel(context, () => OcrDateWizzardModel());
 
     logFirebaseEvent('screen_view',
-        parameters: {'screen_name': 'OcrScannerPage'});
+        parameters: {'screen_name': 'OcrDateWizzard'});
   }
 
   @override
@@ -44,15 +48,7 @@ class _OcrScannerPageWidgetState extends State<OcrScannerPageWidget> {
           : FocusScope.of(context).unfocus(),
       child: Scaffold(
         key: scaffoldKey,
-        backgroundColor: Colors.transparent,
-        body: Container(
-          width: double.infinity,
-          height: double.infinity,
-          child: custom_widgets.OCRScanning(
-            width: double.infinity,
-            height: double.infinity,
-          ),
-        ),
+        backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
       ),
     );
   }

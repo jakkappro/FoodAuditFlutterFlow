@@ -42,8 +42,6 @@ class _OCRHeaderWidgetState extends State<OCRHeaderWidget> {
 
   @override
   Widget build(BuildContext context) {
-    context.watch<FFAppState>();
-
     return Container(
       width: double.infinity,
       height: 150.0,

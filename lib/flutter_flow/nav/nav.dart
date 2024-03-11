@@ -131,6 +131,13 @@ GoRouter createRouter(AppStateNotifier appStateNotifier, [Widget? entryPage]) =>
           name: 'OcrScannerPage',
           path: '/ocrScannerPage',
           builder: (context, params) => OcrScannerPageWidget(),
+        ),
+        FFRoute(
+          name: 'OcrDateWizzard',
+          path: '/ocrDateWizzard',
+          builder: (context, params) => OcrDateWizzardWidget(
+            ean: params.getParam('ean', ParamType.String),
+          ),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );

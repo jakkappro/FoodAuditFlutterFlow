@@ -10,6 +10,7 @@ import 'schema/users_record.dart';
 import 'schema/medication_record.dart';
 import 'schema/requested_eans_record.dart';
 import 'schema/synonyms_record.dart';
+import 'schema/expired_food_record.dart';
 
 export 'dart:async' show StreamSubscription;
 export 'package:cloud_firestore/cloud_firestore.dart';
@@ -22,6 +23,7 @@ export 'schema/users_record.dart';
 export 'schema/medication_record.dart';
 export 'schema/requested_eans_record.dart';
 export 'schema/synonyms_record.dart';
+export 'schema/expired_food_record.dart';
 
 /// Functions to query ProductsRecords (as a Stream and as a Future).
 Future<int> queryProductsRecordCount({
@@ -208,6 +210,43 @@ Future<List<SynonymsRecord>> querySynonymsRecordOnce({
       singleRecord: singleRecord,
     );
 
+/// Functions to query ExpiredFoodRecords (as a Stream and as a Future).
+Future<int> queryExpiredFoodRecordCount({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+}) =>
+    queryCollectionCount(
+      ExpiredFoodRecord.collection,
+      queryBuilder: queryBuilder,
+      limit: limit,
+    );
+
+Stream<List<ExpiredFoodRecord>> queryExpiredFoodRecord({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollection(
+      ExpiredFoodRecord.collection,
+      ExpiredFoodRecord.fromSnapshot,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+Future<List<ExpiredFoodRecord>> queryExpiredFoodRecordOnce({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollectionOnce(
+      ExpiredFoodRecord.collection,
+      ExpiredFoodRecord.fromSnapshot,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
 Future<int> queryCollectionCount(
   Query collection, {
   Query Function(Query)? queryBuilder,
@@ -221,7 +260,7 @@ Future<int> queryCollectionCount(
 
   return query.count().get().catchError((err) {
     print('Error querying $collection: $err');
-  }).then((value) => value.count);
+  }).then((value) => value.count!);
 }
 
 Stream<List<T>> queryCollection<T>(

@@ -37,8 +37,6 @@ class _RecycleInfoWidgetState extends State<RecycleInfoWidget> {
 
   @override
   Widget build(BuildContext context) {
-    context.watch<FFAppState>();
-
     return Container();
   }
 }
